@@ -1,0 +1,42 @@
+.adminlogin{
+    width: 400px;
+    height: 400px;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    padding: 20px;
+    box-shadow: 0px 1px 4px 3px rgb(0 0 0 / 20%);
+    padding:  auto;
+    margin: auto;
+}
+
+.adminloginpanel{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+
+.form-control{
+    margin: 15px;
+}
+
+.btnlogin{
+    justify-content: center;
+    display: flex;
+}
+
+.loginImage{
+    justify-content: center;
+    display: flex;
+}
+
+
+@media screen and (max-width: 600px){
+    .adminlogin{
+        width: 300px;
+        height: 350px;
+    }    
+}

@@ -1,0 +1,108 @@
+.login{
+    max-width: 100%;
+    margin: auto;
+    border-radius: 100px;
+    /* padding-bottom: 200px; */
+}
+
+.login .modal-content {
+    max-width: 400px;
+    margin: auto;
+    padding: 0px 25px;
+    border-radius: 20px;
+    padding-bottom: 10px;
+}
+.logintxt{
+    font-size: 36px;
+    font-family: 'Montserrat', sans-serif; ;
+    font-weight: 700;
+    color: #0C3474;
+}
+.login .in{
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+    border-bottom: 1px solid;
+    font-size: 10px;
+}
+
+.loginnav{
+    display: flex;
+    flex-direction: row;
+}
+.email{
+    min-width: 100%;
+    margin:5px 0px ;
+    height: 45px;
+    border: none;
+    border-bottom: 1px solid;
+    font-family: 'Montserrat', sans-serif;
+}
+.password{
+    min-width: 95%;
+    margin:5px 0px ;
+    height: 45px;
+    border: none;
+    border-bottom: 1px solid;
+    font-family: 'Montserrat', sans-serif;
+
+}
+.fa-eye:before {
+    content: "\f06e";
+    padding: 15px 0px;
+    border-bottom: 1px solid;
+}
+.loginbut{
+    font-family: 'Montserrat', sans-serif;
+
+    min-width: 215px;
+    height: 36px;
+    background: #0B90D3;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    color: white;
+    margin: 5px auto;
+    font-weight: 700;
+}
+.signuptxt{
+    margin: auto;
+    font-size: 18px;
+    font-weight: bold;
+}
+.google,.facebook{
+    /* min-width: 100px; */
+    font-family: 'Montserrat', sans-serif; ;
+    min-width: 215px;
+    padding: 0px 7px;
+    height: 36px;
+    margin: 10px auto;
+    border: 0.1px solid;
+    background: none;
+    border-radius: 6px
+}
+.facebook{
+    background-color: #25598D;
+    color: white;
+}
+input:focus,button:focus{
+    outline: none;
+}
+
+.cross{
+    font-size: 30px;
+    border: none;
+    background-color: white;
+}
+#signup{
+    color: #0A577E;
+    margin: 0px;
+    
+}
+.login #signup,.login p{
+    margin-bottom: 3px;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 3px;
+}

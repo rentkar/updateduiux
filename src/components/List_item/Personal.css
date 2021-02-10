@@ -1,0 +1,62 @@
+.personal h1{
+    font-size: 22px;
+    font-weight: bold;
+    padding-right: 50px;
+    color: #042E3B;
+    font-family: 'Montserrat',sans-serif;
+}
+.personal h4{
+    font-size: 16px;
+    padding-right: 40px;
+    font-family: 'Montserrat';
+    color: #042E3B;
+}
+.personal p{
+    margin-top: 0;
+    margin-bottom: 3px;
+    font-weight: bold;
+    font-family: 'Montserrat',sans-serif;
+    color: #042E3B;
+}
+.input_name{
+    margin: 25px 0px;
+}
+.personal .personlinput{
+    overflow: visible;
+    min-width: 100%;
+    height: 30px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 0.5px solid;
+    padding: 10px;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    /* column-gap: 10px; */
+    padding: 15px 0px
+}
+.buttons .but1{
+    min-width: 40%;
+    padding: 10px;
+    margin: 10px 5%;
+    border: 1px solid;
+    background-color: white;
+    border-radius: 10px;
+    font-family: 'Montserrat',sans-serif;
+    font-weight: bold;
+
+}
+.buttons .but2{
+    min-width: 40%;
+    padding: 10px;
+    margin: 10px 5%;
+    border: 1px solid #0B90D3;
+    background-color: #0B90D3;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    font-family: 'Montserrat',sans-serif;
+
+
+}

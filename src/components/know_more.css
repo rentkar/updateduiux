@@ -1,0 +1,533 @@
+.father{
+  max-width: 100%;
+  background-color: white;
+  overflow: auto;
+  padding: 20px 0px 0px 0px;
+}
+.father .intro{
+  max-width: 80%;
+  align-self: center;
+  padding: 30px 30px 0px 30px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin: auto;
+  align-items: flex-start;
+}
+
+.father .headers{
+  font-size: 22px;
+  font-weight: bolder;
+  text-align: left;
+  margin: 30px 0px 40px 0px
+}
+
+.father .intro .introPara{
+  display: flex;
+  flex-direction: row;
+}
+
+.mobilePara{
+  visibility: hidden;
+}
+
+.father .intro .introPara p{
+  color: gray;
+  font-size: 12px;
+  font-weight: bolder;
+  text-align: left;
+  max-width: 100%;
+}
+
+.father .intro .introPara .listingButton{
+  margin: 80px 0px 0px 0px;
+  display: block;
+  background-image: linear-gradient(to bottom right,#1bacf4,#19eeb5);
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  border-color:#1bacf4;
+  color: #ffffff;
+  padding: 15px 40px;
+}
+
+.father .intro .introPara .mobileListingButton{
+  visibility: hidden;
+}
+
+.father .intro .introPara img{
+  width: 400px;
+  height: auto;
+}
+.father .videos{
+  max-width: 80%;
+  align-self: center;
+  background-color: white;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.videos div{
+  width: 73.42%;
+  height: auto;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.videos p{
+  text-align: center;
+  max-width: 65%;
+}
+.videos .vFrame{
+  border-radius: 10px;
+  color: gray;
+  margin: 60px ;
+}
+
+
+.video-overlay-play-button{
+  padding: 5px calc(50% - 20px);
+}
+
+
+.Testimonials{
+  max-width: 80%;
+  padding: 30px 30px 0px 30px;
+  align-self: center;
+  background-color: white;
+  height: auto;
+  margin: auto;
+}
+
+.Testimonials .lender{
+  display: flex;
+  flex-direction: row;
+}
+
+.Testimonials .lender .content img{
+  max-width: 20vw;
+  height: auto;
+  margin: -60px 0px 0px 0px ;
+}
+
+.Testimonials .lender .content p{
+font-family: 'Montserrat', sans-serif;
+font-size: 12px;
+text-align: center;
+padding: 0px 10px 10px 10px;
+}
+
+.Testimonials .lender .content .str{
+display: flex;
+flex-direction: row;
+padding: 20px;
+/* margin: 10px; */ 
+}
+
+.Testimonials .lender .content .str .lenderName{
+margin: 10px;
+display: block;
+}
+
+
+.Testimonials .lender .content .str .lenderName h4{
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.Testimonials .lender .content {
+min-width: 25vw;
+min-height: 43vh;
+margin: 20px;
+border: none;
+box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);
+border-radius: 20px;
+padding: 10px;
+background-color: #F2F7F7;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.father .covid {
+    max-width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    background-color: #f2f7f7;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 2px 5px;
+    max-height: 125px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .father .covid h4{
+   font-size: 20px;
+   font-weight: bold;
+   text-align: left;
+   padding-top: 25px;
+ } 
+ .father .covid p{
+   font-size: 12px;
+   /* font-weight: bold; */
+   text-align: left;
+ }
+ .father .covid h5 {
+  font-size: 12px;
+  text-align: left;
+  font-weight: bold;
+  margin: 20px 8px;
+  margin-left: 0px;
+  margin-bottom: 2px;
+}
+.father .covid #alag,.covid #alag i{
+   color: #1f4691;
+   font-size: 10px;
+   margin-right:17px ;
+ }
+  
+ .father .covid img
+  {
+    max-width: 10.7vw;
+    height: auto;
+  }
+  .father .covid .card img {
+    max-width: 5.7vw;
+    height: 80px;
+    margin: 0px 0px;
+}
+  
+.father .covid .card {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 10px;
+    padding: 0px 5px;
+    border: none;
+    min-width: 32vw;
+    background-color: #f2f7f7;
+  }
+  /* .covid .card .card1:hover,.covid .card .card2:hover {
+    
+    transform: scale(1.1);
+    transition: 0.5s;
+    
+
+  } */
+  .father .covid .card .card1,
+  .father .card2 {
+    display: flex;
+    flex-direction: row;
+    background-color: #E4E4E4;
+    margin: 12px 5px;
+    border-radius: 10px;
+    border-color: #E4E4E4;
+    padding: 2px 5px;
+    max-width: 190px;
+    
+  }
+  /* ====================== */
+  .processes{
+    max-width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  .processes h1,.ecosystem h1{
+   
+    font-size: 18px;
+    font-weight: bold;
+    padding: 33px 0px
+  }
+  .processes h3{
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .process{
+    display: flex;
+    flex-direction: column;
+  }
+  .processes .process .single_card{
+    display: flex;
+    padding: 20px 0px;
+    text-align: left;
+
+  }
+  .processes .process .single_card img{
+    height: 100px;
+    width: 100px;
+  }
+  .processes .text{
+    padding: 20px 20px;
+  }
+/* ---------------------- */
+.ecosystem{
+
+  max-width: 80%;
+  margin:20px auto;
+  display: flex;
+  flex-direction:column;
+  text-align: left;
+  
+
+}
+.ecosystem .buut {
+  margin: auto;
+  padding: 20px;
+}
+.ecosystem button{
+  background-image: linear-gradient(to bottom right,#1AACF6,#82F2D8);
+  border-color: transparent;
+  padding: 0.3vw;
+  margin: auto;
+  border-radius: 7px;
+  padding: 10px 30px;
+  color: white;
+  font-weight: bold;
+  font-family: 'Montserrat',sans-serif;
+  border: 1px solid;
+  
+}
+/* -------------------- */
+
+.father .mobileTestimonials{
+  position: fixed;
+  visibility: hidden;
+  
+}
+
+
+
+/* ---------------------------- */
+@media screen and (max-width: 992px){
+
+  .father .intro{
+    max-width: 100%;
+  }
+
+  .father .headers{
+    color: #042E3B;
+  }
+
+  .father .intro .introPara{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .father .intro .introPara .listingButton{
+    visibility: hidden;
+  }
+
+  .father .intro .introPara .mobileButtonDiv{
+    align-self: center;
+  }
+
+  .father .intro .introPara .mobileListingButton{
+  visibility: visible;
+  display: block;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  border-color:#1bacf4;
+  color: #ffffff;
+  background-image: linear-gradient(to bottom right,#1AACF6,#82F2D8);
+  padding: 15px 40px;
+  
+}
+
+.father .intro .introPara img{
+  width: 350px;
+}
+
+
+  .mobilePara{
+    visibility: visible;
+    max-width: 80%;
+    word-wrap: wrap;
+  }
+
+  .pcPara{
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .father .videos{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .videos div{
+    width: 95%;
+    margin-left: 3%;
+  }
+
+  .videos p{
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .father .mobileTestimonials{
+    position: relative;
+    visibility: visible;
+    max-width: 100%;
+    align-self: left;
+    background-color: white;
+    height: auto;
+    margin: auto;
+  }
+
+  .father .mobileTestimonials {
+  /* max-width: 100%; */
+  background-color: #ffffff;
+  /* background-image: url("../images/wave.png"); */
+  /* /background-position: 0px -25px; / Center the image */ 
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  padding-bottom: 20px;
+}
+.father .mobileTestimonials .custom {
+  max-width: 100%;
+  padding-left:8%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 70px;
+}
+
+#button_knowmore {
+  display: none;
+}
+
+.father .mobileTestimonials .custom .special h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 20px;
+  margin-left: 1%;
+  margin-top: 20px;
+}
+.father .mobileTestimonials .custom .descr .straight img {
+  max-width: 100px;
+  height: auto;
+}
+.father .mobileTestimonials .custom  .descr p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 29;
+  text-align: left;
+}
+
+.father .mobileTestimonials .custom  .descr .straight {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  /* margin: 10px; */
+}
+
+
+.father .mobileTestimonials .custom  .descr .straight .name_rating {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.father .mobileTestimonials .custom  .descr .straight .name_rating i {
+  color: #ffc502;
+}
+.father .mobileTestimonials .custom  .descr .straight .name_rating h4 {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+}
+.father .mobileTestimonials .custom  .descr {
+  min-width: 200px;
+  min-height: 300px;
+  margin: 20px;
+  margin-left: 3%;
+  border: none;
+  background-color: #F2F7F7;
+  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 10px;
+  overflow: visible;
+}
+
+  .Testimonials{
+    position: fixed;
+    visibility: hidden;
+  }
+
+  .processes{
+    max-width: 95%;
+    margin-left: 30px;
+  }
+
+  .processes h1{
+    color: #042E3B;
+  }
+
+  .Testimonials{
+    max-width: 100%;
+    padding: 30px 30px 0px 20px;
+  }
+
+  .father .covid{
+    min-height: 18vh;
+    padding: 0px 10px;
+    max-width: 95%;
+  }
+  .father .covid .card{
+    display: none;
+  }
+  .father  .covid img{
+    max-width: 60px;
+    margin: 30% 0px;
+  }
+
+  .father #button_knowmore{
+    display: inline;
+    float: left;
+    border: 0.5px solid black;
+    background-color: white;
+    border-radius: 5px;
+    padding: 2px;
+    font-size: 10px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    color: #0E6084;
+    font-weight: bold;
+  }
+  .father .covid p {
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .father .covid h4 {
+      font-size: 16px;
+  }
+
+  .ecosystem h1{
+    font-size: 22px;
+    font-weight: bolder;
+    text-align: left;
+  }
+
+  .ecosystem button{
+    margin-top: 20px;
+  }
+
+}

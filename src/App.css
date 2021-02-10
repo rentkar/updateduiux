@@ -1,0 +1,25 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+.App .PageContent{
+  margin-top: 90px;
+}
+
+@media screen and (max-width: 992px){
+  .App .PageContent{
+    margin-top: 70px;
+  }
+}
