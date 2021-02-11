@@ -61,6 +61,7 @@ function App() {
 						</Switch>
 						
 						<Route path='/knowmore' render={(props) => <Know_more />}></Route>
+						<Switch>
 						<Route
 							path='/category'
 							render={(props) => (
@@ -75,6 +76,8 @@ function App() {
 								</>
 							)}
 						></Route>
+						</Switch>
+						<Switch>
 						<Route path='/mylisting' render={(props) => <UserDash ind={1} />} />
 						<Route
 							path='/verification'
@@ -92,15 +95,30 @@ function App() {
 							exact
 							path='/about'
 							render={(props) => <UserDash ind={0} />}
-						/>	
+						/>
+						</Switch>	
 					</div>
+					
 				</Switch>		
 				</div>
 			</ProductProvider>
 			</Switch>
 			<Switch>
 				<Route path='/adminlogin'><AdminLogin /></Route>
-				<Route path='/admindashboard'><AdminDashboard /></Route>
+						<Route path='/allproducts' ><AdminDashboard ind={0} /></Route>
+						<Route
+							path='/'>
+							 <AdminDashboard ind={4} />
+						</Route>
+					
+						<Route path='/allusers'> <AdminDashboard ind={1}  /></Route>
+						<Route path='/adminsupport'> <AdminDashboard ind={3} /></Route>
+						<Route path='/admindash'> <AdminDashboard ind={4} /></Route>
+						<Route
+							exact
+							path='/home'
+							render={(props) => <AdminDashboard ind={-1} />}
+						/>
 			</Switch>
 		</Router>
 	)
