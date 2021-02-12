@@ -14,32 +14,32 @@ import ProductPage from './components/ProductPage'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import TermsAndConditions from './components/TermsAndConditions'
 import AdminDashboard from './components/admin/admindashboard'
-
+import EditProductDetails from './components/admin/editproductdetails'
+import EditUserDetails from './components/admin/edituserdetails'
 function App() {
 	return (
 		<Router>
-			<Switch>
 			<ProductProvider>
 				<div className='App'>
-					<Switch>
+				
 					<div className='PageContent'>
 						<Switch>
+		
 							<Route
 								exact
 								path='/'
 								render={(props) => (
-									<React.Fragment>
+									<>
 										<Floatnav className='floatnav' />
 										<Head />
 										<Slideshow />
 										<Body />
 										<Footer />
-									</React.Fragment>
+									</>
 								)}
 							/>
 							
-						</Switch>
-						<Switch>
+			
 							<Route path='/product'>
 								<>
 								<Floatnav className='floatnav' />
@@ -48,8 +48,8 @@ function App() {
 								<Footer />
 								</>
 							</Route>
-						</Switch>
-						<Switch>
+	
+	
 						<Route path='/terms&conditions'>
 							<>
 							<Floatnav className='floatnav' />
@@ -58,10 +58,12 @@ function App() {
 							<Footer />
 							</>
 						</Route>
-						</Switch>
+	
+							<Route exact path to='/editproductdetail'><EditProductDetails /></Route>
+							<Route exact path to='/edituserdetails'><EditUserDetails /></Route>
+						
 						
 						<Route path='/knowmore' render={(props) => <Know_more />}></Route>
-						<Switch>
 						<Route
 							path='/category'
 							render={(props) => (
@@ -75,9 +77,8 @@ function App() {
 								<Footer />
 								</>
 							)}
-						></Route>
-						</Switch>
-						<Switch>
+						/>
+	
 						<Route path='/mylisting' render={(props) => <UserDash ind={1} />} />
 						<Route
 							path='/verification'
@@ -96,30 +97,32 @@ function App() {
 							path='/about'
 							render={(props) => <UserDash ind={0} />}
 						/>
-						</Switch>	
+
+							<Route path='/adminlogin'><AdminLogin /></Route>
+							<Route path='/allproducts' ><AdminDashboard ind={0} /></Route>
+							<Route
+								path='/dash'>
+							 <AdminDashboard ind={4} />
+							</Route>
+							<Route path='/allorders'> <AdminDashboard ind={2} /></Route>
+							<Route path='/allusers'> <AdminDashboard ind={1}  /></Route>
+							<Route path='/adminsupport'> <AdminDashboard ind={3} /></Route>
+							<Route
+								exact
+								path='/home'
+								render={(props) => <AdminDashboard ind={-1} />}
+							/>
+							
+						</Switch>
+						
 					</div>
 					
-				</Switch>		
+	
 				</div>
+				
 			</ProductProvider>
-			</Switch>
-			<Switch>
-				<Route path='/adminlogin'><AdminLogin /></Route>
-						<Route path='/allproducts' ><AdminDashboard ind={0} /></Route>
-						<Route
-							path='/'>
-							 <AdminDashboard ind={4} />
-						</Route>
-					
-						<Route path='/allusers'> <AdminDashboard ind={1}  /></Route>
-						<Route path='/adminsupport'> <AdminDashboard ind={3} /></Route>
-						<Route path='/admindash'> <AdminDashboard ind={4} /></Route>
-						<Route
-							exact
-							path='/home'
-							render={(props) => <AdminDashboard ind={-1} />}
-						/>
-			</Switch>
+
+		
 		</Router>
 	)
 }

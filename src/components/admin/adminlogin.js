@@ -21,7 +21,7 @@ export class AdminLogin extends Component {
         
       <input type="password" id="password" name="password"  className="form-control"  placeholder="Enter your password" />
 
-                    <div className='btnlogin'><Link to="/admindashboard"><button className="btn btn-outline-success">Log in</button></Link>
+                    <div className='btnlogin'><Link to="/dash"><button className="btn btn-outline-success">Log in</button></Link>
                     </div></div>
                     </form>
                 </div>

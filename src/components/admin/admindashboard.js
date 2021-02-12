@@ -97,7 +97,22 @@ function AdminSupport() {
 function AllProducts() {
   return (
     <div>
-        <h1>This is Products section of Admin Dashboard </h1>
+        <div className='allproducts'>
+          <h2>PRODUCT ID</h2>
+          <h2>CATEGORY</h2>
+          <h2>SUB CATEGORY</h2>
+          <h2>NAME</h2>
+          <h2>QUANTITY</h2>
+          <h2>EDIT</h2>
+        </div>
+        <div className='products'>
+          <h3>GP9</h3>
+          <h3>TECH</h3>
+          <h3>CAMERA</h3>
+          <h3>GO PRO 9</h3>
+          <h3>20</h3>
+          <h3><Link to='/editproductdetails' ><i className="fas fa-edit" /></Link></h3>
+        </div>
     </div>
   )
 }
@@ -113,7 +128,18 @@ function AllOrders() {
 function AllUsers() {
   return (
     <div>
-        <h1>This is Users section of Admin Dashboard </h1>
+        <div className='allusers'>
+          <h2>USER ID</h2>
+          <h2>FIRST NAME</h2>
+          <h2>LAST NAME</h2>
+          <h2>EDIT</h2>
+        </div>
+        <div className='users'>
+          <h3>122334</h3>
+          <h3>TANUJ</h3>
+          <h3>AGARWAL</h3>
+          <h3><Link to='/edituserdetails' ><i className="fas fa-edit" /></Link></h3>
+        </div>
     </div>
   )
 }
@@ -238,14 +264,7 @@ export const AdminDash = (props) => {
     <>
     <div className="admindashboard">
       <div className="adminopt">
-        <div className="admin_detail">
-          <div className="first">
-              <img
-                src={logo}
-                aria-hidden="true"
-              />
-          </div>
-        </div>
+  
         <div className="details">
           {iconDesc.map((item, index) => {
             return (
@@ -259,7 +278,6 @@ export const AdminDash = (props) => {
         <Link to="/adminlogin"><i className="fas fa-sign-out-alt" /> LOG OUT</Link>
         </div>
       </div>
-
       <div class="right_screen">
         <div class="admindash">
           <div class="admindash_header">
