@@ -131,9 +131,13 @@
     width: 600px;
   }
 
+  .allproducts .buttons{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 100px;
+  }
 
-
-  .allproducts{
+  .allproducts .products__header{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -141,7 +145,7 @@
     margin-top: 40px;
   }
 
-  .allproducts h2{
+  .allproducts .products__header h2{
     margin : 0px;
     padding: 5px 20px;
     border: 1px solid black;
@@ -150,7 +154,7 @@
     text-align: center;
   }
 
-  .products h3{
+  .allproducts  .products h3{
     margin : 0px;
     padding: 5px 20px;
     border: 1px solid black;
@@ -158,7 +162,7 @@
     overflow: hidden;
   }
   
-  .products{
+  .allproducts .products{
     display: flex;
     flex-direction: row;
     align-items: center;

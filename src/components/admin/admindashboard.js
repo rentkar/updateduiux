@@ -93,11 +93,25 @@ function AdminSupport() {
   )
 }
 
+function EditProductDetails() {
+    return (
+        <div>
+            <h1>Edit Product Details Here</h1>
+            <h5>**As per shown in live site</h5>
+        </div>
+    )
+}
+
 
 function AllProducts() {
   return (
     <div>
         <div className='allproducts'>
+            <div className='buttons'>
+              <div className= 'btn btn-outline-success'>FILTER <i className="fas fa-chevron-circle-down" /></div>
+              <div className='btn btn-outline-info'><i className="fas fa-plus-circle"/> ADD A NEW PRODUCT</div>
+            </div>
+          <div className='products__header'>
           <h2>PRODUCT ID</h2>
           <h2>CATEGORY</h2>
           <h2>SUB CATEGORY</h2>
@@ -113,6 +127,7 @@ function AllProducts() {
           <h3>20</h3>
           <h3><Link to='/editproductdetails' ><i className="fas fa-edit" /></Link></h3>
         </div>
+    </div>
     </div>
   )
 }

@@ -59,9 +59,7 @@ function App() {
 							</>
 						</Route>
 	
-							<Route exact path to='/editproductdetail'><EditProductDetails /></Route>
-							<Route exact path to='/edituserdetails'><EditUserDetails /></Route>
-						
+							
 						
 						<Route path='/knowmore' render={(props) => <Know_more />}></Route>
 						<Route
@@ -112,7 +110,12 @@ function App() {
 								path='/home'
 								render={(props) => <AdminDashboard ind={-1} />}
 							/>
-							
+						
+							<Route path to='/editproductdetails'><EditProductDetails /></Route>
+						
+						
+							<Route  path to='/edituserdetails'><EditUserDetails /></Route>
+					
 						</Switch>
 						
 					</div>

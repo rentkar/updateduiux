@@ -1,0 +1,99 @@
+
+  .editaproduct{
+      width: 80%;
+      margin: auto;
+  }
+
+  .editaproduct .product__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .editaproduct .product__header h2{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 250px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .editaproduct  .subproduct h3{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 250px;
+    overflow: hidden;
+  }
+  
+  .editaproduct .subproduct{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .subproduct i{
+    color: red;
+  }
+
+
+  .editaproduct .btn-outline-danger{
+      margin: 20px 0px;
+  }
+
+  .editaproduct .product__details .product__info .row{
+  padding-bottom: 10px;
+}
+
+  .editaproduct .product__details .col-5 h4{
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+  .editaproduct .product__details .col-5{
+    border : 2px solid gray;
+    padding: 10px;
+  }
+
+    .editaproduct .product__details .col-5 p{
+      display: flex;
+      justify-content: flex-start;
+      text-align: left;
+        font-size: 15px;
+  }
+
+    .editaproduct .product__details .col-5{
+      margin-right: 40px;
+      margin-bottom: 40px;
+    }
+
+    .editaproduct .product__details .col-5 h2{
+      margin : 20px 0px;
+      text-align: center;
+    }
+
+    .editaproduct .product__details .col-5 .btn{
+    margin: 20px 0px;
+    }
+    
+    .editaproduct .end__buttons{
+      margin: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .editaproduct .end__buttons a{
+      text-decoration: none;
+      color: green;
+    }
+
+      .editaproduct .end__buttons a:hover{
+      color: white;
+    }
