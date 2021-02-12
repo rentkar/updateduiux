@@ -16,17 +16,19 @@
     margin : 0px;
     padding: 5px 20px;
     border: 1px solid black;
-    width: 250px;
+    width: 200px;
     overflow: hidden;
     text-align: center;
+    font-size: 14px;
   }
 
   .editaproduct  .subproduct h3{
     margin : 0px;
     padding: 5px 20px;
     border: 1px solid black;
-    width: 250px;
+    width: 200px;
     overflow: hidden;
+    font-size: 14px;
   }
   
   .editaproduct .subproduct{

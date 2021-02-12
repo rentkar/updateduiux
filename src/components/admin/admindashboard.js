@@ -114,9 +114,10 @@ function AllProducts() {
           <div className='products__header'>
           <h2>PRODUCT ID</h2>
           <h2>CATEGORY</h2>
-          <h2>SUB CATEGORY</h2>
+          <h2>SUB-CATEGORY</h2>
           <h2>NAME</h2>
           <h2>QUANTITY</h2>
+          <h2>LENDERS</h2>
           <h2>EDIT</h2>
         </div>
         <div className='products'>
@@ -125,6 +126,7 @@ function AllProducts() {
           <h3>CAMERA</h3>
           <h3>GO PRO 9</h3>
           <h3>20</h3>
+          <h3><Link to='/lenders' ><i className="fas fa-info" /></Link></h3>
           <h3><Link to='/editproductdetails' ><i className="fas fa-edit" /></Link></h3>
         </div>
     </div>

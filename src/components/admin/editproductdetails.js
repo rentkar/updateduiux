@@ -8,14 +8,19 @@ function EditProductDetails() {
         <div className='product__header'>
         <h2>SUB ID</h2>
         <h2>LENDER</h2>
+        <h2>LENDER ID</h2>
+        <h2>AGREEMENT</h2>        
         <h2>CONDITION</h2>
         <h2>AVAILABILITY</h2>
         <h2>ORDER ID</h2>
         <h2>EDIT</h2>
+        
         </div>
         <div className='subproduct'>
         <h3>GP9a</h3>
         <h3>TANUJ</h3>
+        <h3>1234</h3>
+        <h3>https.rentkar-s3/agr</h3>
         <h3>GOOD</h3>
         <h3>RENTED OUT</h3>
         <h3>#456789</h3>
@@ -24,6 +29,8 @@ function EditProductDetails() {
         <div className='subproduct'>
         <h3>GP9b</h3>
         <h3>SANJAY</h3>
+        <h3>1230</h3>
+        <h3>https.rentkar-s3/agr</h3>
         <h3>BAD</h3>
         <h3>AVAILABLE</h3>
         <h3>--</h3>
@@ -32,6 +39,8 @@ function EditProductDetails() {
         <div className='subproduct'>
         <h3>GP9c</h3>
         <h3>MUDIT</h3>
+        <h3>1235</h3>
+        <h3>https.rentkar-s3/agr</h3>
         <h3>GOOD</h3>
         <h3>AVAILABLE</h3>
         <h3>--</h3>
@@ -40,6 +49,8 @@ function EditProductDetails() {
         <div className='subproduct'>
         <h3>GP9d</h3>
         <h3>SAMEER</h3>
+        <h3>1236</h3>
+        <h3>https.rentkar-s3/agr</h3>
         <h3>BAD</h3>
         <h3>RENTED OUT</h3>
         <h3>#45690</h3>
