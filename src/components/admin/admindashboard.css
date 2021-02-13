@@ -221,3 +221,164 @@
   .users i{
     color: red;
   }
+
+
+    .alllenders .buttons{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 100px;
+  }
+
+  .alllenders .lenders__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .alllenders .lenders__header h2{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .alllenders  .lenders__info h3{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    font-size: 14px;
+  }
+  
+  .alllenders .lenders__info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+.lenders__info i{
+    color: red;
+  }
+
+  .alllenders .btn-outline-danger{
+      margin: 20px 0px;
+  }
+
+  
+  .allorders .buttons{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 100px;
+  }
+
+  .allorders .order__req  .orderreq__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+
+  .allorders .order__req  .orderreq__header h2{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .allorders .order__req  .orderreqs h3{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    font-size: 14px;
+  }
+  
+.allorders .order__req .orderreqs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .orderreqs i{
+    color: red;
+  }
+
+  .allorders .order__req h3{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 30px auto;
+  }
+
+  .allorders .orders h3{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 50px auto 20px auto;
+  }
+
+    .allorders .order__req  .orderreq__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+
+  .allorders .order__req  .orderreq__header h2{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .allorders .order__req  .orderreqs h3{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    font-size: 14px;
+  }
+  
+.allorders .order__req .orderreqs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .orderreqs i{
+    color: red;
+  }
+
+  .allorders .order h3{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 30px auto;
+  }
+
+  .allorders .order__details h3{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 50px auto 20px auto;
+  }

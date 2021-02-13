@@ -5,7 +5,7 @@ function EditUserDetails() {
     return (
         <div className='editauser'>
             <div className='user__details row'>
-            <div className='col-5 user__info'> 
+                <div className='col-5 user__info'> 
                     <h2>INFO</h2>
                     <div className='row'>
                     <h4 className='col-6'>ID</h4>
@@ -57,10 +57,33 @@ function EditUserDetails() {
                     </div>
                     <div className='row'>
                     <h4 className='col-6'>CREATED ON</h4>
-                        <p className='col-6' >2021-03-02 <i className="fas fa-calendar-plus" /> 6:58 <i className="fas fa-user-clock" /></p>
+                        <p className='col-6' >2021-03-02 <i  id='time' className="fas fa-calendar-plus" /> 6:58 <i  id='time' className="fas fa-user-clock" /></p>
+                    </div>
+                    <div className='row'>
+                    <h4 className='col-6'>LAST UPDATE ON</h4>
+                        <p className='col-6' >2021-03-02 <i  id='time' className="fas fa-calendar-plus" /> 6:58 <i  id='time' className="fas fa-user-clock" /></p>
                     </div>
                     <div className='btn btn-outline-info'><i className="fas fa-edit"/> EDIT THE DETAILS</div>
-                </div>    
+                </div>
+                <div className='col-5 user__info'> 
+                    <h2>ORDER HISTORY</h2>
+                    <div className='row'>
+                    <h4 className='col-6'>CURRENT ORDER ID</h4>
+                        <p className='col-6' >#45667</p>
+                    </div>
+                    <div className='row'>
+                    <h4 className='col-6'>TOTAL AMOUNT PENDING</h4>
+                        <p className='col-6' ><i className="fas fa-rupee-sign" /> 667</p>
+                    </div>
+                    <div className='row'>
+                    <h4 className='col-6'>TOTAL AMOUNT RECEIVED</h4>
+                    <p className='col-6' ><i className="fas fa-rupee-sign" /> 4667</p>
+                    </div>
+                    <div className='row'>
+                    <h4 className='col-6'>NEXT PAYMENT DUE DATE</h4>
+                    <p className='col-6' >2021-03-02 <i  id='time' className="fas fa-calendar-plus" /></p>
+                    </div>
+                </div>
                 </div>
         </div>
     )

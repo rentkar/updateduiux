@@ -75,8 +75,60 @@ const iconDesc = [
 
 function Lenders() {
   return (
-    <div>
-      <h1>This is the all lenders section of Admin Dashboard </h1>
+    <div className='alllenders'>
+      <div className='lenders__header'>
+        
+        <h2>LENDER ID</h2>
+        <h2>LENDER</h2>       
+        <h2>PRODUCT ID</h2>
+        <h2>DATE OF PURCHASE</h2>
+        <h2>CONDITION</h2>
+        <h2>AVAILABILITY</h2>
+        <h2>ORDER ID</h2>
+        <h2>EDIT</h2>
+        
+        </div>
+        <div className='lenders__info'>
+        <h3>90042xxxxx</h3>
+        <h3>TANUJ</h3>
+        <h3>GP9</h3>
+        <h3>2020-02-02</h3>
+        <h3>GOOD</h3>
+        <h3>RENTED OUT</h3>
+        <h3>#456789</h3>
+        <h3><i className="fas fa-edit" /></h3>
+        </div>
+        <div className='lenders__info'>
+        <h3>90042xxxxx</h3>
+        <h3>TANUJ</h3>
+        <h3>PS53</h3>
+        <h3>2021-01-01</h3>
+        <h3>BAD</h3>
+        <h3>AVAILABLE</h3>
+        <h3>--</h3>
+        <h3><i className="fas fa-edit" /></h3>
+        </div>
+        <div className='lenders__info'>
+        <h3>91142xxxxx</h3>
+        <h3>SANJAY</h3>
+        <h3>PS4P9</h3>
+        <h3>2020-05-01</h3>
+        <h3>GOOD</h3>
+        <h3>AVAILABLE</h3>
+        <h3>--</h3>
+        <h3><i className="fas fa-edit" /></h3>
+        </div>
+        <div className='lenders__info'>
+        <h3>86642xxxxx</h3>
+        <h3>SAMEER</h3>
+        <h3>NIN3</h3>
+        <h3>2018-01-01</h3>
+        <h3>BAD</h3>
+        <h3>RENTED OUT</h3>
+        <h3>#45690</h3>
+        <h3><i className="fas fa-edit" /></h3>
+        </div>
+        <div className='btn btn-outline-danger'><i className="fas fa-plus-circle"/> ADD A NEW LENDER</div>
     </div>
   )
 }
@@ -102,7 +154,6 @@ function AdminSupport() {
 
 function AllProducts() {
   return (
-    <div>
         <div className='allproducts'>
             <div className='buttons'>
               <div className= 'btn btn-outline-success'>FILTER <i className="fas fa-chevron-circle-down" /></div>
@@ -125,18 +176,67 @@ function AllProducts() {
           <h3>20</h3>
           <h3><Link to='/alllenders' ><i className="fas fa-info" /></Link></h3>
           <h3><Link to='/editproductdetails' ><i className="fas fa-edit" /></Link></h3>
-          
         </div>
-    </div>
+  
     </div>
   )
 }
 
 function AllOrders() {
   return (
-    <div>
-        <h1>This is Orders section of Admin Dashboard </h1>
+  
+    <div className='allorders'>
+      <div className='order__req'>
+      <h3>ORDER REQUESTS</h3>
+        <div className='orderreq__header'>
+          <h2>ORDER ID</h2>
+          <h2>CUST ID</h2>
+          <h2>PRODUCTS REQ</h2>
+          <h2>PAYMENT RECEIVED</h2>
+          <h2>DURATION</h2>
+          <h2>EXP DELIVERY ON</h2>
+          <h2>TOTAL PAYMENT</h2>
+          <h2>TAKE ACTION</h2>
+        </div>
+        <div className='orderreqs'>
+          <h3>#4567</h3>
+          <h3>90042xxxx</h3>
+        <h3>GP9, NIN, PS5</h3>
+        <h3>5667</h3>
+        <h3>2021-03-01</h3>
+        <h3>3M, 2W, 4D</h3>
+          <h3>45121</h3>
+        <h3><Link to='/takeorder' ><i className="fas fa-greater-than" /></Link></h3>
+        </div>
+      </div>
+      <div className='orders'>
+      <h3>ORDERS</h3>  
+      <div className='buttons'>
+          <div className='btn btn-outline-success'>FILTER <i className="fas fa-chevron-circle-down" /></div>  
+        </div> 
+          <div className='order__header'>
+          <h2>ORDER ID</h2>
+          <h2>CUST ID</h2>
+          <h2>PRODUCTS REQ</h2>
+          <h2>PAYMENT RECEIVED</h2>
+          <h2>DURATION</h2>
+          <h2>EXP DELIVERY ON</h2>
+          <h2>TOTAL PAYMENT</h2>
+          <h2>TAKE ACTION</h2>
+        </div>
+        <div className='order_details'>
+          <h3>#4567</h3>
+          <h3>90042xxxx</h3>
+        <h3>GP9, NIN, PS5</h3>
+        <h3>5667</h3>
+        <h3>2021-03-01</h3>
+        <h3>3M, 2W, 4D</h3>
+          <h3>45121</h3>
+        <h3><Link to='/takeorder' ><i className="fas fa-greater-than" /></Link></h3>
+        </div>
+        </div>
     </div>
+    
   )
 }
 

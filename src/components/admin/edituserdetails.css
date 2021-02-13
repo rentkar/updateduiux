@@ -53,6 +53,6 @@
       color: white;
     }
 
-    .editauser .user__details .col-5 .row p i{
+    .editauser .user__details .col-5 .row p #time{
     margin: 0px 10px;
     }
