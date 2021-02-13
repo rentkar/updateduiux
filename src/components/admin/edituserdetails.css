@@ -1,0 +1,58 @@
+
+  .editauser{
+      width: 80%;
+      margin: auto;
+  }
+
+  
+  .editauser .user__details .col-5 h4{
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+  .editauser .user__details .col-5{
+    border : 2px solid gray;
+    padding: 10px;
+  }
+
+    .editauser .user__details .col-5 p{
+      display: flex;
+      justify-content: flex-start;
+      text-align: left;
+        font-size: 15px;
+  }
+
+    .editauser .user__details .col-5{
+      margin-right: 40px;
+      margin-bottom: 40px;
+    }
+
+    .editauser .user__details .col-5 h2{
+      margin : 20px 0px;
+      text-align: center;
+    }
+
+    .editauser .user__details .col-5 .btn{
+    margin: 20px 0px;
+    }
+    
+    .editauser .end__buttons{
+      margin: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .editauser .end__buttons a{
+      text-decoration: none;
+      color: green;
+    }
+
+      .editauser .end__buttons a:hover{
+      color: white;
+    }
+
+    .editauser .user__details .col-5 .row p i{
+    margin: 0px 10px;
+    }

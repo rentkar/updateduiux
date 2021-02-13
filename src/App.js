@@ -105,17 +105,9 @@ function App() {
 							<Route path='/allorders'> <AdminDashboard ind={2} /></Route>
 							<Route path='/allusers'> <AdminDashboard ind={1}  /></Route>
 							<Route path='/adminsupport'> <AdminDashboard ind={3} /></Route>
-							<Route
-								exact
-								path='/home'
-								render={(props) => <AdminDashboard ind={-1} />}
-							/>
-						
-							<Route path to='/editproductdetails'><EditProductDetails /></Route>
-						
-						
-							<Route  path to='/edituserdetails'><EditUserDetails /></Route>
-					
+							<Route path='/alllenders'> <AdminDashboard ind={5} /></Route>
+							<Route path to='/edituserdetails'><AdminDashboard ind={ 7 } /></Route>
+							<Route  path to='/editproductdetails'><AdminDashboard ind={6} /></Route>
 						</Switch>
 						
 					</div>

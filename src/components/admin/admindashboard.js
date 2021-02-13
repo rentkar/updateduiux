@@ -34,6 +34,11 @@ import { Button, Card, Image } from "semantic-ui-react";
 import logo from '../../images/logo.png'
 
 import { ProductContext } from "../../components/ProductContext"
+
+
+import EditUserDetails from './edituserdetails'
+import EditProductDetails from './editproductdetails'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -48,6 +53,7 @@ const icons = [
   verification_s,
   support_s,
   settings_s,
+  rental_s,
 ];
 const icons_g = [
   bag_s,
@@ -55,22 +61,22 @@ const icons_g = [
   verification_g,
   support_g,
   settings_g,
+  rental_g,
 ];
 const iconDesc = [
   "PRODUCTS",
   "USERS",
   "ORDERS",
   "SUPPORT",
-  "DASH"
+  "DASH",
+  "LENDERS"
 ];
 
 
-
-
-function admindashboard() {
+function Lenders() {
   return (
     <div>
-      
+      <h1>This is the all lenders section of Admin Dashboard </h1>
     </div>
   )
 }
@@ -91,15 +97,6 @@ function AdminSupport() {
         <h1>This is Admin Support section of Admin Dashboard </h1>
     </div>
   )
-}
-
-function EditProductDetails() {
-    return (
-        <div>
-            <h1>Edit Product Details Here</h1>
-            <h5>**As per shown in live site</h5>
-        </div>
-    )
 }
 
 
@@ -126,8 +123,9 @@ function AllProducts() {
           <h3>CAMERA</h3>
           <h3>GO PRO 9</h3>
           <h3>20</h3>
-          <h3><Link to='/lenders' ><i className="fas fa-info" /></Link></h3>
+          <h3><Link to='/alllenders' ><i className="fas fa-info" /></Link></h3>
           <h3><Link to='/editproductdetails' ><i className="fas fa-edit" /></Link></h3>
+          
         </div>
     </div>
     </div>
@@ -144,17 +142,25 @@ function AllOrders() {
 
 function AllUsers() {
   return (
-    <div>
-        <div className='allusers'>
+      <div className='allusers'>
+        <div className='buttons'>
+              <div className= 'btn btn-outline-success'>FILTER <i className="fas fa-chevron-circle-down" /></div>
+              <div className='btn btn-outline-info'><i className="fas fa-plus-circle"/> ADD A NEW USER</div>
+        </div>
+        <div className='users__header'>
           <h2>USER ID</h2>
-          <h2>FIRST NAME</h2>
-          <h2>LAST NAME</h2>
-          <h2>EDIT</h2>
+          <h2>LENDER</h2>
+          <h2>USERNAME</h2>
+          <h2>C ORDERID</h2>
+          <h2>VERIFIED</h2>
+        <h2>EDIT</h2>
         </div>
         <div className='users'>
-          <h3>122334</h3>
-          <h3>TANUJ</h3>
-          <h3>AGARWAL</h3>
+          <h3>900042xxxxx</h3>
+          <h3>TRUE</h3>
+        <h3>TANUJ AGARWAL</h3>
+        <h3>#45667</h3>
+        <h3>TRUE</h3>
           <h3><Link to='/edituserdetails' ><i className="fas fa-edit" /></Link></h3>
         </div>
     </div>
@@ -207,7 +213,10 @@ export const AdminDash = (props) => {
     1: "/allusers",
     2: "/allorders",
     3: "/adminsupport",
-    4: "/dash"
+    4: "/dash",
+    5: "/alllenders",
+    6: "/editproductdetails",
+    7: "/edituserdetails"
   };
 
   const DetailsCard = ({ index }) => (
@@ -229,54 +238,6 @@ export const AdminDash = (props) => {
     </Link>
   );
 
-  const Home = () => (
-    <div className="useroptMobile">
-      <div className="user_detail">
-        <div className="first">
-          <div>
-            <img
-              class="user_icon"
-              src={dummyprofile}
-              aria-hidden="true"
-            />
-          </div>
-          <div className="user_name">{user[0]["value"]}</div>
-          <div className="userlocation">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>
-            <p>Mumbai</p>
-          </div>
-        </div>
-        <div className="second">
-          <div className="mail">
-            <h4>{user[1]["value"]}</h4>
-            <h4>{user[2]["value"]}</h4>
-          </div>
-          <div className="marker">
-            <Link to="/settings">
-              <a>
-                <img id="pencil" src={pencil}></img>
-              </a>
-            </Link>
-          </div>
-        </div>
-      </div>
-      <div className="details">
-        {iconDesc.map((item, index) => {
-          return (
-            <div>
-              <DetailsCard index={index} />
-            </div>
-          );
-        })}
-      </div>
-      <div className="buttons">
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Insurance Policy</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Privacy Policy</a>
-      </div>
-    </div>
-  );
   return (
     <>
     <div className="admindashboard">
@@ -304,25 +265,16 @@ export const AdminDash = (props) => {
             </p>
           </div>
         </div>
-        {index === -1 ? (
-          <Home />
-        ) : (
-          <div className="userdashMobile">
-            <div class="userdash_header">
-              <Link to="/home" style={{ textDecoration: "none" }}>
-                <h4 style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                  &lt;
-                </h4>
-              </Link>
-              <p style={{ margin: "0px auto" }}>{iconDesc[index]}</p>
-            </div>
-          </div>
-        )}
+        
         {index === 1 ? <AllUsers /> : null}
         {index === 0 ? <AllProducts /> : null}
         {index === 2 ? <AllOrders /> : null}
         {index === 3 ? <AdminSupport /> : null}
-        {index === 4 ? <Dash /> : null}
+        { index === 4 ? <Dash /> : null }
+          { index === 5 ? <Lenders /> : null }  
+            {index === 7 ? <EditUserDetails /> : null}  
+        { index === 6 ? <EditProductDetails /> : null }  
+      
       </div>
     
     </div>

@@ -176,15 +176,41 @@
     color: red;
   }
 
-  .users h3{
+  
+  .allusers .buttons{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 100px;
+  }
+
+  .allusers .users__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .allusers .users__header h2{
     margin : 0px;
     padding: 5px 20px;
     border: 1px solid black;
-    width: 250px;
+    width: 200px;
     overflow: hidden;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .allusers  .users h3{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    font-size: 14px;
   }
   
-  .users{
+  .allusers .users{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -194,21 +220,4 @@
 
   .users i{
     color: red;
-  }
-
-  .allusers h2{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 250px;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  .allusers{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
   }
