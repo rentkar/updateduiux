@@ -76,24 +76,63 @@ const iconDesc = [
 function Lenders() {
   return (
     <div className='alllenders'>
+      <div className='lenders__req'>
+        <p>LENDER REQUESTS</p>
+      <div className='lendersreq__header'>
+        <h2>REQUEST ID</h2>
+        <h2>USER ID</h2>
+        <h2>LENDER</h2>
+        <h2>USER NAME</h2>
+        <h2>PRODUCT IDs</h2>
+        <h2>REQUEST DATE</h2>
+
+        <h2>TAKE ACTION</h2>
+      </div>
+      <div className='lendersreq__info'>
+        <h3>LQ90042A</h3>
+        <h3>90042xxxxx</h3>
+        <h3>FALSE</h3>
+        <h3>TANUJ AGARWAL</h3>
+        <h3>GP9, PS5</h3>
+        <h3>2020-03-04</h3>
+
+        <h3><i className="fas fa-edit" /></h3>
+      </div>
+      
+      <div className='lendersreq__info'>
+        <h3>LQ90043A</h3>
+        <h3>90032xxxxx</h3>
+        <h3>TRUE</h3>
+        <h3>MUDIT</h3>
+        <h3>PS4P</h3>
+        <h3>2020-03-04</h3>
+
+        <h3><i className="fas fa-edit" /></h3>
+        </div>
+        
+        </div>
+      <div className='currentlenders'>
+          <p>LENDER REQUESTS</p>
+      <div className='buttons'>
+              <div className= 'btn btn-outline-success'>FILTER <i className="fas fa-chevron-circle-down" /></div>
+              <div className='btn btn-outline-info'><i className="fas fa-plus-circle"/> ADD A NEW PRODUCT</div>
+            </div>
       <div className='lenders__header'>
         
         <h2>LENDER ID</h2>
         <h2>LENDER</h2>       
         <h2>PRODUCT ID</h2>
         <h2>DATE OF PURCHASE</h2>
-        <h2>CONDITION</h2>
         <h2>AVAILABILITY</h2>
         <h2>ORDER ID</h2>
         <h2>EDIT</h2>
-        
-        </div>
+      </div>
+      
         <div className='lenders__info'>
         <h3>90042xxxxx</h3>
         <h3>TANUJ</h3>
         <h3>GP9</h3>
         <h3>2020-02-02</h3>
-        <h3>GOOD</h3>
         <h3>RENTED OUT</h3>
         <h3>#456789</h3>
         <h3><i className="fas fa-edit" /></h3>
@@ -103,7 +142,6 @@ function Lenders() {
         <h3>TANUJ</h3>
         <h3>PS53</h3>
         <h3>2021-01-01</h3>
-        <h3>BAD</h3>
         <h3>AVAILABLE</h3>
         <h3>--</h3>
         <h3><i className="fas fa-edit" /></h3>
@@ -113,7 +151,6 @@ function Lenders() {
         <h3>SANJAY</h3>
         <h3>PS4P9</h3>
         <h3>2020-05-01</h3>
-        <h3>GOOD</h3>
         <h3>AVAILABLE</h3>
         <h3>--</h3>
         <h3><i className="fas fa-edit" /></h3>
@@ -123,21 +160,89 @@ function Lenders() {
         <h3>SAMEER</h3>
         <h3>NIN3</h3>
         <h3>2018-01-01</h3>
-        <h3>BAD</h3>
         <h3>RENTED OUT</h3>
         <h3>#45690</h3>
         <h3><i className="fas fa-edit" /></h3>
         </div>
-        <div className='btn btn-outline-danger'><i className="fas fa-plus-circle"/> ADD A NEW LENDER</div>
+        <div className='btn btn-outline-danger'><i className="fas fa-plus-circle" /> ADD A NEW LENDER</div>
+        </div>
     </div>
   )
 }
 
 
-function Dash() {
+function Dash ()
+{
   return (
-    <div>
-      <h1>This is dash section of Admin Dashboard </h1>
+    <div className='dash'>
+      <h4>FILTER BY DATE
+        <input className='date' type="date" />
+      </h4>
+      <div className='payments'>
+        <p>PAYMENTS</p> 
+        <div className='paymentsbydate__header'>
+        <h2>USER ID</h2>
+        <h2>USERNAME</h2>
+        <h2>ORDER ID</h2>
+        <h2>SUB ORDER ID</h2>  
+        <h2>AMOUNT</h2>
+        <h2>STATUS</h2>
+        <h2>LOCATION</h2>
+        </div>
+        <div className='paymentsbydate__info'>
+        <h3>90042XXXXX</h3>
+        <h3>TANUJ</h3>
+        <h3>#5000</h3>
+        <h3>#5000A</h3>  
+        <h3>4000</h3>
+        <h3>PENDING</h3>
+        <h3>ANDHERI E</h3>
+        </div>
+      </div>
+      <div className='deliveries'>
+        <p>DELIVERIES</p> 
+        <div className='deliveriesbydate__header'>
+        <h2>USER ID</h2>
+        <h2>USERNAME</h2>
+          <h2>ORDER ID</h2> 
+          <h2>PRODUCTS</h2>
+        <h2>AMOUNT PENDING</h2>
+        <h2>STATUS</h2>
+        <h2>LOCATION</h2>
+        </div>
+        <div className='deliveriesbydate__info'>
+        <h3>90042XXXXX</h3>
+        <h3>TANUJ</h3>
+          <h3>#5000</h3> 
+          <h3>GP99, PSP4</h3>
+        <h3>4000</h3>
+        <h3>DISPATCHED</h3>
+        <h3>ANDHERI E</h3>
+        </div>
+      </div>
+      <div className='pickups'>
+        <p>PICKUPS</p> 
+        <div className='pickupsbydate__header'>
+        <h2>USER ID</h2>
+          <h2>USERNAME</h2>
+          <h2>ORDER ID</h2>
+        <h2>ORDER SUB ID</h2> 
+        <h2>AMOUNT PENDING</h2>
+        <h2>PRODUCTS</h2>
+        <h2>STATUS</h2>
+        <h2>LOCATION</h2>
+        </div>
+        <div className='pickupsbydate__info'>
+        <h3>90042XXXXX</h3>
+        <h3>TANUJ</h3>
+          <h3>#5000</h3> 
+          <h3>#5000a</h3>
+          <h3>4000</h3>
+          <h3>PS4P9</h3>
+        <h3>PENDING</h3>
+        <h3>ANDHERI E</h3>
+        </div>
+      </div>
     </div>
   )
 }
@@ -145,8 +250,41 @@ function Dash() {
 
 function AdminSupport() {
   return (
-    <div>
-        <h1>This is Admin Support section of Admin Dashboard </h1>
+      <div className='support__req'>
+        <p>SUPPORT REQUESTS</p>
+      <div className='supportreq__header'>
+        <h2>REQUEST ID</h2>
+        <h2>ORDER ID</h2>
+        <h2>USER ID</h2>
+        <h2>USER NAME</h2>
+        <h2>ISSUE</h2>
+        <h2>REQUEST DATE</h2>
+        <h2>TAKE ACTION</h2>
+      </div>
+      <div className='supportreq__info'>
+        <h3>SP90042A</h3>
+        <h3>#45667</h3>
+        <h3>90042xxxxx</h3>
+        <h3>TANUJ AGARWAL</h3>
+        <h3>GO PRO 9 suddenly stopped</h3>
+        <h3>2020-03-04</h3>
+        <h3><i className="fas fa-edit" /></h3>
+      </div>
+        <p>ISSUED SOLVED</p>
+      <div className='solvedissues__header'>
+        <h2>REQUEST ID</h2>
+        <h2>ORDER ID</h2>
+        <h2>USER ID</h2>
+        <h2>ISSUE</h2>
+        <h2>SOLUTION</h2>
+      </div>
+      <div className='solvedissues__info'>
+        <h3>SP90042A</h3>
+        <h3>#45667</h3>
+        <h3>90042xxxxx</h3>
+        <h3>GO PRO 9 suddenly stopped</h3>
+        <h3>THE PRODUCT WAS REPLACED WITH GP910</h3>
+      </div>
     </div>
   )
 }
@@ -187,7 +325,7 @@ function AllOrders() {
   
     <div className='allorders'>
       <div className='order__req'>
-      <h3>ORDER REQUESTS</h3>
+      <p>ORDER REQUESTS</p>
         <div className='orderreq__header'>
           <h2>ORDER ID</h2>
           <h2>CUST ID</h2>
@@ -210,29 +348,57 @@ function AllOrders() {
         </div>
       </div>
       <div className='orders'>
-      <h3>ORDERS</h3>  
+      <p>ORDERS</p>  
       <div className='buttons'>
           <div className='btn btn-outline-success'>FILTER <i className="fas fa-chevron-circle-down" /></div>  
         </div> 
           <div className='order__header'>
           <h2>ORDER ID</h2>
+            <h2>SUB ORDER ID</h2>
           <h2>CUST ID</h2>
-          <h2>PRODUCTS REQ</h2>
-          <h2>PAYMENT RECEIVED</h2>
-          <h2>DURATION</h2>
-          <h2>EXP DELIVERY ON</h2>
-          <h2>TOTAL PAYMENT</h2>
-          <h2>TAKE ACTION</h2>
+          <h2>PRODUCT ID</h2>
+          <h2>STATUS</h2>
+          <h2>PAYMENT</h2>
+          <h2>PAYMENT DUE</h2>
+          <h2>DELIVERY ON</h2>
+          <h2>PICKUP DATE</h2>
+          <h2>EDIT</h2>
         </div>
-        <div className='order_details'>
+        <div className='order__details'>
           <h3>#4567</h3>
+          <h3>#4567a</h3>
           <h3>90042xxxx</h3>
-        <h3>GP9, NIN, PS5</h3>
-        <h3>5667</h3>
-        <h3>2021-03-01</h3>
-        <h3>3M, 2W, 4D</h3>
-          <h3>45121</h3>
-        <h3><Link to='/takeorder' ><i className="fas fa-greater-than" /></Link></h3>
+        <h3>GP94</h3>
+        <h3>CONFIRMED</h3>
+        <h3>RECEIVED</h3>
+        <h3>2020-03-02</h3>
+        <h3>2020-03-02</h3>
+        <h3>2020-05-02</h3>
+        <h3><Link to='/takeorder' ><i className="fas fa-edit" /></Link></h3>
+        </div>
+          <div className='order__details'>
+          <h3>#4567</h3>
+          <h3>#4567b</h3>
+          <h3>90042xxxx</h3>
+        <h3>GP94</h3>
+          <h3>CONFIRMED</h3>
+          <h3>PENDING</h3>
+          <h3>2020-04-02</h3>
+        <h3>2020-03-02</h3>
+          <h3>2020-05-02</h3>
+        <h3><Link to='/takeorder' ><i className="fas fa-edit" /></Link></h3>
+        </div>
+          <div className='order__details'>
+          <h3>#4567</h3>
+          <h3>#4567c</h3>
+          <h3>90042xxxx</h3>
+        <h3>GP94</h3>
+        <h3>CONFIRMED</h3>
+          <h3>PENDING</h3>
+          <h3>2020-03-02</h3>
+        <h3>2020-03-02</h3>
+          <h3>2020-05-02</h3>
+        <h3><Link to='/takeorder' ><i className="fas fa-edit" /></Link></h3>
         </div>
         </div>
     </div>

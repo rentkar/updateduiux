@@ -135,6 +135,7 @@
     display: flex;
     justify-content: space-between;
     margin: 0px 100px;
+
   }
 
   .allproducts .products__header{
@@ -223,6 +224,23 @@
   }
 
 
+  .alllenders .currentlenders .buttons{
+    margin-top: 40px;
+  }
+
+.alllenders  .currentlenders p{
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  
+  .alllenders .lenders__req p{
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
     .alllenders .buttons{
     display: flex;
     justify-content: space-between;
@@ -265,6 +283,46 @@
 
 
 .lenders__info i{
+    color: red;
+  }
+
+  
+  .alllenders .lendersreq__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .alllenders .lendersreq__header h2{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .alllenders  .lendersreq__info h3{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    font-size: 14px;
+  }
+  
+  .alllenders .lendersreq__info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+.lendersreq__info i{
     color: red;
   }
 
@@ -319,19 +377,19 @@
     color: red;
   }
 
-  .allorders .order__req h3{
+  .allorders .order__req p{
     font-size: 30px;
     font-weight: bold;
     margin: 30px auto;
   }
 
-  .allorders .orders h3{
+  .allorders .orders p{
     font-size: 30px;
     font-weight: bold;
     margin: 50px auto 20px auto;
   }
 
-    .allorders .order__req  .orderreq__header{
+    .allorders .orders .order__header{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -340,7 +398,45 @@
   }
 
 
-  .allorders .order__req  .orderreq__header h2{
+  .allorders .orders  .order__header h2{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 150px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .allorders .orders .order__details h3{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 150px;
+    overflow: hidden;
+    font-size: 14px;
+  }
+  
+.allorders  .orders .order__details{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .orders .order__details i{
+    color: red;
+  }
+
+
+  .support__req p{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 30px auto;
+  }
+
+  .supportreq__header h2{
     margin : 0px;
     padding: 5px 20px;
     border: 1px solid black;
@@ -350,7 +446,165 @@
     font-size: 14px;
   }
 
-  .allorders .order__req  .orderreqs h3{
+  .supportreq__info h3{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    font-size: 14px;
+    height: inherit;
+  }
+
+  .supportreq__info i{
+      color: red;
+  }
+
+  .supportreq__info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+  }
+
+  .supportreq__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+.solvedissues__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+  }
+
+  .solvedissues__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .solvedissues__header h2{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .solvedissues__info h3{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    font-size: 14px;
+    height: inherit;
+  }
+
+  .dash h4 {
+    margin : 20px auto;
+  }
+
+  .dash .date{
+    margin: 40px;
+    border-radius: 24px;
+    padding: 5px;
+    font-size: 14px;
+    border-color: greenyellow;
+    background-color: blueviolet;
+    color: whitesmoke;
+  }
+
+  .dash .pickups p{
+    font-size : 20px;
+    font-weight: bold;
+    margin: 20px auto;
+  }
+
+  .dash .deliveries p{
+    font-size : 20px;
+    font-weight: bold;
+    margin: 20px auto;
+  }
+
+  .dash .payments p{
+  font-size : 20px;
+  font-weight: bold;
+  margin: 20px auto;
+  }
+
+  
+  .dash .payments .paymentsbydate__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dash .payments  .paymentsbydate__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dash .payments  .paymentsbydate__header h2{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .dash .payments .paymentsbydate__info h3{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    font-size: 14px;
+
+  }
+
+
+    
+  .dash .deliveries .deliveriesbydate__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dash .deliveries  .deliveriesbydate__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dash .deliveries  .deliveriesbydate__header h2{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .dash .deliveries .deliveriesbydate__info h3{
     margin : 0px;
     padding: 5px 20px;
     border: 1px solid black;
@@ -358,27 +612,38 @@
     overflow: hidden;
     font-size: 14px;
   }
+
+
   
-.allorders .order__req .orderreqs{
+  .dash .pickups .pickupsbydate__info {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
   }
 
-
-  .orderreqs i{
-    color: red;
+  .dash .pickups  .pickupsbydate__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
 
-  .allorders .order h3{
-    font-size: 30px;
-    font-weight: bold;
-    margin: 30px auto;
+  .dash .pickups  .pickupsbydate__header h2{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 14px;
   }
 
-  .allorders .order__details h3{
-    font-size: 30px;
-    font-weight: bold;
-    margin: 50px auto 20px auto;
+  .dash .pickups .pickupsbydate__info h3{
+    margin : 0px;
+    padding: 5px 20px;
+    border: 1px solid black;
+    width: 200px;
+    overflow: hidden;
+    font-size: 14px;
   }
