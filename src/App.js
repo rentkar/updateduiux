@@ -108,7 +108,6 @@ function App() {
 							<Route path='/alllenders'> <AdminDashboard ind={ 5 } /></Route>
 							<Route path to='/edituserdetails'><AdminDashboard ind={ 7 } /></Route>
 							<Route  path to='/editproductdetails'><AdminDashboard ind={6} /></Route>
-							
 						</Switch>
 						
 					</div>
