@@ -13,6 +13,10 @@ import { UserDash } from './components/UserDash'
 import ProductPage from './components/ProductPage'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import TermsAndConditions from './components/TermsAndConditions'
+import DocumentsRequiredForVerification from './components/DocumentsRequiredForVerification'
+import ShippingPolicy from './components/ShippingPolicy'
+import PrivacyPolicy from './components/PrivacyPolicy'
+import TermsOfUse from './components/TermsOfUse'
 import AdminDashboard from './components/admin/admindashboard'
 import EditProductDetails from './components/admin/editproductdetails'
 import EditUserDetails from './components/admin/edituserdetails'
@@ -58,9 +62,46 @@ function App() {
 							<Footer />
 							</>
 						</Route>
-	
+							
+						<Route path='/documentsrequiredforverification'>
+							<>
+							<Floatnav className='floatnav' />
+								<Head />
+							<DocumentsRequiredForVerification />
+							<Footer />
+							</>
+							</Route>
 							
 						
+						<Route path='/termsofuse'>
+							<>
+							<Floatnav className='floatnav' />
+								<Head />
+							<TermsOfUse />
+							<Footer />
+							</>
+						</Route>
+							
+							
+						<Route path='/shippingpolicy'>
+							<>
+							<Floatnav className='floatnav' />
+								<Head />
+							<ShippingPolicy />
+							<Footer />
+							</>
+							</Route>
+							
+						
+						<Route path='/privacypolicy'>
+							<>
+							<Floatnav className='floatnav' />
+								<Head />
+							<PrivacyPolicy />
+							<Footer />
+							</>
+						</Route>
+							
 						<Route path='/knowmore' render={(props) => <Know_more />}></Route>
 						<Route
 							path='/category'

@@ -290,6 +290,33 @@
 	top: 2% !important;
 }
 
+.notification__bell{
+	margin: 10px;
+}
+
+
+
+.notification__bell .fas{
+	font-size: 24px;
+	
+	color: white;
+	vertical-align: middle;
+	position: fixed;
+	margin: 0px;
+	padding : 0px;
+}
+ .notifications{
+	position: relative;
+	top: -10px;
+	right: -8px;
+	padding: 3px 8px;
+	border-radius: 100%;
+	background: red;
+	color: white;
+	font-size: 12px;
+ 	margin-right: -25px;
+}
+
 @media screen and (max-width: 992px) {
 	.container {
 		max-width: 100%;

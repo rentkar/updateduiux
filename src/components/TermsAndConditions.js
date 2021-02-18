@@ -239,7 +239,7 @@ export default function TermsAndConditions() {
 			</div>
 			<p>
 				To download a copy of our equipments rental Terms & Conditions, please{' '}
-				<a href='../doc/tnc.pdf' target='_blank' download>
+				<a href='doc/tnc.pdf' download>
 					CLICK HERE
 				</a>
 			</p>

@@ -1,4 +1,4 @@
-.tnc {
+.sp {
   margin-top: 100px;
   margin-bottom: 40px;
   display: flex;
@@ -6,12 +6,13 @@
 }
 
 
-.tnc h1 {
+.sp h1 {
     font-size: 2.7rem!important;
     font-weight: bold;
+	margin-bottom: 100px;
 }
 
-.tnc__sub {
+.sp__sub {
   margin: 4px 10px;
   text-align: center;
   justify-content: center;
@@ -19,20 +20,20 @@
   justify-content: center;
 }
 
-.tnc__sub h2 {
+.sp__sub h2 {
   text-align: center !important;
   justify-content: center;
   align-items: center;
 }
 
-.tnc__end img {
+.sp__end img {
   height: 100%;
   width: 100%;
   position: sticky;
   bottom: 0;
   margin-bottom: -40px;
 }
-.tnc__top img {
+.sp__top img {
   height: 100%;
   width: 100%;
   position: sticky;
@@ -40,7 +41,7 @@
   margin-top: -100px;
 }
 
-.tnc__body {
+.sp__body {
   width: 80%;
   margin: auto;
  /* box-shadow: 0px 1px 4px 3px rgb(0 0 0 / 20%);
@@ -49,7 +50,7 @@
   border-radius: 25px; */
 }
 
-.tnc__body h3 {
+.sp__body h3 {
   text-align: left;
   font-size: 25px;
   margin: 40px 20px 20px 20px;
@@ -57,7 +58,7 @@
   font-color: #707070;
 }
 
-.tnc__body p {
+.sp__body p {
   text-align: justify;
   font-size: 16px;
   margin: 15px 20px;
@@ -76,31 +77,33 @@
 
 @media screen and (max-width: 992px){
 
-.tnc h1 {
+.sp h1 {
     font-size: 1.7rem!important;
     font-weight: bold;
 }
-.tnc h2{
+.sp h2{
   font-size: 19px;
 }
-.tnc__sub{
+.sp__sub{
   margin: 4px 5px;
 }
-.tnc__body {
+.sp__body {
   width: 90%;
 }
-.tnc__body p {
+.sp__body p {
   text-align: left;
 }
-.tnc__top img {
+.sp__top img {
   margin-top: -135px;
 }
 
-.tnc__body h3 {
+
+.sp__body h3 {
   font-size: 18px;
 }
 
-.tnc__body p {
+.sp__body p {
   font-size: 14px;
 }
+
 }
