@@ -211,12 +211,13 @@ export const Head = (props) => {
 					</Popup>
 					{/* <Link to="/category"><button><img src={bag}></img>Bag<span style={{ position: 'relative', top: '-10px', right: '-8px', padding: '5px 10px', borderRadius: '100%', background: 'red', color: 'white', marginRight: '-25px' }}>{count}</span></button></Link> */}
 				</div>
-				<div className="notification__bell">
-					<p><i className="fas fa-bell" /> <span className="notifications">9</span></p>
-				</div>
+				
 				<div className='but' id='sign'>
 					<button onClick={() => setaddModalshow(true)}>Login/Sign Up</button>
 					<Login show={addModalshow} onHide={addModalclose} />
+				</div>
+				<div className="notification__bell">
+					<button> <img src='images/notificationbell.png' /><span className="notifications">9</span></button>
 				</div>
 				<div className='bar'>
 					{/* <i class="fas fa-bars"></i> */}

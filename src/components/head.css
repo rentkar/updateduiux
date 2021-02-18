@@ -290,20 +290,26 @@
 	top: 2% !important;
 }
 
-.notification__bell{
-	margin: 10px;
+.notification__bell button{
+	min-width: 3.3vw;
+    height: 40px;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border: 0.1px solid #00ceff;
+    border-radius: 10px;
+	background-color: black;
 }
 
 
 
-.notification__bell .fas{
-	font-size: 24px;
-	
-	color: white;
+.notification__bell img {
+	max-height: 30px;
+	background-color: black;
 	vertical-align: middle;
-	position: fixed;
-	margin: 0px;
-	padding : 0px;
 }
  .notifications{
 	position: relative;
@@ -314,7 +320,7 @@
 	background: red;
 	color: white;
 	font-size: 12px;
- 	margin-right: -25px;
+ 	
 }
 
 @media screen and (max-width: 992px) {
