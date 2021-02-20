@@ -75,7 +75,7 @@ const iconDesc = [
   "My Rentals"
 ];
 
-function My_bag() {
+function MyBag() {
   const [product, setProduct] = useContext(ProductContext);
   // const [total_single_item, settotal_single_item] = useState()
   const [saveForLater, setSaveForLater] = useState([]);
@@ -1391,12 +1391,12 @@ export const UserDash = (props) => {
                   &lt;
                 </h4>
               </Link>
-              <p style={{ margin: "0px auto" }}>{iconDesc[index]}</p>
+              <p style={{ margin: "0px auto"}}>{iconDesc[index]}</p>
             </div>
           </div>
         )}
         {index === 1 ? <MyListing /> : null}
-        {index === 0 ? <My_bag /> : null}
+        {index === 0 ? <MyBag /> : null}
         {index === 2 ? <Verification /> : null}
         {index === 2 ? <MobileVerification /> : null}
         {index === 3 ? <Support /> : null}

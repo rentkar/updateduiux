@@ -682,11 +682,11 @@
   }
 
   .right_screen {
-  /*  width: 100%; */
+   width: 100%; 
   }
 
   .right_screen .useroptMobile {
-    /*max-width: 25%; */
+    max-width: 25%; 
     float: left;
     box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.2);
     max-height: 800px;
@@ -1113,6 +1113,6 @@
 @media screen and (max-width: 600px){
 .right_screen {
      width: 100%; 
-     overflow: hidden;
+     overflow: hidden; 
 }
 }

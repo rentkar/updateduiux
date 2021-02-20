@@ -35,9 +35,8 @@ import logo from '../../images/logo.png'
 
 import { ProductContext } from "../../components/ProductContext"
 
-
-import EditUserDetails from './edituserdetails'
 import EditProductDetails from './editproductdetails'
+import EditUserDetails from './edituserdetails'
 
 import {
   BrowserRouter as Router,
@@ -290,9 +289,12 @@ function AdminSupport() {
 }
 
 
-function AllProducts() {
+function AllProducts ()
+{
+  function Products ()
+{
   return (
-        <div className='allproducts'>
+    <div className='allproducts'>
             <div className='buttons'>
               <div className= 'btn btn-outline-success'>FILTER <i className="fas fa-chevron-circle-down" /></div>
               <div className='btn btn-outline-info'><i className="fas fa-plus-circle"/> ADD A NEW PRODUCT</div>
@@ -313,12 +315,28 @@ function AllProducts() {
           <h3>GO PRO 9</h3>
           <h3>20</h3>
           <h3><Link to='/alllenders' ><i className="fas fa-info" /></Link></h3>
-          <h3><Link to='/editproductdetails' ><i className="fas fa-edit" /></Link></h3>
+          <h3><Link to='/allproducts/editproductdetails' ><i className="fas fa-edit" /></Link></h3>
         </div>
   
-    </div>
+  </div>
+    )
+  }
+
+
+  
+  return (
+    <Router>
+      <div>
+        <Switch>
+          <Route path='/allproducts/editproductdetails'><EditProductDetails /></Route>
+          <Route path='/allproducts/'><Products /></Route>
+        </Switch>
+      </div>  
+    </Router>
   )
 }
+
+
 
 function AllOrders() {
   return (
@@ -406,8 +424,12 @@ function AllOrders() {
   )
 }
 
-function AllUsers() {
-  return (
+function AllUsers ()
+{
+  
+  function Users ()
+  {
+      return (
       <div className='allusers'>
         <div className='buttons'>
               <div className= 'btn btn-outline-success'>FILTER <i className="fas fa-chevron-circle-down" /></div>
@@ -427,10 +449,23 @@ function AllUsers() {
         <h3>TANUJ AGARWAL</h3>
         <h3>#45667</h3>
         <h3>TRUE</h3>
-          <h3><Link to='/edituserdetails' ><i className="fas fa-edit" /></Link></h3>
+          <h3><Link to='/allusers/edituserdetails' ><i className="fas fa-edit" /></Link></h3>
         </div>
     </div>
   )
+  }
+
+  return (
+      <Router>
+      <div>
+        <Switch>
+          <Route path='/allusers/edituserdetails'><EditUserDetails /></Route>
+          <Route path='/allusers/'><Users /></Route>
+        </Switch>
+      </div>  
+    </Router>
+  )
+
 }
 
 
@@ -481,8 +516,8 @@ export const AdminDash = (props) => {
     3: "/adminsupport",
     4: "/dash",
     5: "/alllenders",
-    6: "/editproductdetails",
-    7: "/edituserdetails"
+  /*  6: "/editproductdetails",
+    7: "/edituserdetails" */
   };
 
   const DetailsCard = ({ index }) => (
@@ -538,8 +573,6 @@ export const AdminDash = (props) => {
         {index === 3 ? <AdminSupport /> : null}
         { index === 4 ? <Dash /> : null }
           { index === 5 ? <Lenders /> : null }  
-            {index === 7 ? <EditUserDetails /> : null}  
-        { index === 6 ? <EditProductDetails /> : null }  
       
       </div>
     

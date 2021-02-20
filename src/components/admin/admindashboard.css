@@ -113,7 +113,7 @@
   
   /* Right screen=================================================== */
   .admindashboard .right_screen {
-    min-width: 85%;
+    min-width: 90%;
   }
   .admindashboard   .right_screen .admindash {
     box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.2);

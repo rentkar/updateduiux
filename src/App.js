@@ -18,8 +18,7 @@ import ShippingPolicy from './components/ShippingPolicy'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfUse from './components/TermsOfUse'
 import AdminDashboard from './components/admin/admindashboard'
-import EditProductDetails from './components/admin/editproductdetails'
-import EditUserDetails from './components/admin/edituserdetails'
+
 function App() {
 	return (
 		<Router>
@@ -147,8 +146,6 @@ function App() {
 							<Route path='/allusers'> <AdminDashboard ind={1}  /></Route>
 							<Route path='/adminsupport'> <AdminDashboard ind={3} /></Route>
 							<Route path='/alllenders'> <AdminDashboard ind={ 5 } /></Route>
-							<Route path to='/edituserdetails'><AdminDashboard ind={ 7 } /></Route>
-							<Route  path to='/editproductdetails'><AdminDashboard ind={6} /></Route>
 						</Switch>
 						
 					</div>
