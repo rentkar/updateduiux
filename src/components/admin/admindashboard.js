@@ -183,7 +183,7 @@ function Dash ()
         <h2>USER ID</h2>
         <h2>USERNAME</h2>
         <h2>ORDER ID</h2>
-        <h2>SUB ORDER ID</h2>  
+        <h2>SUBORDER ID</h2>  
         <h2>AMOUNT</h2>
         <h2>STATUS</h2>
         <h2>LOCATION</h2>
@@ -372,7 +372,7 @@ function AllOrders() {
         </div> 
           <div className='order__header'>
           <h2>ORDER ID</h2>
-            <h2>SUB ORDER ID</h2>
+            <h2>SUBORDER ID</h2>
           <h2>CUST ID</h2>
           <h2>PRODUCT ID</h2>
           <h2>STATUS</h2>
@@ -502,11 +502,6 @@ export const AdminDash = (props) => {
 
   const changeIndex = (index) => {
     setindex(index);
-
-    var w = window.screen.width;
-    if (w < 992)
-      document.getElementsByClassName("useropt")[0].style.display = "none";
-    document.getElementsByClassName("right_screen")[0].style.display = "block";
   };
 
   var indexMap = {

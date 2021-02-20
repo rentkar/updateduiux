@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function EditProductDetails() {
     return (
     <div className='editaproduct'>
-        <div className='product__header'>
+    <div className='product__header'>
         <h2>SUB ID</h2>
         <h2>LENDER</h2>
         <h2>LENDER ID</h2>
@@ -15,8 +15,8 @@ function EditProductDetails() {
         <h2>ORDER ID</h2>
         <h2>EDIT</h2>
         
-        </div>
-        <div className='subproduct'>
+    </div>
+    <div className='subproduct'>
         <h3>GP9a</h3>
         <h3>TANUJ</h3>
         <h3>1234</h3>
@@ -25,8 +25,8 @@ function EditProductDetails() {
         <h3>RENTED OUT</h3>
         <h3>#456789</h3>
         <h3><i className="fas fa-edit" /></h3>
-        </div>
-        <div className='subproduct'>
+    </div>
+    <div className='subproduct'>
         <h3>GP9b</h3>
         <h3>SANJAY</h3>
         <h3>1230</h3>
@@ -35,8 +35,8 @@ function EditProductDetails() {
         <h3>AVAILABLE</h3>
         <h3>--</h3>
         <h3><i className="fas fa-edit" /></h3>
-        </div>
-        <div className='subproduct'>
+    </div>
+    <div className='subproduct'>
         <h3>GP9c</h3>
         <h3>MUDIT</h3>
         <h3>1235</h3>
@@ -45,8 +45,8 @@ function EditProductDetails() {
         <h3>AVAILABLE</h3>
         <h3>--</h3>
         <h3><i className="fas fa-edit" /></h3>
-        </div>
-        <div className='subproduct'>
+    </div>
+    <div className='subproduct'>
         <h3>GP9d</h3>
         <h3>SAMEER</h3>
         <h3>1236</h3>
@@ -55,10 +55,10 @@ function EditProductDetails() {
         <h3>RENTED OUT</h3>
         <h3>#45690</h3>
         <h3><i className="fas fa-edit" /></h3>
-        </div>
-        <div className='btn btn-outline-danger'><i className="fas fa-plus-circle"/> ADD A NEW LENDER</div>
+    </div> 
+    <div className='btn btn-outline-danger'><i className="fas fa-plus-circle"/> ADD A NEW LENDER</div>
+            
             <div className='product__details row'>
-                
                 <div className='col-5 product__info'> 
                     <h2>INFO</h2>
                     <div className='row'>
@@ -68,12 +68,12 @@ function EditProductDetails() {
                 <div className='row'>
                     <h4 className='col-6'>NAME</h4>
                         <p className='col-6' >GO PRO 9</p>
-                    </div>
+                </div>
                 <div className='row'>
                     <h4 className='col-6'>IMAGE</h4>
                         <p className='col-6' >https://s3-rentkar-gopro9/image.jpg</p>
                 </div>
-                    <div className='row'>
+                <div className='row'>
                     <h4 className='col-6'>CATEGORY</h4>
                         <p className='col-6' >TECH</p>
                 </div>
@@ -213,7 +213,7 @@ function EditProductDetails() {
                 </div>
             </div>
             <div className='end__buttons'>
-                <div className='btn btn-outline-success'><Link to='/allproducts'>GO BACK</Link></div>
+                <div className='btn btn-outline-success'><Link to='/allproducts/'>GO BACK</Link></div>
                 <div className='btn btn-outline-warning'>SUBMIT CHANGES</div>
             </div>
     </div>

@@ -137,15 +137,15 @@ function App() {
 						/>
 
 							<Route path='/adminlogin'><AdminLogin /></Route>
-							<Route path='/allproducts' ><AdminDashboard ind={0} /></Route>
+							<Route path='/allproducts/' ><AdminDashboard ind={0} /></Route>
 							<Route
-								path='/dash'>
-							 <AdminDashboard ind={4} />
+								path='/dash/'>
+							<AdminDashboard ind={4} />
 							</Route>
-							<Route path='/allorders'> <AdminDashboard ind={2} /></Route>
-							<Route path='/allusers'> <AdminDashboard ind={1}  /></Route>
-							<Route path='/adminsupport'> <AdminDashboard ind={3} /></Route>
-							<Route path='/alllenders'> <AdminDashboard ind={ 5 } /></Route>
+							<Route path='/allorders/'> <AdminDashboard ind={2} /></Route>
+							<Route path='/allusers/'> <AdminDashboard ind={1}  /></Route>
+							<Route path='/adminsupport/'> <AdminDashboard ind={3} /></Route>
+							<Route path='/alllenders/'> <AdminDashboard ind={ 5 } /></Route>
 						</Switch>
 						
 					</div>
