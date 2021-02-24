@@ -18,7 +18,7 @@ import ShippingPolicy from './components/ShippingPolicy'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfUse from './components/TermsOfUse'
 import AdminDashboard from './components/admin/admindashboard'
-
+import { Payment } from './components/payment'
 function App() {
 	return (
 		<Router>
@@ -51,6 +51,12 @@ function App() {
 								<Footer />
 								</>
 							</Route>
+							<Route path='/payment'
+								render={(props) => (
+									<Payment />
+								)}
+								
+						/>
 	
 	
 						<Route path='/terms&conditions'>
