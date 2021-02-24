@@ -135,12 +135,11 @@ function MyBag() {
               <div className="name__">
                 <h6>Rent</h6>
               </div>
-              <div>
+        
                 <h4 style={{ fontWeight: "600" }}>
                   <i class="fas fa-rupee-sign    "></i> {props.price} /Day
                 </h4>
               </div>
-            </div>
             <div class="tenure">
               <div className="name__">
                 <h6>
@@ -166,6 +165,53 @@ function MyBag() {
                 {/* <h4 >2 Weeks</h4> */}
               </div>
             </div>
+
+              <div class="dod">
+              <div className="dodname">
+                <h6>Date of Delivery</h6>
+              </div>
+              <div>
+                <h4 style={{ fontWeight: "600" }}>
+                  21-02-2000
+                </h4>
+              </div>
+            {/*  <div className="dodname">
+                <h6>Date of Pickup</h6>
+              </div>
+              <div>
+                <h4 style={{ fontWeight: "600" }}>
+                  21-02-2000
+                </h4>
+              </div>*/} 
+            </div>
+              <div class="dod">
+              <div className="dodname">
+                <h6>Date of Delivery</h6>
+              </div>
+              <div>
+                <h4 style={{ fontWeight: "600" }}>
+                  21-02-2000
+                </h4>
+              </div>
+            {/*}  <div className="dodname">
+                <h6>Date of Pickup</h6>
+              </div>
+              <div>
+                <h4 style={{ fontWeight: "600" }}>
+                  21-02-2000
+                </h4>
+              </div>*/}
+            </div>
+      {/*      <div class="dop">
+              <div className="dopname">
+                <h6>Date of Pickup</h6>
+              </div>
+              <div>
+                <h4 style={{ fontWeight: "600" }}>
+                  28-02-2000
+                </h4>
+                </div>
+            </div>  */}
             {/* <div class="deposit">
                             <div className="name__">
                                 <h6>Deposit</h6>
@@ -389,8 +435,9 @@ function Rentals(props) {
                   <option value={5}>5 Weeks</option>
                 </select>
                 {/* <h4 >2 Weeks</h4> */}
-              </div>
+              </div> 
             </div>
+          
             {/* <div class="deposit">
                             <div className="name__">
                                 <h6>Deposit</h6>
@@ -398,6 +445,7 @@ function Rentals(props) {
                             <h4 style={{ fontWeight: "600" }}>0</h4>
                         </div> */}
           </div>
+          
           <div class="total">
             <div class="mybag_button">
               <div class="placeorder">
@@ -1093,6 +1141,28 @@ class Support extends Component {
   render() {
     return (
       <div className="supportScreen">
+
+          <div className="supportButtonDiv">
+          <div className="supportButton">
+            <Image className="supportButtonImage" src={support_person}/>
+            <p className="support__detail">Generate a quick request</p>
+          </div>
+            <div className="supportButton">
+            <Image className="supportButtonImage" src={phone}/>
+            <p className="support__detail">Call Us</p>
+          </div>
+          <div className="supportButton">
+            <Image className="supportButtonImage" src={whatsAppSupport}/>
+            <p className="support__detail">Ping us on WhatsApp</p>
+          </div>
+          <div className="supportButton">
+              <i className="supportButtonImage fa fa-question-circle" />
+            <p className="support__detail">FAQs</p>
+          </div>
+        </div>
+      </div>
+
+        /*
         <div className="supportButtonDiv">
           <button className="supportButton" onClick={() => this.dropMenu1()}>
             <div className="buttonContent">
@@ -1113,7 +1183,6 @@ class Support extends Component {
             <a href="#">Link 2</a>
             <a href="#">Link 3</a>
           </div>
-        </div>
 
         <div className="supportButtonDiv">
           <button className="supportButton">
@@ -1157,8 +1226,9 @@ class Support extends Component {
             <a href="#">Link 2</a>
             <a href="#">Link 3</a>
           </div>
+          </div>
         </div>
-      </div>
+              */
     );
   }
 }
