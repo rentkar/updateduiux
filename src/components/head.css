@@ -365,6 +365,13 @@
 		border-radius: 5px;
 		height: auto;
 		padding: 0px 5px;
+		margin: 0px 10px 0px 0px;
+	}
+	.notification__bell button {
+		border-radius: 5px;
+		height: auto;
+		padding: 0px 5px;
+		margin: 0px 10px 0px 0px;
 	}
 
 	.popup-content.pop-content {
