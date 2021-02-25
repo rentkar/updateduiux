@@ -7,33 +7,14 @@ import listing_s from "../../images/icons/listing_s.png";
 import verification_s from "../../images/icons/verification_s.png";
 import support_s from "../../images/icons/support_s.png";
 import settings_s from "../../images/icons/settings_s.png";
-import support_person from "../../images/supportPerson.png";
-import down_arrow from "../../images/down_arrow.png";
-import whatsAppSupport from "../../images/whatsAppSupport.png";
-import phone from "../../images/phone.png";
-import { DotsMobileStepper } from ".././ListItem"
-import dummyprofile from "../../images/dummyprofile.jpg";
 import rental_g from "../../images/icons/rental_g.png";
 import listing_g from "../../images/icons/listing_g.png";
 import verification_g from "../../images/icons/verification_g.png";
 import support_g from "../../images/icons/support_g.png";
 import settings_g from "../../images/icons/settings_g.png";
-
-import pencil from "../../images/icons/pencil_white.png";
-import pencil_b from "../../images/icons/pencil.png";
-import guitar from "../../images/guitar2.png";
-import person from "../../images/person.png";
-import add from "../../images/add.png";
-import upload from "../../images/upload.png";
-import selectedPage from "../../images/selectedPage.png";
-import unSelectedPage from "../../images/unselectedPage.png";
-import camera from "../../images/camera.png";
-import uploadSelfie from "../../images/uploadSelfie.png";
+import {Modal, Button as Btn} from 'react-bootstrap'
 import "./admindashboard.css";
 import { Button, Card, Image } from "semantic-ui-react";
-import logo from '../../images/logo.png'
-
-import { ProductContext } from "../../components/ProductContext"
 
 import EditProductDetails from './editproductdetails'
 import EditUserDetails from './edituserdetails'
@@ -72,7 +53,91 @@ const iconDesc = [
 ];
 
 
-function Lenders() {
+function Lenders ()
+{
+  const [ addNewLenderModalShow, setAddNewLenderModalShow ] = useState( false ) 
+  const [ addNewProductModalShow, setAddNewProductModalShow ] = useState( false )
+  const [ editLenderModalShow, setEditLenderModalShow ] = useState( false ) 
+  const [ lenderRequestModalShow, setLenderRequestModalShow ] = useState( false ) 
+
+  
+    function LenderRequestModal ( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Lender Request</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
+                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+            </Modal.Footer>
+        </Modal>
+        )
+  }
+
+  function AddNewProductModal ( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Add a New Product</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
+                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+            </Modal.Footer>
+        </Modal>
+        )
+  }
+
+  function EditLenderModal( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Edit Lender Detail</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
+                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+            </Modal.Footer>
+        </Modal>
+        )
+  }
+
+  function AddNewLenderModal ( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Add a New Lender</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
+                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+            </Modal.Footer>
+        </Modal>
+        )
+  }
+
+
   return (
     <div className='alllenders'>
       <div className='lenders__req'>
@@ -94,8 +159,9 @@ function Lenders() {
         <h3>TANUJ AGARWAL</h3>
         <h3>GP9, PS5</h3>
         <h3>2020-03-04</h3>
+          <h3><i className="fas fa-edit" onClick={ () => setLenderRequestModalShow( true ) } /></h3>
+          <LenderRequestModal show={lenderRequestModalShow} onHide={()=> setLenderRequestModalShow(false)} />
 
-        <h3><i className="fas fa-edit" /></h3>
       </div>
       
       <div className='lendersreq__info'>
@@ -104,9 +170,10 @@ function Lenders() {
         <h3>TRUE</h3>
         <h3>MUDIT</h3>
         <h3>PS4P</h3>
-        <h3>2020-03-04</h3>
+        <h3>2020-03-04</h3>  
+          <h3><i className="fas fa-edit" onClick={ () => setLenderRequestModalShow( true ) } /></h3>
+          <LenderRequestModal show={lenderRequestModalShow} onHide={()=> setLenderRequestModalShow(false)} />
 
-        <h3><i className="fas fa-edit" /></h3>
         </div>
         
         </div>
@@ -114,8 +181,9 @@ function Lenders() {
           <p>LENDER REQUESTS</p>
       <div className='buttons'>
               <div className= 'btn btn-outline-success'>FILTER <i className="fas fa-chevron-circle-down" /></div>
-              <div className='btn btn-outline-info'><i className="fas fa-plus-circle"/> ADD A NEW PRODUCT</div>
-            </div>
+        <div className='btn btn-outline-info' onClick={ () => setAddNewProductModalShow( true ) }><i className="fas fa-plus-circle" /> ADD A NEW PRODUCT</div>
+          <AddNewProductModal show={ addNewProductModalShow } onHide={ () => setAddNewProductModalShow( false ) } />
+        </div>
       <div className='lenders__header'>
         
         <h2>LENDER ID</h2>
@@ -134,7 +202,8 @@ function Lenders() {
         <h3>2020-02-02</h3>
         <h3>RENTED OUT</h3>
         <h3>#456789</h3>
-        <h3><i className="fas fa-edit" /></h3>
+        <h3><i className="fas fa-edit" onClick={ () => setEditLenderModalShow( true ) } /></h3>
+          <EditLenderModal show={editLenderModalShow} onHide={()=> setEditLenderModalShow(false)} />
         </div>
         <div className='lenders__info'>
         <h3>90042xxxxx</h3>
@@ -143,7 +212,8 @@ function Lenders() {
         <h3>2021-01-01</h3>
         <h3>AVAILABLE</h3>
         <h3>--</h3>
-        <h3><i className="fas fa-edit" /></h3>
+          <h3><i className="fas fa-edit" onClick={ () => setEditLenderModalShow( true ) } /></h3>
+          <EditLenderModal show={editLenderModalShow} onHide={()=> setEditLenderModalShow(false)} />
         </div>
         <div className='lenders__info'>
         <h3>91142xxxxx</h3>
@@ -152,7 +222,8 @@ function Lenders() {
         <h3>2020-05-01</h3>
         <h3>AVAILABLE</h3>
         <h3>--</h3>
-        <h3><i className="fas fa-edit" /></h3>
+          <h3><i className="fas fa-edit" onClick={ () => setEditLenderModalShow( true ) } /></h3>
+          <EditLenderModal show={editLenderModalShow} onHide={()=> setEditLenderModalShow(false)} />
         </div>
         <div className='lenders__info'>
         <h3>86642xxxxx</h3>
@@ -161,10 +232,11 @@ function Lenders() {
         <h3>2018-01-01</h3>
         <h3>RENTED OUT</h3>
         <h3>#45690</h3>
-        <h3><i className="fas fa-edit" /></h3>
+          <h3><i className="fas fa-edit" onClick={ () => setEditLenderModalShow( true ) } /></h3>
+          <EditLenderModal show={editLenderModalShow} onHide={()=> setEditLenderModalShow(false)} />
         </div>
-        <div className='btn btn-outline-danger'><i className="fas fa-plus-circle" /> ADD A NEW LENDER</div>
-        </div>
+      <div className='btn btn-outline-danger' onClick={ () => setAddNewLenderModalShow( true ) }><i className="fas fa-plus-circle" /> ADD A NEW LENDER</div>
+          <AddNewLenderModal show={ addNewLenderModalShow } onHide={ () => setAddNewLenderModalShow( false ) } />        </div>
     </div>
   )
 }
@@ -247,7 +319,29 @@ function Dash ()
 }
 
 
-function AdminSupport() {
+function AdminSupport ()
+{
+      const [ supportRequestModalShow, setSupportRequestModalShow ] = useState( false ) 
+
+    function SupportRequestModal ( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Support Request</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
+                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+            </Modal.Footer>
+        </Modal>
+        )
+  }
+  
   return (
       <div className='support__req'>
         <p>SUPPORT REQUESTS</p>
@@ -267,7 +361,8 @@ function AdminSupport() {
         <h3>TANUJ AGARWAL</h3>
         <h3>GO PRO 9 suddenly stopped</h3>
         <h3>2020-03-04</h3>
-        <h3><i className="fas fa-edit" /></h3>
+          <h3><i className="fas fa-edit" onClick={ () => setSupportRequestModalShow(true)}/></h3>
+        <SupportRequestModal show={supportRequestModalShow} onHide={()=>setSupportRequestModalShow(false)} />
       </div>
         <p>ISSUED SOLVED</p>
       <div className='solvedissues__header'>
@@ -291,13 +386,37 @@ function AdminSupport() {
 
 function AllProducts ()
 {
+
+  function AddProductModal ( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Add A New Product</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
+                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+            </Modal.Footer>
+        </Modal>
+        )
+  }
+  
+  
   function Products ()
-{
+  {
+        const [ addProductModalShow, setAddProductModalShow ] = useState( false ) 
+
   return (
     <div className='allproducts'>
             <div className='buttons'>
               <div className= 'btn btn-outline-success'>FILTER <i className="fas fa-chevron-circle-down" /></div>
-              <div className='btn btn-outline-info'><i className="fas fa-plus-circle"/> ADD A NEW PRODUCT</div>
+        <div className='btn btn-outline-info' onClick={ () => setAddProductModalShow( true ) }><i className="fas fa-plus-circle" /> ADD A NEW PRODUCT</div>
+        <AddProductModal show={addProductModalShow} onHide={()=>setAddProductModalShow(false)} />
             </div>
           <div className='products__header'>
           <h2>PRODUCT ID</h2>
@@ -338,7 +457,50 @@ function AllProducts ()
 
 
 
-function AllOrders() {
+function AllOrders ()
+{
+  
+          const [ orderRequestModalShow, setOrderRequestModalShow ] = useState( false ) 
+          const [ orderModalShow, setOrderModalShow ] = useState( false ) 
+
+  function OrderRequestModal ( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Order Requests</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
+                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+            </Modal.Footer>
+        </Modal>
+        )
+  }
+
+    function OrderModal ( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Order</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
+                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+            </Modal.Footer>
+        </Modal>
+        )
+  }
+  
   return (
   
     <div className='allorders'>
@@ -362,9 +524,12 @@ function AllOrders() {
         <h3>2021-03-01</h3>
         <h3>3M, 2W, 4D</h3>
           <h3>45121</h3>
-        <h3><Link to='/takeorder' ><i className="fas fa-greater-than" /></Link></h3>
+          <h3><i className="fas fa-edit" onClick={ () => setOrderRequestModalShow( true ) } /></h3>
+          <OrderRequestModal show={orderRequestModalShow} onHide={()=> setOrderRequestModalShow(false)} />
+
         </div>
       </div>
+
       <div className='orders'>
       <p>ORDERS</p>  
       <div className='buttons'>
@@ -392,7 +557,8 @@ function AllOrders() {
         <h3>2020-03-02</h3>
         <h3>2020-03-02</h3>
         <h3>2020-05-02</h3>
-        <h3><Link to='/takeorder' ><i className="fas fa-edit" /></Link></h3>
+        <h3><i className="fas fa-edit" onClick={ () => setOrderModalShow(true)}/></h3>
+        <OrderModal show={orderModalShow} onHide={()=>setOrderModalShow(false)} />
         </div>
           <div className='order__details'>
           <h3>#4567</h3>
@@ -404,7 +570,8 @@ function AllOrders() {
           <h3>2020-04-02</h3>
         <h3>2020-03-02</h3>
           <h3>2020-05-02</h3>
-        <h3><Link to='/takeorder' ><i className="fas fa-edit" /></Link></h3>
+          <h3><i className="fas fa-edit" onClick={ () => setOrderModalShow( true ) } /></h3>
+        <OrderModal show={orderModalShow} onHide={()=>setOrderModalShow(false)} />
         </div>
           <div className='order__details'>
           <h3>#4567</h3>
@@ -416,7 +583,8 @@ function AllOrders() {
           <h3>2020-03-02</h3>
         <h3>2020-03-02</h3>
           <h3>2020-05-02</h3>
-        <h3><Link to='/takeorder' ><i className="fas fa-edit" /></Link></h3>
+      <h3><i className="fas fa-edit" onClick={ () => setOrderModalShow(true)}/></h3>
+        <OrderModal show={orderModalShow} onHide={()=>setOrderModalShow(false)} />
         </div>
         </div>
     </div>
@@ -426,14 +594,35 @@ function AllOrders() {
 
 function AllUsers ()
 {
-  
+    function AddUserModal ( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Add a New User</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
+                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+            </Modal.Footer>
+        </Modal>
+        )
+  }
+
   function Users ()
   {
+            const [ addUserModalShow, setAddUserModalShow ] = useState( false ) 
+
       return (
       <div className='allusers'>
         <div className='buttons'>
               <div className= 'btn btn-outline-success'>FILTER <i className="fas fa-chevron-circle-down" /></div>
-              <div className='btn btn-outline-info'><i className="fas fa-plus-circle"/> ADD A NEW USER</div>
+                      <div className='btn btn-outline-info' onClick={ () =>setAddUserModalShow( true ) }><i className="fas fa-plus-circle" /> ADD A NEW USER</div>
+        <AddUserModal show={addUserModalShow} onHide={()=>setAddUserModalShow(false)} />
         </div>
         <div className='users__header'>
           <h2>USER ID</h2>

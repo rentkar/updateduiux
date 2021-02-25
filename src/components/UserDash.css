@@ -233,13 +233,36 @@
   justify-content: space-between;
   max-width: 80%;
 }
+.right_screen .image_detail .detail .priice {
+  float: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  max-width: 30%;
+}
+.right_screen .image_detail .detail .priice .rent,
+.right_screen .image_detail .detail .priice .tenure,
+.right_screen .image_detail .detail .priice .deposit {
+  display: flex;
+  flex-direction: column;
+}
 .right_screen .image_detail .detail .price .rent,
 .right_screen .image_detail .detail .price .tenure,
 .right_screen .image_detail .detail .price .deposit {
   display: flex;
   flex-direction: column;
 }
+.right_screen .image_detail .detail .priice .rent,
+.right_screen .image_detail .detail .priice .tenure,
+.right_screen .image_detail .detail .priice .deposit {
+  display: flex;
+  flex-direction: column;
+}
 .right_screen .image_detail .detail .price .name__ {
+  float: left;
+  text-align: left;
+}
+.right_screen .image_detail .detail .priice .name__ {
   float: left;
   text-align: left;
 }
@@ -969,7 +992,13 @@
     justify-content: space-between;
     max-width: 90%;
   }
-
+.right_screen .image_detail .detail .priice {
+    float: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    max-width: 40%;
+  }
 .support__detail{
   order: 2;
 }

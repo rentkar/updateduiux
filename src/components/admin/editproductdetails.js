@@ -1,10 +1,137 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './editproductdetails.css'
 import { Link } from 'react-router-dom'
+import {Button, Modal} from 'react-bootstrap' 
+                                    
 
-function EditProductDetails() {
+function EditProductModal ( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Edit the product</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
+                <Button variant="outline-success" onClick={props.onHide}>Submit Changes</Button>
+            </Modal.Footer>
+        </Modal>
+        )
+}
+
+function AddLenderModal ( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Add A New Lender</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
+                <Button variant="outline-success" onClick={props.onHide}>Submit Changes</Button>
+            </Modal.Footer>
+        </Modal>
+        )
+}
+
+function EditBoxModal ( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Edit Box Contents</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
+                <Button variant="outline-success" onClick={props.onHide}>Submit Changes</Button>
+            </Modal.Footer>
+        </Modal>
+        )
+}
+
+function EditDetailsModal( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Edit Details</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
+                <Button variant="outline-success" onClick={props.onHide}>Submit Changes</Button>
+            </Modal.Footer>
+        </Modal>
+        )
+}
+
+function EditPricingModal( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Edit Pricing</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
+                <Button variant="outline-success" onClick={props.onHide}>Submit Changes</Button>
+            </Modal.Footer>
+        </Modal>
+        )
+}
+
+function EditSpecsModal ( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Edit Specifications</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
+                <Button variant="outline-success" onClick={props.onHide}>Submit Changes</Button>
+            </Modal.Footer>
+        </Modal>
+        )
+}
+function EditProductDetails ()
+{
+    const [ editProductModalShow, setEditProductModalShow ] = useState( false )
+    const [ addLenderModalShow, setAddLenderModalShow ] = useState( false ) 
+    const [ editPricingModalShow, setEditPricingModalShow] = useState(false)
+    const [ editSpecsModalShow, setEditSpecsModalShow ] = useState( false )
+    const [ editDetailsModalShow, setEditDetailsModalShow ] = useState( false )
+    const [ editBoxModalShow, setEditBoxModalShow] = useState(false)
+
+
+
+
     return (
     <div className='editaproduct'>
+    <div>
     <div className='product__header'>
         <h2>SUB ID</h2>
         <h2>LENDER</h2>
@@ -24,7 +151,8 @@ function EditProductDetails() {
         <h3>GOOD</h3>
         <h3>RENTED OUT</h3>
         <h3>#456789</h3>
-        <h3><i className="fas fa-edit" /></h3>
+        <h3><i className="fas fa-edit" onClick={ () => setEditProductModalShow(true)}/></h3>
+        <EditProductModal show={editProductModalShow} onHide={()=>setEditProductModalShow(false)} />
     </div>
     <div className='subproduct'>
         <h3>GP9b</h3>
@@ -34,7 +162,8 @@ function EditProductDetails() {
         <h3>BAD</h3>
         <h3>AVAILABLE</h3>
         <h3>--</h3>
-        <h3><i className="fas fa-edit" /></h3>
+        <h3><i className="fas fa-edit" onClick={ () => setEditProductModalShow(true)}/></h3>
+        <EditProductModal show={editProductModalShow} onHide={()=>setEditProductModalShow(false)} />
     </div>
     <div className='subproduct'>
         <h3>GP9c</h3>
@@ -44,7 +173,8 @@ function EditProductDetails() {
         <h3>GOOD</h3>
         <h3>AVAILABLE</h3>
         <h3>--</h3>
-        <h3><i className="fas fa-edit" /></h3>
+        <h3><i className="fas fa-edit" onClick={ () => setEditProductModalShow(true)}/></h3>
+        <EditProductModal show={editProductModalShow} onHide={()=>setEditProductModalShow(false)} />
     </div>
     <div className='subproduct'>
         <h3>GP9d</h3>
@@ -54,9 +184,17 @@ function EditProductDetails() {
         <h3>BAD</h3>
         <h3>RENTED OUT</h3>
         <h3>#45690</h3>
-        <h3><i className="fas fa-edit" /></h3>
+        <h3><i className="fas fa-edit" onClick={ () => setEditProductModalShow(true)}/></h3>
+        <EditProductModal show={editProductModalShow} onHide={()=>setEditProductModalShow(false)} />
     </div> 
-    <div className='btn btn-outline-danger'><i className="fas fa-plus-circle"/> ADD A NEW LENDER</div>
+    </div>
+    <div className='btn btn-outline-danger' onClick={ () => setAddLenderModalShow( true ) } >
+        <h3><i className="fas fa-plus-circle" /> ADD A NEW LENDER</h3>
+            </div>
+<AddLenderModal show={ addLenderModalShow } onHide={ () => setAddLenderModalShow( false ) } />     
+
+        
+    
             
             <div className='product__details row'>
                 <div className='col-5 product__info'> 
@@ -103,7 +241,8 @@ function EditProductDetails() {
                         used a GoPro before, the GoPro 9 is extremely user friendly and fits
                         perfectly in your palm.</p>
                     </div>
-                    <div className='btn btn-outline-info'><i className="fas fa-edit"/> EDIT THE DETAILS</div>
+                    <div className='btn btn-outline-info' onClick={ () => setEditDetailsModalShow(true)}><i className="fas fa-edit" /> EDIT THE DETAILS</div>
+                    <EditDetailsModal show={editDetailsModalShow} onHide={()=>setEditDetailsModalShow(false)} />
                 </div>    
                             
                 <div className='col-5 specs'> 
@@ -144,8 +283,9 @@ function EditProductDetails() {
                         <p className='col-6'>Slo-Mo</p>
                         <p className='col-6' >8X</p>
                     </div>
-                    <div className='btn btn-outline-info'><i className="fas fa-edit"/> EDIT SPECS</div>
-                </div>
+                    <div className='btn btn-outline-info' onClick={ () => setEditSpecsModalShow(true)}><i className="fas fa-edit" /> EDIT SPECS</div>
+                    <EditSpecsModal show={editSpecsModalShow} onHide={()=>setEditSpecsModalShow(false)} />
+                </div>   
 
                 <div className='col-5 pricing'> 
                     <h2>PRICING</h2>
@@ -169,8 +309,9 @@ function EditProductDetails() {
                         <p className='col-6'>3 MONTH</p>
                         <p className='col-6' ><i className="fas fa-rupee-sign" /> 16000</p>
                     </div>
-                    <div className='btn btn-outline-info'><i className="fas fa-edit"/> EDIT PRICING DETAILS</div>
-                </div>
+                        <div className='btn btn-outline-info' onClick={ () => setEditPricingModalShow(true)}><i className="fas fa-edit" /> EDIT PRICING DETAILS</div>
+                    <EditPricingModal show={editPricingModalShow} onHide={()=>setEditPricingModalShow(false)} />
+                </div>   
                 <div className='col-5 pricing'> 
                     <h2>BOX CONTENT</h2>
                     <div className='row'>
@@ -209,8 +350,9 @@ function EditProductDetails() {
                         <p className='col-6'>Snorkelling Mount</p>
                         <p className='col-6' >https://rentkar-s3-rentkar-gopro9/snorkellingmount.png</p>
                     </div>
-                    <div className='btn btn-outline-info'><i className="fas fa-edit"/> EDIT BOX CONTENT</div>
-                </div>
+                        <div className='btn btn-outline-info' onClick={ () => setEditBoxModalShow(true)}><i className="fas fa-edit" /> EDIT BOX CONTENTS</div>
+                    <EditBoxModal show={editBoxModalShow} onHide={()=>setEditBoxModalShow(false)} />
+                </div>   
             </div>
             <div className='end__buttons'>
                 <div className='btn btn-outline-success'><Link to='/allproducts/'>GO BACK</Link></div>

@@ -1,7 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './edituserdetails.css'
+import {Button, Modal} from 'react-bootstrap' 
+import { Link } from 'react-router-dom'
 
-function EditUserDetails() {
+function EditDetailsModal( props ){
+    return(
+        <Modal { ...props }
+            size='lg'
+            aria-labelledby='contained-modal-title-vcenter'>
+            <Modal.Header closeButton>
+                <Modal.Title>Edit Details</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>ksdkddk</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
+                <Button variant="outline-success" onClick={props.onHide}>Submit Changes</Button>
+            </Modal.Footer>
+        </Modal>
+        )
+}
+
+function EditUserDetails ()
+{
+        const [ editDetailsModalShow, setEditDetailsModalShow ] = useState( false )
+
     return (
         <div className='editauser'>
             <div className='user__details row'>
@@ -63,7 +87,8 @@ function EditUserDetails() {
                     <h4 className='col-6'>LAST UPDATE ON</h4>
                         <p className='col-6' >2021-03-02 <i  id='time' className="fas fa-calendar-plus" /> 6:58 <i  id='time' className="fas fa-user-clock" /></p>
                     </div>
-                    <div className='btn btn-outline-info'><i className="fas fa-edit"/> EDIT THE DETAILS</div>
+                    <div className='btn btn-outline-info' onClick={ () => setEditDetailsModalShow(true)}><i className="fas fa-edit" /> EDIT THE DETAILS</div>
+                    <EditDetailsModal show={editDetailsModalShow} onHide={()=>setEditDetailsModalShow(false)} />
                 </div>
                 <div className='col-5 user__info'> 
                     <h2>ORDER HISTORY</h2>
@@ -84,7 +109,11 @@ function EditUserDetails() {
                     <p className='col-6' >2021-03-02 <i  id='time' className="fas fa-calendar-plus" /></p>
                     </div>
                 </div>
-                </div>
+            </div>
+            <div className='end__buttons'>
+                <div className='btn btn-outline-success'><Link to='/allusers/'>GO BACK</Link></div>
+                <div className='btn btn-outline-warning'>SUBMIT CHANGES</div>
+            </div>
         </div>
     )
 }

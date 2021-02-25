@@ -401,7 +401,7 @@ function Rentals(props) {
               </h6>
             </div>
           </div>
-          <div class="price">
+          <div class="priice">
             <div class="rent">
               <div className="name__">
                 <h6>Rent</h6>
@@ -527,7 +527,7 @@ function Rentals(props) {
     </div>
   );
   return (
-    <div style={{ height: "720px", overflowY: "scroll" }}>
+    <div className='myrentals' style={{ height: "720px", overflowY: "scroll" }}>
       {product.map((product) => (
         <div className="order_card">
           <Order_card
