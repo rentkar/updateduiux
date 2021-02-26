@@ -12,7 +12,7 @@ import listing_g from "../../images/icons/listing_g.png";
 import verification_g from "../../images/icons/verification_g.png";
 import support_g from "../../images/icons/support_g.png";
 import settings_g from "../../images/icons/settings_g.png";
-import {Modal, Button as Btn} from 'react-bootstrap'
+import {Modal} from 'react-bootstrap'
 import "./admindashboard.css";
 import { Button, Card, Image } from "semantic-ui-react";
 
@@ -73,8 +73,8 @@ function Lenders ()
                 <p>ksdkddk</p>
             </Modal.Body>
             <Modal.Footer>
-                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
-                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+                <div className='btn btn-outline-dark' onClick={ props.onHide }>Close</div>
+                <div className='btn btn-outline-success' onClick={props.onHide}>Submit Changes</div>
             </Modal.Footer>
         </Modal>
         )
@@ -92,8 +92,8 @@ function Lenders ()
                 <p>ksdkddk</p>
             </Modal.Body>
             <Modal.Footer>
-                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
-                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+                <div className='btn btn-outline-dark' onClick={ props.onHide }>Close</div>
+                <div className='btn btn-outline-success'onClick={props.onHide}>Submit Changes</div>
             </Modal.Footer>
         </Modal>
         )
@@ -111,8 +111,8 @@ function Lenders ()
                 <p>ksdkddk</p>
             </Modal.Body>
             <Modal.Footer>
-                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
-                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+                <div className='btn btn-outline-dark' onClick={ props.onHide }>Close</div>
+                <div className='btn btn-outline-success' onClick={props.onHide}>Submit Changes</div>
             </Modal.Footer>
         </Modal>
         )
@@ -124,15 +124,49 @@ function Lenders ()
             size='lg'
             aria-labelledby='contained-modal-title-vcenter'>
             <Modal.Header closeButton>
-                <Modal.Title>Add a New Lender</Modal.Title>
+                <Modal.Title>Add A New Lender</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>ksdkddk</p>
+                <form>
+                    <label>SUB ID : 
+                     <input type='text' name='sub_id' placeholder='Enter the Sub Id' />
+                    </label>
+                    <label>LENDER : 
+                     <input type='text' name='lenderName' placeholder='Enter the Name' />
+                    </label>
+                    <label>LENDER ID : 
+                     <input type='text' name='lenderId' placeholder='Enter Lender Id' />
+                    </label>
+                    <label>LENDER AGREEMENT : 
+                     <input type='text' name='lenderAgreement' placeholder='Enter Lender Agreement' />
+                    </label>
+                    <label>CONDITION : 
+                    <select name='condition'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='GOOD'>GOOD</option>
+                            <option value='BAD'>BAD</option>
+                            <option value='OKAY'>OKAY</option>
+                     </select>
+                    </label>
+                    <label>AVAILABILITY : 
+                     <select name='availability'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='RENTED OUT'>RENTED OUT</option>
+                            <option value='AVAILABLE'>AVAILABLE</option>
+                        </select>
+                    </label>
+                    <label>DATE OF PURCHASE : 
+                     <input type='date' name='dateOfPurchase' placeholder='Enter Order Id if product is RENTED OUT' />
+                    </label>
+                    <label>ORDER ID : 
+                     <input type='text' name='orderId' placeholder='Enter Order Id if product is RENTED OUT' />
+                    </label>
+                    <div>
+              <div className='btn btn-outline-dark' onClick={ props.onHide }>Close</div>
+                        <input className='btn btn-outline-success' type="submit" value="Submit" />
+                    </div>
+                </form>
             </Modal.Body>
-            <Modal.Footer>
-                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
-                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
-            </Modal.Footer>
         </Modal>
         )
   }
@@ -332,12 +366,24 @@ function AdminSupport ()
                 <Modal.Title>Support Request</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>ksdkddk</p>
-            </Modal.Body>
-            <Modal.Footer>
-                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
-                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
-            </Modal.Footer>
+              <form>
+                <label>CHANGE STATUS : 
+                    <select name='supportstatus'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='PENDING'>PENDING</option>
+                            <option value='SOLVED'>SOLVED</option>
+                     </select>
+            </label>
+            <label>SOLUTION : 
+            <input type='text' name='solution' placeholder='Enter the solution if any' />
+            </label>
+              
+            <div>
+                    <div className='btn btn-outline-dark' onClick={ props.onHide }>Close</div>
+              <input className='btn btn-outline-success' type="submit" value="Submit" />
+            </div>
+              </form>
+          </Modal.Body>
         </Modal>
         )
   }
@@ -399,8 +445,8 @@ function AllProducts ()
                 <p>ksdkddk</p>
             </Modal.Body>
             <Modal.Footer>
-                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
-                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+                <div className='btn btn-outline-dark' onClick={ props.onHide }>Close</div>
+                <div variant="outline-success" onClick={props.onHide}>Submit Changes</div>
             </Modal.Footer>
         </Modal>
         )
@@ -475,8 +521,8 @@ function AllOrders ()
                 <p>ksdkddk</p>
             </Modal.Body>
             <Modal.Footer>
-                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
-                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+                <div className="btn btn-outline-dark" onClick={ props.onHide }>Close</div>
+                <div className="btn btn-outline-success" onClick={props.onHide}>Submit Changes</div>
             </Modal.Footer>
         </Modal>
         )
@@ -494,8 +540,8 @@ function AllOrders ()
                 <p>ksdkddk</p>
             </Modal.Body>
             <Modal.Footer>
-                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
-                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
+                <div className="btn btn-outline-dark" onClick={ props.onHide }>Close</div>
+                <div className="btn btn-outline-success" onClick={props.onHide}>Submit Changes</div>
             </Modal.Footer>
         </Modal>
         )
@@ -586,7 +632,10 @@ function AllOrders ()
       <h3><i className="fas fa-edit" onClick={ () => setOrderModalShow(true)}/></h3>
         <OrderModal show={orderModalShow} onHide={()=>setOrderModalShow(false)} />
         </div>
-        </div>
+      </div>
+      
+              <div className='btn btn-outline-info' onClick={ () => setOrderModalShow( true ) }><i className="fas fa-plus-circle" /> ADD A NEW ORDER</div>
+
     </div>
     
   )
@@ -602,13 +651,67 @@ function AllUsers ()
             <Modal.Header closeButton>
                 <Modal.Title>Add a New User</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-                <p>ksdkddk</p>
+          <Modal.Body>
+                <form>
+                    <label> ID : 
+                     <input type='text' name='userId' placeholder='Enter the Sub Id' />
+                    </label>
+                    <label>USER NAME : 
+                     <input type='text' name='username' placeholder='Enter the Name' />
+                    </label>
+                    <label>IMAGE : 
+                     <input type='text' name='userimage' placeholder='Enter Image Link' />
+                    </label>
+                    <label>VERIFIED: 
+                    <select name='verified'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='TRUE'>TRUE</option>
+                            <option value='FALSE'>FALSE</option>
+                     </select>
+                    </label>
+                    <label>DATE OF BIRTH : 
+                     <input type='date' name='dob' placeholder='Enter Date of Birth' />
+                    </label>
+                    <label>GENDER : 
+                    <select name='gender'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='MALE'>MALE</option>
+                            <option value='FEMALE'>FEMALE</option>
+                     </select>
+                    </label>
+                    <label>PRIMARY ADDRESS : 
+                      <input type='text' name='primaryaddress' placeholder='Enter Primary Address' />
+                    </label>
+                    <label>EMAIL : 
+                     <input type='email' name='email' placeholder='Enter Email Address' />
+                    </label>
+                    <label>DOC TYPE : 
+                     <select name='doctype'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='AADHAR CARD'>AADHAR CARD</option>
+                            <option value='PASSPORT'>PASSPORT</option>
+                            <option value='DRIVING LICENSE'>DRIVING LICENSE</option>
+                     </select>
+                    </label>
+                    <label>DOC LINK : 
+                     <input type='text' name='doclink' placeholder='Enter Doc Link' />
+                    </label>
+                    <label>BANK STATEMENT : 
+                     <input type='text' name='bankstatement' placeholder='Enter Bank Statement Link' />
+                    </label>
+                    <label>LENDER : 
+                      <select name='lender'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='TRUE'>TRUE</option>
+                            <option value='FALSE'>FALSE</option>
+                        </select>
+                        </label>
+                    <div>
+                    <div className="btn btn-outline-dark" onClick={ props.onHide }>Close</div>
+                        <input className='btn btn-outline-success' type="submit" value="Submit" />
+                    </div>
+                </form>
             </Modal.Body>
-            <Modal.Footer>
-                <Btn variant="outline-dark" onClick={ props.onHide }>Close</Btn>
-                <Btn variant="outline-success" onClick={props.onHide}>Submit Changes</Btn>
-            </Modal.Footer>
         </Modal>
         )
   }

@@ -12,12 +12,66 @@ function EditDetailsModal( props ){
                 <Modal.Title>Edit Details</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>ksdkddk</p>
+                <form>
+                    <label> ID : 
+                     <input type='text' name='userId' placeholder='Enter the Sub Id' />
+                    </label>
+                    <label>USER NAME : 
+                     <input type='text' name='username' placeholder='Enter the Name' />
+                    </label>
+                    <label>IMAGE : 
+                     <input type='text' name='userimage' placeholder='Enter Image Link' />
+                    </label>
+                    <label>VERIFIED: 
+                    <select name='verified'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='TRUE'>TRUE</option>
+                            <option value='FALSE'>FALSE</option>
+                     </select>
+                    </label>
+                    <label>DATE OF BIRTH : 
+                     <input type='date' name='dob' placeholder='Enter Date of Birth' />
+                    </label>
+                    <label>GENDER : 
+                    <select name='gender'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='MALE'>MALE</option>
+                            <option value='FEMALE'>FEMALE</option>
+                     </select>
+                    </label>
+                    <label>PRIMARY ADDRESS : 
+                      <input type='text' name='primaryaddress' placeholder='Enter Primary Address' />
+                    </label>
+                    <label>EMAIL : 
+                     <input type='email' name='email' placeholder='Enter Email Address' />
+                    </label>
+                    <label>DOC TYPE : 
+                     <select name='doctype'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='AADHAR CARD'>AADHAR CARD</option>
+                            <option value='PASSPORT'>PASSPORT</option>
+                            <option value='DRIVING LICENSE'>DRIVING LICENSE</option>
+                     </select>
+                    </label>
+                    <label>DOC LINK : 
+                     <input type='text' name='doclink' placeholder='Enter Doc Link' />
+                    </label>
+                    <label>BANK STATEMENT : 
+                     <input type='text' name='bankstatement' placeholder='Enter Bank Statement Link' />
+                    </label>
+                    <label>LENDER : 
+                      <select name='lender'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='TRUE'>TRUE</option>
+                            <option value='FALSE'>FALSE</option>
+                        </select>
+                        </label>
+                    <div>
+                    <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
+                        <input className='btn btn-outline-success' type="submit" value="Submit" />
+                    </div>
+                </form>
             </Modal.Body>
-            <Modal.Footer>
-                <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
-                <Button variant="outline-success" onClick={props.onHide}>Submit Changes</Button>
-            </Modal.Footer>
         </Modal>
         )
 }

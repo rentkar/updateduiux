@@ -13,12 +13,43 @@ function EditProductModal ( props ){
                 <Modal.Title>Edit the product</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>ksdkddk</p>
+                <form>
+                    <label>SUB ID : 
+                     <input type='text' name='sub_id' placeholder='Enter the Sub Id' />
+                    </label>
+                    <label>LENDER : 
+                     <input type='text' name='lenderName' placeholder='Enter the Name' />
+                    </label>
+                    <label>LENDER ID : 
+                     <input type='text' name='lenderId' placeholder='Enter Lender Id' />
+                    </label>
+                    <label>LENDER AGREEMENT : 
+                     <input type='text' name='lenderAgreement' placeholder='Enter Lender Agreement' />
+                    </label>
+                    <label>CONDITION : 
+                    <select name='condition'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='GOOD'>GOOD</option>
+                            <option value='BAD'>BAD</option>
+                            <option value='OKAY'>OKAY</option>
+                     </select>
+                    </label>
+                    <label>AVAILABILITY : 
+                     <select name='availability'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='RENTED OUT'>RENTED OUT</option>
+                            <option value='AVAILABLE'>AVAILABLE</option>
+                        </select>
+                    </label>
+                    <label>ORDER ID : 
+                     <input type='text' name='orderId' placeholder='Enter Order Id if product is RENTED OUT' />
+                    </label>
+                    <div>
+                    <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
+                        <input className='btn btn-outline-success' type="submit" value="Submit" />
+                    </div>
+                </form>
             </Modal.Body>
-            <Modal.Footer>
-                <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
-                <Button variant="outline-success" onClick={props.onHide}>Submit Changes</Button>
-            </Modal.Footer>
         </Modal>
         )
 }
@@ -32,12 +63,46 @@ function AddLenderModal ( props ){
                 <Modal.Title>Add A New Lender</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>ksdkddk</p>
+                <form>
+                    <label>SUB ID : 
+                     <input type='text' name='sub_id' placeholder='Enter the Sub Id' />
+                    </label>
+                    <label>LENDER : 
+                     <input type='text' name='lenderName' placeholder='Enter the Name' />
+                    </label>
+                    <label>LENDER ID : 
+                     <input type='text' name='lenderId' placeholder='Enter Lender Id' />
+                    </label>
+                    <label>LENDER AGREEMENT : 
+                     <input type='text' name='lenderAgreement' placeholder='Enter Lender Agreement' />
+                    </label>
+                    <label>CONDITION : 
+                    <select name='condition'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='GOOD'>GOOD</option>
+                            <option value='BAD'>BAD</option>
+                            <option value='OKAY'>OKAY</option>
+                     </select>
+                    </label>
+                    <label>AVAILABILITY : 
+                     <select name='availability'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='RENTED OUT'>RENTED OUT</option>
+                            <option value='AVAILABLE'>AVAILABLE</option>
+                        </select>
+                    </label>
+                    <label>DATE OF PURCHASE : 
+                     <input type='date' name='dateOfPurchase' placeholder='Enter Order Id if product is RENTED OUT' />
+                    </label>
+                    <label>ORDER ID : 
+                     <input type='text' name='orderId' placeholder='Enter Order Id if product is RENTED OUT' />
+                    </label>
+                    <div>
+                    <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
+                        <input className='btn btn-outline-success' type="submit" value="Submit" />
+                    </div>
+                </form>
             </Modal.Body>
-            <Modal.Footer>
-                <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
-                <Button variant="outline-success" onClick={props.onHide}>Submit Changes</Button>
-            </Modal.Footer>
         </Modal>
         )
 }
@@ -61,21 +126,91 @@ function EditBoxModal ( props ){
         )
 }
 
-function EditDetailsModal( props ){
+function EditInfoModal ( props )
+{
     return(
         <Modal { ...props }
             size='lg'
             aria-labelledby='contained-modal-title-vcenter'>
             <Modal.Header closeButton>
-                <Modal.Title>Edit Details</Modal.Title>
+                <Modal.Title>Edit Info</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>ksdkddk</p>
+                <form>
+                    <label>ID : 
+                     <input type='text' name='id' placeholder='Enter the Id' />
+                    </label>
+                    <label>NAME : 
+                     <input type='text' name='name' placeholder='Enter the Name' />
+                    </label>
+                    <label>IMAGE : 
+                     <input type='text' name='image' placeholder='Enter Image Location' />
+                    </label>
+                    <label>CATEGORY : 
+                    <select name='category'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='MUSIC'>MUSIC</option>
+                            <option value='GAMING'>GAMING</option>
+                            <option value='LAPTOP'>LAPTOP</option>
+                            <option value='PHOTOGRAPHY'>PHOTOGRAPHY</option>
+                     </select>
+                    </label>
+                    <label>SUB CATEGORY : 
+                     <select name='subcategory'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='GUITAR'>GUITAR</option>
+                            <option value='KEYBOARD'>KEYBOARD</option>
+                            <option value='PERCUSSION'>PERCUSSION</option>
+                            <option value='RECORDING'>RECORDING</option>
+                            <option value='AMPLIFIER'>AMPLIFIER</option>
+                            <option value='GROOVE'>GROOVE</option>
+                            <option value='WIND'>WIND</option>
+                            <option value='PACKAGES'>PACKAGES</option>
+                            <option value='PC GAMING'>PC GAMING</option>
+                            <option value='CONSOLE'>CONSOLE</option>
+                            <option value='ACCESSORIES'>ACCESSORIES</option>
+                            <option value='GAMING'>GAMING</option>
+                            <option value='i3'>i3</option>
+                            <option value='i5'>i5</option>
+                            <option value='i7'>i7</option>
+                            <option value='MACBOOK'>MACBOOK</option>
+                            <option value='PC'>PC</option>
+                            <option value='TABLET'>TABLET</option>
+                            <option value='CAMERA'>CAMERA</option>
+                            <option value='FILTERS'>FILTERS</option>
+                            <option value='LENS'>LENS</option>
+                            <option value='LIGHTS'>LIGHTS</option>
+                            <option value='RECORDINGS'>RECORDINGS</option>
+                            <option value='RIGS'>RIGS</option>
+                        </select>
+                    </label>
+                    <label>QUANTITY DISPLAYED : 
+                     <input type='text' name='quantityDisplayed' placeholder='Enter the Quantity to be displayed' />
+                    </label>
+                    <label>FEATURED : 
+                    <select name='featured'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='TRUE'>TRUE</option>
+                            <option value='FALSE'>FALSE</option>
+                     </select>
+                    </label>
+                    <label>LIMITED STOCK : 
+                    <select name='limitedStock'>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value='TRUE'>TRUE</option>
+                            <option value='FALSE'>FALSE</option>
+                        </select>
+                    </label>
+                    
+                    <label>DESCRIPTION : 
+                     <input type='text' name='description' placeholder='Enter Description' />
+                    </label>
+                    <div>
+                    <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
+                        <input className='btn btn-outline-success' type="submit" value="Submit" />
+                    </div>
+                </form>
             </Modal.Body>
-            <Modal.Footer>
-                <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
-                <Button variant="outline-success" onClick={props.onHide}>Submit Changes</Button>
-            </Modal.Footer>
         </Modal>
         )
 }
@@ -123,7 +258,7 @@ function EditProductDetails ()
     const [ addLenderModalShow, setAddLenderModalShow ] = useState( false ) 
     const [ editPricingModalShow, setEditPricingModalShow] = useState(false)
     const [ editSpecsModalShow, setEditSpecsModalShow ] = useState( false )
-    const [ editDetailsModalShow, setEditDetailsModalShow ] = useState( false )
+    const [ editInfoModalShow, setEditInfoModalShow ] = useState( false )
     const [ editBoxModalShow, setEditBoxModalShow] = useState(false)
 
 
@@ -241,8 +376,8 @@ function EditProductDetails ()
                         used a GoPro before, the GoPro 9 is extremely user friendly and fits
                         perfectly in your palm.</p>
                     </div>
-                    <div className='btn btn-outline-info' onClick={ () => setEditDetailsModalShow(true)}><i className="fas fa-edit" /> EDIT THE DETAILS</div>
-                    <EditDetailsModal show={editDetailsModalShow} onHide={()=>setEditDetailsModalShow(false)} />
+                    <div className='btn btn-outline-info' onClick={ () => setEditInfoModalShow(true)}><i className="fas fa-edit" /> EDIT THE DETAILS</div>
+                    <EditInfoModal show={editInfoModalShow} onHide={()=>setEditInfoModalShow(false)} />
                 </div>    
                             
                 <div className='col-5 specs'> 
