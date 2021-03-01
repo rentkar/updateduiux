@@ -19,6 +19,8 @@ import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfUse from './components/TermsOfUse'
 import AdminDashboard from './components/admin/admindashboard'
 import { Payment } from './components/payment'
+import Checkout from './components/Checkout'
+
 function App() {
 	return (
 		<Router>
@@ -48,6 +50,14 @@ function App() {
 								<Floatnav className='floatnav' />
 								<Head />
 								<ProductPage />
+								<Footer />
+								</>
+							</Route>
+							<Route path='/checkout'>
+								<>
+								<Floatnav className='floatnav' />
+								<Head />
+								<Checkout />
 								<Footer />
 								</>
 							</Route>

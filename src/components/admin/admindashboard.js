@@ -446,7 +446,7 @@ function AllProducts ()
             </Modal.Body>
             <Modal.Footer>
                 <div className='btn btn-outline-dark' onClick={ props.onHide }>Close</div>
-                <div variant="outline-success" onClick={props.onHide}>Submit Changes</div>
+                <div  className='btn btn-outline-success' onClick={props.onHide}>Submit Changes</div>
             </Modal.Footer>
         </Modal>
         )

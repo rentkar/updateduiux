@@ -11,8 +11,12 @@ import console from '../images/Console.png';
 import fifa from '../images/FIFA.png';
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
+import 'react-google-flight-datepicker/dist/main.css';
+import { RangeDatePicker } from 'react-google-flight-datepicker'
+import { Link } from 'react-router-dom';
 
-export default function ProductPage() {
+export default function ProductPage ()
+{
 	/* constructor(props) {
 		super(props);
 		this.state = {
@@ -43,7 +47,7 @@ export default function ProductPage() {
   		const handleDuration = (event, newDuration) => {
     	setDuration(newDuration);
   };
-		const durations = ['1 Day', '2 Day', '3 Day', '4 Day']
+		const durations = ['1 Day', '1 Week', '2 Weeks', '1 Month', '3 Months', '6 Months']
 		//const [duration, setduration] = useState(props.index ? props.index : 0)
 	/*	let durationBtn = this.state.durationB
 			? 'durationButton'
@@ -157,72 +161,81 @@ export default function ProductPage() {
 								</ToggleButton>
 								<ToggleButton
 									className="durationButton"
-									value="2 Day"
+									value="1 Week"
 								>
-									2 Day
+									1 Week
 								</ToggleButton>
 								<ToggleButton
 									className="durationButton"
-									value="3 Day"
+									value="2 Weeks"
 								>
-									3 Day
+									2 Weeks
 								</ToggleButton>
 								<ToggleButton
 									className="durationButton"
-									value="4 Day"
+									value="1 Month"
 								>
-									4 Day
+								1 Month
+								</ToggleButton>
+							<ToggleButton
+									className="durationButton"
+									value="3 Months"
+								>
+								3 Months
+								</ToggleButton>
+							<ToggleButton
+									className="durationButton"
+									value="6 Months"
+								>
+									6 Months
 								</ToggleButton>
 								</ToggleButtonGroup>
-	
 						
-						<h3 style={{ textAlign: 'left' }}>
+						
+						
+						    
+							
+						
+
+
+						<div className='select__package'>
+							<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your package</h3>
+							<div className='btn btn-outline-dark col-10'>Select your first free game</div>
+							<div className='btn btn-outline-dark col-10' style={{ marginTop: '20px' }}>Select your second free game</div>
+
+						</div>
+						
+						<div className='select__package'>
+							<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your package</h3>
+							<div className='btn btn-outline-dark col-3' style={{ marginTop: '20px', marginRight: '20px', height:'120px'}}></div>
+							<div className='btn btn-outline-dark col-3'  style={{ marginTop: '20px', marginRight: '20px', height:'120px' }}></div>
+							<div className='btn btn-outline-dark col-3' style={{ marginTop: '20px', marginRight: '20px', height:'120px' }}></div>
+
+						</div>
+
+						<div className='dateSlot col-12' style={ { marginTop: '50px' } }>
+							<h3 style={{ textAlign: 'left' }}>
 							Enter delivery and pickup dates
 						</h3>
-						<div
-							style={{
-								margin: '20px',
-								display: 'table',
-								border: '1px solid #707070',
-								borderRadius: '10px',
-								marginLeft: '20px',
-								marginRight: 'auto',
-								padding: '2px',
-							}}>
-							<button style={{ border: 'none' }}>
-								<div
-									style={{
-										display: 'flex',
-										flexDirection: 'row',
-										padding: '5px 10px 5px 10px',
-										backgroundColor: '#fff',
-									}}>
-									<p style={{ marginRight: '40px' }}>Delivery Date</p>
-									<p>{'>'}</p>
-								</div>
-							</button>
-							<vl></vl>
-							<button
-								style={{
-									borderLeft: '0.5px solid #707070',
-									borderRight: 'none',
-									borderBottom: 'none',
-									borderTop: 'none',
-								}}>
-								<div
-									style={{
-										display: 'flex',
-										flexDirection: 'row',
-										padding: '5px 10px 5px 10px',
-										backgroundColor: '#fff',
-									}}>
-									<p style={{ marginRight: '40px' }}>Pick-up Date</p>
-									<p>{'>'}</p>
-								</div>
-							</button>
+							<RangeDatePicker
+							startDate={new Date()}
+							endDate={new Date()}
+							//onChange={(startDate, endDate) => onDateChange(startDate, endDate)}
+							minDate={new Date(1900, 0, 1)}
+							maxDate={new Date(2220, 0, 1)}
+							//dateFormat="D"
+							monthFormat="MMM YYYY"
+							startDatePlaceholder="Delivery Date"
+							endDatePlaceholder="PickUp Date"
+							disabled={false}
+							className="datepicker col-3"
+							startWeekDay="monday"
+							/>
 						</div>
-						<div className='Summary'>
-							<h3 style={{ textAlign: 'left' }}>Product Summary</h3>
+
+
+						<div className='Summary' style={ { marginTop: '50px' } } >
+							<h3 style={{textAlign: 'left'}}>Product Summary</h3>
 							<div className='product'>
 								<p>PS4 + Controller</p>
 								<button>+ Rs XXX</button>
@@ -258,6 +271,7 @@ export default function ProductPage() {
 								}}>
 								Total : Rs XXX
 							</h2>
+							
 							<p
 								style={{
 									textAlign: 'left',
@@ -266,11 +280,51 @@ export default function ProductPage() {
 								}}>
 								Inclusive of all taxes | Tax breakdown
 							</p>
+							<div className='sgst'>
+							<p
+							style={{
+									textAlign: 'left',
+									margin: '5px 20px',
+									fontSize: '12px',
+								} }>
+									** SGST (9%)
+								</p>
+								<b>
+								<p
+								style={{
+									textAlign: 'right',
+									margin: '5px 20px',
+									fontSize: '12px',
+									} }>
+										Rs 300
+									</p>
+								</b>
+							</div>
+							<div className='cgst'>
+							<p
+							style={{
+									textAlign: 'left',
+									margin: '5px 20px',
+									fontSize: '12px',
+								} }>
+									** CGST (9%)
+								</p>
+								<b>
+								<p
+								style={{
+									textAlign: 'right',
+									margin: '5px 20px',
+									fontSize: '12px',
+									} }>
+									Rs 300
+								</p>
+								</b>
+							</div>
 							<div className='placeOrder'>
 								<div className='couponStatus'>
 									<p>Coupon Applied</p>
 								</div>
-								<button>Place Order</button>
+								<button><Link to='/checkout'>Place Order</Link></button>
 							</div>
 						</div>
 					</div>

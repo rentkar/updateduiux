@@ -93,10 +93,12 @@
 
 .productPage .right {
 	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
+	float: right;
 	right: 0px;
-	position: absolute;
-	max-width: 25%;
+	width: 25%;
 	height: auto;
+	position: absolute;
+	background-color: white;
 }
 
 .productPage .right h2 {
@@ -394,6 +396,11 @@
 	font-size: 18px;
 	font-weight: bold;
 }
+
+.productPage .right .Summary .placeOrder button a{
+			text-decoration: none;
+			color: white;
+}
 .productPage .right .Summary .placeOrder button :active {
 	color: #19eeb5;
 	transition-duration: 500;
@@ -460,4 +467,38 @@ h3 {
 
 .productPage .right .durationPrice .durationButton {
 	border-bottom: 2px;
+}
+
+/*
+.dateSlot{
+	display: flex;
+	flex-direction: column;
+	color: green;
+	background-color: blue;
+}
+
+.dateSlot .datePicker{
+	display: flex;
+	width: fit-content;
+	height: 20px;
+	color: white !important;
+	background-color: black;
+}
+*/
+
+.react-google-flight-datepicker .dialog-date-picker{
+	-webkit-backdrop-filter: saturate(180%) blur(20px);
+	backdrop-filter: saturate(180%) blur(20px);    
+
+	left: -900px !important;
+}
+
+.sgst{
+	display: flex;
+	flex-direction: column;
+}
+
+.cgst{
+	display: flex;
+	flex-direction: column;
 }
