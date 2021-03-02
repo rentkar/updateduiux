@@ -154,7 +154,7 @@ export default function ProductPage ()
 					                                                                                                                                                                        
 						<ToggleButtonGroup className='durationPrice' value={duration} exclusive onChange={handleDuration}>
 								<ToggleButton
-									className="durationButton"
+									className="durationButton col-5"
 									value="1 Day"
 								>
 									<div>
@@ -163,7 +163,7 @@ export default function ProductPage ()
 								</div>
 								</ToggleButton>
 								<ToggleButton
-									className="durationButton"
+									className="durationButton col-5"
 									value="1 Week"
 							>
 								<div>
@@ -172,7 +172,7 @@ export default function ProductPage ()
 								</div>
 								</ToggleButton>
 								<ToggleButton
-									className="durationButton"
+									className="durationButton col-5"
 									value="2 Weeks"
 								>
 								<div>
@@ -181,7 +181,7 @@ export default function ProductPage ()
 								</div>
 								</ToggleButton>
 								<ToggleButton
-									className="durationButton"
+									className="durationButton col-5"
 									value="1 Month"
 								>
 								<div>
@@ -190,7 +190,7 @@ export default function ProductPage ()
 								</div>
 								</ToggleButton>
 							<ToggleButton
-									className="durationButton"
+									className="durationButton col-5"
 									value="3 Months"
 								>
 								<div>
@@ -199,7 +199,7 @@ export default function ProductPage ()
 								</div>
 								</ToggleButton>
 							<ToggleButton
-									className="durationButton"
+									className="durationButton col-5"
 									value="6 Months"
 								>
 								<div>
@@ -225,7 +225,7 @@ export default function ProductPage ()
 							<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your package</h3>
 							<div className='btn btn-outline-dark col-3 packages'></div>
 							<div className='btn btn-outline-dark col-3 packages'></div>
-							<div className='btn btn-outline-dark col-3  packages'></div>
+							<div className='btn btn-outline-dark col-3 packages'></div>
 
 						</div>
 

@@ -1,6 +1,6 @@
 .productPage .productDesc {
 	display: flex;
-}
+	flex-direction: column;}
 
 .productPage .left {
 	margin-top: 40px;
@@ -93,12 +93,15 @@
 
 .productPage .right {
 	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
-	float: right;
 	right: 0px;
-	width: 25%;
-	height: auto;
-	position: absolute;
+	width: 30%;
+	position: fixed;
 	background-color: white;
+	top: 90px;
+    bottom:0;
+    position:fixed;
+    overflow-y:scroll;
+    overflow-x:hidden;
 }
 
 .productPage .right h2 {
@@ -468,7 +471,6 @@ h3 {
 
 .productPage .right .durationPrice .durationButton {
 	border-bottom: 2px;
-	width: 200px;
 	border-radius: 10px;
 }
 
@@ -476,12 +478,18 @@ h3 {
 	text-align: left;
 	width: 150px;
 	color: gray;
+	font-family:'Montserrat', sans-serif;
+	padding: 4px;
 }
 
 .productPage .right .durationPrice .durationButton .price {
 	text-align: left;
 	width: 150px;
 	text-transform: none !important;
+	font-family:'Montserrat', sans-serif;
+	font-weight: bold;
+	padding: 4px;
+
 }
 
 /*
@@ -540,5 +548,5 @@ h3 {
 	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.5);
 	border: none;
 	border-radius: 10px;
-	margin: 20px;
+	margin: 10px;
 }
