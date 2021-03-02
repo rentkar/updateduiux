@@ -53,8 +53,8 @@ export default function ProductPage ()
 			? 'durationButton'
 			: 'selectedDuration'; */
 		return (
-			<div className='productPage'>
-				<div className='productDesc'>
+			<div className='productPage col-12'>
+				{/*<div className='productDesc'>
 					<div className='left'>
 						<div className='productImages'>
 							<div className='ImageList'>
@@ -137,18 +137,20 @@ export default function ProductPage ()
 								</div>
 							</div>
 						</div>
+										</div> */}
+					<div className='left col-8'>
+					dkdkd
 					</div>
 					<div className='right'>
-						<div style={{ display: 'flex', flexDirection: 'row' }}>
+						<div className='product__name'>
 							<h2>Sony Play Station 4</h2>
-							<i
+							
+							<p style={{ marginTop: '25px', marginRight: '50px' }}><i
 								className='fas fa-star-half-alt'
 								style={{
 									color: '#FFC502',
-									marginTop: '30px',
-									marginRight: '20px',
-								}}></i>
-							<p style={{ marginTop: '25px', marginRight: '20px' }}>4.5</p>
+									
+								}}/>4.5</p>
 						</div>
 						<h3 style={{ textAlign: 'left' }}>Select your package</h3>
 					                                                                                                                                                                        
@@ -203,7 +205,7 @@ export default function ProductPage ()
 									value="6 Months"
 								>
 								<div>
-								<p className='duration'>6 Months</p>
+								<p className='duration col-12'>6 Months</p>
 								<p className='price'>Rs XXX/Day</p>
 								</div>
 								</ToggleButton>
@@ -217,9 +219,17 @@ export default function ProductPage ()
 
 
 						<div className='select__package'>
-							<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your package</h3>
-							<div className='btn btn-outline-dark col-10 free__game'><p>Select Free GAME 1</p></div>
-							<div className='btn btn-outline-dark col-10  free__game' style={{ marginTop: '20px' }}><p>Select Free GAME 2</p></div>
+						<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your package</h3>
+						<div className='search__game col-10'>
+						<i className="fa fa-search col-2" aria-hidden="true"></i>
+						<input type='search' className='col-9 free__game' placeholder='Search a Game'></input>
+						</div>
+						<div className='search__game col-10'>
+						<i className="fa fa-search col-2" aria-hidden="true"></i>
+						<input type='search' className='col-9 free__game' placeholder='Search a Game'></input>
+						</div>
+
+						
 
 					
 							<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your package</h3>
@@ -257,7 +267,7 @@ export default function ProductPage ()
 								<button>+ Rs XXX</button>
 							</div>
 							<div className='product'>
-								<p>Games</p>
+								<p >Games</p>
 								<button
 									style={{
 										marginLeft: 'auto',
@@ -345,7 +355,7 @@ export default function ProductPage ()
 						</div>
 					</div>
 				</div>
-
+/*
 				<div className='Products'>
 					<h2>Add more games</h2>
 					<div className='productList'>
@@ -387,7 +397,7 @@ export default function ProductPage ()
 						<a>
 							<i class='fas fa-search'></i>
 						</a>
-						{/* <i class="fas fa-search"></i> */}
+						{/* <i class="fas fa-search"></i> 
 					</div>
 				</div>
 				<div className='Products'>
@@ -587,8 +597,7 @@ export default function ProductPage ()
 					<div className='productCarousel' style={{ overflow: 'hidden' }}>
 						<ProductCarousel />
 					</div>
-				</div>
-			</div>
+				</div> */
 		);
 	}
 /*

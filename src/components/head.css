@@ -205,7 +205,7 @@
     
 } */
 .searc {
-	min-width: 30.5vw;
+	min-width: 33.5vw;
 	height: 43px;
 	border-radius: 9px;
 	border-color: #00ceff;
@@ -213,6 +213,7 @@
 	border-style: solid;
 	border-width: thin;
 	display: flex;
+	flex-direction: row;
 
 	/* padding: 1vh 0vh; */
 }
@@ -380,3 +381,4 @@
 		left: -9.0885px !important;
 	}
 }
+
