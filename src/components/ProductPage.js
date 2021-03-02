@@ -157,37 +157,55 @@ export default function ProductPage ()
 									className="durationButton"
 									value="1 Day"
 								>
-									1 Day
+									<div>
+								<p className='duration'>1 Day</p>
+								<p className='price'>Rs XXX/Day</p>
+								</div>
 								</ToggleButton>
 								<ToggleButton
 									className="durationButton"
 									value="1 Week"
-								>
-									1 Week
+							>
+								<div>
+								<p className='duration'>1 Week</p>
+								<p className='price'>Rs XXX/Day</p>
+								</div>
 								</ToggleButton>
 								<ToggleButton
 									className="durationButton"
 									value="2 Weeks"
 								>
-									2 Weeks
+								<div>
+								<p className='duration'>2 Weeks</p>
+								<p className='price'>Rs XXX/Day</p>
+								</div>
 								</ToggleButton>
 								<ToggleButton
 									className="durationButton"
 									value="1 Month"
 								>
-								1 Month
+								<div>
+								<p className='duration'>1 Month</p>
+								<p className='price'>Rs XXX/Day</p>
+								</div>
 								</ToggleButton>
 							<ToggleButton
 									className="durationButton"
 									value="3 Months"
 								>
-								3 Months
+								<div>
+								<p className='duration'>3 Months</p>
+								<p className='price'>Rs XXX/Day</p>
+								</div>
 								</ToggleButton>
 							<ToggleButton
 									className="durationButton"
 									value="6 Months"
 								>
-									6 Months
+								<div>
+								<p className='duration'>6 Months</p>
+								<p className='price'>Rs XXX/Day</p>
+								</div>
 								</ToggleButton>
 								</ToggleButtonGroup>
 						
@@ -200,16 +218,14 @@ export default function ProductPage ()
 
 						<div className='select__package'>
 							<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your package</h3>
-							<div className='btn btn-outline-dark col-10'>Select your first free game</div>
-							<div className='btn btn-outline-dark col-10' style={{ marginTop: '20px' }}>Select your second free game</div>
+							<div className='btn btn-outline-dark col-10 free__game'><p>Select Free GAME 1</p></div>
+							<div className='btn btn-outline-dark col-10  free__game' style={{ marginTop: '20px' }}><p>Select Free GAME 2</p></div>
 
-						</div>
-						
-						<div className='select__package'>
+					
 							<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your package</h3>
-							<div className='btn btn-outline-dark col-3' style={{ marginTop: '20px', marginRight: '20px', height:'120px'}}></div>
-							<div className='btn btn-outline-dark col-3'  style={{ marginTop: '20px', marginRight: '20px', height:'120px' }}></div>
-							<div className='btn btn-outline-dark col-3' style={{ marginTop: '20px', marginRight: '20px', height:'120px' }}></div>
+							<div className='btn btn-outline-dark col-3 packages'></div>
+							<div className='btn btn-outline-dark col-3 packages'></div>
+							<div className='btn btn-outline-dark col-3  packages'></div>
 
 						</div>
 
@@ -234,7 +250,7 @@ export default function ProductPage ()
 						</div>
 
 
-						<div className='Summary' style={ { marginTop: '50px' } } >
+						<div className='summary' style={ { marginTop: '50px' } } >
 							<h3 style={{textAlign: 'left'}}>Product Summary</h3>
 							<div className='product'>
 								<p>PS4 + Controller</p>

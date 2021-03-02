@@ -340,34 +340,34 @@
 	border: 0.5px #83d6f3;
 }
 
-.productPage .right .Summary .product {
+.productPage .right .summary .product {
 	display: flex;
 	flex-direction: row;
 	font-weight: bold;
 	margin: 20px;
 }
 
-.productPage .right .Summary .product p {
-	max-width: 150px;
+.productPage .right .summary .product p {
+	width: 150px;
 	text-align: left;
 }
 
-.productPage .right .Summary .product button {
+.productPage .right .summary .product button {
 	padding: 5px;
 	min-width: 80px;
 	border: 0.5px solid #707070;
-	border-radius: 5px;
+	border-radius: 10px;
 	margin-left: auto;
 	margin-right: 40px;
 	background-color: #ffffff;
 }
 
-.productPage .right .Summary .placeOrder {
+.productPage .right .summary .placeOrder {
 	display: flex;
 	flex-direction: row;
 }
 
-.productPage .right .Summary .placeOrder .couponStatus {
+.productPage .right .summary .placeOrder .couponStatus {
 	width: 150px;
 	height: 70px;
 	margin: 20px;
@@ -376,7 +376,7 @@
 	border-radius: 10px;
 }
 
-.productPage .right .Summary .placeOrder .couponStatus p {
+.productPage .right .summary .placeOrder .couponStatus p {
 	text-align: center;
 	vertical-align: middle;
 	font-weight: bold;
@@ -385,7 +385,7 @@
 	line-height: 70px;
 }
 
-.productPage .right .Summary .placeOrder button {
+.productPage .right .summary .placeOrder button {
 	min-width: 200px;
 	max-height: 70px;
 	margin-top: 20px;
@@ -397,11 +397,11 @@
 	font-weight: bold;
 }
 
-.productPage .right .Summary .placeOrder button a{
+.productPage .right .summary .placeOrder button a{
 			text-decoration: none;
 			color: white;
 }
-.productPage .right .Summary .placeOrder button :active {
+.productPage .right .summary .placeOrder button :active {
 	color: #19eeb5;
 	transition-duration: 500;
 	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
@@ -463,10 +463,25 @@ h3 {
 	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.5);
 	margin: 20px 0px 0px 10px;
 	margin-left: 60px;
+	
 }
 
 .productPage .right .durationPrice .durationButton {
 	border-bottom: 2px;
+	width: 200px;
+	border-radius: 10px;
+}
+
+.productPage .right .durationPrice .durationButton .duration {
+	text-align: left;
+	width: 150px;
+	color: gray;
+}
+
+.productPage .right .durationPrice .durationButton .price {
+	text-align: left;
+	width: 150px;
+	text-transform: none !important;
 }
 
 /*
@@ -501,4 +516,29 @@ h3 {
 .cgst{
 	display: flex;
 	flex-direction: column;
+}
+
+
+.select__package .free__game{
+	height: 60px;
+	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.5);
+	border: none;
+	border-radius: 10px;
+}
+
+.select__package .free__game p{
+	align-items: center;
+	justify-content: center;
+	height: 50px;
+	display: flex;
+	color: black;
+	font-weight: bold;
+}
+
+.select__package .packages{
+	height: 120px;
+	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.5);
+	border: none;
+	border-radius: 10px;
+	margin: 20px;
 }
