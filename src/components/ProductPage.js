@@ -273,30 +273,22 @@ export default function ProductPage ()
 						<div className='summary' style={ { marginTop: '50px' } } >
 							<h3 style={{textAlign: 'left'}}>Product Summary</h3>
 							<div className='product'>
-								<p>PS4 + Controller</p>
-								<button>+ Rs XXX</button>
+							<p>PS4 + Controller</p>
+								<div className='btn btn-outline-dark'>+ Rs XXX</div>
 							</div>
 							<div className='product'>
-								<p >Games</p>
-								<button
-									style={{
-										marginLeft: 'auto',
-										marginRight: '0px',
-									}}>
-									2 X
-								</button>
-								<button>+ Rs XXX</button>
+							<p >Games</p>
+								<div className='btn btn-outline-dark'>2X</div>
+								<div className='btn btn-outline-dark'>+ Rs XXX</div>
 							</div>
 							<div className='product'>
 								<p>Controller</p>
-								<button style={{ marginLeft: 'auto', marginRight: '0px' }}>
-									3 X
-								</button>
-								<button>+ Rs XXX</button>
+								<div className='btn btn-outline-dark'>3X</div>
+								<div className='btn btn-outline-dark'>+ Rs XXX</div>
 							</div>
 							<div className='product'>
 								<p>Coupon</p>
-								<button>+ Rs XXX</button>
+								<div className='btn btn-outline-dark'>+ Rs XXX</div>
 						</div>
 						<div className='sgst'>
 							<p
