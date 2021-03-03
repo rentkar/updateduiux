@@ -1,7 +1,11 @@
 .productPage {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	margin: 0px;
+	padding: 0px;
+}
+
+.productPage .left {
 	margin: 0px;
 	padding: 0px;
 }
@@ -40,20 +44,14 @@
 	margin: 10px 10px 10px 20px;
 	padding: 1px;
 	color: black;
-	border: 1px solid rgb(202, 199, 199);
 	border-radius: 5px;
+	border: 1px solid rgb(202, 199, 199);
+	height: 50px;
 }
 
 
-.productPage .right .durationPrice .selectedDuration{
-	border-bottom: 6px solid #1bacf4;
-	background-color: white;
-	margin: 10px 10px 10px 20px;
-	padding: 1px;
-	}
-
-.productPage .right .durationPrice .durationButton p {
-	font-size: 12px;
+.MuiToggleButton-root.Mui-selected{
+	border-bottom: 3px solid #1bacf4 !important;
 }
 
 .productPage .right .summary .product {
@@ -128,6 +126,8 @@
 	padding: 4px;
 	width: 150px;
 	display: flex;
+	font-size: 10px;
+	margin: 2px;
 }
 
 .productPage .right .durationPrice .durationButton .price {
@@ -136,7 +136,8 @@
 	font-family:'Montserrat', sans-serif;
 	font-weight: bold;
 	padding: 4px;
-
+	font-size: 10px;
+	margin: 2px;
 }
 
 
@@ -168,7 +169,6 @@
 }
 
 .productPage .right .summary .placeOrder .couponStatus {
-	width: 150px;
 	height: 70px;
 	margin: 20px;
 	background-color: #e8fffc;
@@ -186,7 +186,6 @@
 }
 
 .productPage .right .summary .placeOrder button {
-	min-width: 200px;
 	max-height: 70px;
 	margin-top: 20px;
 	border: 1px solid #28a5e5;
@@ -213,21 +212,29 @@
 	-webkit-backdrop-filter: saturate(180%) blur(20px);
 	backdrop-filter: saturate(180%) blur(20px);    
 	left: -800px !important;
-	overflow: visible;
-	position: absolute;
+}
+
+.react-google-flight-datepicker .date{
+	border: 1px solid rgb(202, 199, 199) !important;
+	margin-right: 10px;
+	max-width: 100px !important;
 }
 
 .sgst{
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 20px;
 }
 
 .cgst{
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 20px;
 }
-
-.select__package .search__game{
+/*
+.select__games .search__game{
 	display: flex;
 	flex-direction: row;
 	height: 50px;
@@ -238,13 +245,26 @@
 	justify-content: start;
 }
 
-.select__package .search__game i{
+.select__games .search__game i{
 	padding: 0px;
 	display: flex;
 	align-items: center;
 }
-.select__package .free__game{
+
+
+.select__games .free__game{
 	border: none;
+}  
+*/
+.select__games{
+	
+}
+
+.select__games .games{
+	height: 120px;
+	border: 1px solid rgb(202, 199, 199);
+	border-radius: 10px;
+	margin: 10px;
 }
 
 .select__package .packages{
@@ -266,7 +286,65 @@
 }
 }
 
-.react-google-flight-datepicker .date{
-	border: 1px solid rgb(202, 199, 199) !important;
-	margin-right: 10px;
+
+
+@media screen and (max-width: 1560px){
+.productPage .right h2 {
+	font-size: 18px;
+}
+.productPage .right p {
+	font-size: 10px;
+}
+
+.productPage .right h3 {
+	font-size: 12px;
+}
+
+
+.productPage .right .durationPrice .durationButton {
+	margin: 10px 10px 10px 10px;
+}
+
+
+.MuiToggleButton-root.Mui-selected{
+	border-bottom: 3px solid #1bacf4 !important;
+}
+
+.productPage .right .summary .product {
+	margin: 20px;
+}
+
+.productPage .right .summary .product p {
+	text-align: left;
+}
+
+.productPage .right .summary .product button {
+	padding: 5px;
+	border: 1px solid rgb(202, 199, 199);
+	border-radius: 10px;
+	margin-left: auto;
+	margin-right: 40px;
+	background-color: #ffffff;
+}
+
+.productPage .right .summary .placeOrder {
+	display: flex;
+	flex-direction: row;
+}
+
+
+
+.productPage .right .summary .placeOrder .couponStatus p {
+	font-size: 10px;
+}
+
+.productPage .right .summary .placeOrder button {
+	font-size: 10px;
+}
+
+.productPage .right .durationPrice .durationButton .duration {
+	max-width: 90px;
+}
+
+
 }

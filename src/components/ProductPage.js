@@ -17,6 +17,21 @@ import { Link } from 'react-router-dom';
 
 export default function ProductPage ()
 {
+
+		const [duration, setDuration] = useState('1 Day');
+
+	const handleDuration = ( event, newDuration ) =>
+	{
+		setDuration( newDuration );
+	}
+
+
+	 const [d, setD] = React.useState("3 Day");
+
+  const handleD = (event, newD) => {
+    setD(newD);
+  };
+				
 	/* constructor(props) {
 		super(props);
 		this.state = {
@@ -42,18 +57,15 @@ export default function ProductPage ()
 	}
 	
 
-		const [duration, setDuration] = useState("1 Day");
+		
 
-  		const handleDuration = (event, newDuration) => {
-    	setDuration(newDuration);
-  };
-		const durations = ['1 Day', '1 Week', '2 Weeks', '1 Month', '3 Months', '6 Months']
+		//const durations = ['1 Day', '1 Week', '2 Weeks', '1 Month', '3 Months', '6 Months']
 		//const [duration, setduration] = useState(props.index ? props.index : 0)
 	/*	let durationBtn = this.state.durationB
 			? 'durationButton'
 			: 'selectedDuration'; */
 		return (
-			<div className='productPage col-12'>
+			<div className='productPage row'>
 				{/*<div className='productDesc'>
 					<div className='left'>
 						<div className='productImages'>
@@ -138,10 +150,10 @@ export default function ProductPage ()
 							</div>
 						</div>
 										</div> */}
-					<div className='left col-8'>
+					<div className='left col-9'>
 					dkdkd
 					</div>
-					<div className='right'>
+					<div className='right col-3'>
 						<div className='product__name'>
 							<h2>Sony Play Station 4</h2>
 							
@@ -154,12 +166,12 @@ export default function ProductPage ()
 						</div>
 						<h3 style={{ textAlign: 'left' }}>Select your package</h3>
 					                                                                                                                                                                        
-						<ToggleButtonGroup className='durationPrice' value={duration} exclusive onChange={handleDuration}>
+						<ToggleButtonGroup className='durationPrice' value={d} exclusive onChange={handleD}>
 								<ToggleButton
 									className="durationButton col-5"
 									value="1 Day"
 								>
-									<div>
+								<div>
 								<p className='duration'>1 Day</p>
 								<p className='price'>Rs XXX/Day</p>
 								</div>
@@ -209,29 +221,27 @@ export default function ProductPage ()
 								<p className='price'>Rs XXX/Day</p>
 								</div>
 								</ToggleButton>
-								</ToggleButtonGroup>
-						
-						
-						
-						    
-							
+								</ToggleButtonGroup>		
 						
 
 
+						<div className='select__games'>
+						<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your games</h3>
+						<div className='btn btn-outline-dark col-3 games'></div>
+						<div className='btn btn-outline-dark col-3 games'></div>
+						{/*
+						<div className='search__game col-10'>
+						<i className="fa fa-search col-2" aria-hidden="true"></i>
+						<input type='search' className='col-9 free__game' placeholder='Search a Game'></input>
+						</div>
+						<div className='search__game col-10'>
+						<i className="fa fa-search col-2" aria-hidden="true"></i>
+						<input type='search' className='col-9 free__game' placeholder='Search a Game'></input>
+							</div> */}
+
+						
+						</div>
 						<div className='select__package'>
-						<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your package</h3>
-						<div className='search__game col-10'>
-						<i className="fa fa-search col-2" aria-hidden="true"></i>
-						<input type='search' className='col-9 free__game' placeholder='Search a Game'></input>
-						</div>
-						<div className='search__game col-10'>
-						<i className="fa fa-search col-2" aria-hidden="true"></i>
-						<input type='search' className='col-9 free__game' placeholder='Search a Game'></input>
-						</div>
-
-						
-
-					
 							<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your package</h3>
 							<div className='btn btn-outline-dark col-3 packages'></div>
 							<div className='btn btn-outline-dark col-3 packages'></div>
@@ -239,7 +249,7 @@ export default function ProductPage ()
 
 						</div>
 
-						<div className='dateSlot col-12' style={ { marginTop: '50px' } }>
+						<div className='dateSlot' style={ { marginTop: '50px' } }>
 							<h3 style={{ textAlign: 'left' }}>
 							Enter delivery and pickup dates
 						</h3>
@@ -287,26 +297,8 @@ export default function ProductPage ()
 							<div className='product'>
 								<p>Coupon</p>
 								<button>+ Rs XXX</button>
-							</div>
-							<h2
-								style={{
-									color: '#28A5E5',
-									textAlign: 'left',
-									fontWeight: '600',
-									marginBottom: '0px',
-								}}>
-								Total : Rs XXX
-							</h2>
-							
-							<p
-								style={{
-									textAlign: 'left',
-									margin: '5px 20px',
-									fontSize: '12px',
-								}}>
-								Inclusive of all taxes | Tax breakdown
-							</p>
-							<div className='sgst'>
+						</div>
+						<div className='sgst'>
 							<p
 							style={{
 									textAlign: 'left',
@@ -346,11 +338,30 @@ export default function ProductPage ()
 								</p>
 								</b>
 							</div>
+							<h2
+								style={{
+									color: '#28A5E5',
+									textAlign: 'left',
+									fontWeight: '600',
+									marginBottom: '0px',
+								}}>
+								Total : Rs XXX
+							</h2>
+							
+							<p
+								style={{
+									textAlign: 'left',
+									margin: '5px 20px',
+									fontSize: '12px',
+								}}>
+								Inclusive of all taxes | Tax breakdown
+							</p>
+							
 							<div className='placeOrder'>
-								<div className='couponStatus'>
+								<div className='couponStatus col-5'>
 									<p>Coupon Applied</p>
 								</div>
-								<button><Link to='/checkout'>Place Order</Link></button>
+								<button className='col-5'><Link to='/checkout'>Place Order</Link></button>
 							</div>
 						</div>
 					</div>
