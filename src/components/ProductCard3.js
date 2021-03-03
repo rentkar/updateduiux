@@ -3,7 +3,6 @@ import "./ProductCard3.css";
 import bg from "../images/card.png";
 function ProductCard3() {
   return (
-    <div>
       <div className="product__card">
         <div className="card" style={{ backgroundImage: `url(${bg})` }}>
           <div className="title">
@@ -16,7 +15,6 @@ function ProductCard3() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

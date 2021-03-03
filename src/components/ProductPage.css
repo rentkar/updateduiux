@@ -6,8 +6,7 @@
 }
 
 .productPage .left {
-	margin: 0px;
-	padding: 0px;
+	padding-left: 10%;
 }
 
 .productPage .right {
@@ -88,11 +87,10 @@
 
 .productPage .right .summary .placeOrder .couponStatus p {
 	text-align: center;
-	vertical-align: middle;
+	justify-content: center;
 	font-weight: bold;
 	color: #27d2bb;
-	font-size: 16px;
-	line-height: 70px;
+	font-size: 13px;
 }
 
 .productPage .right .summary .placeOrder button {
@@ -102,7 +100,7 @@
 	border-radius: 10px;
 	background-color: #28a5e5;
 	color: #fff;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: bold;
 }
 
@@ -175,7 +173,7 @@
 	vertical-align: middle;
 	font-weight: bold;
 	color: #27d2bb;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 70px;
 }
 
@@ -186,7 +184,7 @@
 	border-radius: 10px;
 	background-color: #28a5e5;
 	color: #fff;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: bold;
 }
 
@@ -212,6 +210,11 @@
 	border: 1px solid rgb(202, 199, 199) !important;
 	margin-right: 10px;
 	max-width: 100px !important;
+}
+
+.react-google-flight-datepicker .date-picker-input{
+	margin-left: 10px !important;
+	padding: 0px !important;
 }
 
 .sgst{
@@ -267,14 +270,71 @@
 }
 
 
+.productPage .left .product__card__section{
+	display: flex;
+	flex-direction: row;
+}
+
+.productPage .left .description p{
+	display: flex;
+	text-align: left;
+}
+
+.productPage .left .description h2{
+	margin: 10px 0px;
+	font-size: 20px;
+}
+
+.productPage .left .specifications {
+	margin-top: 50px;
+}
+.productPage .left .specifications h2{
+	margin: 10px 0px;
+	font-size: 20px;
+}
+
+.productPage .left .specifications p{
+	display: flex;
+	text-align: left;
+}
+
+.productPage .left .box{
+	
+	height: 500px;
+	width: 600px;
+	border-radius: 10px;
+	border: 1px solid rgb(202, 199, 199);
+	padding: 20px;
+}
+
+
+
+
+.productPage .left .recommendations h2{
+	margin: 50px 0px;
+	font-size: 20px;
+}
+
+
+.productPage .left .product__card__section .product__back__card .product__card .card .flipside p {
+	font-size: 28px;
+	justify-content: center;
+	margin: 0px;
+	padding: 0px;
+	align-content: center;
+}
+
+.productPage .left .product__card__section .product__back__card .product__card .card .flipside{
+	margin: 22px;
+	font-weight: bolder;
+	text-align: left;
+	color: black;
+}
+
 @media screen and (max-width: 992px){
   .react-google-flight-datepicker .dialog-date-picker{
    
 	left: 0 !important;
-}
-
-.productPage .right {
-    top: 70px;
 }
 }
 
@@ -303,7 +363,7 @@
 }
 
 .productPage .right .summary .placeOrder button {
-	font-size: 10px;
+	font-size: 12px;
 }
 
 .productPage .right .durationPrice .durationButton .duration {
@@ -323,6 +383,6 @@
 
 
 .productPage .right .summary .product p {
-	width: 50px !important;
+	width: 90px !important;
 }
 }
