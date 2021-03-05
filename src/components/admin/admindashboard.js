@@ -1,5 +1,5 @@
 import React, { Component, useState, useContext, useEffect } from "react";
-
+import { Table} from 'react-bootstrap'
 import rental_s from "../../images/icons/rental_s.png";
 import bag_s from "../../images/bagb.png";
 import bag_g from "../../images/bag.png";
@@ -347,6 +347,32 @@ function Dash ()
         <h3>PENDING</h3>
         <h3>ANDHERI E</h3>
         </div>
+      </div>
+      <div className='table'>
+        <Table striped bordered hover responsive className="table-sm">
+          <thead>
+            <th>User ID</th>
+            <th>UserName</th>
+            <th>Order ID</th>
+            <th>Order Sub ID</th>
+            <th>Amount Pending</th>
+            <th>Product</th>
+            <th>Status</th>
+            <th>Location</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>9045XXXXXX</td>
+              <td>Tanuj</td>
+              <td>#5000</td>
+              <td>#5000a</td>
+              <td>4000</td>
+              <td>PS4P9</td>
+              <td>Pending</td>
+              <td>Andheri</td>
+            </tr>
+          </tbody>
+        </Table>
       </div>
     </div>
   )
