@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Popup from 'reactjs-popup';
 import { Grid } from 'semantic-ui-react';
-import Login from './Login';
+import LoginModal from './LoginModal';
 import { BrowserRouter as Link } from 'react-router-dom';
 import guitar from '../images/guitar2.png';
 
@@ -214,7 +214,7 @@ export const Head = (props) => {
 				
 				<div className='but' id='sign'>
 					<button onClick={() => setaddModalshow(true)}>Login/Sign Up</button>
-					<Login show={addModalshow} onHide={addModalclose} />
+					<LoginModal show={addModalshow} onHide={addModalclose} />
 				</div>
 			{/*	<div className="notification__bell">
 					<button> <img src='images/notificationbell.png' /><span className="notifications">9</span></button>

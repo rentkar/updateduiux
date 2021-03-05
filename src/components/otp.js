@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
+import logo_trans from '../images/logo_trans.png';
+
 import './Login.css';
 
-export class Login extends Component {
+export class OTP extends Component {
     constructor(props) {
         super(props);
 
@@ -16,14 +18,16 @@ export class Login extends Component {
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.toggleShow = this.toggleShow.bind(this);
     }
-
-        continue = e => {
+    confirm = e => {
         e.preventDefault();
-        this.props.nextStep();
+        this.props.show();
+
+    }
+
+    back = e => {
+        e.preventDefault();
+        this.props.prevStep();
     };
-
-
-
     handlePasswordChange(e) {
         this.setState({ password: e.target.value });
     }
@@ -45,17 +49,17 @@ export class Login extends Component {
         }
         return (
             <div className='login'>
-            
-                    
+        
                     <div id="in">
-                        <input className="email" placeholder='Enter your phone number'></input>
-                    </div>
-                    <div className='buttons'>
-                    <button className='but2' onClick={this.continue}>Send OTP</button>
-                    </div>
+                        <input className="email" placeholder='Enter your OTP'></input>
+				</div>
+				        <div className='buttons'>
+                    <button className='but1' onClick={this.back} >Re-enter Mobile Number</button>
+					<Link to='/about'><button onClick={ this.confirm }className='but2'>Login</button></Link>
+                </div>
             </div>
         )
     }
 }
 
-export default Login
+export default OTP

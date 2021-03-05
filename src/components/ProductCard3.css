@@ -40,8 +40,8 @@
   border-bottom-width: 1px;
   width: fit-content;
   border-bottom-style: solid;
-  font-size: 17px;
-  font-weight: bolder;
+  font-size: 18px;
+  font-weight: 800;
 }
 
 .product__card .card .title .startsAt {
@@ -93,7 +93,7 @@
   }
 
   .product__card .card .title {
-    width: 52px;
+    width: 70px;
     height: auto;
     border-radius: 0px 0px 15px 0px;
   }
