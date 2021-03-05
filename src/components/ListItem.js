@@ -8,7 +8,7 @@ import './Listitem.css';
 import Personaldetail from './List_item/Personaldetail';
 import Items from './List_item/Items';
 import Confirmation from './List_item/Confirmation';
-
+import ProductDetail from './List_item/ProductDetail'
 
 
 
@@ -64,7 +64,14 @@ export class DotsMobileStepper extends Component {
     three = () => {
         this.setState({
             step: 3
-        })
+        } )
+
+    }
+    four = () => {
+        this.setState({
+            step: 4
+        } )
+
     }
 
     show = () => {
@@ -72,7 +79,6 @@ export class DotsMobileStepper extends Component {
         // alert('sad');
         // this.setState({ addModalshow: false })
         this.props.onHide();
-
     }
 
     // Handle fields change
@@ -98,7 +104,9 @@ export class DotsMobileStepper extends Component {
                         <div className='dots'>
                             <i style={{ color: `#0B90D3` }} class="fas fa-circle"></i>
                             <i onClick={this.two} class="fas fa-circle"></i>
-                            <i onClick={this.three} class="fas fa-circle"></i>
+                            <i onClick={ this.three } class="fas fa-circle"></i>
+                            <i onClick={this.four} class="fas fa-circle"></i>
+
                         </div>
 
                         <Personaldetail nextStep={this.nextStep}
@@ -118,11 +126,38 @@ export class DotsMobileStepper extends Component {
                         size="lg"
                         aria-labelledby="contained-modal-title-vcenter"
                         centered>
+                        <div className='dots'>
+                            <i onClick={ this.one } class="fas fa-circle"></i>
+                            <i style={{ color: `#0B90D3` }} class="fas fa-circle"></i>
+                            <i onClick={ this.three } class="fas fa-circle"></i>
+                            <i onClick={this.four} class="fas fa-circle"></i>
+
+                        </div>
+
+                        <ProductDetail nextStep={this.nextStep}
+                            selected={this.state.selected}
+                            show={this.show}
+                            handleChange={ this.handleChange }
+                            prevStep={this.prevStep}no
+                            values={values} />
+
+
+                    </Modal>
+                );
+            case 3:
+                return (
+                    <Modal
+                        {...this.props}
+                        size="lg"
+                        aria-labelledby="contained-modal-title-vcenter"
+                        centered>
 
                         <div className='dots'>
                             <i onClick={this.one} class="fas fa-circle"></i>
-                            <i style={{ color: `#0B90D3` }} onClick={this.two} class="fas fa-circle"></i>
-                            <i onClick={this.three} class="fas fa-circle"></i>
+                            <i onClick={ this.two } class="fas fa-circle"></i>
+                        <i style={{ color: `#0B90D3` }} onClick={this.two} class="fas fa-circle"></i>
+                            <i onClick={this.four} class="fas fa-circle"></i>
+
                         </div>
                         <Items nextStep={this.nextStep}
                             prevStep={this.prevStep}
@@ -132,7 +167,7 @@ export class DotsMobileStepper extends Component {
 
                     </Modal>
                 );
-            case 3:
+            case 4:
                 return (
                     <Modal
                         {...this.props}
@@ -143,7 +178,8 @@ export class DotsMobileStepper extends Component {
                         <div className='dots'>
                             <i onClick={this.one} class="fas fa-circle"></i>
                             <i onClick={this.two} class="fas fa-circle"></i>
-                            <i style={{ color: `#0B90D3` }} class="fas fa-circle"></i>
+                            <i onClick={ this.three } class="fas fa-circle"></i>
+                            <i style={ { color: `#0B90D3` } } class="fas fa-circle"></i>
                         </div>
                         <Confirmation prevStep={this.prevStep}
                             selected={this.state.selected}

@@ -391,6 +391,18 @@ export class Body extends Component {
             <ProductCarousel2 />
           </div>
         </div>
+        <div className="new">
+          <div className="Heading">
+            <h1>NEW PRODUCTS</h1>
+          </div>
+
+          {/* <div className='category'>
+						<ProductCarousel />
+					</div> */}
+          <div className="category">
+            <ProductCarousel2 />
+          </div>
+        </div>
         <div className="list3">
           <div className="final">
             <div className="para">

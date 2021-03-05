@@ -175,13 +175,13 @@ export const Head = (props) => {
 								<img src={bag} alt='bag' />
 								Bag
 								<span
+									className='bag__count'
 									style={{
 										position: 'relative',
 										top: '-10px',
 										right: '-8px',
 										padding: '5px 10px',
 										borderRadius: '100%',
-										background: 'red',
 										color: 'white',
 										marginRight: '-25px',
 									}}>
@@ -216,9 +216,9 @@ export const Head = (props) => {
 					<button onClick={() => setaddModalshow(true)}>Login/Sign Up</button>
 					<Login show={addModalshow} onHide={addModalclose} />
 				</div>
-				<div className="notification__bell">
+			{/*	<div className="notification__bell">
 					<button> <img src='images/notificationbell.png' /><span className="notifications">9</span></button>
-				</div>
+				</div> */}
 				<div className='bar'>
 					{/* <i class="fas fa-bars"></i> */}
 					<img src={bar} alt='bag' />

@@ -52,30 +52,32 @@ import { SaveProductContext } from "../components/SaveProductContext";
 
 const icons = [
   bag_g,
+  rental_s,
   listing_s,
   verification_s,
   support_s,
   settings_s,
-  rental_s
+  
 ];
 const icons_g = [
   bag_s,
+  rental_g,
   listing_g,
   verification_g,
   support_g,
   settings_g,
-  rental_g
+  
 ];
 const iconDesc = [
   "My Bag",
+  "My Rentals",
   "My Listings",
   "Verification",
   "Help & Support",
   "Settings",
-  "My Rentals"
 ];
 
-function MyBag() {
+function Rentals() {
   const [product, setProduct] = useContext(ProductContext);
   // const [total_single_item, settotal_single_item] = useState()
   const [saveForLater, setSaveForLater] = useState([]);
@@ -346,7 +348,7 @@ function MyBag() {
   );
 }
 
-function Rentals(props) {
+function MyBag(props) {
   const [product, setProduct] = useContext(ProductContext);
   // const [total_single_item, settotal_single_item] = useState()
   const [saveForLater, setSaveForLater] = useState([]);
@@ -1290,11 +1292,12 @@ export const UserDash = (props) => {
 
   var indexMap = {
     0: "/about",
-    1: "/mylisting",
-    2: "/verification/",
-    3: "/support",
-    4: "/settings",
-    5: "/rentals"
+    1: "/rentals",
+    2: "/mylisting",
+    3: "/verification/",
+    4: "/support",
+    5: "/settings",
+  
   };
 
   const DetailsCard = ({ index }) => (
@@ -1357,10 +1360,10 @@ export const UserDash = (props) => {
         })}
       </div>
       <div className="buttons">
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Insurance Policy</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Privacy Policy</a>
+        <a href="/terms&conditions">Terms & Conditions</a>
+          <a href="/shippingpolicy">Shipping Policy</a>
+          <a href="/privacypolicy">Privacy Policy</a>
+          <a href="/termsofuse">Terms of Use</a>
       </div>
     </div>
   );
@@ -1409,10 +1412,10 @@ export const UserDash = (props) => {
           })}
         </div>
         <div className="buttons">
-          <a href="#">Terms & Conditions</a>
-          <a href="#">Insurance Policy</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Privacy Policy</a>
+          <a href="/terms&conditions">Terms & Conditions</a>
+          <a href="/shippingpolicy">Shipping Policy</a>
+          <a href="/privacypolicy">Privacy Policy</a>
+          <a href="/termsofuse">Terms of Use</a>
         </div>
       </div>
 
@@ -1423,7 +1426,7 @@ export const UserDash = (props) => {
               Home &gt; My Account &gt;
               <span style={{ color: "#1bacf4" }}> {iconDesc[index]}</span>
             </p>
-            {index === 1 ? (
+            {index === 2 ? (
               <div className="mylisting__button_div">
                 <Button
                   className="mylisting__button"
@@ -1437,7 +1440,7 @@ export const UserDash = (props) => {
                 />
               </div>
             ) : null}
-            {index === 2 ? (
+            {index === 3 ? (
               <p
                 style={{
                   marginTop: "5px",
@@ -1456,22 +1459,20 @@ export const UserDash = (props) => {
         ) : (
           <div className="userdashMobile">
             <div class="userdash_header">
-              <Link to="/home" style={{ textDecoration: "none" }}>
-                <h4 style={{ paddingLeft: "10px", paddingRight: "10px" }}>
-                  &lt;
-                </h4>
-              </Link>
+            <Link to="/home" style={{ textDecoration: "none" }}>
+                  <i className="fas fa-chevron-left fa-xs"></i>
+                </Link>
               <p style={{ margin: "0px auto"}}>{iconDesc[index]}</p>
             </div>
           </div>
         )}
-        {index === 1 ? <MyListing /> : null}
+        {index === 2 ? <MyListing /> : null}
         {index === 0 ? <MyBag /> : null}
-        {index === 2 ? <Verification /> : null}
-        {index === 2 ? <MobileVerification /> : null}
-        {index === 3 ? <Support /> : null}
-        {index === 4 ? <Settings user={user} setuser={setuser} /> : null}
-        {index === 5 ? <Rentals /> : null}
+        {index === 3 ? <Verification /> : null}
+        {index === 3 ? <MobileVerification /> : null}
+        {index === 4 ? <Support /> : null}
+        {index === 5 ? <Settings user={user} setuser={setuser} /> : null}
+        {index === 1 ? <Rentals /> : null}
       </div>
     
     </div>

@@ -11,6 +11,7 @@ import { Know_more } from './components/Know_more'
 import { Category } from './components/Category'
 import { UserDash } from './components/UserDash'
 import ProductPage from './components/ProductPage'
+import Product from './components/product'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import TermsAndConditions from './components/TermsAndConditions'
 import DocumentsRequiredForVerification from './components/DocumentsRequiredForVerification'
@@ -53,6 +54,16 @@ function App() {
 								<Footer />
 								</>
 							</Route>
+
+							<Route path='/productt'>
+								<>
+								<Floatnav className='floatnav' />
+								<Head />
+								<Product />
+								<Footer />
+								</>
+							</Route>
+
 							<Route path='/checkout'>
 								<>
 								<Floatnav className='floatnav' />
@@ -133,14 +144,14 @@ function App() {
 							)}
 						/>
 	
-						<Route path='/mylisting' render={(props) => <UserDash ind={1} />} />
+							<Route path='/mylisting' render={ ( props ) => <UserDash ind={ 2 } />} />
 						<Route
 							path='/verification'
-							render={(props) => <UserDash ind={2} />}
+							render={(props) => <UserDash ind={3} />}
 						/>
-						<Route path='/settings' render={(props) => <UserDash ind={4} />} />
-						<Route path='/support' render={(props) => <UserDash ind={3} />} />
-						<Route path='/rentals' render={(props) => <UserDash ind={5} />} />
+						<Route path='/settings' render={(props) => <UserDash ind={5} />} />
+						<Route path='/support' render={(props) => <UserDash ind={4} />} />
+						<Route path='/rentals' render={(props) => <UserDash ind={1} />} />
 						<Route
 							exact
 							path='/home'

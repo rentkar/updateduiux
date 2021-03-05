@@ -27,23 +27,23 @@ export class Item extends Component {
     //     backgroundImage: 'url(' + {guitar} + ')'
     // }
     items = [
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>,
-        <div style={this.image} ><i class="fas fa-check-circle"></i></div>
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
     ]
 
 
@@ -77,7 +77,8 @@ export class Item extends Component {
         return (
             <div className='chooseitems'>
 
-                <h1>Choose the items below </h1>
+                <h1>Did you know you can also rent these products!</h1>
+    
                 <div className='items'>
                     {
                         this.items.map((item, index) => {
@@ -87,7 +88,8 @@ export class Item extends Component {
                             )
                         })
                     }
-                </div>
+                    </div>
+                
 
                 <div className='buttons'>
                     <button className='but1' onClick={this.back}>Previous</button>

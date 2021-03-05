@@ -1,0 +1,42 @@
+.select-package-button {
+  text-align: left;
+}
+.package-rent {
+  font-weight: bold;
+}
+.package-button {
+  display: block;
+  border-radius: 8px;
+  text-align: center;
+}
+.product-summary {
+  font-weight: bold;
+  text-align: left;
+}
+.product-summary-price {
+  border: 1px solid;
+  border-radius: 8px;
+  width: 55%;
+}
+.total-price {
+  text-align: left;
+  color: #4daadd;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.tax {
+  text-align: left;
+  font-size: 0.7rem;
+}
+.coupon {
+  background-color: white;
+  border: 1px dotted #8be78b;
+  color: #8be78b;
+  margin-top: 10px;
+  width: 100%;
+}
+.place-order {
+  margin-top: 10px;
+  width: 100%;
+}

@@ -149,18 +149,21 @@ export default function ProductPage ()
 
 
 						<div className='select__games'>
-						<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your games</h3>
-						<div className='btn btn-outline-dark col-3 games'></div>
-						<div className='btn btn-outline-dark col-3 games'></div>
+						<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your 2 free games</h3>
+						<div className='select__free__games'>
+							<div className='btn btn-outline-dark col-3 games'></div>
+							<div className='btn btn-outline-dark col-3 games'></div>
+						</div>
 
 						
 						</div>
 						<div className='select__package'>
-							<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your package</h3>
+						<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your package</h3>
+						<div className='select__your__package'>
 							<div className='btn btn-outline-dark col-3 packages'></div>
 							<div className='btn btn-outline-dark col-3 packages'></div>
 							<div className='btn btn-outline-dark col-3 packages'></div>
-
+						</div>			
 						</div>
 
 						<div className='dateSlot' style={ { marginTop: '50px' } }>
@@ -211,7 +214,7 @@ export default function ProductPage ()
 									margin: '5px 20px',
 									fontSize: '12px',
 								} }>
-									** SGST (9%)
+								SGST (9%)
 								</p>
 								<b>
 								<p
@@ -231,7 +234,7 @@ export default function ProductPage ()
 									margin: '5px 20px',
 									fontSize: '12px',
 								} }>
-									** CGST (9%)
+								CGST (9%)
 								</p>
 								<b>
 								<p
@@ -268,7 +271,8 @@ export default function ProductPage ()
 									<p>Coupon Applied</p>
 								</div>
 								<button className='col-5'><Link to='/checkout'>Place Order</Link></button>
-							</div>
+						</div>
+						
 						</div>
 					</div>
 				</div>

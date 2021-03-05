@@ -30,6 +30,8 @@
 	margin-left: 20px;
 	margin-top: 10px;
 	font-size: 16px;
+	font-weight: bold;
+
 }
 
 .productPage .right .durationPrice {
@@ -161,11 +163,14 @@
 }
 
 .productPage .right .summary .placeOrder .couponStatus {
-	height: 70px;
+	max-height: 50px;
 	margin: 20px;
 	background-color: #e8fffc;
 	border: 1px dashed #27d2bb;
 	border-radius: 10px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
 }
 
 .productPage .right .summary .placeOrder .couponStatus p {
@@ -174,11 +179,11 @@
 	font-weight: bold;
 	color: #27d2bb;
 	font-size: 14px;
-	line-height: 70px;
+	margin: auto;
 }
 
 .productPage .right .summary .placeOrder button {
-	max-height: 70px;
+	max-height: 50px;
 	margin-top: 20px;
 	border: 1px solid #28a5e5;
 	border-radius: 10px;
@@ -209,12 +214,20 @@
 .react-google-flight-datepicker .date{
 	border: 1px solid rgb(202, 199, 199) !important;
 	margin-right: 10px;
-	max-width: 100px !important;
+	max-width: 200px !important;
 }
 
 .react-google-flight-datepicker .date-picker-input{
 	margin-left: 10px !important;
 	padding: 0px !important;
+	border: none !important;
+	width: 350px !important;
+}
+
+.react-google-flight-datepicker .date-picker-date-group{
+	justify-content: space-between !important;
+	height: 40px !important;
+	width: auto !important;
 }
 
 .sgst{
@@ -253,16 +266,23 @@
 	border: none;
 }  
 */
+.select__games .select__free__games {
+	display: flex;
+	margin-left: 20px;
+}
 
-
-.select__games .games{
+.select__games .select__free__games .games{
 	height: 120px;
 	border: 1px solid rgb(202, 199, 199);
 	border-radius: 10px;
 	margin: 10px;
 }
+.select__package .select__your__package {
+	display: flex;
+	margin-left: 20px;
+}
 
-.select__package .packages{
+.select__package   .select__your__package .packages{
 	height: 120px;
 	border: 1px solid rgb(202, 199, 199);
 	border-radius: 10px;
@@ -301,7 +321,7 @@
 .productPage .left .box{
 	
 	height: 500px;
-	width: 600px;
+	width: 630px;
 	border-radius: 10px;
 	border: 1px solid rgb(202, 199, 199);
 	padding: 20px;
@@ -317,7 +337,7 @@
 
 
 .productPage .left .product__card__section .product__back__card .product__card .card .flipside p {
-	font-size: 28px;
+	font-size: 24px;
 	justify-content: center;
 	margin: 0px;
 	padding: 0px;
@@ -329,6 +349,10 @@
 	font-weight: bolder;
 	text-align: left;
 	color: black;
+}
+
+.productPage .left .product__card__section .product__back__card .product__card .card{
+	justify-content: flex-start;
 }
 
 @media screen and (max-width: 992px){
@@ -352,6 +376,15 @@
 	font-size: 12px;
 }
 
+.react-google-flight-datepicker .date{
+	max-width: 98px !important;
+}
+
+.react-google-flight-datepicker .date-picker-input{
+	width: 190px !important;
+}
+
+
 
 .productPage .right .durationPrice .durationButton {
 	margin: 5px; 
@@ -369,12 +402,20 @@
 .productPage .right .durationPrice .durationButton .duration {
 	max-width: 90px;
 }
-.select__games .games{
-	height: 100px;
+
+.select__games .select__free__games {
+	margin-left: 10px;
+}
+.select__games  .select__free__games  .games{
+	height: 80px;
 }
 
-.select__package .packages{
-	height: 100px;
+.select__package .select__your__package{
+	margin-left: 10px;
+}
+
+.select__package .select__your__package .packages{
+	height: 80px;
 }
 
 .productPage .right .summary .product .btn{
