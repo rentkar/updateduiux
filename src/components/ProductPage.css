@@ -122,11 +122,11 @@
 	text-align: left;
 	color: gray;
 	font-family:'Montserrat', sans-serif;
-	padding: 4px;
+	padding: 4px 4px 0px 4px;
 	width: 150px;
 	display: flex;
-	font-size: 10px;
-	margin: 2px;
+	font-size: 15px;
+	margin: 2px 2px 0px 2px;
 }
 
 .productPage .right .durationPrice .durationButton .price {
@@ -134,9 +134,9 @@
 	text-transform: none !important;
 	font-family:'Montserrat', sans-serif;
 	font-weight: bold;
-	padding: 4px;
-	font-size: 10px;
-	margin: 2px;
+	padding: 0px 4px 5px 4px;
+	font-size: 15px;
+	margin: 0px 2px;
 }
 
 
@@ -273,10 +273,18 @@
 
 .select__games .select__free__games .games{
 	height: 120px;
+	width : 120px;
 	border: 1px solid rgb(202, 199, 199);
 	border-radius: 10px;
 	margin: 10px;
 }
+.select__games .select__free__games .games img{
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 15px 10px;
+}
+
 .select__package .select__your__package {
 	display: flex;
 	margin-left: 20px;
@@ -401,6 +409,14 @@
 
 .productPage .right .durationPrice .durationButton .duration {
 	max-width: 90px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	font-size : 10px !important;
+}
+.productPage .right .durationPrice .durationButton .price {
+font-size : 10px !important;
+margin-bottom : 0px !important;
+padding-bottom : 0px !important;
 }
 
 .select__games .select__free__games {
@@ -408,6 +424,12 @@
 }
 .select__games  .select__free__games  .games{
 	height: 80px;
+	width: 80px;
+}
+
+.select__games  .select__free__games  .games img{
+	height: 40px;
+	width: 40px;
 }
 
 .select__package .select__your__package{

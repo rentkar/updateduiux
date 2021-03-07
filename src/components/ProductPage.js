@@ -16,6 +16,7 @@ import { Link } from 'react-router-dom';
 import ProductCard3 from './ProductCard3'
 import ProductCarousel2 from "./ProductCarousel2";
 import './body.css'
+import add from "../images/add.png";
 
 
 export default function ProductPage ()
@@ -151,8 +152,8 @@ export default function ProductPage ()
 						<div className='select__games'>
 						<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your 2 free games</h3>
 						<div className='select__free__games'>
-							<div className='btn btn-outline-dark col-3 games'></div>
-							<div className='btn btn-outline-dark col-3 games'></div>
+							<div className='btn btn-outline-dark games' ><img src={add} /></div>
+							<div className='btn btn-outline-dark games'><img src={add} /></div>
 						</div>
 
 						
