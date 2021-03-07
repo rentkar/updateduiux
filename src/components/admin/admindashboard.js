@@ -1,8 +1,8 @@
 import React, { Component, useState, useContext, useEffect } from "react";
 import { Table} from 'react-bootstrap'
 import rental_s from "../../images/icons/rental_s.png";
-import bag_s from "../../images/bagb.png";
-import bag_g from "../../images/bag.png";
+import bag_g from "../../images/bagb.png";
+import bag_s from "../../images/bag.png";
 import listing_s from "../../images/icons/listing_s.png";
 import verification_s from "../../images/icons/verification_s.png";
 import support_s from "../../images/icons/support_s.png";
@@ -15,7 +15,8 @@ import settings_g from "../../images/icons/settings_g.png";
 import {Modal} from 'react-bootstrap'
 import "./admindashboard.css";
 import { Button, Card, Image } from "semantic-ui-react";
-
+import 'react-google-flight-datepicker/dist/main.css';
+import { RangeDatePicker } from 'react-google-flight-datepicker'
 import EditProductDetails from './editproductdetails'
 import EditUserDetails from './edituserdetails'
 
@@ -28,28 +29,28 @@ import {
 } from "react-router-dom";
 
 const icons = [
-  bag_g,
-  listing_s,
-  verification_s,
-  support_s,
   settings_s,
+  listing_s,
+  bag_s,
+  verification_s,
   rental_s,
+  support_s
 ];
 const icons_g = [
-  bag_s,
-  listing_g,
-  verification_g,
-  support_g,
   settings_g,
+  listing_g,
+  bag_g,
+  verification_g,
   rental_g,
+  support_g
 ];
 const iconDesc = [
+  "DASH",
+  "ORDERS",
   "PRODUCTS",
   "USERS",
-  "ORDERS",
-  "SUPPORT",
-  "DASH",
-  "LENDERS"
+  "LENDERS",
+  "SUPPORT"
 ];
 
 
@@ -174,43 +175,49 @@ function Lenders ()
 
   return (
     <div className='alllenders'>
+    
       <div className='lenders__req'>
         <p>LENDER REQUESTS</p>
-      <div className='lendersreq__header'>
-        <h2>REQUEST ID</h2>
-        <h2>USER ID</h2>
-        <h2>LENDER</h2>
-        <h2>USER NAME</h2>
-        <h2>PRODUCT IDs</h2>
-        <h2>REQUEST DATE</h2>
+        <div className='table'>
+        <Table striped bordered hover responsive className="table-sm">
+          <thead>
+            <th>REQUEST ID</th>
+            <th>USER ID</th>
+            <th>LENDER</th>
+            <th>USER NAME</th>
+            <th>PRODUCTS</th>
+            <th>REQUEST DATE</th>
+            <th>TAKE ACTION</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>LQ90042A</td>
+              <td>90042xxxxx</td>
+              <td>TRUE</td>
+              <td>TANUJ AGARWAL</td>
+              <td>GP9, PS5</td>
+              <td>2020-03-04</td>
+              <td><i className="fas fa-edit" onClick={ () => setLenderRequestModalShow( true ) } />
+              <LenderRequestModal show={lenderRequestModalShow} onHide={()=> setLenderRequestModalShow(false)} /></td>
+            </tr>
+          </tbody>
+            <tbody>
+            <tr>
+              <td>LQ90042B</td>
+              <td>81042xxxxx</td>
+              <td>FALSE</td>
+              <td>KULDEEP YADAV</td>
+              <td>GUITAR</td>
+              <td>2020-02-04</td>
+              <td><i className="fas fa-edit" onClick={ () => setLenderRequestModalShow( true ) } />
+              <LenderRequestModal show={lenderRequestModalShow} onHide={()=> setLenderRequestModalShow(false)} /></td>
+            </tr>
+          </tbody>
+        </Table>
+      </div> 
+  </div>
 
-        <h2>TAKE ACTION</h2>
-      </div>
-      <div className='lendersreq__info'>
-        <h3>LQ90042A</h3>
-        <h3>90042xxxxx</h3>
-        <h3>FALSE</h3>
-        <h3>TANUJ AGARWAL</h3>
-        <h3>GP9, PS5</h3>
-        <h3>2020-03-04</h3>
-          <h3><i className="fas fa-edit" onClick={ () => setLenderRequestModalShow( true ) } /></h3>
-          <LenderRequestModal show={lenderRequestModalShow} onHide={()=> setLenderRequestModalShow(false)} />
 
-      </div>
-      
-      <div className='lendersreq__info'>
-        <h3>LQ90043A</h3>
-        <h3>90032xxxxx</h3>
-        <h3>TRUE</h3>
-        <h3>MUDIT</h3>
-        <h3>PS4P</h3>
-        <h3>2020-03-04</h3>  
-          <h3><i className="fas fa-edit" onClick={ () => setLenderRequestModalShow( true ) } /></h3>
-          <LenderRequestModal show={lenderRequestModalShow} onHide={()=> setLenderRequestModalShow(false)} />
-
-        </div>
-        
-        </div>
       <div className='currentlenders'>
           <p>LENDER REQUESTS</p>
       <div className='buttons'>
@@ -218,60 +225,49 @@ function Lenders ()
         <div className='btn btn-outline-info' onClick={ () => setAddNewProductModalShow( true ) }><i className="fas fa-plus-circle" /> ADD A NEW PRODUCT</div>
           <AddNewProductModal show={ addNewProductModalShow } onHide={ () => setAddNewProductModalShow( false ) } />
         </div>
-      <div className='lenders__header'>
-        
-        <h2>LENDER ID</h2>
-        <h2>LENDER</h2>       
-        <h2>PRODUCT ID</h2>
-        <h2>DATE OF PURCHASE</h2>
-        <h2>AVAILABILITY</h2>
-        <h2>ORDER ID</h2>
-        <h2>EDIT</h2>
-      </div>
+          <div className='table'>
+        <Table striped bordered hover responsive className="table-sm">
+          <thead>
+            <th>LENDER ID</th>
+            <th>LENDER</th>
+            <th>PRODUCT ID</th>
+            <th>DATE OF PURCHASE</th>
+            <th>AVAILABILITY</th>
+            <th>ORDER ID</th>
+            <th>EDIT</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>90042xxxxx</td>
+              <td>TANUJ AGARWAL</td>
+              <td>PS5</td>
+              <td>2020-03-16</td>
+              <td>RENTED OUT</td>
+              <td>90940</td>
+              <td><i className="fas fa-edit" onClick={ () => setEditLenderModalShow( true ) } />
+              <EditLenderModal show={editLenderModalShow} onHide={()=> setEditLenderModalShow(false)} /></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>90042xxxxx</td>
+              <td>TANUJ AGARWAL</td>
+              <td>GP93</td>
+              <td>2020-03-16</td>
+              <td>RENTED OUT</td>
+              <td>90940</td>
+              <td><i className="fas fa-edit" onClick={ () => setEditLenderModalShow( true ) } />
+              <EditLenderModal show={editLenderModalShow} onHide={()=> setEditLenderModalShow(false)} /></td>
+            </tr>
+          </tbody>
+        </Table>
+      </div> 
       
-        <div className='lenders__info'>
-        <h3>90042xxxxx</h3>
-        <h3>TANUJ</h3>
-        <h3>GP9</h3>
-        <h3>2020-02-02</h3>
-        <h3>RENTED OUT</h3>
-        <h3>#456789</h3>
-        <h3><i className="fas fa-edit" onClick={ () => setEditLenderModalShow( true ) } /></h3>
-          <EditLenderModal show={editLenderModalShow} onHide={()=> setEditLenderModalShow(false)} />
-        </div>
-        <div className='lenders__info'>
-        <h3>90042xxxxx</h3>
-        <h3>TANUJ</h3>
-        <h3>PS53</h3>
-        <h3>2021-01-01</h3>
-        <h3>AVAILABLE</h3>
-        <h3>--</h3>
-          <h3><i className="fas fa-edit" onClick={ () => setEditLenderModalShow( true ) } /></h3>
-          <EditLenderModal show={editLenderModalShow} onHide={()=> setEditLenderModalShow(false)} />
-        </div>
-        <div className='lenders__info'>
-        <h3>91142xxxxx</h3>
-        <h3>SANJAY</h3>
-        <h3>PS4P9</h3>
-        <h3>2020-05-01</h3>
-        <h3>AVAILABLE</h3>
-        <h3>--</h3>
-          <h3><i className="fas fa-edit" onClick={ () => setEditLenderModalShow( true ) } /></h3>
-          <EditLenderModal show={editLenderModalShow} onHide={()=> setEditLenderModalShow(false)} />
-        </div>
-        <div className='lenders__info'>
-        <h3>86642xxxxx</h3>
-        <h3>SAMEER</h3>
-        <h3>NIN3</h3>
-        <h3>2018-01-01</h3>
-        <h3>RENTED OUT</h3>
-        <h3>#45690</h3>
-          <h3><i className="fas fa-edit" onClick={ () => setEditLenderModalShow( true ) } /></h3>
-          <EditLenderModal show={editLenderModalShow} onHide={()=> setEditLenderModalShow(false)} />
-        </div>
+      
       <div className='btn btn-outline-danger' onClick={ () => setAddNewLenderModalShow( true ) }><i className="fas fa-plus-circle" /> ADD A NEW LENDER</div>
           <AddNewLenderModal show={ addNewLenderModalShow } onHide={ () => setAddNewLenderModalShow( false ) } />        </div>
     </div>
+    
   )
 }
 
@@ -280,74 +276,20 @@ function Dash ()
 {
   return (
     <div className='dash'>
-      <h4>FILTER BY DATE
-        <input className='date' type="date" />
-      </h4>
+      <h4>FILTER BY DATE</h4>
+      <RangeDatePicker
+							minDate={new Date(1900, 0, 1)}
+							maxDate={new Date(2220, 0, 1)}
+							dateFormat="D-MM-YYYY"
+							startDatePlaceholder="From"
+							endDatePlaceholder="To"
+							disabled={false}
+							className="datepicker col-4"
+							startWeekDay="monday"
+							/>
+    
       <div className='payments'>
         <p>PAYMENTS</p> 
-        <div className='paymentsbydate__header'>
-        <h2>USER ID</h2>
-        <h2>USERNAME</h2>
-        <h2>ORDER ID</h2>
-        <h2>SUBORDER ID</h2>  
-        <h2>AMOUNT</h2>
-        <h2>STATUS</h2>
-        <h2>LOCATION</h2>
-        </div>
-        <div className='paymentsbydate__info'>
-        <h3>90042XXXXX</h3>
-        <h3>TANUJ</h3>
-        <h3>#5000</h3>
-        <h3>#5000A</h3>  
-        <h3>4000</h3>
-        <h3>PENDING</h3>
-        <h3>ANDHERI E</h3>
-        </div>
-      </div>
-      <div className='deliveries'>
-        <p>DELIVERIES</p> 
-        <div className='deliveriesbydate__header'>
-        <h2>USER ID</h2>
-        <h2>USERNAME</h2>
-          <h2>ORDER ID</h2> 
-          <h2>PRODUCTS</h2>
-        <h2>AMOUNT PENDING</h2>
-        <h2>STATUS</h2>
-        <h2>LOCATION</h2>
-        </div>
-        <div className='deliveriesbydate__info'>
-        <h3>90042XXXXX</h3>
-        <h3>TANUJ</h3>
-          <h3>#5000</h3> 
-          <h3>GP99, PSP4</h3>
-        <h3>4000</h3>
-        <h3>DISPATCHED</h3>
-        <h3>ANDHERI E</h3>
-        </div>
-      </div>
-      <div className='pickups'>
-        <p>PICKUPS</p> 
-        <div className='pickupsbydate__header'>
-        <h2>USER ID</h2>
-          <h2>USERNAME</h2>
-          <h2>ORDER ID</h2>
-        <h2>ORDER SUB ID</h2> 
-        <h2>AMOUNT PENDING</h2>
-        <h2>PRODUCTS</h2>
-        <h2>STATUS</h2>
-        <h2>LOCATION</h2>
-        </div>
-        <div className='pickupsbydate__info'>
-        <h3>90042XXXXX</h3>
-        <h3>TANUJ</h3>
-          <h3>#5000</h3> 
-          <h3>#5000a</h3>
-          <h3>4000</h3>
-          <h3>PS4P9</h3>
-        <h3>PENDING</h3>
-        <h3>ANDHERI E</h3>
-        </div>
-      </div>
       <div className='table'>
         <Table striped bordered hover responsive className="table-sm">
           <thead>
@@ -372,7 +314,66 @@ function Dash ()
               <td>Andheri</td>
             </tr>
           </tbody>
+        </Table >
+      </div>
+      </div>
+      <div className='pickups'>
+        <p>PICKUPS</p> 
+        <div className='table'>
+        <Table striped bordered hover responsive className="table-sm">
+          <thead>
+            <th>User ID</th>
+            <th>UserName</th>
+            <th>Order ID</th>
+            <th>Order Sub ID</th>
+            <th>Amount Pending</th>
+            <th>Product</th>
+            <th>Status</th>
+            <th>Location</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>9045XXXXXX</td>
+              <td>Tanuj</td>
+              <td>#5000</td>
+              <td>#5000a</td>
+              <td>4000</td>
+              <td>PS4P9</td>
+              <td>Pending</td>
+              <td>Andheri</td>
+            </tr>
+          </tbody>
         </Table>
+      </div>
+      </div>
+      <div className='deliveries'>
+        <p>DELIVERIES</p> 
+        <div className='table'>
+        <Table striped bordered hover responsive className="table-sm">
+          <thead>
+            <th>User ID</th>
+            <th>UserName</th>
+            <th>Order ID</th>
+            <th>Order Sub ID</th>
+            <th>Amount Pending</th>
+            <th>Product</th>
+            <th>Status</th>
+            <th>Location</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>9045XXXXXX</td>
+              <td>Tanuj</td>
+              <td>#5000</td>
+              <td>#5000a</td>
+              <td>4000</td>
+              <td>PS4P9</td>
+              <td>Pending</td>
+              <td>Andheri</td>
+            </tr>
+          </tbody>
+        </Table>
+      </div>
       </div>
     </div>
   )
@@ -415,41 +416,66 @@ function AdminSupport ()
   }
   
   return (
+    <div className='support'>
       <div className='support__req'>
         <p>SUPPORT REQUESTS</p>
-      <div className='supportreq__header'>
-        <h2>REQUEST ID</h2>
-        <h2>ORDER ID</h2>
-        <h2>USER ID</h2>
-        <h2>USER NAME</h2>
-        <h2>ISSUE</h2>
-        <h2>REQUEST DATE</h2>
-        <h2>TAKE ACTION</h2>
+
+        <div className='table'>
+        <Table striped bordered hover responsive className="table-sm">
+          <thead>
+            <th>Request ID</th>
+            <th>Order Id</th>
+            <th>User Id</th>
+            <th>Username</th>
+            <th>PRODUCT ID</th>
+            <th>REQUEST DATE</th>
+            <th>ISSUE</th>
+            <th>TAKE ACTION</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SP90042A</td>
+              <td>45667</td>
+              <td>90042xxxxx</td>
+              <td>TANUJ AGARWAL</td>
+              <td>GP98</td>
+              <td>2020-03-03</td>
+              <td>GO PRO 9 suddenly stopped</td>
+              <td><i className="fas fa-edit" onClick={ () => setSupportRequestModalShow(true)}/>
+        <SupportRequestModal show={supportRequestModalShow} onHide={()=>setSupportRequestModalShow(false)} /></td>
+            </tr>
+          </tbody>
+        </Table >
       </div>
-      <div className='supportreq__info'>
-        <h3>SP90042A</h3>
-        <h3>#45667</h3>
-        <h3>90042xxxxx</h3>
-        <h3>TANUJ AGARWAL</h3>
-        <h3>GO PRO 9 suddenly stopped</h3>
-        <h3>2020-03-04</h3>
-          <h3><i className="fas fa-edit" onClick={ () => setSupportRequestModalShow(true)}/></h3>
-        <SupportRequestModal show={supportRequestModalShow} onHide={()=>setSupportRequestModalShow(false)} />
       </div>
-        <p>ISSUED SOLVED</p>
-      <div className='solvedissues__header'>
-        <h2>REQUEST ID</h2>
-        <h2>ORDER ID</h2>
-        <h2>USER ID</h2>
-        <h2>ISSUE</h2>
-        <h2>SOLUTION</h2>
+<div className='solvedissues'>
+      <p>ISSUED SOLVED</p>
+        <div className='table'>
+        <Table striped bordered hover responsive className="table-sm">
+          <thead>
+            <th>Request ID</th>
+            <th>Order Id</th>
+            <th>User Id</th>
+            <th>Username</th>
+            <th>PRODUCT ID</th>
+            <th>REQUEST DATE</th>
+            <th>ISSUE</th>
+            <th>SOLUTION</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SP90042A</td>
+              <td>45667</td>
+              <td>90042xxxxx</td>
+              <td>TANUJ AGARWAL</td>
+              <td>GP98</td>
+              <td>2020-03-03</td>
+                <td>GO PRO 9 suddenly stopped</td>
+              <td>THE PRODUCT WAS REPLACED WITH GP910</td>
+            </tr>
+          </tbody>
+        </Table >
       </div>
-      <div className='solvedissues__info'>
-        <h3>SP90042A</h3>
-        <h3>#45667</h3>
-        <h3>90042xxxxx</h3>
-        <h3>GO PRO 9 suddenly stopped</h3>
-        <h3>THE PRODUCT WAS REPLACED WITH GP910</h3>
       </div>
     </div>
   )
@@ -490,25 +516,32 @@ function AllProducts ()
         <div className='btn btn-outline-info' onClick={ () => setAddProductModalShow( true ) }><i className="fas fa-plus-circle" /> ADD A NEW PRODUCT</div>
         <AddProductModal show={addProductModalShow} onHide={()=>setAddProductModalShow(false)} />
             </div>
-          <div className='products__header'>
-          <h2>PRODUCT ID</h2>
-          <h2>CATEGORY</h2>
-          <h2>SUB-CATEGORY</h2>
-          <h2>NAME</h2>
-          <h2>QUANTITY</h2>
-          <h2>LENDERS</h2>
-          <h2>EDIT</h2>
-        </div>
-        <div className='products'>
-          <h3>GP9</h3>
-          <h3>TECH</h3>
-          <h3>CAMERA</h3>
-          <h3>GO PRO 9</h3>
-          <h3>20</h3>
-          <h3><Link to='/alllenders' ><i className="fas fa-info" /></Link></h3>
-          <h3><Link to='/allproducts/editproductdetails' ><i className="fas fa-edit" /></Link></h3>
-        </div>
-  
+
+
+        <div className='table'>
+        <Table striped bordered hover responsive className="table-sm">
+          <thead>
+            <th>PRODUCT ID</th>
+            <th>CATEGORY</th>
+            <th>SUB CATEGORY</th>
+            <th>NAME</th>
+            <th>QUANTITY</th>
+            <th>LENDERS</th>
+            <th>EDIT</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GP9</td>
+              <td>TECH</td>
+              <td>CAMERA</td>
+              <td>GO PRO 9</td>
+              <td>5</td>
+              <td><Link to='/alllenders' ><i className="fas fa-info" /></Link></td>
+              <td><Link to='/allproducts/editproductdetails' ><i className="fas fa-edit" /></Link></td>
+            </tr>
+          </tbody>
+        </Table>
+      </div>  
   </div>
     )
   }
@@ -578,88 +611,113 @@ function AllOrders ()
     <div className='allorders'>
       <div className='order__req'>
       <p>ORDER REQUESTS</p>
-        <div className='orderreq__header'>
-          <h2>ORDER ID</h2>
-          <h2>CUST ID</h2>
-          <h2>PRODUCTS REQ</h2>
-          <h2>PAYMENT RECEIVED</h2>
-          <h2>DURATION</h2>
-          <h2>EXP DELIVERY ON</h2>
-          <h2>TOTAL PAYMENT</h2>
-          <h2>TAKE ACTION</h2>
-        </div>
-        <div className='orderreqs'>
-          <h3>#4567</h3>
-          <h3>90042xxxx</h3>
-        <h3>GP9, NIN, PS5</h3>
-        <h3>5667</h3>
-        <h3>2021-03-01</h3>
-        <h3>3M, 2W, 4D</h3>
-          <h3>45121</h3>
-          <h3><i className="fas fa-edit" onClick={ () => setOrderRequestModalShow( true ) } /></h3>
-          <OrderRequestModal show={orderRequestModalShow} onHide={()=> setOrderRequestModalShow(false)} />
-
-        </div>
+        <div className='table'>
+        <Table striped bordered hover responsive className="table-sm">
+          <thead>
+            <th>ORDER ID</th>
+            <th>CUST ID</th>
+            <th>PRODUCT REQ</th>
+            <th>PAYMENT RECEIVED</th>
+            <th>EXP DELIVERY ON</th>
+            <th>TOTAL PAYMENT</th>
+            <th>Location</th>
+            <th>TAKE ACTION</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>4587</td>
+              <td>900515152121</td>
+              <td>GP9</td>
+              <td>544</td>
+              <td>21-04-2021</td>
+              <td>2000</td>
+              <td>Andheri</td>
+              <td><i className="fas fa-edit" onClick={ () => setOrderRequestModalShow( true ) } />
+                      <OrderRequestModal show={orderRequestModalShow} onHide={()=> setOrderRequestModalShow(false)} /></td>
+            </tr>
+          </tbody>
+        </Table>
+      </div>
       </div>
 
       <div className='orders'>
+
+      
       <p>ORDERS</p>  
       <div className='buttons'>
           <div className='btn btn-outline-success'>FILTER <i className="fas fa-chevron-circle-down" /></div>  
         </div> 
-          <div className='order__header'>
-          <h2>ORDER ID</h2>
-            <h2>SUBORDER ID</h2>
-          <h2>CUST ID</h2>
-          <h2>PRODUCT ID</h2>
-          <h2>STATUS</h2>
-          <h2>PAYMENT</h2>
-          <h2>PAYMENT DUE</h2>
-          <h2>DELIVERY ON</h2>
-          <h2>PICKUP DATE</h2>
-          <h2>EDIT</h2>
-        </div>
-        <div className='order__details'>
-          <h3>#4567</h3>
-          <h3>#4567a</h3>
-          <h3>90042xxxx</h3>
-        <h3>GP94</h3>
-        <h3>CONFIRMED</h3>
-        <h3>RECEIVED</h3>
-        <h3>2020-03-02</h3>
-        <h3>2020-03-02</h3>
-        <h3>2020-05-02</h3>
-        <h3><i className="fas fa-edit" onClick={ () => setOrderModalShow(true)}/></h3>
-        <OrderModal show={orderModalShow} onHide={()=>setOrderModalShow(false)} />
-        </div>
-          <div className='order__details'>
-          <h3>#4567</h3>
-          <h3>#4567b</h3>
-          <h3>90042xxxx</h3>
-        <h3>GP94</h3>
-          <h3>CONFIRMED</h3>
-          <h3>PENDING</h3>
-          <h3>2020-04-02</h3>
-        <h3>2020-03-02</h3>
-          <h3>2020-05-02</h3>
-          <h3><i className="fas fa-edit" onClick={ () => setOrderModalShow( true ) } /></h3>
-        <OrderModal show={orderModalShow} onHide={()=>setOrderModalShow(false)} />
-        </div>
-          <div className='order__details'>
-          <h3>#4567</h3>
-          <h3>#4567c</h3>
-          <h3>90042xxxx</h3>
-        <h3>GP94</h3>
-        <h3>CONFIRMED</h3>
-          <h3>PENDING</h3>
-          <h3>2020-03-02</h3>
-        <h3>2020-03-02</h3>
-          <h3>2020-05-02</h3>
-      <h3><i className="fas fa-edit" onClick={ () => setOrderModalShow(true)}/></h3>
-        <OrderModal show={orderModalShow} onHide={()=>setOrderModalShow(false)} />
-        </div>
+
+        <div className='table'>
+        <Table striped bordered hover responsive className="table-sm">
+          <thead>
+            <th>ORDER ID</th>
+            <th>Order sub Id</th>
+            <th>CUST ID</th>
+            <th>PRODUCT ALLOTED</th>
+            <th>TOTAL PAYMENT</th>
+            <th>AMOUNT</th>
+            <th>PAYMENT STATUS</th>
+            <th>NEXT DUE ON</th>
+            <th>DELIVERY DATE</th>
+            <th>PICKUP DATE</th>
+            <th>LOCATION</th>
+            <th>Edit</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>4587</td>
+              <td>4578a</td>
+              <td>9000515152121</td>
+              <td>GP95</td>
+              <td>2000</td>
+              <td>1000</td>
+              <td>RECEIVED</td>
+              <td>21-05-2021</td>
+              <td>21-04-2021</td>
+              <td>21-07-2021</td>
+              <td>Andheri</td>
+              <td><i className="fas fa-edit" onClick={ () => setOrderModalShow(true)}/>
+        <OrderModal show={orderModalShow} onHide={()=>setOrderModalShow(false)} /></td>
+            </tr>
+          </tbody>
+            <tbody>
+            <tr>
+              <td>4587</td>
+              <td>4578B</td>
+              <td>9000515152121</td>
+              <td>GP95</td>
+              <td>2000</td>
+              <td>500</td>
+              <td>PENDING</td>
+              <td>21-06-2021</td>
+              <td>21-04-2021</td>
+              <td>21-07-2021</td>
+              <td>Andheri</td>
+              <td><i className="fas fa-edit" onClick={ () => setOrderModalShow(true)}/>
+        <OrderModal show={orderModalShow} onHide={()=>setOrderModalShow(false)} /></td>
+            </tr>
+          </tbody>
+            <tbody>
+            <tr>
+              <td>4587</td>
+              <td>4578C</td>
+              <td>9000515152121</td>
+              <td>GP95</td>
+              <td>2000</td>
+              <td>500</td>
+              <td>PENDING</td>
+              <td>--</td>
+              <td>21-04-2021</td>
+              <td>21-07-2021</td>
+              <td>Andheri</td>
+              <td><i className="fas fa-edit" onClick={ () => setOrderModalShow(true)}/>
+        <OrderModal show={orderModalShow} onHide={()=>setOrderModalShow(false)} /></td>
+            </tr>
+          </tbody>
+        </Table>
       </div>
-      
+      </div>    
               <div className='btn btn-outline-info' onClick={ () => setOrderModalShow( true ) }><i className="fas fa-plus-circle" /> ADD A NEW ORDER</div>
 
     </div>
@@ -753,22 +811,45 @@ function AllUsers ()
                       <div className='btn btn-outline-info' onClick={ () =>setAddUserModalShow( true ) }><i className="fas fa-plus-circle" /> ADD A NEW USER</div>
         <AddUserModal show={addUserModalShow} onHide={()=>setAddUserModalShow(false)} />
         </div>
-        <div className='users__header'>
-          <h2>USER ID</h2>
-          <h2>LENDER</h2>
-          <h2>USERNAME</h2>
-          <h2>C ORDERID</h2>
-          <h2>VERIFIED</h2>
-        <h2>EDIT</h2>
-        </div>
-        <div className='users'>
-          <h3>900042xxxxx</h3>
-          <h3>TRUE</h3>
-        <h3>TANUJ AGARWAL</h3>
-        <h3>#45667</h3>
-        <h3>TRUE</h3>
-          <h3><Link to='/allusers/edituserdetails' ><i className="fas fa-edit" /></Link></h3>
-        </div>
+
+        <div className='table'>
+        <Table striped bordered hover responsive className="table-sm">
+          <thead>
+            <th>USER ID</th>
+            <th>LENDER</th>
+            <th>USER NAME</th>
+            <th>LATEST ORDER</th>
+            <th>VERIFIED</th>
+            <th>ORDER SUMMARY</th>
+            <th>LENDER SUMMARY</th>
+            <th>EDIT</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>9004377042</td>
+              <td>TRUE</td>
+              <td>TANUJ AGARWAL</td>
+              <td>TRUE</td>
+              <td>4571</td>
+              <td><i className="fas fa-info" /></td>
+              <td><Link to='/alllenders' ><i className="fas fa-info" /></Link></td>
+              <td><Link to='/allusers/edituserdetails' ><i className="fas fa-edit" /></Link></td>
+            </tr>
+          </tbody>
+            <tbody>
+            <tr>
+              <td>9112477042</td>
+              <td>FALSE</td>
+              <td>KULDEEP YADAV</td>
+              <td>FALSE</td>
+              <td>4571</td>
+              <td><i className="fas fa-info" /></td>
+              <td><Link to='/alllenders' ><i className="fas fa-info" /></Link></td>
+              <td><Link to='/allproducts/edituserdetails' ><i className="fas fa-edit" /></Link></td>
+            </tr>
+          </tbody>
+        </Table>
+      </div>  
     </div>
   )
   }
@@ -785,36 +866,10 @@ function AllUsers ()
   )
 
 }
-
+  
 
 export const AdminDash = (props) => {
   const [addModalshow, setaddModalshow] = useState(false);
-  // const user = [["Name", "Siddharth"], ["Email", "sid@rentkar.com"],
-  // ["Mobile Number", "982304234"], ["Date Of Birth", "31/03/2001"]]
-  const [user, setuser] = useState([
-    {
-      Name: "Name",
-      value: "Siddharth"
-    },
-    {
-      Name: "Email",
-      value: "sid@rentkar.com"
-    },
-    {
-      Name: "Mobile Number",
-      value: "982304234"
-    },
-    {
-      Name: "Date Of Birth",
-      value: "31/03/2001"
-    }
-  ]);
-  // constructor(props) {
-  //     super(props);
-  //     this.state = {
-  //         index: this.props.ind
-  //     }
-  // }
   const [index, setindex] = useState(props.ind);
 
 
@@ -823,12 +878,12 @@ export const AdminDash = (props) => {
   };
 
   var indexMap = {
-    0: "/allproducts",
-    1: "/allusers",
-    2: "/allorders",
-    3: "/adminsupport",
-    4: "/dash",
-    5: "/alllenders",
+    0: "/dash",
+    1: "/allorders",
+    2: "/allproducts",
+    3: "/allusers",
+    4: "/alllenders",
+    5: "/adminsupport",
   /*  6: "/editproductdetails",
     7: "/edituserdetails" */
   };
@@ -879,13 +934,12 @@ export const AdminDash = (props) => {
             </p>
           </div>
         </div>
-        
-        {index === 1 ? <AllUsers /> : null}
-        {index === 0 ? <AllProducts /> : null}
-        {index === 2 ? <AllOrders /> : null}
-        {index === 3 ? <AdminSupport /> : null}
-        { index === 4 ? <Dash /> : null }
-          { index === 5 ? <Lenders /> : null }  
+        {index === 3 ? <AllUsers /> : null}
+        {index === 2 ? <AllProducts /> : null}
+        {index === 1 ? <AllOrders /> : null}
+        {index === 5 ? <AdminSupport /> : null}
+        { index === 0 ? <Dash /> : null }
+        { index === 4 ? <Lenders /> : null }  
       
       </div>
     

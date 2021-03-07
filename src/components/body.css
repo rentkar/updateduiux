@@ -941,3 +941,10 @@
 .recommendations .slide_button{
   margin-left : 40vw !important;
 }
+
+.fa-chevron-right, .fa-chevron-left{
+  cursor: pointer;
+}
+.fa-chevron-right:hover, .fa-chevron-left:hover{
+  color:   #19eeb5 !important;
+}

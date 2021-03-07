@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Popup from 'reactjs-popup';
 import { Grid } from 'semantic-ui-react';
-import LoginModal from './LoginModal';
+import LoginModal from './Login/LoginModal';
 import { BrowserRouter as Link } from 'react-router-dom';
 import guitar from '../images/guitar2.png';
 

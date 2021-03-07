@@ -138,44 +138,24 @@
 
   }
 
-  .allproducts .products__header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
+  .allproducts  .table{
+    padding: 0px 40px;
   }
 
-  .allproducts .products__header h2{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 14px;
+  .allproducts .table th{
+  text-transform: uppercase;
+  font-size: 14px;
   }
 
-  .allproducts  .products h3{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    font-size: 14px;
-  }
-  
-  .allproducts .products{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  .allproducts .table td{
+  text-transform: uppercase;
+  font-size: 12px;
   }
 
-
-  .products i{
+  .allproducts .table td i{
     color: red;
   }
+
 
   
   .allusers .buttons{
@@ -183,49 +163,76 @@
     justify-content: space-between;
     margin: 0px 100px;
   }
-
-  .allusers .users__header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
+  .allusers  .table{
+    padding: 0px 40px;
   }
 
-  .allusers .users__header h2{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 14px;
+  .allusers  .table th{
+  text-transform: uppercase;
+  font-size: 14px;
   }
 
-  .allusers  .users h3{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    font-size: 14px;
-  }
-  
-  .allusers .users{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  .allusers  .table td{
+  text-transform: uppercase;
+  font-size: 12px;
   }
 
-
-  .users i{
+  .allusers  .table td i{
     color: red;
   }
 
+  .alllenders .lenders__req  .table{
+    padding: 0px 40px;
+  }
+
+.alllenders  .lenders__req   .table th{
+  text-transform: uppercase;
+  font-size: 14px;
+  }
+
+  .alllenders  .lenders__req  .table td{
+  text-transform: uppercase;
+  font-size: 12px;
+  }
+
+  .alllenders  .lenders__req   .table td i{
+    color: red;
+  }
 
   .alllenders .currentlenders .buttons{
-    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 100px;
+  }
+
+.alllenders  .currentlenders p{
+    margin: 40px 4px 0px 4px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+.alllenders  .lenders__req p{
+    margin: 40px 4px 0px 4px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+    .alllenders .currentlenders .table{
+    padding: 0px 40px;
+  }
+
+.alllenders  .currentlenders    .table th{
+  text-transform: uppercase;
+  font-size: 14px;
+  }
+
+  .alllenders .currentlenders  .table td{
+  text-transform: uppercase;
+  font-size: 12px;
+  }
+
+  .alllenders .currentlenders   .table td i{
+    color: red;
   }
 
 .alllenders  .currentlenders p{
@@ -235,97 +242,6 @@
   }
 
   
-  .alllenders .lenders__req p{
-    margin-top: 40px;
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-    .alllenders .buttons{
-    display: flex;
-    justify-content: space-between;
-    margin: 0px 100px;
-  }
-
-  .alllenders .lenders__header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-  }
-
-  .alllenders .lenders__header h2{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 14px;
-  }
-
-  .alllenders  .lenders__info h3{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    font-size: 14px;
-  }
-  
-  .alllenders .lenders__info{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-
-
-.lenders__info i{
-    color: red;
-  }
-
-  
-  .alllenders .lendersreq__header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-  }
-
-  .alllenders .lendersreq__header h2{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 14px;
-  }
-
-  .alllenders  .lendersreq__info h3{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    font-size: 14px;
-  }
-  
-  .alllenders .lendersreq__info{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-
-
-.lendersreq__info i{
-    color: red;
-  }
-
   .alllenders .btn-outline-danger{
       margin: 20px 0px;
   }
@@ -337,43 +253,21 @@
     margin: 20px 100px;
   }
 
-  .allorders .order__req  .orderreq__header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
+    .order__req  .table{
+    padding: 0px 40px;
   }
 
-
-  .allorders .order__req  .orderreq__header h2{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 14px;
+  .order__req  .table th{
+  text-transform: uppercase;
+  font-size: 14px;
   }
 
-  .allorders .order__req  .orderreqs h3{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    font-size: 14px;
-  }
-  
-.allorders .order__req .orderreqs{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  .order__req .table td{
+  text-transform: uppercase;
+  font-size: 12px;
   }
 
-
-  .orderreqs i{
+  .order__req i{
     color: red;
   }
 
@@ -388,47 +282,23 @@
     font-weight: bold;
     margin: 50px auto 20px auto;
   }
-
-    .allorders .orders .order__header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
+    .orders  .table{
+    padding: 0px 40px;
   }
 
-
-  .allorders .orders  .order__header h2{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 150px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 14px;
+  .orders .table th{
+  text-transform: uppercase;
+  font-size: 14px;
   }
 
-  .allorders .orders .order__details h3{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 150px;
-    overflow: hidden;
-    font-size: 14px;
-  }
-  
-.allorders  .orders .order__details{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  .orders .table td{
+  text-transform: uppercase;
+  font-size: 12px;
   }
 
-
-  .orders .order__details i{
+  .orders .table td i{
     color: red;
   }
-
 
   .support__req p{
     font-size: 30px;
@@ -436,93 +306,56 @@
     margin: 30px auto;
   }
 
-  .supportreq__header h2{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 14px;
+  .support__req  .table{
+    padding: 0px 40px;
   }
 
-  .supportreq__info h3{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    font-size: 14px;
-    height: inherit;
+  .support__req .table th{
+  text-transform: uppercase;
+  font-size: 14px;
   }
 
-  .supportreq__info i{
-      color: red;
+  .support__req .table td{
+  text-transform: uppercase;
+  font-size: 12px;
   }
 
-  .supportreq__info{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 70px;
+  .support__req .table td i{
+    color: red;
   }
 
-  .supportreq__header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  .solvedissues p{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 30px auto;
   }
 
-  
-.solvedissues__info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 70px;
+  .solvedissues  .table{
+    padding: 0px 40px;
   }
 
-  .solvedissues__header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  .solvedissues .table th{
+  text-transform: uppercase;
+  font-size: 14px;
   }
 
-  .solvedissues__header h2{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 14px;
+.solvedissues .table td{
+  text-transform: uppercase;
+  font-size: 12px;
   }
 
-  .solvedissues__info h3{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    font-size: 14px;
-    height: inherit;
+  .solvedissues .table td i{
+    color: red;
   }
+
+
 
   .dash h4 {
-    margin : 20px auto;
+    margin : 30px auto;
   }
-
-  .dash .date{
-    margin: 40px;
-    border-radius: 24px;
-    padding: 5px;
-    font-size: 14px;
-    border-color: greenyellow;
-    background-color: blueviolet;
-    color: whitesmoke;
+  .dash .datepicker{
+    display: flex;
+    margin: 0px auto !important;
   }
 
   .dash .pickups p{
@@ -543,107 +376,48 @@
   margin: 20px auto;
   }
 
-  
-  .dash .payments .paymentsbydate__info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  .payments .table{
+    padding: 0px 40px;
   }
 
-  .dash .payments  .paymentsbydate__header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  .payments .table th{
+  text-transform: uppercase;
+  font-size: 14px;
   }
 
-  .dash .payments  .paymentsbydate__header h2{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 14px;
-  }
-
-  .dash .payments .paymentsbydate__info h3{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    font-size: 14px;
+  .payments .table td{
+  text-transform: uppercase;
+  font-size: 12px;
 
   }
 
 
     
-  .dash .deliveries .deliveriesbydate__info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  .deliveries  .table{
+    padding: 0px 40px;
   }
 
-  .dash .deliveries  .deliveriesbydate__header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  .deliveries  .table th{
+  text-transform: uppercase;
+  font-size: 14px;
   }
 
-  .dash .deliveries  .deliveriesbydate__header h2{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 14px;
+  .deliveries  .table td{
+  text-transform: uppercase;
+  font-size: 12px;
   }
 
-  .dash .deliveries .deliveriesbydate__info h3{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    font-size: 14px;
+    
+  .pickups  .table{
+    padding: 0px 40px;
   }
 
-
-  
-  .dash .pickups .pickupsbydate__info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  .pickups  .table th{
+  text-transform: uppercase;
+  font-size: 14px;
   }
 
-  .dash .pickups  .pickupsbydate__header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .dash .pickups  .pickupsbydate__header h2{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 14px;
-  }
-
-  .dash .pickups .pickupsbydate__info h3{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    font-size: 14px;
+  .pickups .table td{
+  text-transform: uppercase;
+  font-size: 12px;
   }

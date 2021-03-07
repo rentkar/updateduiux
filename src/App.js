@@ -153,8 +153,7 @@ function App() {
 						<Route path='/support' render={(props) => <UserDash ind={4} />} />
 						<Route path='/rentals' render={(props) => <UserDash ind={1} />} />
 						<Route
-							exact
-							path='/home'
+							exacrt path='/home'
 							render={(props) => <UserDash ind={-1} />}
 						/>
 						<Route
@@ -164,15 +163,15 @@ function App() {
 						/>
 
 							<Route path='/adminlogin'><AdminLogin /></Route>
-							<Route path='/allproducts/' ><AdminDashboard ind={0} /></Route>
+							<Route path='/allproducts/' ><AdminDashboard ind={2} /></Route>
 							<Route
 								path='/dash/'>
-							<AdminDashboard ind={4} />
+							<AdminDashboard ind={0} />
 							</Route>
-							<Route path='/allorders/'> <AdminDashboard ind={2} /></Route>
-							<Route path='/allusers/'> <AdminDashboard ind={1}  /></Route>
-							<Route path='/adminsupport/'> <AdminDashboard ind={3} /></Route>
-							<Route path='/alllenders/'> <AdminDashboard ind={ 5 } /></Route>
+							<Route path='/allorders/'> <AdminDashboard ind={1} /></Route>
+							<Route path='/allusers/'> <AdminDashboard ind={3}  /></Route>
+							<Route path='/adminsupport/'> <AdminDashboard ind={5} /></Route>
+							<Route path='/alllenders/'> <AdminDashboard ind={4} /></Route>
 						</Switch>
 						
 					</div>

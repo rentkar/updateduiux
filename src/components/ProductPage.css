@@ -205,26 +205,26 @@
 	animation: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.react-google-flight-datepicker .dialog-date-picker{
+.productPage .react-google-flight-datepicker .dialog-date-picker{
 	-webkit-backdrop-filter: saturate(180%) blur(20px);
 	backdrop-filter: saturate(180%) blur(20px);    
 	left: -800px !important;
 }
 
-.react-google-flight-datepicker .date{
+.productPage .react-google-flight-datepicker .date{
 	border: 1px solid rgb(202, 199, 199) !important;
 	margin-right: 10px;
 	max-width: 200px !important;
 }
 
-.react-google-flight-datepicker .date-picker-input{
+.productPage .react-google-flight-datepicker .date-picker-input{
 	margin-left: 10px !important;
 	padding: 0px !important;
 	border: none !important;
 	width: 350px !important;
 }
 
-.react-google-flight-datepicker .date-picker-date-group{
+.productPage .react-google-flight-datepicker .date-picker-date-group{
 	justify-content: space-between !important;
 	height: 40px !important;
 	width: auto !important;
@@ -356,7 +356,7 @@
 }
 
 @media screen and (max-width: 992px){
-  .react-google-flight-datepicker .dialog-date-picker{
+   .productPage .react-google-flight-datepicker .dialog-date-picker{
    
 	left: 0 !important;
 }
@@ -376,11 +376,11 @@
 	font-size: 12px;
 }
 
-.react-google-flight-datepicker .date{
+.productPage .react-google-flight-datepicker .date{
 	max-width: 98px !important;
 }
 
-.react-google-flight-datepicker .date-picker-input{
+.productPage .react-google-flight-datepicker .date-picker-input{
 	width: 190px !important;
 }
 

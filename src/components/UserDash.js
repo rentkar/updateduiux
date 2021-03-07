@@ -1104,7 +1104,7 @@ const Settings = (props) => {
       {/* <Setting_detail_card id={2} name={"Email"} username={"sid@rentkar.com"} />
                 <Setting_detail_card id={3} name={"Mobile Number"} username={"982304234"} />
                 <Setting_detail_card id={4} name={"Date Of Birth"} username={"31/03/2001"} /> */}
-      <Button onClick={update_info}>Change Password</Button>
+      <Button onClick={update_info}>SAVE</Button>
     </div>
   );
 };
@@ -1360,7 +1360,8 @@ export const UserDash = (props) => {
         })}
       </div>
       <div className="buttons">
-        <a href="/terms&conditions">Terms & Conditions</a>
+          <Link to="/"><i className="fas fa-sign-out-alt" /> Log Out</Link>
+          <a href="/terms&conditions">Terms & Conditions</a>
           <a href="/shippingpolicy">Shipping Policy</a>
           <a href="/privacypolicy">Privacy Policy</a>
           <a href="/termsofuse">Terms of Use</a>
@@ -1411,12 +1412,13 @@ export const UserDash = (props) => {
             );
           })}
         </div>
-        <div className="buttons">
-          <a href="/terms&conditions">Terms & Conditions</a>
-          <a href="/shippingpolicy">Shipping Policy</a>
-          <a href="/privacypolicy">Privacy Policy</a>
-          <a href="/termsofuse">Terms of Use</a>
-        </div>
+          <div className="buttons">
+            <Link to="/"><i className="fas fa-sign-out-alt" /> Log Out</Link>
+            <a href="/terms&conditions">Terms & Conditions</a>
+            <a href="/shippingpolicy">Shipping Policy</a>
+            <a href="/privacypolicy">Privacy Policy</a>
+            <a href="/termsofuse">Terms of Use</a>
+          </div>
       </div>
 
       <div class="right_screen">
@@ -1459,7 +1461,7 @@ export const UserDash = (props) => {
         ) : (
           <div className="userdashMobile">
             <div class="userdash_header">
-            <Link to="/home" style={{ textDecoration: "none" }}>
+            <Link to='/home' style={{ textDecoration: "none" }}>
                   <i className="fas fa-chevron-left fa-xs"></i>
                 </Link>
               <p style={{ margin: "0px auto"}}>{iconDesc[index]}</p>
@@ -1472,7 +1474,7 @@ export const UserDash = (props) => {
         {index === 3 ? <MobileVerification /> : null}
         {index === 4 ? <Support /> : null}
         {index === 5 ? <Settings user={user} setuser={setuser} /> : null}
-        {index === 1 ? <Rentals /> : null}
+        { index === 1 ? <Rentals /> : null }
       </div>
     
     </div>

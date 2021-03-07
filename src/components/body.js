@@ -219,7 +219,7 @@ export class Body extends Component {
       backgroundColor: "#e4e4e4",
       padding: "5px 10px",
       borderRadius: "20px",
-      margin: "2vw"
+      margin: "2vw",
     };
 
     const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
@@ -238,7 +238,7 @@ export class Body extends Component {
             <i class="fas fa-chevron-left"></i>
           </a>
           <a style={left_but} onClick={() => next()}>
-            <i class="fas fa-chevron-right"></i>
+            <i class=""></i>
           </a>
         </div>
       );

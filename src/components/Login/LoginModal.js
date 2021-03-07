@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
-import './Listitem.css';
-import ProductDetail from './List_item/ProductDetail'
 import Login from './Login'
-import logo_trans from '../images/logo_trans.png';
-import OTP from './otp'
+import logo_trans from '../../images/logo_trans.png';
+import OTP from './OTP'
+import './Login.css'
 export class LoginModal extends Component {
     constructor(props) {
         super(props);
@@ -112,8 +111,6 @@ export class LoginModal extends Component {
 							onHide={addModalclose}
 
                             />
-
-
                     </Modal>
                 );
         }

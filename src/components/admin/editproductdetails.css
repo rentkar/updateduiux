@@ -1,46 +1,7 @@
 
   .editaproduct{
       width: 90%;
-      margin: auto;
-  }
-
-  .editaproduct .product__header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-  }
-
-  .editaproduct .product__header h2{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 14px;
-  }
-
-  .editaproduct  .subproduct h3{
-    margin : 0px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    width: 200px;
-    overflow: hidden;
-    font-size: 14px;
-  }
-  
-  .editaproduct .subproduct{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-
-
-  .subproduct i{
-    color: red;
+      margin: 40px auto;
   }
 
 

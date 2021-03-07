@@ -2,22 +2,11 @@ import React, { Component } from 'react'
 import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import logo_trans from '../images/logo_trans.png';
 
 import './Login.css';
 
 export class OTP extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            hidden: true,
-            password: ""
-        };
-
-        this.handlePasswordChange = this.handlePasswordChange.bind(this);
-        this.toggleShow = this.toggleShow.bind(this);
-    }
     confirm = e => {
         e.preventDefault();
         this.props.show();
@@ -28,19 +17,9 @@ export class OTP extends Component {
         e.preventDefault();
         this.props.prevStep();
     };
-    handlePasswordChange(e) {
-        this.setState({ password: e.target.value });
-    }
 
-    toggleShow() {
-        this.setState({ hidden: !this.state.hidden });
-    }
 
-    componentDidMount() {
-        if (this.props.password) {
-            this.setState({ password: this.props.password });
-        }
-    }
+
     render() {
         const logoimage = {
             height: '100px',
@@ -55,7 +34,7 @@ export class OTP extends Component {
 				</div>
 				        <div className='buttons'>
                     <button className='but1' onClick={this.back} >Re-enter Mobile Number</button>
-					<Link to='/about'><button onClick={ this.confirm }className='but2'>Login</button></Link>
+					<Link to='/about'><button className='but2'>Login</button></Link>
                 </div>
             </div>
         )

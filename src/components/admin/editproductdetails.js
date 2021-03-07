@@ -265,73 +265,8 @@ function EditProductDetails ()
 
 
     return (
-    <div className='editaproduct'>
-    <div>
-    <div className='product__header'>
-        <h2>SUB ID</h2>
-        <h2>LENDER</h2>
-        <h2>LENDER ID</h2>
-        <h2>AGREEMENT</h2>        
-        <h2>CONDITION</h2>
-        <h2>AVAILABILITY</h2>
-        <h2>ORDER ID</h2>
-        <h2>EDIT</h2>
-        
-    </div>
-    <div className='subproduct'>
-        <h3>GP9a</h3>
-        <h3>TANUJ</h3>
-        <h3>1234</h3>
-        <h3>https.rentkar-s3/agr</h3>
-        <h3>GOOD</h3>
-        <h3>RENTED OUT</h3>
-        <h3>#456789</h3>
-        <h3><i className="fas fa-edit" onClick={ () => setEditProductModalShow(true)}/></h3>
-        <EditProductModal show={editProductModalShow} onHide={()=>setEditProductModalShow(false)} />
-    </div>
-    <div className='subproduct'>
-        <h3>GP9b</h3>
-        <h3>SANJAY</h3>
-        <h3>1230</h3>
-        <h3>https.rentkar-s3/agr</h3>
-        <h3>BAD</h3>
-        <h3>AVAILABLE</h3>
-        <h3>--</h3>
-        <h3><i className="fas fa-edit" onClick={ () => setEditProductModalShow(true)}/></h3>
-        <EditProductModal show={editProductModalShow} onHide={()=>setEditProductModalShow(false)} />
-    </div>
-    <div className='subproduct'>
-        <h3>GP9c</h3>
-        <h3>MUDIT</h3>
-        <h3>1235</h3>
-        <h3>https.rentkar-s3/agr</h3>
-        <h3>GOOD</h3>
-        <h3>AVAILABLE</h3>
-        <h3>--</h3>
-        <h3><i className="fas fa-edit" onClick={ () => setEditProductModalShow(true)}/></h3>
-        <EditProductModal show={editProductModalShow} onHide={()=>setEditProductModalShow(false)} />
-    </div>
-    <div className='subproduct'>
-        <h3>GP9d</h3>
-        <h3>SAMEER</h3>
-        <h3>1236</h3>
-        <h3>https.rentkar-s3/agr</h3>
-        <h3>BAD</h3>
-        <h3>RENTED OUT</h3>
-        <h3>#45690</h3>
-        <h3><i className="fas fa-edit" onClick={ () => setEditProductModalShow(true)}/></h3>
-        <EditProductModal show={editProductModalShow} onHide={()=>setEditProductModalShow(false)} />
-    </div> 
-    </div>
-    <div className='btn btn-outline-danger' onClick={ () => setAddLenderModalShow( true ) } >
-        <h3><i className="fas fa-plus-circle" /> ADD A NEW LENDER</h3>
-            </div>
-<AddLenderModal show={ addLenderModalShow } onHide={ () => setAddLenderModalShow( false ) } />     
-
-        
-    
-            
-            <div className='product__details row'>
+    <div className='editaproduct'>        
+        <div className='product__details row'>
                 <div className='col-5 product__info'> 
                     <h2>INFO</h2>
                     <div className='row'>

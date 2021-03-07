@@ -171,13 +171,9 @@ export default function ProductPage ()
 							Enter delivery and pickup dates
 						</h3>
 							<RangeDatePicker
-							startDate={new Date()}
-							endDate={new Date()}
-							//onChange={(startDate, endDate) => onDateChange(startDate, endDate)}
 							minDate={new Date(1900, 0, 1)}
 							maxDate={new Date(2220, 0, 1)}
-							//dateFormat="D"
-							monthFormat="MMM YYYY"
+							dateFormat="D-MM-YYYY"
 							startDatePlaceholder="Delivery Date"
 							endDatePlaceholder="PickUp Date"
 							disabled={false}
