@@ -4,6 +4,13 @@ import { Grid } from 'semantic-ui-react';
 import LoginModal from './Login/LoginModal';
 import { BrowserRouter as Link } from 'react-router-dom';
 import guitar from '../images/guitar2.png';
+import rental_s from "../images/icons/rental_s.png";
+import listing_s from "../images/icons/listing_s.png";
+import verification_s from "../images/icons/verification_s.png";
+import support_s from "../images/icons/support_s.png";
+import settings_s from "../images/icons/settings_s.png";
+import bag_s from "../images/bag.png";
+import logout_s from '../images/icons/logout_s.png'
 
 import './head.css';
 // import { Navbar, Nav, Button, Form, FormControl } from 'react-bootstrap'
@@ -17,6 +24,9 @@ import puneg from '../images/PuneCG.png';
 import bar from '../images/icons/new icin-16.png';
 
 import { ProductContext } from '../components/ProductContext';
+
+import dummyprofile from "../images/dummyprofile.jpg";
+
 
 export const Head = (props) => {
 	const [product, setproduct] = useContext(ProductContext);
@@ -215,6 +225,42 @@ export const Head = (props) => {
 				<div className='but' id='sign'>
 					<button onClick={() => setaddModalshow(true)}>Login/Sign Up</button>
 					<LoginModal show={addModalshow} onHide={addModalclose} />
+				</div>
+				
+				<div className='userheader'>
+					<Popup
+						className='pop'
+						trigger={
+							<button className='user'>
+								<img src ={dummyprofile} />
+								<p className="username">Tanuj<i className='fa fa-angle-down' /></p>
+							</button>
+						}
+						flowing
+						hoverable>
+						<Grid className='options' stretched divided rows={7}>
+							<Grid.Row href='/about'><img src={ bag_s } /><p>My Bag</p>
+							</Grid.Row>
+							<hr />
+							<Grid.Row href='/rentals'><img src={ rental_s } /><p>My Rentals</p>
+							</Grid.Row>
+							<hr />
+							<Grid.Row href='/mylisting'><img src={listing_s } /><p>My Listings</p>
+							</Grid.Row>
+							<hr />
+							<Grid.Row href='/verification'><img src={ verification_s } /><p>Verification</p>
+							</Grid.Row>
+							<hr />
+							<Grid.Row href='/support'><img src={ support_s } /><p>Help & Support</p>
+							</Grid.Row>
+							<hr />
+							<Grid.Row href='/settings'><img src={ settings_s } /><p>My Settings</p>
+							</Grid.Row>
+							<hr />
+							<Grid.Row href='/'><img className='logout' src={logout_s} /><p>Log Out</p>
+							</Grid.Row>
+						</Grid>
+					</Popup>
 				</div>
 			{/*	<div className="notification__bell">
 					<button> <img src='images/notificationbell.png' /><span className="notifications">9</span></button>

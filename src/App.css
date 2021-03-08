@@ -18,6 +18,10 @@
   margin-top: 90px;
 }
 
+.App p{
+  margin: 0px !important;
+}
+
 @media screen and (max-width: 992px){
   .App .PageContent{
     margin-top: 70px;

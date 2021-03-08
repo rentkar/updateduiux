@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import logo_trans from '../../images/logo_trans.png';
 
 import './Login.css';
 
@@ -11,21 +12,21 @@ export class Login extends Component {
         this.props.nextStep();
     };
 
+    
+    show = () => {
+        this.props.onHide();
+    }
+
     render() {
-        const logoimage = {
-            height: '100px',
-            width: 'auto',
-            margin: 'auto'
-        }
+
         return (
             <div className='login'>
-            
-                    
+                    <p>Enter your Mobile Number to Login/Sign Up</p>
                     <div id="in">
-                        <input className="email" placeholder='Enter your phone number'></input>
+                        <input className="inpt" placeholder='Enter your phone number'></input>
                     </div>
                     <div className='buttons'>
-                    <button className='but2' onClick={this.continue}>Send OTP</button>
+                    <button className='btn' onClick={this.continue}>Send OTP</button>
                     </div>
             </div>
         )

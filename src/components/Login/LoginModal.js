@@ -56,28 +56,20 @@ export class LoginModal extends Component {
     render() {
         const { step } = this.state;
         let addModalclose = () => { this.setState({ addModalshow: false }) };
-		const logoimage = {
-            height: '100px',
-            width: 'auto',
-            margin: 'auto'
-        }
 
         switch (step) {
             case 1:
                 return (
 
-                    <Modal
+                    <Modal className='login__modal'
                         {...this.props}
                         size="lg"
                         aria-labelledby="contained-modal-title-vcenter"
                         centered>
-						<div className="loginnav">
-                        <img className='login-image' style={logoimage} src={logo_trans}></img>
-                        <button className="cross" onClick={this.props.onHide}><i class="fas fa-times"></i></button>
-                    </div>
-                    <div>
-                        <p className="logintxt">Login</p>
-                    </div>
+                        <div className="loginnav">
+                        <img className='login-image' src={logo_trans}></img>
+                        <button className="cross" onClick={this.props.onHide}><i class="far fa-times-circle"></i></button>
+                        </div>
                         <Login 
                             nextStep={this.nextStep}
                             selected={this.state.selected}
@@ -89,19 +81,15 @@ export class LoginModal extends Component {
                 );
             case 2:
                 return (
-                    <Modal
+                    <Modal className='login__modal'
                         {...this.props}
                         size="lg"
                         aria-labelledby="contained-modal-title-vcenter"
 						centered>
                         <div className="loginnav">
-                        <img className='login-image' style={logoimage} src={logo_trans}></img>
-                        <button className="cross" onClick={this.props.onHide}><i class="fas fa-times"></i></button>
-                    </div>
-                    <div>
-                        <p className="logintxt">Login</p>
-
-                    </div>
+                        <img className='login-image' src={logo_trans}></img>
+                        <button className="cross" onClick={this.props.onHide}><i class="far fa-times-circle"></i></button>
+                        </div>
 
                         <OTP nextStep={this.nextStep}
                             selected={this.state.selected}

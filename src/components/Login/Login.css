@@ -1,16 +1,22 @@
 .login{
     max-width: 100%;
-    margin: auto;
     border-radius: 100px;
     /* padding-bottom: 200px; */
 }
 
-.login .modal-content {
-    max-width: 400px;
+.login__modal .modal-content {
+    max-width: 380px;
     margin: auto;
     padding: 0px 25px;
-    border-radius: 20px;
+    border-radius: 30px;
     padding-bottom: 10px;
+    height: 420px;
+}
+
+.login-image{
+    height: 110px;
+    width: auto;
+    margin: auto;
 }
 .logintxt{
     font-size: 36px;
@@ -30,79 +36,68 @@
     display: flex;
     flex-direction: row;
 }
-.email{
+.inpt{
     min-width: 100%;
     margin:5px 0px ;
-    height: 45px;
+    height: 40px;
     border: none;
-    border-bottom: 1px solid;
+    border-bottom: 2px solid  #19eeb5;
     font-family: 'Montserrat', sans-serif;
+    background-color:  rgb(242, 242, 242);
+    font-size: 10px;
+    padding: 5px;
 }
-.password{
-    min-width: 95%;
-    margin:5px 0px ;
-    height: 45px;
-    border: none;
-    border-bottom: 1px solid;
-    font-family: 'Montserrat', sans-serif;
 
-}
 .fa-eye:before {
     content: "\f06e";
     padding: 15px 0px;
     border-bottom: 1px solid;
 }
-.loginbut{
-    font-family: 'Montserrat', sans-serif;
 
-    min-width: 215px;
-    height: 36px;
-    background: #0B90D3;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    color: white;
-    margin: 5px auto;
-    font-weight: 700;
-}
-.signuptxt{
-    margin: auto;
-    font-size: 18px;
-    font-weight: bold;
-}
-.google,.facebook{
-    /* min-width: 100px; */
-    font-family: 'Montserrat', sans-serif; ;
-    min-width: 215px;
-    padding: 0px 7px;
-    height: 36px;
-    margin: 10px auto;
-    border: 0.1px solid;
-    background: none;
-    border-radius: 6px
-}
-.facebook{
-    background-color: #25598D;
-    color: white;
-}
 input:focus,button:focus{
     outline: none;
 }
 
 .cross{
-    font-size: 30px;
+    font-size: 20px;
     border: none;
     background-color: white;
 }
-#signup{
-    color: #0A577E;
-    margin: 0px;
-    
-}
-.login #signup,.login p{
-    margin-bottom: 3px;
-}
-p {
+
+
+.login p {
     margin-top: 0;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
+    font-size: 17px;
+    font-weight: 700 !important;
+    padding : 0px 10px 10px 0px;
+}
+
+.login .buttons{
+    margin-top: 50px;
+}
+.login .buttons .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: rgb(242, 242, 242);
+    color: black;
+    border: none;
+    font-weight: bold;
+    border-radius: 30px;
+    min-width: 200px;
+}
+
+.login .buttons .btn a{
+    text-decoration: none;
+    color: black;
+}
+
+.login .wrong__number{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+    color:  #19eeb5;
 }

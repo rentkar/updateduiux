@@ -156,7 +156,8 @@ function Rentals() {
                   style={{
                     fontWeight: "600",
                     border: "none",
-                    outline: "none"
+                    outline: "none",
+                    backgroundColor: "white"
                   }}
                 >
                   <option value={2}>2 Weeks</option>
@@ -680,7 +681,7 @@ class Verification extends Component {
           <div className="listItem">
             <Image className="verified" src={verification_s} />
             <Image className="verifyImage" src={person} />
-            <p>Personal Information</p>
+            <p className='verifyheader'>Personal Information</p>
             {/* <div className="changeButton">
               <Image src={edit} />
               <p>Change</p>
@@ -689,19 +690,19 @@ class Verification extends Component {
           <div className="listItem">
           <Image className="verified" src={verification_s} />
             <Image className="verifyImage" src={add} />
-            <p>Add a Selfie</p>
+            <p className='verifyheader'>Add a Selfie</p>
             <p>(Upload your selfie)</p>
           </div>
           <div className="listItem">
           <Image className="verified" src={verification_g} />
             <Image className="verifyImage" src={upload} />
-            <p>Upload Documents</p>
+            <p  className='verifyheader'>Upload Documents</p>
             <p>(Verification with Aadhar Card / Driving License / Passport)</p>
           </div>
           <div className="listItem">
           <Image className="verified" src={verification_g} />
             <Image className="verifyImage" src={upload} />
-            <p>Financial Verification</p>
+            <p  className='verifyheader'>Financial Verification</p>
             <p>(Upload bank statement for 3 months)</p>
           </div>
         </div>
