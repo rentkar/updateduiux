@@ -21,7 +21,7 @@ import TermsOfUse from './components/TermsOfUse'
 import AdminDashboard from './components/admin/admindashboard'
 import { Payment } from './components/payment'
 import Checkout from './components/Checkout'
-import {Test} from './components/tests'
+import Test from './components/tests'
 function App() {
 	return (
 		<Router>
@@ -78,11 +78,11 @@ function App() {
 								)}
 								
 						/>
-						<Route path='/test'
-							
-								render={(props) => (
-									<Test />
-								)} />
+						<Route path='/test'>
+							<>
+							<Test />
+							</>
+						</Route>
 	
 						<Route path='/terms&conditions'>
 							<>

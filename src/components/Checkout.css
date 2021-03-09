@@ -1,0 +1,534 @@
+.checkout {
+	display: flex;
+	flex-direction: row;
+	margin: 0px;
+	padding: 0px;
+}
+
+.checkout .left {
+	padding-left: 10%;
+	margin-bottom: 40px;
+}
+
+.checkout .right {
+	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
+	background-color: white;
+	right: 0px;
+}
+
+.checkout .right .product__name{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.checkout .right h2 {
+	margin-left: 20px;
+	margin-bottom: 10px;
+	font-size: 24px;
+}
+
+.checkout .right h3 {
+	margin-left: 20px;
+	margin-top: 15px;
+	font-size: 16px;
+	font-weight: bold;
+
+}
+
+.checkout .right .durationPrice {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.checkout .right .durationPrice .durationButton {
+	background-color: white;
+	margin: 10px 10px 10px 20px;
+	padding: 1px;
+	color: black;
+	border-radius: 5px;
+	border: 1px solid rgb(202, 199, 199);
+	height: 60px;
+}
+
+
+.MuiToggleButton-root.Mui-selected{
+	border-bottom: 3px solid #1bacf4 !important;
+}
+
+.checkout .right .summary .product {
+	display: flex;
+	flex-direction: row;
+	font-weight: bold;
+	margin: 20px;
+	justify-content: space-between;
+}
+
+.checkout .right .summary .product p {
+	text-align: left;
+	width: 150px;
+}
+
+.checkout .right .summary .product .btn{
+	font-size: 16px;
+	border: 1px solid rgb(202, 199, 199) !important;
+}
+
+
+.checkout .right .summary .placeOrder {
+	display: flex;
+	flex-direction: row;
+}
+
+.checkout .right .summary .placeOrder .couponStatus {
+	height: 70px;
+	margin: 20px;
+	background-color: #e8fffc;
+	border: 1px dashed #27d2bb;
+	border-radius: 10px;
+}
+
+.checkout .right .summary .placeOrder .couponStatus p {
+	text-align: center;
+	justify-content: center;
+	font-weight: bold;
+	color: #27d2bb;
+	font-size: 13px;
+}
+
+.checkout .right .summary .placeOrder button {
+	max-height: 70px;
+	margin-top: 20px;
+	border: 1px solid #28a5e5;
+	border-radius: 10px;
+	background-color: #28a5e5;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.checkout .right .summary .placeOrder button a{
+			text-decoration: none;
+			color: white;
+}
+.checkout .right .summary .placeOrder button :active {
+	color: #19eeb5;
+	transition-duration: 500;
+	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
+
+	animation: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.checkout .right .durationPrice .durationButton .duration {
+	text-align: left;
+	color: gray;
+	font-family:'Montserrat', sans-serif;
+	padding: 4px 4px 0px 4px;
+	width: 150px;
+	display: flex;
+	font-size: 15px;
+	margin: 2px 2px 0px 2px;
+}
+
+.checkout .right .durationPrice .durationButton .price {
+	text-align: left;
+	text-transform: none !important;
+	font-family:'Montserrat', sans-serif;
+	font-weight: bold;
+	padding: 0px 4px 5px 4px;
+	font-size: 15px;
+	margin: 0px 2px;
+}
+
+
+.checkout .right .summary .product {
+	display: flex;
+	flex-direction: row;
+	font-weight: bold;
+	margin: 20px;
+}
+
+.checkout .right .summary .product button {
+	padding: 5px;
+	min-width: 80px;
+	border: 1px solid rgb(202, 199, 199);
+	border-radius: 5px;
+	margin-left: auto;
+	margin-right: 40px;
+	background-color: #ffffff;
+}
+
+.checkout .right .summary .placeOrder {
+	display: flex;
+	flex-direction: row;
+}
+
+.checkout .right .summary .placeOrder .couponStatus {
+	max-height: 50px;
+	margin: 20px;
+	background-color: #e8fffc;
+	border: 1px dashed #27d2bb;
+	border-radius: 10px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+.checkout .right .summary .placeOrder .couponStatus p {
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	color: #27d2bb;
+	font-size: 14px;
+	margin: auto;
+}
+
+.checkout .right .summary .placeOrder button {
+	max-height: 50px;
+	margin-top: 20px;
+	border: 1px solid #28a5e5;
+	border-radius: 10px;
+	background-color: #28a5e5;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.checkout .right .summary .placeOrder button a{
+			text-decoration: none;
+			color: white;
+}
+.checkout .right .summary .placeOrder button :active {
+	color: #19eeb5;
+	transition-duration: 500;
+	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
+
+	animation: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.checkout .react-google-flight-datepicker .dialog-date-picker{
+	-webkit-backdrop-filter: saturate(180%) blur(20px);
+	backdrop-filter: saturate(180%) blur(20px);    
+	left: -800px !important;
+}
+
+.checkout .react-google-flight-datepicker .date{
+	border: 1px solid rgb(202, 199, 199) !important;
+	margin-right: 10px;
+	max-width: 200px !important;
+}
+
+.checkout .react-google-flight-datepicker .date-picker-input{
+	margin-left: 10px !important;
+	padding: 0px !important;
+	border: none !important;
+	width: 350px !important;
+}
+
+.checkout .react-google-flight-datepicker .date-picker-date-group{
+	justify-content: space-between !important;
+	height: 40px !important;
+	width: auto !important;
+}
+
+.sgst{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.cgst{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+/*
+.select__games .search__game{
+	display: flex;
+	flex-direction: row;
+	height: 50px;
+	border: 1px solid rgb(202, 199, 199);
+	border-radius: 5px;
+	margin: 20px;
+	display: flex;
+	justify-content: start;
+}
+
+.select__games .search__game i{
+	padding: 0px;
+	display: flex;
+	align-items: center;
+}
+
+
+.select__games .free__game{
+	border: none;
+}  
+*/
+.select__games .select__free__games {
+	display: flex;
+	margin-left: 20px;
+}
+
+.select__games .select__free__games .games{
+	height: 120px;
+	width : 120px;
+	border: 1px solid rgb(202, 199, 199);
+	border-radius: 10px;
+	margin: 10px;
+}
+.select__games .select__free__games .games img{
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 15px 10px;
+}
+
+.select__package .select__your__package {
+	display: flex;
+	margin-left: 20px;
+}
+
+.select__package   .select__your__package .packages{
+	height: 120px;
+	border: 1px solid rgb(202, 199, 199);
+	border-radius: 10px;
+	margin: 10px;
+}
+
+
+.checkout .left .product__card__section{
+	display: flex;
+	flex-direction: row;
+}
+
+.checkout .left .description p{
+	display: flex;
+	text-align: left;
+}
+
+.checkout .left .description h2{
+	margin: 60px 0px 40px 0px;
+}
+
+.checkout .left .specifications {
+	margin-top: 50px;
+}
+.checkout .left .specifications h2{
+	margin: 10px 0px;
+	font-size: 20px;
+}
+
+.checkout .left .specifications p{
+	display: flex;
+	text-align: left;
+}
+
+.checkout .left .box{
+	
+	height: 500px;
+	width: 630px;
+	border-radius: 10px;
+	border: 1px solid rgb(202, 199, 199);
+	padding: 20px;
+}
+
+
+
+
+.checkout .left .recommendations h2{
+	margin: 50px 0px;
+}
+
+
+.checkout .left .product__card__section .product__back__card .product__card .card .flipside p {
+	font-size: 24px;
+	justify-content: center;
+	margin: 0px;
+	padding: 0px;
+	align-content: center;
+}
+
+.checkout .left .product__card__section .product__back__card .product__card .card .flipside{
+	margin: 22px;
+	font-weight: bolder;
+	text-align: left;
+	color: black;
+}
+
+.checkout .left .product__card__section .product__back__card .product__card .card{
+	justify-content: flex-start;
+}
+
+@media screen and (max-width: 992px){
+   .checkout .react-google-flight-datepicker .dialog-date-picker{
+   
+	left: 0 !important;
+}
+}
+
+
+
+@media screen and (max-width: 1560px){
+.checkout .right h2 {
+	font-size: 18px;
+}
+
+
+.checkout .carousel img{
+	max-height: 400px !important;
+}
+
+
+.checkout .product__page__carousel .carousel{
+	max-height: 400px !important;
+}
+
+.checkout .right p {
+	font-size: 10px;
+}
+
+.checkout .right h3 {
+	font-size: 12px;
+}
+
+.checkout .react-google-flight-datepicker .date{
+	max-width: 98px !important;
+}
+
+.checkout .react-google-flight-datepicker .date-picker-input{
+	width: 190px !important;
+}
+
+
+
+.checkout .right .durationPrice .durationButton {
+	margin: 5px; 
+}
+
+
+.checkout .right .summary .placeOrder .couponStatus p {
+	font-size: 10px;
+}
+
+.checkout .right .summary .placeOrder button {
+	font-size: 12px;
+}
+
+.checkout .right .durationPrice .durationButton .duration {
+	max-width: 90px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	font-size : 10px !important;
+}
+.checkout .right .durationPrice .durationButton .price {
+font-size : 10px !important;
+margin-bottom : 0px !important;
+padding-bottom : 0px !important;
+}
+
+.select__games .select__free__games {
+	margin-left: 10px;
+}
+.select__games  .select__free__games  .games{
+	height: 80px;
+	width: 80px;
+}
+
+.select__games  .select__free__games  .games img{
+	height: 40px;
+	width: 40px;
+}
+
+.select__package .select__your__package{
+	margin-left: 10px;
+}
+
+.select__package .select__your__package .packages{
+	height: 80px;
+}
+
+.checkout .right .summary .product .btn{
+	font-size: 10px;
+}
+
+
+.checkout .right .summary .product p {
+	width: 90px !important;
+}
+}
+
+.checkout .left{
+	margin-top: 30px;
+}
+
+
+.checkout .left .verificationList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  /*  display: grid;
+	grid-template-columns: auto auto auto auto; */
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.checkout .left .verificationList .listItem {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: #dadada solid 2px;
+  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  padding: 15px;
+  height: 240px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.checkout .left .verificationList .listItem .verified {
+  height: 40px;
+  width: 40px;
+  align-self: flex-end;
+}
+.checkout .left .verificationList .listItem .changeButton {
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  margin-right: 30px;
+  align-self: center;
+}
+
+.checkout .left .verificationList .listItem .changeButton img {
+  width: 20px;
+  height: 20px;
+}
+
+.checkout .left .verificationList .listItem .changeButton p {
+  font-weight: 600;
+  margin-left: 5px;
+  color: #0b90d3;
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+.checkout .left .verificationList .listItem p {
+  color: black;
+  text-align: center;
+  margin-top: 20px !important;
+}
+.checkout .left .verificationList .listItem .verifyheader {
+  color: black;
+  align-items: center;
+  text-align: center;
+  font-weight: 600;
+}
+
+.checkout .left .verificationList .listItem .verifyImage {
+  width: 100px;
+  align-self: center;
+}

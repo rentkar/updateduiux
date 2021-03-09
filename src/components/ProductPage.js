@@ -17,17 +17,122 @@ import ProductCard3 from './ProductCard3'
 import ProductCarousel2 from "./ProductCarousel2";
 import './body.css'
 import add from "../images/add.png";
+import {Carousel, Modal, Button} from 'react-bootstrap'
+import ps5 from  '../images/ps5.jpg'
+import l4 from "../images/icons2/icons/laptop/i7 grey.png";
+import g1 from '../images/games/game1.jpg'
+import g2 from '../images/games/game2.jpg'
+import g3 from '../images/games/game3.jpg'
+import g4 from '../images/games/game4.jpg'
+import g5 from '../images/games/game5.jpg'
+import g6 from '../images/games/game6.jpg'
+import g7 from '../images/games/game7.jpg'
 
+function AddGamesModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+		  centered
+		  className='game__modal'
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+         <p>Select Game</p>
+		 
+        </Modal.Title>
+      </Modal.Header>
+		  <Modal.Body>
+			  <div className='games row'>
+			  <div className='game'>
+					  <img src={ g1 } />
+					  <p>Game</p>
+
+			  </div>
+			  <div className='game'>
+					  <img src={ g2 } />
+					  <p>Game</p>
+			  </div>
+			  <div className='game'>
+					  <img src={ g3 } />
+					  <p>Game</p>
+			  </div>
+			  <div className='game'>
+					  <img src={ g4 } />
+					  <p>Game</p>
+			  </div>
+			  <div className='game'>
+					  <img src={ g5 } />
+					  <p>Game</p>
+			  </div>
+			  <div className='game'>
+					  <img src={ g6 } />
+					  <p>Game</p>
+			  </div>
+			  <div className='game'>
+					  <img src={ g7 } />
+					  <p>Game</p>
+				  </div>
+				   <div className='game'>
+					  <img src={ g1 } />
+					  <p>Game</p>
+				  </div>
+				   <div className='game'>
+					  <img src={ g2 } />
+					  <p>Game</p>
+				  </div>
+				   <div className='game'>
+					  <img src={ g7 } />
+					  <p>Game</p>
+				  </div>
+				   <div className='game'>
+					  <img src={ g1 } />
+					  <p>Game</p>
+			  </div>
+			  <div className='game'>
+				  <img src ={g2} />
+				  <p>Game</p>
+			  </div>
+			  <div className='game'>
+				  <img src ={g3} />
+				  <p>Game</p>
+			  </div>
+			  <div className='game'>
+					  <img src={ g4 } />
+					  <p>Game</p>
+			  </div>
+			  <div className='game'>
+				  <img src={ g5 } />
+				  <p>Game</p>
+			  </div>
+			  <div className='game'>
+					  <img src={ g6 } />
+					  <p>Game</p>
+			  </div>
+			  <div className='game'>
+					  <img src={ g7 } />
+					  <p>Game</p>
+				</div>
+			  </div>
+      </Modal.Body>
+
+    </Modal>
+  );
+}
 
 export default function ProductPage ()
 {
 
 
-	 const [duration, setDuration] = React.useState("3 Day");
+	const [ duration, setDuration ] = useState( "3 Day" );
+	  const [gameModalShow, setGameModalShow] = useState(false);
+
 
   const handleDuration = (event, newDuration) => {
     setDuration(newDuration);
   };
+	
 				
 
 	function changePreview(id) {
@@ -36,12 +141,119 @@ export default function ProductPage ()
 	}
 	
 		return (
-			<div className='productPage row'>
-				
-				
-				
+			<div className='productPage row'>		
 				<div className='left col-9'>
-					<div className='product__card__section'>
+
+					<div className='product__page__carousel'>
+						<Carousel>
+						<Carousel.Item>
+							<img
+							className="d-block w-100"
+							src={ps5}
+							alt="First slide"
+							/>
+						</Carousel.Item>
+						<Carousel.Item>
+							<img
+							className="d-block w-100"
+							src={ps5}
+							alt="Second slide"
+							/>
+						</Carousel.Item>
+						<Carousel.Item>
+							<img
+							className="d-block w-100"
+							src={ps5}
+							alt="Third slide"
+							/>
+						</Carousel.Item>
+						</Carousel>
+					</div>
+					<div className='whats__included'>
+						<h2>What's Included</h2>
+						<div className='cards'>
+						<Card className="includedCard">
+        			<Card.Content
+						>
+									<img src={l4} />
+									<p>i7</p>
+						</Card.Content>
+						</Card>
+						<Card className="includedCard">
+        			<Card.Content
+						>
+									<img src={l4} />
+									<p>i7</p>
+						</Card.Content>
+					</Card>
+					<Card className="includedCard">
+        			<Card.Content
+						>
+									<img src={l4} />
+									<p>i7</p>
+						</Card.Content>
+					</Card>
+					<Card className="includedCard">
+        			<Card.Content
+						>
+									<img src={l4} />
+									<p>i7</p>
+						</Card.Content>
+					</Card>
+					<Card className="includedCard">
+        			<Card.Content
+						>
+									<img src={l4} />
+									<p>i7</p>
+						</Card.Content>
+							</Card>
+							</div>
+					</div>
+					<div className='whats__included'>
+						<h2>Specifications</h2>
+						<div className='cards'>
+						<Card className="includedCard">
+        			<Card.Content
+						>
+									<img src={l4} />
+									<p>i7</p>
+						</Card.Content>
+						</Card>
+						<Card className="includedCard">
+        			<Card.Content
+						>
+									<img src={l4} />
+									<p>i7</p>
+						</Card.Content>
+					</Card>
+					<Card className="includedCard">
+        			<Card.Content
+						>
+									<img src={l4} />
+									<p>i7</p>
+						</Card.Content>
+					</Card>
+					<Card className="includedCard">
+        			<Card.Content
+						>
+									<img src={l4} />
+									<p>i7</p>
+						</Card.Content>
+					</Card>
+					<Card className="includedCard">
+        			<Card.Content
+						>
+									<img src={l4} />
+									<p>i7</p>
+						</Card.Content>
+							</Card>
+							</div>
+					</div>
+					 <div className='description'>
+						<h2>Description</h2>
+						<p>Sony Playstation 4 with controller(s). 500 GB console, Dual Shock Controller</p>
+					</div>
+					{/*	<div className='product__card__section'>
 						<div className='product__front__card'>
 								<ProductCard3 />
 						</div>
@@ -55,6 +267,9 @@ export default function ProductPage ()
 						</div>
 						</div>
 					</div>
+		
+					
+					
 				 	<div className='box'>
 						 <div className='description'>
 						<h2>DESCRIPTION</h2>
@@ -66,16 +281,12 @@ export default function ProductPage ()
 						<p>Sony Playstation 4 with controller(s). 500 GB console, Dual Shock Controller</p>
 					</div>
 					</div>
+					*/}
 					<div className='recommendations'>
 						<h2>Recommended Products</h2>
 						<ProductCarousel2 />
 					</div>
 				</div>
-
-
-
-
-
 
 					<div className='right col-3'>
 						<div className='product__name'>
@@ -88,7 +299,7 @@ export default function ProductPage ()
 									
 								}}/>4.5</p>
 						</div>
-						<h3 style={{ textAlign: 'left' }}>Select your package</h3>
+						<h3 style={{ textAlign: 'left' }}>Select Your Package</h3>
 					                                                                                                                                                                        
 						<ToggleButtonGroup className='durationPrice' value={duration} exclusive onChange={handleDuration}>
 								<ToggleButton
@@ -152,14 +363,18 @@ export default function ProductPage ()
 						<div className='select__games'>
 						<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your 2 free games</h3>
 						<div className='select__free__games'>
-							<div className='btn btn-outline-dark games' ><img src={add} /></div>
-							<div className='btn btn-outline-dark games'><img src={add} /></div>
+							<div className='btn btn-outline-dark games'  onClick={() => setGameModalShow(true)} ><img src={add} /></div>
+							<div className='btn btn-outline-dark games' onClick={() => setGameModalShow(true)} ><img src={ add } /></div>
+							 <AddGamesModal
+								show={gameModalShow}
+								onHide={() => setGameModalShow(false)}
+      />
 						</div>
 
 						
 						</div>
 						<div className='select__package'>
-						<h3 style={ { textAlign: 'left', margin: '20px' } }>Select your package</h3>
+						<h3 style={ { textAlign: 'left', margin: '20px' } }>Add Ons</h3>
 						<div className='select__your__package'>
 							<div className='btn btn-outline-dark col-3 packages'></div>
 							<div className='btn btn-outline-dark col-3 packages'></div>

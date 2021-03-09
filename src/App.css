@@ -19,7 +19,7 @@
 }
 
 .App p{
-  margin: 0px !important;
+  margin: 0px;
 }
 
 @media screen and (max-width: 992px){

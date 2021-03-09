@@ -7,6 +7,7 @@
 
 .productPage .left {
 	padding-left: 10%;
+	margin-bottom: 40px;
 }
 
 .productPage .right {
@@ -28,7 +29,7 @@
 
 .productPage .right h3 {
 	margin-left: 20px;
-	margin-top: 10px;
+	margin-top: 15px;
 	font-size: 16px;
 	font-weight: bold;
 
@@ -47,7 +48,7 @@
 	color: black;
 	border-radius: 5px;
 	border: 1px solid rgb(202, 199, 199);
-	height: 50px;
+	height: 60px;
 }
 
 
@@ -309,8 +310,7 @@ margin: 15px 10px;
 }
 
 .productPage .left .description h2{
-	margin: 10px 0px;
-	font-size: 20px;
+	margin: 60px 0px 40px 0px;
 }
 
 .productPage .left .specifications {
@@ -340,7 +340,6 @@ margin: 15px 10px;
 
 .productPage .left .recommendations h2{
 	margin: 50px 0px;
-	font-size: 20px;
 }
 
 
@@ -376,6 +375,17 @@ margin: 15px 10px;
 .productPage .right h2 {
 	font-size: 18px;
 }
+
+
+.productPage .carousel img{
+	max-height: 400px !important;
+}
+
+
+.productPage .product__page__carousel .carousel{
+	max-height: 400px !important;
+}
+
 .productPage .right p {
 	font-size: 10px;
 }
@@ -448,4 +458,95 @@ padding-bottom : 0px !important;
 .productPage .right .summary .product p {
 	width: 90px !important;
 }
+}
+
+
+
+.productPage .carousel img{
+	border-radius: 50px !important;
+	max-height: 500px;
+	object-fit: cover;
+}
+
+.productPage .product__page__carousel{
+	margin : 50px 80px 50px 0px;
+}
+
+.productPage .product__page__carousel .carousel{
+	max-height: 500px !important;
+}
+
+.productPage .whats__included .cards {
+	display: flex;
+	flex-direction: row;
+}
+
+.productPage .whats__included h2{
+	margin-bottom: 40px !important;
+}
+
+.productPage .whats__included .includedCard{
+	height: 100px;
+	width: 100px;
+	margin-right: 25px;
+	margin-bottom: 0px;
+	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
+	border: none;
+  /* padding: 0px 20px 0px 20px; */
+  border-radius: 10px;
+
+}
+
+.productPage .whats__included{
+	margin-bottom: 50px;
+}
+
+.productPage .whats__included img{
+	height: 80px;
+    width: 80px;
+	margin-bottom: -7px;
+
+}
+
+.productPage .whats__included p{
+	font-weight: 700;
+    color: #000;
+    padding-bottom: 7px;
+    font-size: 12px;
+}
+
+.game__modal .games {
+	display: flex;
+	margin: 5px;
+	height : 400px;
+	overflow-y: scroll;
+}
+
+.game__modal .games .game{
+	height : 150px;
+	width: auto;
+	margin: 10px;
+	border-radius: 10px;
+	border: 1px solid red;
+    box-shadow: 0 0 10px -1px rgb(0 0 0 / 50%);
+    border: none;
+    /* padding: 0px 20px 0px 20px; */
+    border-radius: 10px;
+
+}
+.game__modal .games .game img{
+	height : 120px;
+	object-fit: contain;
+	padding: 3px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+.game__modal .games .game p{
+	font-size: 14px;
+	text-align: center;
+	font-weight: 500;
+}
+
+.game__modal .modal-content{
+	max-width: 800px !important;
 }

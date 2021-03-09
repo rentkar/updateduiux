@@ -35,7 +35,7 @@ export class OTP extends Component {
                     <div className='change__number' onClick={this.back}>Change Number</div>
                 </div>
 				        <div className='buttons'>
-			            <div className='btn' ><Link to='/about'>Login</Link></div>
+			            <div className='btn'  onClick={this.confirm}>Login</div>
                 </div>
             </div>
         )
