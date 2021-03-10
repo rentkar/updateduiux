@@ -1,10 +1,10 @@
-.login{
+.address{
     max-width: 100%;
     border-radius: 100px;
     /* padding-bottom: 200px; */
 }
 
-.login__modal .modal-content {
+.address__modal .modal-content {
     max-width: 380px;
     margin: auto;
     padding: 0px 25px;
@@ -13,18 +13,18 @@
     height: 420px;
 }
 
-.login-image{
+.address-image{
     height: 110px;
     width: auto;
     margin: auto;
 }
-.logintxt{
+.addresstxt{
     font-size: 36px;
     font-family: 'Montserrat', sans-serif; ;
     font-weight: 700;
     color: #0C3474;
 }
-.login .in{
+.address .in{
     display: flex;
     flex-direction: row;
     min-width: 100%;
@@ -32,11 +32,11 @@
     font-size: 10px;
 }
 
-.loginnav{
+.addressnav{
     display: flex;
     flex-direction: row;
 }
-.inpt{
+.inpt, .location-search-input{
     min-width: 100%;
     margin:5px 0px ;
     height: 40px;
@@ -44,7 +44,7 @@
     border-bottom: 2px solid  #19eeb5;
     font-family: 'Montserrat', sans-serif;
     background-color:  rgb(242, 242, 242);
-    font-size: 10px;
+    font-size: 12px;
     padding: 5px;
 }
 
@@ -65,7 +65,7 @@ input:focus,button:focus{
 }
 
 
-.login p {
+.address p {
     margin-top: 0;
     margin-bottom: 5px;
     font-size: 17px;
@@ -73,10 +73,14 @@ input:focus,button:focus{
     padding : 0px 10px 10px 0px;
 }
 
-.login .buttons{
+.address .buttons{
     margin-top: 50px;
 }
-.login .buttons .btn{
+.address .button__save{
+    margin-top: 16px;
+}
+
+.address  .btn{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,12 +93,12 @@ input:focus,button:focus{
     min-width: 200px;
 }
 
-.login .buttons .btn a{
+.address .buttons .btn a{
     text-decoration: none;
     color: black;
 }
 
-.login .wrong__number{
+.address .wrong__number{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -107,7 +111,10 @@ input:focus,button:focus{
     font-weight: 500;
 }
 
-
-.new__address{
-
+.autocomplete-dropdown-container{
+    height: 64px;
+    overflow-y: scroll;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
 }
+

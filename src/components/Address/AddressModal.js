@@ -55,18 +55,17 @@ export class AddressModal extends Component {
 	
     render() {
         const { step } = this.state;
-        let addModalclose = () => { this.setState({ addModalshow: false }) };
 
         switch (step) {
             case 1:
                 return (
-                    <Modal className='login__modal'
+                    <Modal className='address__modal'
                         {...this.props}
                         size="lg"
                         aria-labelledby="contained-modal-title-vcenter"
 						centered>
-                        <div className="loginnav">
-                        <img className='login-image' src={logo_trans}></img>
+                        <div className="addressnav">
+                        <img className='address-image' src={logo_trans}></img>
                         <button className="cross" onClick={this.props.onHide}><i class="far fa-times-circle"></i></button>
                         </div>
                      
@@ -75,19 +74,19 @@ export class AddressModal extends Component {
                             selected={this.state.selected}
                             show={this.show}
                             handleChange={ this.handleChange }
-                            prevStep={this.prevStep}
+                            prevStep={ this.prevStep }
                         />
                     </Modal>
                 );
             case 2:
                 return (
-                    <Modal className='login__modal'
+                    <Modal className='address__modal'
                         {...this.props}
                         size="lg"
                         aria-labelledby="contained-modal-title-vcenter"
 						centered>
-                        <div className="loginnav">
-                        <img className='login-image' src={logo_trans}></img>
+                        <div className="addressnav">
+                        <img className='address-image' src={logo_trans}></img>
                         <button className="cross" onClick={this.props.onHide}><i class="far fa-times-circle"></i></button>
                         </div>
 
@@ -96,7 +95,6 @@ export class AddressModal extends Component {
                             show={this.show}
                             handleChange={ this.handleChange }
 							prevStep={ this.prevStep }
-							onHide={addModalclose}
                             />
                     </Modal>
                 );

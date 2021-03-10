@@ -1,10 +1,12 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import GoogleMap from './GoogleMap'
+
+
 export class NewAddress extends Component {
 	
-	
-        continue = e => {
+        back = e => {
         e.preventDefault();
-        this.props.nextStep();
+        this.props.prevStep();
     };
 
     
@@ -15,14 +17,14 @@ export class NewAddress extends Component {
 render() {
 
         return (
-            <div className='login'>
+            <div className='address'>
                     <p>Add a New Address</p>
                     <div id="in">
 					<input className="inpt" placeholder='Flat No/ Building No'></input>
-                        <input className="inpt" placeholder='Landmark'></input>
+                    <GoogleMap />
                     </div>
-                    <div className='buttons'>
-                    <button className='btn' onClick={this.continue}>Save</button>
+                    <div className='button__save'>
+                    <button className='btn' onClick={this.back}>Save</button>
                     </div>
             </div>
         )

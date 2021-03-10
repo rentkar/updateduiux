@@ -100,4 +100,5 @@ input:focus,button:focus{
     justify-content: space-between;
     font-size: 14px;
     color:  #19eeb5;
+    cursor: pointer;
 }

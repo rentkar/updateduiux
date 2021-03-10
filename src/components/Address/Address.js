@@ -18,7 +18,7 @@ export class Address extends Component {
     render() {
 
         return (
-            <div className='login'>
+            <div className='address'>
 				<div className='addresses'>
 					<p>Select your delivery address</p>
 					<h5>304, Rentkar, Vishwananak Apartments, Andheri East, Mumbai 40000XXXX</h5>

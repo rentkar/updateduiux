@@ -46,7 +46,7 @@ import AddressModal from './Address/AddressModal'
 export default function Checkout ()
 {
 	const [ addModalshow, setaddModalshow ] = useState( false );
-			const [addAddressModalshow, setaddAddressModalshow] = useState(false);
+	const [addAddressModalshow, setaddAddressModalshow] = useState(false);
 
 
 		 const [duration, setDuration] = React.useState("3 Day");
@@ -66,8 +66,8 @@ export default function Checkout ()
           <div className="listItem" onClick={() => setaddModalshow(true)}>
             <Image className="verified" src={verification_s} />
             <Image className="verifyImage" src={person} />
-						<p className='verifyheader'>Account Login</p>
-					<LoginModal show={addModalshow} onHide={addModalclose} />
+			<p className='verifyheader'>Account Login</p>
+			<LoginModal show={addModalshow} onHide={addModalclose} />
             {/* <div className="changeButton">
               <Image src={edit} />
               <p>Change</p>
@@ -77,7 +77,7 @@ export default function Checkout ()
           <Image className="verified" src={verification_s} />
             <Image className="verifyImage" src={add} />
 						<p className='verifyheader'>Select Delivery Address</p>
-				<AddressModal show={addAddressModalshow} onHide={addModalclose} />
+				<AddressModal show={addAddressModalshow}  />
 
           </div>
           <div className="listItem">

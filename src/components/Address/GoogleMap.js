@@ -4,6 +4,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
+import './Address.css'
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -69,23 +70,12 @@ export class MapContainer extends Component {
                         style,
                       })}
                     >
-                      <span>{suggestion.description}</span>
+                      <span>{suggestion.description}<hr /></span>
                     </div>
                   );
                 })}
               </div>
               <div className='address'>
-                <input name={ 'address' } value={ this.state.address } placeholder={ "Address" } onChange={ this.handleChange } />
-                  <input id="autocomplete"
-            className="input-field"
-            ref="input"
-            type="text"/>
-            <input 
-              name={"name"}
-              value={this.state.name}
-              placeholder={"Name"}
-              onChange={this.handleChange}
-            />
                 </div>
             </div>
           )}

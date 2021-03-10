@@ -19,6 +19,7 @@
     "react-date-picker": "^8.0.7",
     "react-dom": "^16.13.1",
     "react-google-flight-datepicker": "^0.1.17",
+    "react-google-places-autocomplete": "^3.2.3",
     "react-js-stepper": "^1.2.6",
     "react-multi-carousel": "^2.5.5",
     "react-places-autocomplete": "^7.3.0",

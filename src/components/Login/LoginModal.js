@@ -96,8 +96,6 @@ export class LoginModal extends Component {
                             show={this.show}
                             handleChange={ this.handleChange }
 							prevStep={ this.prevStep }
-							onHide={addModalclose}
-
                             />
                     </Modal>
                 );

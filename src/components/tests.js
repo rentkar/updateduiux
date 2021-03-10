@@ -1,7 +1,8 @@
 import React from 'react'
 import GoogleMap from './GoogleMap'
 
-function Test() {
+function Test ()
+{
   return (
     <div>
       <h1>Google Map</h1>

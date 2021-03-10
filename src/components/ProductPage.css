@@ -522,6 +522,22 @@ padding-bottom : 0px !important;
 	overflow-y: scroll;
 }
 
+.game__modal .title {
+	display: flex;
+}
+
+.game__modal .title .game__inpt{
+	margin: 0px 20px;
+	height: 40px;
+    border: none;
+    border-bottom: 2px solid  #19eeb5;
+    font-family: 'Montserrat', sans-serif;
+    background-color:  rgb(242, 242, 242);
+    font-size: 12px;
+    padding: 5px;
+	width: 650px;
+}
+
 .game__modal .games .game{
 	height : 150px;
 	width: auto;
@@ -534,6 +550,11 @@ padding-bottom : 0px !important;
     border-radius: 10px;
 
 }
+
+.game__modal .btn{
+	border-radius: 30px;
+}
+
 .game__modal .games .game img{
 	height : 120px;
 	object-fit: contain;

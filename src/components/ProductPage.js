@@ -38,9 +38,8 @@ function AddGamesModal(props) {
 		  className='game__modal'
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-         <p>Select Game</p>
-		 
+        <Modal.Title className='title' id="contained-modal-title-vcenter">
+				  <input className='game__inpt' placeholder='Search Your Free Game' type ='text'/>
         </Modal.Title>
       </Modal.Header>
 		  <Modal.Body>
@@ -116,7 +115,9 @@ function AddGamesModal(props) {
 				</div>
 			  </div>
       </Modal.Body>
-
+		  <Modal.Footer>
+			  <div className='btn btn-outline-success submit'>Submit</div>
+			</Modal.Footer>
     </Modal>
   );
 }
