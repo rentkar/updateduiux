@@ -1,5 +1,5 @@
 import React, { Component, useState, useContext, useEffect } from "react";
-
+import { Modal} from 'react-bootstrap'
 import rental_s from "../images/icons/rental_s.png";
 import bag_s from "../images/bagb.png";
 import bag_g from "../images/bag.png";
@@ -650,8 +650,122 @@ class MyListing extends Component {
   }
 }
 
-class Verification extends Component {
-  render() {
+function Verification(){
+
+  function PersonalInformation(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Modal heading
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Centered Modal</h4>
+        <p>
+          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+          consectetur ac, vestibulum at eros.
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <div className='btn btn-outline-success' onClick={props.onHide}>Close</div>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
+function FinalVerification(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Modal heading
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Centered Modal</h4>
+        <p>
+          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+          consectetur ac, vestibulum at eros.
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <div className='btn btn-outline-success' onClick={props.onHide}>Close</div>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+function UploadDocuments(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Modal heading
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Centered Modal</h4>
+        <p>
+          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+          consectetur ac, vestibulum at eros.
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <div className='btn btn-outline-success' onClick={props.onHide}>Close</div>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+function AddASelfie(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Modal heading
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Centered Modal</h4>
+        <p>
+          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+          consectetur ac, vestibulum at eros.
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <div className='btn btn-outline-success' onClick={props.onHide}>Close</div>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
+    const [PersonalInformationModalShow, setPersonalInformationModalShow] = useState(false)
+    const [ UploadDocumentsModalShow, setUploadDocumentsModalShow ] = useState( false )
+    const [ FinalVerificationModalShow, setFinalVerificationModalShow ] = useState( false )
+    const [ AddASelfieModalShow, setAddASelfieModalShow] = useState(false)
     return (
       <div className="right_content">
         {/*
@@ -678,7 +792,7 @@ class Verification extends Component {
 				</div>
 				*/}
         <div className="verificationList">
-          <div className="listItem">
+          <div className="listItem"  onClick={() =>  setPersonalInformationModalShow(true)}>
             <Image className="verified" src={verification_s} />
             <Image className="verifyImage" src={person} />
             <p className='verifyheader'>Personal Information</p>
@@ -686,29 +800,35 @@ class Verification extends Component {
               <Image src={edit} />
               <p>Change</p>
       </div> */}
+          
           </div>
-          <div className="listItem">
+            <PersonalInformation show={ PersonalInformationModalShow } onHide={() => setPersonalInformationModalShow(false)} />
+          <div className="listItem" onClick={() => setAddASelfieModalShow(true)}>
           <Image className="verified" src={verification_s} />
             <Image className="verifyImage" src={add} />
             <p className='verifyheader'>Add a Selfie</p>
             <p>(Upload your selfie)</p>
+              
           </div>
-          <div className="listItem">
+          <AddASelfie show={AddASelfieModalShow } onHide={() => setAddASelfieModalShow(false)} />
+          <div className="listItem" onClick={() =>  setUploadDocumentsModalShow(true)}>
           <Image className="verified" src={verification_g} />
             <Image className="verifyImage" src={upload} />
             <p  className='verifyheader'>Upload Documents</p>
             <p>(Verification with Aadhar Card / Driving License / Passport)</p>
           </div>
-          <div className="listItem">
+          <UploadDocuments show={UploadDocumentsModalShow } onHide={() => setUploadDocumentsModalShow(false)} />
+          <div className="listItem" onClick={() =>  setFinalVerificationModalShow(true)}>
           <Image className="verified" src={verification_g} />
             <Image className="verifyImage" src={upload} />
             <p  className='verifyheader'>Financial Verification</p>
             <p>(Upload bank statement for 3 months)</p>
           </div>
+            <FinalVerification show={FinalVerificationModalShow } onHide={() =>  setFinalVerificationModalShow(false)} />
         </div>
       </div>
     );
-  }
+  
 }
 
 class MobileVerification extends Component {
@@ -938,7 +1058,7 @@ class MobileVerification extends Component {
     const VerifyPage4 = (props) => (
       <div className="verifyPage4">
         <div className="Page">
-          <h2>Financial Verification</h2>
+          <h2>Final Verification</h2>
           <Button
             className="selfieButton"
             style={{ background: "#fff", color: "#000", marginTop: "10px" }}

@@ -22,6 +22,8 @@ import AdminDashboard from './components/admin/admindashboard'
 import { Payment } from './components/payment'
 import Checkout from './components/Checkout'
 import Test from './components/tests'
+import Testt from './components/testss'
+
 function App() {
 	return (
 		<Router>
@@ -79,9 +81,14 @@ function App() {
 								
 						/>
 						<Route path='/test'>
-							<>
+						
 							<Test />
-							</>
+						
+							</Route>
+							<Route path='/tests'>
+						
+							<Testt />
+						
 						</Route>
 	
 						<Route path='/terms&conditions'>

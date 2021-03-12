@@ -176,7 +176,8 @@ export const Category = (props) => {
       </Card.Content>
     </Card>
   );
-
+  
+  
   return (
     <div className="category_overview">
       <div className="staticContent sticky">

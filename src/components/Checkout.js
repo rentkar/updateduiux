@@ -67,19 +67,20 @@ export default function Checkout ()
             <Image className="verified" src={verification_s} />
             <Image className="verifyImage" src={person} />
 			<p className='verifyheader'>Account Login</p>
-			<LoginModal show={addModalshow} onHide={addModalclose} />
             {/* <div className="changeButton">
               <Image src={edit} />
               <p>Change</p>
       </div> */}
-          </div>
+		</div>
+		<LoginModal show={addModalshow} onHide={addModalclose} />
+
           <div className="listItem"   onClick={() => setaddAddressModalshow(true)}>
           <Image className="verified" src={verification_s} />
             <Image className="verifyImage" src={add} />
-						<p className='verifyheader'>Select Delivery Address</p>
-				<AddressModal show={addAddressModalshow}  />
-
+			<p className='verifyheader'>Select Delivery Address</p>
           </div>
+				<AddressModal show={addAddressModalshow}  onHide={() => setaddAddressModalshow(false)}  />
+
           <div className="listItem">
           <Image className="verified" src={verification_g} />
             <Image className="verifyImage" src={verification_s} />
