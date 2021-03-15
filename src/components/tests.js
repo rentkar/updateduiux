@@ -1,12 +1,15 @@
 import React, {Component } from 'react'
 import Axios from 'axios'
 
+const API_URL = `http://localhost:5000`
+const productUrl = `${ API_URL }/products/`;
+const userUrl = `${ API_URL }/users/`;
+
 export class Testt extends Component{
-  
+    
+
   async productHandler ()
   {
-    const API_URL = `http://localhost:5000`
-    const productUrl = `${ API_URL }/products/`;
     const response = await Axios.get( productUrl );
     const { data } = response;
     console.log( "App -> products", data )
@@ -31,7 +34,8 @@ export class Testt extends Component{
 
     const modifiedData = data.map( ( item ) => ( {
       productName: item[ 'name' ],
-      productId: item[ 'id' ],
+      _id : item['_id'],
+      id: item[ 'id' ],
       b: item[ 'box' ],
       description: item['description'],
 
@@ -56,8 +60,6 @@ export class Testt extends Component{
     
   async userHandler ()
   {
-    const API_URL = `http://localhost:5000`
-    const userUrl = `${ API_URL }/users/`;
     const response = await Axios.get( userUrl );
     const { data } = response;
     console.log( "App -> users", data )
@@ -73,6 +75,13 @@ export class Testt extends Component{
 
   }
 
+  async productdetailhandler ()
+  {
+    const url = `${ productUrl }/6030a934ce66a71fec678591`
+    const { data } = await Axios.get( url )
+    console.log("App -> product", data.name)
+  }
+
 	render ()
 	{
 		return (
@@ -81,6 +90,8 @@ export class Testt extends Component{
           onClick={ this.productHandler }> product</button>
         <button className='btn btn-primary'
           onClick={ this.userHandler }> user</button>
+        <button className='btn btn-primary'
+          onClick={ this.productdetailhandler }> product detail</button>
         <div>
         </div>
 			</div>

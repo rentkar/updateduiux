@@ -362,13 +362,33 @@ margin: 15px 10px;
 	justify-content: flex-start;
 }
 
+.checkout .right .up{
+	display: none;
+}
+
 @media screen and (max-width: 992px){
    .checkout .react-google-flight-datepicker .dialog-date-picker{
    
 	left: 0 !important;
 }
+.checkout .right .up{
+	margin: 10px auto;
+	 display: flex !important;
+	 justify-content: center;
+	 align-items: center;
+	 background-color: rgb(233, 233, 233);
+	 border: none;
+ }
+ .checkout .right_up{
+	transform: translateY(-350px);
+	transition: transform 0.6s ease;
+ }
 }
 
+.checkout .left{
+	 height: 400px !important;
+	 overflow-y : scroll;
+ }
 
 
 @media screen and (max-width: 1560px){
@@ -376,6 +396,9 @@ margin: 15px 10px;
 	font-size: 18px;
 }
 
+.checkout .right .up{
+	 display: none;
+ }
 
 .checkout .carousel img{
 	max-height: 400px !important;

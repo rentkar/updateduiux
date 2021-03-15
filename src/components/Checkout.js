@@ -46,10 +46,9 @@ import AddressModal from './Address/AddressModal'
 export default function Checkout ()
 {
 	const [ addModalshow, setaddModalshow ] = useState( false );
-	const [addAddressModalshow, setaddAddressModalshow] = useState(false);
-
-
-		 const [duration, setDuration] = React.useState("3 Day");
+	const [ addAddressModalshow, setaddAddressModalshow ] = useState( false );
+	const [up, setup] =useState(true)
+	const [duration, setDuration] = useState("3 Day");
 
   const handleDuration = (event, newDuration) => {
     setDuration(newDuration);
@@ -57,11 +56,14 @@ export default function Checkout ()
 		let addModalclose = () => {
 		setaddModalshow(false);
 	};
-				
+	
+	const toggle=() => {
+	setup(!up)
+	}
 
 	return (
 		<div className='checkout row'>
-			<div className='left col-9'>
+			<div className='left col-lg-9 col--12 order-md-1'>
   <div className="verificationList">
           <div className="listItem" onClick={() => setaddModalshow(true)}>
             <Image className="verified" src={verification_s} />
@@ -89,10 +91,9 @@ export default function Checkout ()
           </div>
 				</div>
 			</div>
-			<div className='right col-3'>
-						
-
-
+			<div className={ up ? 'right col-lg-3 col-md-12 order-md-2' : 'right col-lg-3 col-md-12 order-md-2 right_up' }>
+				<div className='btn  up'  onClick={toggle} 
+					><i className={ up ? 'fas fa-chevron-up' : 'fas fa-chevron-down'} /></div>
 						<div className='summary' style={ { marginTop: '50px' } } >
 							<h3 style={{textAlign: 'left'}}>Product Summary</h3>
 							<div className='product'>

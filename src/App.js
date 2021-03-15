@@ -23,6 +23,7 @@ import { Payment } from './components/payment'
 import Checkout from './components/Checkout'
 import Test from './components/tests'
 import Testt from './components/testss'
+import ProductDetail from './components/productdetail'
 
 function App() {
 	return (
@@ -89,6 +90,9 @@ function App() {
 						
 							<Testt />
 						
+						</Route>
+						<Route path = '/productdetail/:_id'>
+						<ProductDetail />
 						</Route>
 	
 						<Route path='/terms&conditions'>

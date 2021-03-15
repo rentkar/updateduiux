@@ -392,6 +392,9 @@
 		margin: 20px;
 		left: -9.0885px !important;
 	}
+	.user{
+		display: none !important;
+	}
 }
 
 

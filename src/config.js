@@ -1,14 +1,17 @@
 import Axios from 'axios'
+	
+const API_URL = `http://localhost:5000`
+const productUrl = `${API_URL}/products/`;
+const userUrl = `${API_URL}/users/`;
 
-export const fetchProductDetail = async () => {
+
+export const fetchProducts = async () => {
 	try{
-		const API_URL = `http://localhost:5000`
-		const productUrl = `${API_URL}/products/`;
-		const response = await Axios.get(productUrl);
-		const { data } = response;
+		const { data } = await Axios.get(productUrl);
 	const modifiedData = data.map(( item ) => ( {
-      productName: item[ 'name' ],
-      productId: item[ 'id' ],
+    productName: item[ 'name' ],
+      _id: item['_id'],
+      id: item[ 'id' ],
       b: item[ 'box' ],
       description: item[ 'description' ],
 
@@ -39,12 +42,9 @@ export const fetchProductDetail = async () => {
 
 }
 
-export const fetchUserDetail = async () => {
+export const fetchUsers = async () => {
 	try{
-		const API_URL = `http://localhost:5000`
-		const userUrl = `${API_URL}/users/`;
-		const response = await Axios.get(userUrl);
-		const { data } = response;
+		const  { data } = await Axios.get(userUrl);
 	const modifiedData = data.map(( item ) => ( {
       name: item[ 'username' ],
       gender: item[ 'gender' ],
@@ -63,3 +63,19 @@ export const fetchUserDetail = async () => {
   
 
 }
+
+export const fetchProductDetail = async (_id) =>
+{
+  try
+  {
+    const { data } = await Axios.get( `${ productUrl }/${ _id }` )
+    
+    return data
+  }
+  catch ( error )
+  {
+    throw error;
+  }
+}
+
+

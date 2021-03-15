@@ -362,12 +362,9 @@ margin: 15px 10px;
 	justify-content: flex-start;
 }
 
-@media screen and (max-width: 992px){
-   .productPage .react-google-flight-datepicker .dialog-date-picker{
-   
-	left: 0 !important;
-}
-}
+ .productPage .right .up{
+	 display: none;
+ }
 
 
 
@@ -376,7 +373,9 @@ margin: 15px 10px;
 	font-size: 18px;
 }
 
-
+.productPage .right .up{
+	 display: none;
+ }
 .productPage .carousel img{
 	max-height: 400px !important;
 }
@@ -570,4 +569,55 @@ padding-bottom : 0px !important;
 
 .game__modal .modal-content{
 	max-width: 800px !important;
+}
+
+@media screen and (max-width: 992px){
+	.productPage .carousel img{
+	max-height: 100% !important;
+}
+
+   .productPage .react-google-flight-datepicker .dialog-date-picker{
+   
+	left: 0 !important;
+}
+
+.productPage .product__page__carousel .carousel{
+	max-height:  100%  !important;
+}
+ .productPage .left{
+	 padding: 0px !important;
+ }
+ .productPage .product__page__carousel{
+	 margin: 20px 15px 15px 15px !important;
+ }
+ .productPage .carousel img{
+	 border-radius: 20px !important;
+ }
+ .productPage h2{
+	 font-size: 1rem;
+ }
+ .productPage .whats__included .includedCard{
+	 margin: 2px !important;
+	height: 80px !important;
+ }
+ .productPage .whats__included img{
+	 height: 60px;
+	 width: 60px;
+ }
+ .productPage .left{
+	 height: 400px !important;
+	 overflow-y : scroll;
+ }
+ .productPage .right .up{
+	 margin: 10px auto;
+	 display: flex !important;
+	 justify-content: center;
+	 align-items: center;
+	 background-color: rgb(233, 233, 233);
+	 border: none;
+ }
+ .productPage .right_up{
+	transform: translateY(-400px);
+	transition: transform 0.6s ease;
+ }
 }

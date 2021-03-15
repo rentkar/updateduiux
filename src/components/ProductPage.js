@@ -125,7 +125,7 @@ function AddGamesModal(props) {
 export default function ProductPage ()
 {
 
-
+	const [up, setup] =useState(true)
 	const [ duration, setDuration ] = useState( "3 Day" );
 	  const [gameModalShow, setGameModalShow] = useState(false);
 
@@ -133,6 +133,10 @@ export default function ProductPage ()
   const handleDuration = (event, newDuration) => {
     setDuration(newDuration);
   };
+	
+	const toggle=() => {
+	setup(!up)
+	}
 	
 				
 
@@ -143,7 +147,7 @@ export default function ProductPage ()
 	
 		return (
 			<div className='productPage row'>		
-				<div className='left col-9'>
+				<div className='left col-lg-9 col--12 order-md-1'>
 
 					<div className='product__page__carousel'>
 						<Carousel>
@@ -289,7 +293,9 @@ export default function ProductPage ()
 					</div>
 				</div>
 
-					<div className='right col-3'>
+				<div className={ up ? 'right col-lg-3 col-md-12 order-md-2' : 'right col-lg-3 col-md-12 order-md-2 right_up'}>
+					<div className='btn  up'  onClick={toggle} 
+					><i className={ up ? 'fas fa-chevron-up' : 'fas fa-chevron-down'} /></div>
 						<div className='product__name'>
 							<h2>Sony Play Station 4</h2>
 							

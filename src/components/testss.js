@@ -1,16 +1,16 @@
 import React, {Component, useState, useEffect } from 'react'
-import { fetchProductDetail, fetchUserDetail} from '../config'
+import { fetchProducts, fetchUsers, fetchProductDetail} from '../config'
+import {Link} from 'react-router-dom'
 
 
 export default function Test ()
 {
   const [ p, setP ] = useState( [] )
-  const [u, setU] = useState([])
-  console.log(p)
+  const [ u, setU ] = useState( [] )
    useEffect(() => {
     const fetchAPI = async () => {
-      setP( await fetchProductDetail() );
-      setU(await fetchUserDetail())
+      setP( await fetchProducts() );
+      setU( await fetchUsers() )
     };
      fetchAPI();
    }, [] );
@@ -22,7 +22,8 @@ export default function Test ()
   return(
     <div key={ i }>
       <h3 style={ { textAlign: 'center', } }>{ i }</h3>
-      <p>{ item.productId }</p>
+      <Link to={ `/productdetail/${ item._id }` }>  <p>{ item._id }</p></Link>
+      <p>{ item.id }</p>
       <p>{ item.productName }</p>
       <p>{ item.description }</p>
       <h5>Box Content</h5>
@@ -57,7 +58,8 @@ export default function Test ()
       </div>)
   })
   
-  
+
+
   return (
     <div>
       <h2 style={ { textAlign : 'center', marginTop:'50px' }}>Products</h2>
