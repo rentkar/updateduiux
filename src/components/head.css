@@ -453,3 +453,7 @@
 .options a{
 	text-decoration: none;
 }
+
+.bar i{
+	color: rgb(237, 237, 237);
+}

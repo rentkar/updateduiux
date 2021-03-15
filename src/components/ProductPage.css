@@ -9,6 +9,10 @@
 	padding-left: 10%;
 	margin-bottom: 40px;
 }
+.productPage .product__carousel{
+	 overflow: hidden !important;
+	 width: auto;
+ }
 
 .productPage .right {
 	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
@@ -557,7 +561,6 @@ padding-bottom : 0px !important;
 .game__modal .games .game img{
 	height : 120px;
 	object-fit: contain;
-	padding: 3px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 }
@@ -575,11 +578,17 @@ padding-bottom : 0px !important;
 	.productPage .carousel img{
 	max-height: 100% !important;
 }
-
-   .productPage .react-google-flight-datepicker .dialog-date-picker{
+ .react-google-flight-datepicker .dialog-date-picker.open{
    
 	left: 0 !important;
+	height: 500px !important;
 }
+
+.productPage .product__carousel{
+	 overflow-x: scroll !important;
+	 width: auto;
+ }
+
 
 .productPage .product__page__carousel .carousel{
 	max-height:  100%  !important;
@@ -589,35 +598,99 @@ padding-bottom : 0px !important;
  }
  .productPage .product__page__carousel{
 	 margin: 20px 15px 15px 15px !important;
+	overflow: hidden !important;
  }
+ 
  .productPage .carousel img{
 	 border-radius: 20px !important;
  }
  .productPage h2{
 	 font-size: 1rem;
+	margin: 10px 20px 5px 20px !important;
  }
+  .productPage .whats__included .cards{
+	  margin-left: 20px;
+  }
  .productPage .whats__included .includedCard{
-	 margin: 2px !important;
-	height: 80px !important;
+	 margin: 0px 10px 0px 0px !important;
+	max-height: 60px !important;
+	max-width: 60px;
+ }
+
+ .productPage .whats__included {
+    margin-bottom: 20px;
+}
+
+.productPage .whats__included h2 {
+    margin-bottom: 15px !important;
+}
+
+ .productPage .left .description p{
+	 margin: 10px 20px;
+	 font-size: 0.9rem !important;
  }
  .productPage .whats__included img{
-	 height: 60px;
-	 width: 60px;
+	 height: 45px;
+	 width: 45px;
  }
  .productPage .left{
-	 height: 400px !important;
+	 height: 300px !important;
 	 overflow-y : scroll;
+	 margin-bottom: 0px  !important;
  }
  .productPage .right .up{
-	 margin: 10px auto;
+	 margin: 15px auto;
 	 display: flex !important;
 	 justify-content: center;
 	 align-items: center;
 	 background-color: rgb(233, 233, 233);
 	 border: none;
+	 border-radius: 25px;
  }
  .productPage .right_up{
-	transform: translateY(-400px);
+	transform: translateY(-300px);
 	transition: transform 0.6s ease;
  }
+
+ .productPage .right{
+	border-top-right-radius: 25px;
+	border-top-left-radius: 25px;
+ }
+ .productPage .react-google-flight-datepicker .date {
+     max-width: 100% !important; 
+}
+.game__modal .title .game__inpt{
+	max-width: 190px;
+}
+.game__modal .games{
+	margin: 1px;
+}
+.game__modal .games .game {
+    height: 130px;
+	margin: 5px;
+}
+.game__modal .games .game img {
+	height: 110px;
+}
+ .game__modal .modal-body{
+	padding: 0rem !important;
+}
+.game__modal .title .game__inpt{
+	margin: 0px;
+}
+
+.product__carousel {
+    overflow-x: scroll;
+  }
+  .product__carousel .slide_button {
+    display: none;
+  }
+  .product__carousel::-webkit-scrollbar-thumb {
+    display: none;
+  }
+  .product__carousel::-webkit-scrollbar-track {
+    display: none;
+  }
+  
+
 }

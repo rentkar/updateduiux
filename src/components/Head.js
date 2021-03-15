@@ -199,7 +199,7 @@ export const Head = (props) => {
 								</span>
 							</button>
 						}>
-						<a href='/about'>
+						<a href='/mybag'>
 							<div className='take_me_to_cart_but'>
 								<button className='cart_but' onClick={add_to_cart}>
 									Take me to Cart
@@ -239,7 +239,7 @@ export const Head = (props) => {
 						flowing
 						hoverable>
 						<Grid className='options' stretched divided rows={7}>
-							<Grid.Row href='/about'><img src={ bag_s } /><p>My Bag</p>
+							<Grid.Row href='/mybag'><img src={ bag_s } /><p>My Bag</p>
 							</Grid.Row>
 							<hr />
 							<Grid.Row href='/rentals'><img src={ rental_s } /><p>My Rentals</p>
@@ -266,9 +266,10 @@ export const Head = (props) => {
 					<button> <img src='images/notificationbell.png' /><span className="notifications">9</span></button>
 				</div> */}
 				<div className='bar'>
+					<a href="https://www.instagram.com/rentkar_app" target="_blank">
 					{/* <i class="fas fa-bars"></i> */}
-					<img src={bar} alt='bag' />
-				</div>
+					<i className='fab fa-instagram' /></a>
+					</div>
 			</div>
 		</div>
 	);

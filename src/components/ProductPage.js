@@ -177,13 +177,7 @@ export default function ProductPage ()
 					<div className='whats__included'>
 						<h2>What's Included</h2>
 						<div className='cards'>
-						<Card className="includedCard">
-        			<Card.Content
-						>
-									<img src={l4} />
-									<p>i7</p>
-						</Card.Content>
-						</Card>
+					
 						<Card className="includedCard">
         			<Card.Content
 						>
@@ -224,13 +218,7 @@ export default function ProductPage ()
 									<p>i7</p>
 						</Card.Content>
 						</Card>
-						<Card className="includedCard">
-        			<Card.Content
-						>
-									<img src={l4} />
-									<p>i7</p>
-						</Card.Content>
-					</Card>
+						
 					<Card className="includedCard">
         			<Card.Content
 						>
@@ -289,7 +277,9 @@ export default function ProductPage ()
 					*/}
 					<div className='recommendations'>
 						<h2>Recommended Products</h2>
-						<ProductCarousel2 />
+						<div className='product__carousel'>
+							<ProductCarousel2 />
+							</div>
 					</div>
 				</div>
 
@@ -346,7 +336,7 @@ export default function ProductPage ()
 								</div>
 								</ToggleButton>
 							<ToggleButton
-									className="durationButton col-5"
+								className="durationButton col-5"
 									value="3 Months"
 								>
 								<div>
@@ -394,7 +384,7 @@ export default function ProductPage ()
 							Enter delivery and pickup dates
 						</h3>
 							<RangeDatePicker
-							minDate={new Date(1900, 0, 1)}
+							minDate={0}
 							maxDate={new Date(2220, 0, 1)}
 							dateFormat="D-MM-YYYY"
 							startDatePlaceholder="Delivery Date"

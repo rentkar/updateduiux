@@ -62,8 +62,10 @@ export class Floatnav extends Component {
                   <img src={this.state.home} className="img-thumbnail" />
                 </Link>
               </div>
-              <div className="container" onClick={this.onSearch}>
-                <img src={this.state.search} className="img-thumbnail" />
+              <div className="container" onClick={ this.onSearch }>
+                  <Link to="/mybag">
+                  <img src={ this.state.search } className="img-thumbnail" />
+                  </Link>
               </div>
               <div className="container" onClick={this.onBag}>
                 <Link to="/category">

@@ -67,8 +67,8 @@ function CustomerCarousel() {
 	};
 	return (
 		<div>
-			<div
-				style={{ display: `flex`, flexDirection: `row`, overflow: `hidden` }}>
+			<div 
+				style={{ display: `flex`, flexDirection: `row` }}>
 				{customers.map((item, index) => {
 					return (
 						<div

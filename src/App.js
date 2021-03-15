@@ -143,7 +143,14 @@ function App() {
 							</>
 						</Route>
 							
-						<Route path='/knowmore' render={(props) => <Know_more />}></Route>
+						<Route path='/knowmore'>
+							<>
+							<Floatnav className='floatnav' />
+								<Head />
+							<Know_more />
+							<Footer />
+							</>	
+						</Route>
 						<Route
 							path='/category'
 							render={(props) => (
@@ -173,7 +180,7 @@ function App() {
 						/>
 						<Route
 							exact
-							path='/about'
+							path='/mybag'
 							render={(props) => <UserDash ind={0} />}
 						/>
 

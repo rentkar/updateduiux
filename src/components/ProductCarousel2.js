@@ -31,7 +31,7 @@ function ProductCarousel2() {
 	return (
 		<div>
 			<div
-				style={{ display: `flex`, flexDirection: `row`, overflow: `hidden` }}>
+				style={{ display: `flex`, flexDirection: `row` }}>
 				{whats_hot.map((item, index) => {
 					return (
 						<div

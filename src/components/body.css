@@ -6,7 +6,6 @@
   align-content: center;
   background-color: #f2f7f7;
   text-align: center;
-  margin-top: 20px;
   margin-bottom: 10px;
   border-radius: 10px;
   padding: 2px 5px;
@@ -456,6 +455,20 @@
   padding-top: 70px;
 }
 
+.customer_carousel{
+  display: flex;
+  flex-direction: row;
+  margin: 20px 20px;
+  margin-right: 0px;
+  border: none;
+  flex-wrap: wrap-reverse;
+  flex-flow: row;
+  margin-left: 0px;
+  overflow: hidden;
+}
+.customer_carousel .slide_button {
+  display: block;
+}
 #button_knowmore {
   display: none;
 }
@@ -529,8 +542,9 @@
   .main div {
     padding: 0 0px;
   }
+  
   .covid {
-    min-height: 110px;
+    min-height: 80px;
     padding: 0px 10px;
     max-width: 95%;
   }
@@ -900,6 +914,9 @@
   .customers .custom .customer_carousel::-webkit-scrollbar-track {
     display: none;
   }
+  .customer_carousel .slide_button {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -947,4 +964,8 @@
 }
 .fa-chevron-right:hover, .fa-chevron-left:hover{
   color:   #19eeb5 !important;
+}
+
+.cust{
+  overflow: hidden;
 }

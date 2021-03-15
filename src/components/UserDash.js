@@ -21,6 +21,11 @@ import shareCredit_g from "../images/icons/shareCredit_g.png";
 import verification_g from "../images/icons/verification_g.png";
 import support_g from "../images/icons/support_g.png";
 import settings_g from "../images/icons/settings_g.png";
+import whatsapp from '../images/whatsapp.png'
+import faqs from '../images/faqs.png'
+import quickreq from '../images/quickreq.png'
+import call from '../images/call.png'
+
 
 import pencil from "../images/icons/pencil_white.png";
 import pencil_b from "../images/icons/pencil.png";
@@ -148,17 +153,11 @@ function Rentals() {
                   Tenure <i class="far fa-clock"></i>
                 </h6>
               </div>
-              <div>
+          
                 <select
                   onChange={tenure_change}
                   name="tenure"
                   id="tenure"
-                  style={{
-                    fontWeight: "600",
-                    border: "none",
-                    outline: "none",
-                    backgroundColor: "white"
-                  }}
                 >
                   <option value={2}>2 Weeks</option>
                   <option value={3}>3 Weeks</option>
@@ -166,7 +165,6 @@ function Rentals() {
                   <option value={5}>5 Weeks</option>
                 </select>
                 {/* <h4 >2 Weeks</h4> */}
-              </div>
             </div>
 
               <div class="dod">
@@ -1236,59 +1234,63 @@ const Settings = (props) => {
   );
 };
 
-class Support extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      drop1: 0,
-      drop2: 0
-    };
+function Support() {
+ function QucikReq(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+        Quick Request
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <div className='quick__req'>
+          <input type='text' className='inpt quickreq' placeholder='Enter your request' />
+        </div>
+      </Modal.Body>
+      <Modal.Footer>
+        <div className='btn btn-outline-success' onClick={props.onHide}>Submit</div>
+      </Modal.Footer>
+    </Modal>
+  );
+}
 
-    this.dropMenu1 = this.dropMenu1.bind(this);
-  }
+    const [quickreqShow, setquickreqModalShow] = useState(false);
 
-  dropMenu1() {
-    if (this.state.drop1 === 1) {
-      this.setState({ drop1: 0 });
-      document.getElementById("dropContent1").style.display = "none";
-    } else {
-      document.getElementById("dropContent1").style.display = "block";
-      this.setState({ drop1: 1 });
-    }
-  }
 
-  dropMenu2() {
-    if (this.state.drop2 === 1) {
-      this.setState({ drop2: 0 });
-      document.getElementById("dropContent2").style.display = "none";
-    } else {
-      document.getElementById("dropContent2").style.display = "block";
-      this.setState({ drop2: 1 });
-    }
-  }
-
-  render() {
     return (
       <div className="supportScreen">
 
           <div className="supportButtonDiv">
-          <div className="supportButton">
-            <Image className="supportButtonImage" src={support_person}/>
+          <div className="supportButton"  onClick={() => setquickreqModalShow(true)}>
+            <Image className="supportButtonImage" src={quickreq}/>
             <p className="support__detail">Generate a quick request</p>
           </div>
+          <a href="tel:+917900042875" target='_blank'>
             <div className="supportButton">
-            <Image className="supportButtonImage" src={phone}/>
+            <Image className="supportButtonImage" src={call}/>
             <p className="support__detail">Call Us</p>
-          </div>
+          </div></a>
+          <a href="http://wa.me/917900042875" target='_blank'>
           <div className="supportButton">
-            <Image className="supportButtonImage" src={whatsAppSupport}/>
+            <Image className="supportButtonImage" src={whatsapp}/>
             <p className="support__detail">Ping us on WhatsApp</p>
-          </div>
+            </div>
+            </a>
           <div className="supportButton">
-              <i className="supportButtonImage fa fa-question-circle" />
+              <Image className="supportButtonImage" src={faqs}/>
             <p className="support__detail">FAQs</p>
           </div>
         </div>
+         <QucikReq
+        show={quickreqShow}
+        onHide={() => setquickreqModalShow(false)}
+      />
       </div>
 
         /*
@@ -1359,7 +1361,7 @@ class Support extends Component {
         </div>
               */
     );
-  }
+  
 }
 
 export const UserDash = (props) => {
@@ -1418,7 +1420,7 @@ export const UserDash = (props) => {
     */
 
   var indexMap = {
-    0: "/about",
+    0:"/mybag",
     1: "/rentals",
     2: "/mylisting",
     3: "/verification/",
@@ -1595,7 +1597,7 @@ export const UserDash = (props) => {
             </div>
           </div>
         )}
-        {index === 2 ? <MyListing /> : null}
+        {index === 2 ? <MyListing />  : null}
         {index === 0 ? <MyBag /> : null}
         {index === 3 ? <Verification /> : null}
         {index === 3 ? <MobileVerification /> : null}
