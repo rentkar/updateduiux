@@ -4,6 +4,13 @@ import Login from './Login'
 import logo_trans from '../../images/logo_trans.png';
 import OTP from './OTP'
 import './Login.css'
+import Amplify from '@aws-amplify/core';
+import Auth from '@aws-amplify/auth';
+import FadeIn from 'react-fade-in';
+
+export const signOut = () => { }
+export const verifyAuth = () => { }
+
 export class LoginModal extends Component {
     constructor(props) {
         super(props);
@@ -60,12 +67,14 @@ export class LoginModal extends Component {
         switch (step) {
             case 1:
                 return (
+                
 
                     <Modal className='login__modal'
                         {...this.props}
                         size="lg"
                         aria-labelledby="contained-modal-title-vcenter"
                         centered>
+                        <FadeIn>
                         <div className="loginnav">
                         <img className='login-image' src={logo_trans}></img>
                         <button className="cross" onClick={this.props.onHide}><i class="far fa-times-circle"></i></button>
@@ -77,15 +86,18 @@ export class LoginModal extends Component {
                             handleChange={ this.handleChange }
                             prevStep={this.prevStep}
                         />
+                        </FadeIn>
                     </Modal>
                 );
             case 2:
                 return (
+                    
                     <Modal className='login__modal'
                         {...this.props}
                         size="lg"
                         aria-labelledby="contained-modal-title-vcenter"
 						centered>
+                        
                         <div className="loginnav">
                         <img className='login-image' src={logo_trans}></img>
                         <button className="cross" onClick={this.props.onHide}><i class="far fa-times-circle"></i></button>
@@ -97,7 +109,9 @@ export class LoginModal extends Component {
                             handleChange={ this.handleChange }
 							prevStep={ this.prevStep }
                             />
+                            
                     </Modal>
+                    
                 );
         }
     }

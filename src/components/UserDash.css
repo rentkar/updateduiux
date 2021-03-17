@@ -482,6 +482,7 @@
   padding: 15px;
   height: 270px;
   width: 230px;
+  cursor: pointer;
 }
 
 .right_screen .verificationList .listItem .verified {
@@ -648,6 +649,7 @@
   width: 230px;
   display:flex;
   justify-content: space-evenly;
+  cursor: pointer;
 }
 
 .supportButtonDiv .supportButton p {

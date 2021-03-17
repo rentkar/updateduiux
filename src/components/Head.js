@@ -11,6 +11,7 @@ import support_s from "../images/icons/support_s.png";
 import settings_s from "../images/icons/settings_s.png";
 import bag_s from "../images/bag.png";
 import logout_s from '../images/icons/logout_s.png'
+import FadeIn from 'react-fade-in';
 
 import './head.css';
 // import { Navbar, Nav, Button, Form, FormControl } from 'react-bootstrap'
@@ -138,7 +139,8 @@ export const Head = (props) => {
 						<img src={logo} alt='Rentkar' />
 					</a>
 				</div>
-				<div className='but' id='navmap'>
+				<div className='but cities' id='navmap'>
+				
 					<Popup
 						className='pop'
 						trigger={
@@ -148,6 +150,7 @@ export const Head = (props) => {
 						}
 						flowing
 						hoverable>
+						<FadeIn>
 						<Grid className='popup_of_place' stretched divided rows={2}>
 							<Grid.Row
 								className='popup_of_place1'
@@ -167,7 +170,9 @@ export const Head = (props) => {
 								{pune === true ? <i class='fas fa-check' /> : null}
 							</Grid.Row>
 						</Grid>
+						</FadeIn>
 					</Popup>
+					
 				</div>
 				<div className='searc'>
 					<input
@@ -206,7 +211,7 @@ export const Head = (props) => {
 								</button>
 							</div>
 						</a>
-
+						
 						{product.map((p, index) => (
 							<div>
 								<Cart_list
@@ -238,6 +243,7 @@ export const Head = (props) => {
 						}
 						flowing
 						hoverable>
+						<FadeIn className='fade-in'>
 						<Grid className='options' stretched divided rows={7}>
 							<Grid.Row href='/mybag'><img src={ bag_s } /><p>My Bag</p>
 							</Grid.Row>
@@ -260,6 +266,7 @@ export const Head = (props) => {
 							<Grid.Row href='/'><img className='logout' src={logout_s} /><p>Log Out</p>
 							</Grid.Row>
 						</Grid>
+						</FadeIn>
 					</Popup>
 				</div>
 			{/*	<div className="notification__bell">

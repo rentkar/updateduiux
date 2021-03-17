@@ -185,6 +185,7 @@
   padding: 0px 20px 0px 20px;
   border-radius: 10px;
   height: auto;
+
 }
 
 .list .packagesCard {
@@ -968,4 +969,8 @@
 
 .cust{
   overflow: hidden;
+}
+
+.subCategories a{
+  text-decoration : none;
 }

@@ -4,6 +4,7 @@ import Axios from 'axios'
 const API_URL = `http://localhost:5000`
 const productUrl = `${ API_URL }/products/`;
 const userUrl = `${ API_URL }/users/`;
+const id = '6030aadff281c722b8cb2a8c'
 
 export class Testt extends Component{
     
@@ -77,7 +78,7 @@ export class Testt extends Component{
 
   async productdetailhandler ()
   {
-    const url = `${ productUrl }/6030a934ce66a71fec678591`
+    const url = `${ productUrl }/${id}`
     const { data } = await Axios.get( url )
     console.log("App -> product", data.name)
   }

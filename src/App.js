@@ -24,7 +24,7 @@ import Checkout from './components/Checkout'
 import Test from './components/tests'
 import Testt from './components/testss'
 import ProductDetail from './components/productdetail'
-
+import OtpLogin from './components/otplogin'
 function App() {
 	return (
 		<Router>
@@ -90,6 +90,14 @@ function App() {
 						
 							<Testt />
 						
+						</Route>
+						<Route path='/otplogin'>
+							<>
+							<Floatnav className='floatnav' />
+								<Head />
+							<OtpLogin />
+							<Footer />
+							</>
 						</Route>
 						<Route path = '/productdetail/:_id'>
 						<ProductDetail />

@@ -25,6 +25,7 @@ import whatsapp from '../images/whatsapp.png'
 import faqs from '../images/faqs.png'
 import quickreq from '../images/quickreq.png'
 import call from '../images/call.png'
+import FadeIn from 'react-fade-in';
 
 
 import pencil from "../images/icons/pencil_white.png";
@@ -659,6 +660,7 @@ function Verification(){
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
+    <FadeIn>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           Personal Information
@@ -677,6 +679,7 @@ function Verification(){
         <div className='btn btn-outline-success' onClick={props.onHide}>Close</div>
       </Modal.Footer>
       </form>
+        </FadeIn>
     </Modal>
   );
 }
@@ -689,6 +692,7 @@ function FinancialVerification(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
+    <FadeIn>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           Financial Verification
@@ -702,6 +706,7 @@ function FinancialVerification(props) {
         <div className='btn btn-outline-success' onClick={props.onHide}>Submit</div>
         <div className='btn btn-outline-success' onClick={props.onHide}>Close</div>
       </Modal.Footer>
+      </FadeIn>
     </Modal>
   );
 }
@@ -713,6 +718,7 @@ function UploadDocuments(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
+    <FadeIn>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           Upload Documents
@@ -735,6 +741,7 @@ function UploadDocuments(props) {
         <div className='btn btn-outline-success' onClick={props.onHide}>Close</div>
         </Modal.Footer>
         </form>
+        </FadeIn>
     </Modal>
   );
 }
@@ -746,6 +753,7 @@ function AddASelfie(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
+    <FadeIn>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           Add a Selfie
@@ -762,6 +770,7 @@ function AddASelfie(props) {
         <div className='btn btn-outline-success' onClick={props.onHide}>Close</div>
         </Modal.Footer>
         </form>
+        </FadeIn>
     </Modal>
   );
 }
@@ -1243,6 +1252,7 @@ function Support() {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
+    <FadeIn>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
         Quick Request
@@ -1256,6 +1266,7 @@ function Support() {
       <Modal.Footer>
         <div className='btn btn-outline-success' onClick={props.onHide}>Submit</div>
       </Modal.Footer>
+      </FadeIn>
     </Modal>
   );
 }
