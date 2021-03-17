@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6f6e7ef3824f9a08993e3d9073e231f3",
+    "revision": "a71462345f1c62fa47d8fb82e6c23e19",
     "url": "./index.html"
   },
   {
-    "revision": "4a1b4ad5dccb3eb1ca21",
+    "revision": "399e70e1eb5631fe7a68",
     "url": "./static/css/2.2dcb105c.chunk.css"
   },
   {
-    "revision": "1089112853f0bdbf7598",
-    "url": "./static/css/main.1fed9209.chunk.css"
+    "revision": "144e5780c8e0c197d405",
+    "url": "./static/css/main.165e8f6d.chunk.css"
   },
   {
-    "revision": "4a1b4ad5dccb3eb1ca21",
-    "url": "./static/js/2.46c07385.chunk.js"
+    "revision": "399e70e1eb5631fe7a68",
+    "url": "./static/js/2.ac0ea783.chunk.js"
   },
   {
-    "revision": "04625bd1a4f9c05ed205f651693d4996",
-    "url": "./static/js/2.46c07385.chunk.js.LICENSE.txt"
+    "revision": "0a943776ea10e5d099e920060618071f",
+    "url": "./static/js/2.ac0ea783.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1089112853f0bdbf7598",
-    "url": "./static/js/main.bd1e2318.chunk.js"
+    "revision": "144e5780c8e0c197d405",
+    "url": "./static/js/main.bb88e216.chunk.js"
   },
   {
     "revision": "d74d99ffcf86f3419fb7",
@@ -98,6 +98,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "602880709a37aeefc5c71427f8a0aefb",
     "url": "./static/media/battlefield.60288070.png"
+  },
+  {
+    "revision": "148faa921641a9f0215c577b892a1e8b",
+    "url": "./static/media/call.148faa92.png"
   },
   {
     "revision": "123c5a903a0ff498f4ffeaaaab49fb98",
@@ -180,12 +184,44 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/media/dummyprofile.9ff09a59.jpg"
   },
   {
+    "revision": "15050e629300eacadb9338b0bc272383",
+    "url": "./static/media/faqs.15050e62.png"
+  },
+  {
     "revision": "7325ad37fdc907e2d61512c479ef3897",
     "url": "./static/media/filters grey.7325ad37.png"
   },
   {
     "revision": "b2b74a39091b47ceba1b2c8c07ed1cd6",
     "url": "./static/media/filters.b2b74a39.png"
+  },
+  {
+    "revision": "152090003a455be75380291a0122a9d5",
+    "url": "./static/media/game1.15209000.jpg"
+  },
+  {
+    "revision": "700342f3ec5bc8fb9573cae4cfb3799c",
+    "url": "./static/media/game2.700342f3.jpg"
+  },
+  {
+    "revision": "be925c46a208567a19898e102dace433",
+    "url": "./static/media/game3.be925c46.jpg"
+  },
+  {
+    "revision": "e375924afc5b37e03cd92d84673fdbb2",
+    "url": "./static/media/game4.e375924a.jpg"
+  },
+  {
+    "revision": "19b0b0950ca6ba9693232f12d9ea5198",
+    "url": "./static/media/game5.19b0b095.jpg"
+  },
+  {
+    "revision": "b923e93bdab31a44d859f0fd92bc80e5",
+    "url": "./static/media/game6.b923e93b.jpg"
+  },
+  {
+    "revision": "5403747d9243bed2d25f5d52a4bfe495",
+    "url": "./static/media/game7.5403747d.jpg"
   },
   {
     "revision": "6858a3050ce5274f86956cf8cfe943f8",
@@ -300,6 +336,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/media/logo_trans.a636beae.png"
   },
   {
+    "revision": "2458dc8558823e2eef791426ea7b4901",
+    "url": "./static/media/logout_s.2458dc85.png"
+  },
+  {
     "revision": "164a9c6c0dfe0c8a57faea8457754aef",
     "url": "./static/media/macbook colour.164a9c6c.png"
   },
@@ -366,6 +406,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "7996e55528aed8e6678ad0acde70eace",
     "url": "./static/media/percussion grey.7996e555.png"
+  },
+  {
+    "revision": "36cd2c928f835dbbe4a948958d7845cc",
+    "url": "./static/media/ps5.36cd2c92.jpg"
+  },
+  {
+    "revision": "7b9976ce1d7f85714e82623fa99890ab",
+    "url": "./static/media/quickreq.7b9976ce.png"
   },
   {
     "revision": "28583392e8acf190156b5d48aebeea8f",
@@ -502,6 +550,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "e6fcd0e0fca89bd606ced01eefbcca5a",
     "url": "./static/media/wave.e6fcd0e0.png"
+  },
+  {
+    "revision": "061297d62cf74c9f36dcbed037c71658",
+    "url": "./static/media/whatsapp.061297d6.png"
   },
   {
     "revision": "dc8077e731004aef10c2395cf2f4dfd7",
