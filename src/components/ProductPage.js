@@ -1,4 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {Component, useState, useEffect } from 'react'
+import {fetchProductDetail,  fetchProductBoxDetail, fetchProductPricingDetail, fetchProductImagesDetail, fetchProductSpecsDetail} from '../config'
+import { useParams } from "react-router";
 import hygienic from '../images/covid sefty web-04.png';
 import sanitise from '../images/covid sefty web-03.png';
 import imgcovid from '../images/covid.png';
@@ -122,23 +124,56 @@ function AddGamesModal(props) {
   );
 }
 
-export default function ProductPage ()
+export default function ProductPage (props)
 {
 
 	const [up, setup] =useState(true)
-	const [ duration, setDuration ] = useState( "3 Day" );
-	  const [gameModalShow, setGameModalShow] = useState(false);
+	const [ duration, setDuration ] = useState(0);
+	const [ gameModalShow, setGameModalShow ] = useState( false );
+	const [price, setPrice]  = useState(0);
+	
+
+ let {_id} = useParams()
+	const [ pd, setpd ] = useState( [] )
+	const [ pdb, setpdb ] = useState( [] )
+	const [ pdp, setpdp ] = useState( [] )
+	const [ pds, setpds ] = useState( [] )
+	const [ pdi, setpdi ] = useState( [] )
+	var [ startdate, setstartdate ] = useState(new Date())
+	var[ enddate, setenddate] = useState(new Date())
+	
+	var sgst = ( ( price * 9 ) / 100 )
+	var cgst = ( ( price * 9 ) / 100 )
+	var total = price + sgst + cgst
+
+	var i
+
+   useEffect(() => {
+    const fetchAPI = async () => {
+      setpd( await fetchProductDetail( _id ) )
+      setpdb( await fetchProductBoxDetail( _id ) )
+      setpdp( await fetchProductPricingDetail( _id ) )
+      setpds( await fetchProductSpecsDetail( _id ) )
+      setpdi(await fetchProductImagesDetail(_id))
+    };
+     fetchAPI();
+   }, [ _id ] );
 
 
-  const handleDuration = (event, newDuration) => {
-    setDuration(newDuration);
+  const handlePrice = (event, newPrice) => {
+	  setPrice(newPrice)
   };
 	
 	const toggle=() => {
 	setup(!up)
 	}
-	
-				
+
+	const onDateChange = ( event, startDate, endDate ) =>
+	{
+		setstartdate(startDate)
+		setenddate(endDate)
+
+	}
 
 	function changePreview(id) {
 		var source = document.getElementById(id).getAttribute('src');
@@ -151,100 +186,63 @@ export default function ProductPage ()
 
 					<div className='product__page__carousel'>
 						<Carousel>
-						<Carousel.Item>
+						{pdi.slice(1,5).map( ( item ) => {
+								return(
+									<Carousel.Item>
 							<img
 							className="d-block w-100"
-							src={ps5}
+							src={`http://localhost:5000${item.image}`} alt={`image${item}`}
 							alt="First slide"
 							/>
-						</Carousel.Item>
-						<Carousel.Item>
-							<img
-							className="d-block w-100"
-							src={ps5}
-							alt="Second slide"
-							/>
-						</Carousel.Item>
-						<Carousel.Item>
-							<img
-							className="d-block w-100"
-							src={ps5}
-							alt="Third slide"
-							/>
-						</Carousel.Item>
+										</Carousel.Item>
+								)
+							})}
 						</Carousel>
 					</div>
 					<div className='whats__included'>
 						<h2>What's Included</h2>
+						
 						<div className='cards'>
-					
-						<Card className="includedCard">
-        			<Card.Content
-						>
-									<img src={l4} />
-									<p>i7</p>
-						</Card.Content>
-					</Card>
-					<Card className="includedCard">
-        			<Card.Content
-						>
-									<img src={l4} />
-									<p>i7</p>
-						</Card.Content>
-					</Card>
-					<Card className="includedCard">
-        			<Card.Content
-						>
-									<img src={l4} />
-									<p>i7</p>
-						</Card.Content>
-					</Card>
-					<Card className="includedCard">
-        			<Card.Content
-						>
-									<img src={l4} />
-									<p>i7</p>
-						</Card.Content>
-							</Card>
+							{
+							pdb.map( ( item, i ) =>
+						{
+							return(
+							<Card className="includedCard">
+								<Card.Content
+									>
+										<img src={`http://localhost:5000${item.image}`} alt={`image${i}`} />
+										<p>{ item.content }</p>
+									</Card.Content>
+								</Card>
+							
+							)
+						} )
+						}
 							</div>
 					</div>
 					<div className='whats__included'>
 						<h2>Specifications</h2>
 						<div className='cards'>
-						<Card className="includedCard">
-        			<Card.Content
-						>
-									<img src={l4} />
-									<p>i7</p>
-						</Card.Content>
-						</Card>
-						
-					<Card className="includedCard">
-        			<Card.Content
-						>
-									<img src={l4} />
-									<p>i7</p>
-						</Card.Content>
-					</Card>
-					<Card className="includedCard">
-        			<Card.Content
-						>
-									<img src={l4} />
-									<p>i7</p>
-						</Card.Content>
-					</Card>
-					<Card className="includedCard">
-        			<Card.Content
-						>
-									<img src={l4} />
-									<p>i7</p>
-						</Card.Content>
-							</Card>
+						{
+							pds.map( ( item, i ) =>
+						{
+							return(
+							<Card className="includedCard">
+								<Card.Content
+									>
+												<img src={`http://localhost:5000${item.stype}`} alt={`image${i}`} />
+												<p>{ item.spec }</p>
+									</Card.Content>
+								</Card>
+							
+							)
+						} )
+						}
 							</div>
 					</div>
 					 <div className='description'>
 						<h2>Description</h2>
-						<p>Sony Playstation 4 with controller(s). 500 GB console, Dual Shock Controller</p>
+						<p>{pd.description}</p>
 					</div>
 					{/*	<div className='product__card__section'>
 						<div className='product__front__card'>
@@ -287,7 +285,7 @@ export default function ProductPage ()
 					<div className='btn  up'  onClick={toggle} 
 					><i className={ up ? 'fas fa-chevron-up' : 'fas fa-chevron-down'} /></div>
 						<div className='product__name'>
-							<h2>Sony Play Station 4</h2>
+							<h2>{pd.productname}</h2>
 							
 							<p style={{ marginTop: '25px', marginRight: '50px' }}><i
 								className='fas fa-star-half-alt'
@@ -298,61 +296,21 @@ export default function ProductPage ()
 						</div>
 						<h3 style={{ textAlign: 'left' }}>Select Your Package</h3>
 					                                                                                                                                                                        
-						<ToggleButtonGroup className='durationPrice' value={duration} exclusive onChange={handleDuration}>
+					<ToggleButtonGroup className='durationPrice' value={ price } exclusive onChange={ handlePrice }>
+						{ pdp.map( ( item, i ) =>
+							{
+							return (
 								<ToggleButton
 									className="durationButton col-5"
-									value="1 Day"
+									value={ item.price }
 								>
 								<div>
-								<p className='duration'>1 Day</p>
-								<p className='price'>Rs XXX/Day</p>
+								<p className='duration'>{item.duration}</p>
+								<p className='price'>Rs {item.price}/Day</p>
 								</div>
 								</ToggleButton>
-								<ToggleButton
-									className="durationButton col-5"
-									value="1 Week"
-							>
-								<div>
-								<p className='duration'>1 Week</p>
-								<p className='price'>Rs XXX/Day</p>
-								</div>
-								</ToggleButton>
-								<ToggleButton
-									className="durationButton col-5"
-									value="2 Weeks"
-								>
-								<div>
-								<p className='duration'>2 Weeks</p>
-								<p className='price'>Rs XXX/Day</p>
-								</div>
-								</ToggleButton>
-								<ToggleButton
-									className="durationButton col-5"
-									value="1 Month"
-								>
-								<div>
-								<p className='duration'>1 Month</p>
-								<p className='price'>Rs XXX/Day</p>
-								</div>
-								</ToggleButton>
-							<ToggleButton
-								className="durationButton col-5"
-									value="3 Months"
-								>
-								<div>
-								<p className='duration'>3 Months</p>
-								<p className='price'>Rs XXX/Day</p>
-								</div>
-								</ToggleButton>
-							<ToggleButton
-									className="durationButton col-5"
-									value="6 Months"
-								>
-								<div>
-								<p className='duration col-12'>6 Months</p>
-								<p className='price'>Rs XXX/Day</p>
-								</div>
-								</ToggleButton>
+								)
+							})}
 								</ToggleButtonGroup>		
 						
 
@@ -383,24 +341,29 @@ export default function ProductPage ()
 							<h3 style={{ textAlign: 'left' }}>
 							Enter delivery and pickup dates
 						</h3>
-							<RangeDatePicker
-							minDate={0}
-							maxDate={new Date(2220, 0, 1)}
+						<RangeDatePicker
+							startDate={ new Date() }
+							endDate={ new Date() }
+							minDate={new Date(2020, 1 , 1)}
+							maxDate={ new Date( 2220, 1, 1 ) }
+							//onChange={ ( startDate) => { setstartdate( startDate ) } }
 							dateFormat="D-MM-YYYY"
 							startDatePlaceholder="Delivery Date"
 							endDatePlaceholder="PickUp Date"
 							disabled={false}
 							className="datepicker col-3"
 							startWeekDay="monday"
-							/>
+						/>
+						
+						<p>{ i }</p>
 						</div>
 
 
 						<div className='summary' style={ { marginTop: '50px' } } >
 							<h3 style={{textAlign: 'left'}}>Product Summary</h3>
 							<div className='product'>
-							<p>PS4 + Controller</p>
-								<div className='btn btn-outline-dark'>+ Rs XXX</div>
+							<p>{pd.productname}</p>
+							<div className='btn btn-outline-dark'>+ Rs {price}</div>
 							</div>
 							<div className='product'>
 							<p >Games</p>
@@ -432,7 +395,7 @@ export default function ProductPage ()
 									margin: '5px 20px',
 									fontSize: '12px',
 									} }>
-										Rs 300
+										Rs {sgst}
 									</p>
 								</b>
 							</div>
@@ -452,7 +415,7 @@ export default function ProductPage ()
 									margin: '5px 20px',
 									fontSize: '12px',
 									} }>
-									Rs 300
+									Rs {cgst}
 								</p>
 								</b>
 							</div>
@@ -463,7 +426,7 @@ export default function ProductPage ()
 									fontWeight: '600',
 									marginBottom: '0px',
 								}}>
-								Total : Rs XXX
+								Total : Rs {total}
 							</h2>
 							
 							<p

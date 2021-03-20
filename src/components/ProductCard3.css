@@ -12,6 +12,7 @@
   border: 10px solid white;
   position: relative;
   transition: transform .5s;
+  object-position: 20px 10px; /* try 20px 10px */ 
 
 }
 .product__card {
@@ -44,7 +45,7 @@
   border-bottom-width: 1px;
   width: fit-content;
   border-bottom-style: solid;
-  font-size: 18px;
+  font-size: 13.5px;
   font-weight: 800;
 }
 
@@ -57,7 +58,7 @@
 }
 
 .product__card .card .title .price {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -136,3 +137,4 @@
   -webkit-transform: scale(1.05); /* Safari 3-8 */
   transform: scale(1.05); 
   }
+

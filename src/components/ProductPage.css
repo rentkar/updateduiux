@@ -76,6 +76,7 @@
 .productPage .right .summary .product .btn{
 	font-size: 16px;
 	border: 1px solid rgb(202, 199, 199) !important;
+	height: 35px;
 }
 
 
@@ -455,6 +456,7 @@ padding-bottom : 0px !important;
 
 .productPage .right .summary .product .btn{
 	font-size: 10px;
+	height: 27px;
 }
 
 
@@ -466,7 +468,6 @@ padding-bottom : 0px !important;
 
 
 .productPage .carousel img{
-	border-radius: 50px !important;
 	max-height: 500px;
 	object-fit: cover;
 }
@@ -693,4 +694,9 @@ padding-bottom : 0px !important;
   }
   
 
+}
+
+.productPage .product__page__carousel .carousel-inner{
+box-shadow: 0 0 10px -1px rgb(0 0 0 / 20%);
+    border-radius: 50px;
 }

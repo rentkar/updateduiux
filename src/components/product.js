@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, {Component, useState, useEffect } from 'react'
+import {fetchProductDetail,  fetchProductBoxDetail, fetchProductPricingDetail, fetchProductImagesDetail, fetchProductSpecsDetail} from '../config'
+import { useParams } from "react-router";
 import "./product.css";
 import { Row, Col, Button, ButtonGroup, Modal } from "react-bootstrap";
 import Calender from "react-calendar";
 
 function CModal(props) {
-  const [date, setDate] = useState(new Date());
+  const [ date, setDate ] = useState( new Date() );
   return (
     <Modal
       {...props}
@@ -19,6 +21,23 @@ function CModal(props) {
   );
 }
 export default function Product() {
+    let {_id} = useParams()
+  const [ pd, setpd ] = useState( [] )
+  const [ pdb, setpdb ] = useState( [] )
+  const [ pdp, setpdp ] = useState( [] )
+  const [ pds, setpds ] = useState( [] )
+  const [pdi, setpdi] = useState([])
+   useEffect(() => {
+    const fetchAPI = async () => {
+      setpd( await fetchProductDetail( _id ) )
+      setpdb( await fetchProductBoxDetail( _id ) )
+      setpdp( await fetchProductPricingDetail( _id ) )
+      setpds( await fetchProductSpecsDetail( _id ) )
+      setpdi(await fetchProductImagesDetail(_id))
+    };
+     fetchAPI();
+   }, [ _id ] );
+  
   const [show, setShow] = useState(false);
   const [deliveryDate, setDeliveryDate] = useState(new Date());
   const [pickupDate, setPickupDate] = useState(new Date());
@@ -28,13 +47,33 @@ export default function Product() {
         <Col md={8}></Col>
         <Col md={4} className="mr-auto">
           <h3 style={{ textAlign: "left" }} className="">
-            Sony Play Station 4
+            { pd.productname }
           </h3>
           <p style={{ textAlign: "left" }} className="py-2">
             Select your package
           </p>
           <div className="">
             <Row>
+              { pdp.map( ( item, i ) =>
+              {
+                return (
+                  <div>
+                    <Col md={ 3 }>
+                      <Button
+                  className="select-package-button"
+                  variant="outline-dark"
+                  type="button"
+                  block
+                >
+                  <div>
+                    <p>{item.duration}</p>
+                    <p className="package-rent">{item.price}/day</p>
+                  </div>
+                </Button>
+                    </Col>
+                  </div>
+                )
+              })}
               <Col md={6}>
                 <Button
                   className="select-package-button"

@@ -1,22 +1,22 @@
 import React from "react";
 import "./ProductCard3.css";
-import bg from "../images/card.png";
 import { Link } from 'react-router-dom'
-function ProductCard3() {
+function ProductCard3({name, startingprice, bg, link}) {
+  
   return (
-      <div className="product__card">
+    <div className="product__card">
+        <Link to={link}>
       <div className="card" style={ { backgroundImage: `url(${ bg })` } }>
-        <Link to ='/product'>
           <div className="title">
-            <p className="product__name">GoPro 9</p>
+            <p className="product__name">{name}</p>
             <p className="startsAt">Starts At</p>
-            <p className="price"> 300 INR</p>
+            <p className="price">{ startingprice }/Day</p>
           </div>
           <div className="sub__div">
             <button className="btn">Book Now</button>
           </div>
-          </Link>
-        </div>    
+        </div> 
+        </Link>   
       </div>
   );
 }

@@ -26,6 +26,7 @@ export default function Test ()
       <p>{ item.id }</p>
       <p>{ item.productName }</p>
       <p>{ item.description }</p>
+      <img src={`http://localhost:5000${item.img}` } alt='image' />
       <h5>Box Content</h5>
         {item.box.map( ( item, i ) =>
       {
@@ -34,6 +35,7 @@ export default function Test ()
         )
         } ) }
       <h5>Pricing</h5>
+      <div>{ item.pricing[ 0 ].price }</div>
       {item.pricing.map( ( item, i ) =>
       {
         return(

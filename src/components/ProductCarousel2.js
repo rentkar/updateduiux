@@ -1,17 +1,21 @@
-import React, { Component, useState } from 'react';
+import React, {Component, useState, useEffect } from 'react'
+import { fetchProducts, fetchUsers, fetchProductDetail} from '../config'
+import {Link} from 'react-router-dom'
 import ProductCard3 from './ProductCard3';
 
-function ProductCarousel2() {
+function ProductCarousel2 ()
+{
+	const [ p, setP ] = useState( [] )
+    useEffect(() => {
+    const fetchAPI = async () => {
+        setP( await fetchProducts() );
+    };
+	fetchAPI();
+	},
+		[] );
+	
 	const [x, setX] = useState(0);
-	let whats_hot = [
-		<ProductCard3 />,
-		<ProductCard3  />,
-		<ProductCard3  />,
-		<ProductCard3 />,
-		<ProductCard3  />,
-		<ProductCard3  />,
-		<ProductCard3  />,
-	];
+
 	const left_but = {
 		backgroundColor: `#e4e4e4`,
 		padding: '5px 10px',
@@ -30,6 +34,7 @@ function ProductCarousel2() {
 	};
 	return (
 		<div>
+			{/*
 			<div
 				style={{ display: `flex`, flexDirection: `row` }}>
 				{whats_hot.map((item, index) => {
@@ -41,8 +46,24 @@ function ProductCarousel2() {
 							{item}
 						</div>
 					);
-				})}
+				} ) }
 			</div>
+			*/}
+			<div style={{ display: `flex`, flexDirection: `row` }}>
+			{p.map( ( item, index ) =>
+			{
+				return (
+					<div key={index}
+							className='sliide'
+							style={{ transform: `translateX(${x}%)`, transition: `0.5s` }}>
+					<ProductCard3
+						link={ `/product/${ item._id }` }
+						name={ item.productName } startingprice={ item.pricing[ 0 ].price } bg={ `http://localhost:5000${ item.img }` } />
+						</div>
+				)
+			} )
+				}
+				</div>
 			<div
 				className='slide_button'
 				style={{
