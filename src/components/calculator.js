@@ -154,7 +154,7 @@ function Calculator() {
 
 
 	return (
-		<div className='c'>
+	
 		<div className = 'calculator'>
 			<h3>Rental Calculator</h3>
 			<hr />
@@ -186,7 +186,7 @@ function Calculator() {
 				</div>
 			</div>
 			</div>
-			</div>
+			
 		
 	)
 }
