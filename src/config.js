@@ -1,11 +1,11 @@
 import Axios from 'axios'
-import Address from './components/Address/Address';
 	
 const API_URL = `http://localhost:5000`
-const productUrl = `${API_URL}/products/`;
-const userUrl = `${API_URL}/users/`;
-
-
+const productUrl = `${API_URL}/products`;
+const userUrl = `${API_URL}/users`;
+const supportUrl = `${API_URL}/support`
+const orderreqUrl = `${ API_URL }/orderreq`
+const ordersUrl = `${API_URL}/orders`
 export const fetchProducts = async () => {
 	try{
 		const { data } = await Axios.get(productUrl);
@@ -35,7 +35,7 @@ export const fetchProducts = async () => {
         price: i[ 'price' ],
         duration: i[ 'duration' ],
       }))
-    } ),
+    } )
     )
     return productData 
 	}
@@ -62,7 +62,7 @@ export const fetchUsers = async () => {
       doctype: item[ 'document' ][ 'doctype' ],
       doccopy: item['document']['doccopy']
       
-    } ),
+    } )
     )
     console.log(data)
     console.log(userData)
@@ -222,5 +222,86 @@ export const fetchProductSpecsDetail = async (_id) =>
   catch ( error )
   {
     throw error;
+  }
+}
+
+
+export const fetchSupport = async () =>
+{
+  try
+  {
+    const { data } = await Axios.get( supportUrl )
+    
+    const supports = data.map( ( item ) =>
+    ({
+      _id: item[ '_id' ],
+      resolved: item[ 'resolved' ],
+      userId: item[ 'userId' ],
+      supporttype: item[ 'supporttype' ],
+      statement: item['statement']
+        
+    } ) )
+    
+    console.log( supports )
+    return supports
+  }
+  catch ( error )
+  {
+    throw error
+  }
+}
+
+export const fetchOrderReq = async () =>
+{
+  try
+  {
+    const {data} =  await Axios.get(orderreqUrl)
+    const orderreq = data.map( ( item ) => ( {
+      _id: item[ '_id' ],
+      status: item[ 'status' ],
+      appliedForPOD: item[ 'appliedForPOD' ],
+      userId: item[ 'userId' ],
+      productId: item[ 'productId' ],
+      exp_del: item[ 'exp_del' ],
+      exp_pickup: item[ 'exp_pickup' ],
+      total_amount: item[ 'total_amount' ],
+      payment_received: item[ 'payment_received' ],
+      payment_pending: item[ 'payment_pending' ],
+      del_address: item['del_address']
+    } ) )
+    console.log( orderreq )
+    return orderreq
+   }
+  catch ( error )
+  {
+    throw (error)
+  }
+}
+
+
+export const fetchOrders = async () =>
+{
+  try
+  {
+    const {data} =  await Axios.get(ordersUrl)
+    const orderreq = data.map( ( item ) => ( {
+      _id: item[ '_id' ],
+      status: item[ 'status' ],
+      appliedForPOD: item[ 'appliedForPOD' ],
+      userId: item[ 'userId' ],
+      productId: item[ 'productId' ],
+      exp_del: item[ 'exp_del' ],
+      exp_pickup: item[ 'exp_pickup' ],
+      total_amount: item[ 'total_amount' ],
+      payment_received: item[ 'payment_received' ],
+      payment_pending: item[ 'payment_pending' ],
+      del_address: item['del_address']
+    } ) )
+    console.log( orderreq )
+    return orderreq
+   }
+  catch ( error )
+  {
+    throw (error)
   }
 }

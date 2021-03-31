@@ -19,7 +19,7 @@ import 'react-google-flight-datepicker/dist/main.css';
 import { RangeDatePicker } from 'react-google-flight-datepicker'
 import EditProductDetails from './editproductdetails'
 import EditUserDetails from './edituserdetails'
-import { fetchProducts, fetchUsers} from '../../config'
+import { fetchProducts, fetchUsers, fetchSupport, fetchOrderReq} from '../../config'
 
 import {
   BrowserRouter as Router,
@@ -383,7 +383,16 @@ function Dash ()
 
 function AdminSupport ()
 {
-      const [ supportRequestModalShow, setSupportRequestModalShow ] = useState( false ) 
+  const [ supportRequestModalShow, setSupportRequestModalShow ] = useState( false )
+  
+  const [ s, setS ] = useState( [] )
+    useEffect(() => {
+    const fetchAPI = async () => {
+        setS( await fetchSupport() );
+    };
+	fetchAPI();
+	},
+		[] );
 
     function SupportRequestModal ( props ){
     return(
@@ -433,7 +442,24 @@ function AdminSupport ()
             <th>ISSUE</th>
             <th>TAKE ACTION</th>
           </thead>
-          <tbody>
+            <tbody>
+              { s.map( ( item ) =>
+              {
+                return (
+                  <tr>
+                    <td>{ item._id }</td>
+                    <td></td>
+                    <td>{ item.userId._id }</td>
+                    <td>{ item.userId.username }</td>
+                    <td></td>
+                    <td></td>
+                    <td>{ item.statement }</td>
+                  <td><i className="fas fa-edit" onClick={ () => setSupportRequestModalShow(true)}/>
+        <SupportRequestModal show={supportRequestModalShow} onHide={()=>setSupportRequestModalShow(false)} /></td>
+                  </tr>
+                )
+              }
+              ) }
             <tr>
               <td>SP90042A</td>
               <td>45667</td>
@@ -579,8 +605,16 @@ const [ p, setP ] = useState( [] )
 function AllOrders ()
 {
   
-          const [ orderRequestModalShow, setOrderRequestModalShow ] = useState( false ) 
-          const [ orderModalShow, setOrderModalShow ] = useState( false ) 
+  const [ orderRequestModalShow, setOrderRequestModalShow ] = useState( false ) 
+  const [ orderModalShow, setOrderModalShow ] = useState( false )
+  
+    const [ or, setor ] = useState( [] )
+   useEffect(() => {
+    const fetchAPI = async () => {
+      setor( await fetchOrderReq() )
+    };
+     fetchAPI();
+   }, [] );
 
   function OrderRequestModal ( props ){
     return(
@@ -637,8 +671,8 @@ function AllOrders ()
             <th>Location</th>
             <th>TAKE ACTION</th>
           </thead>
-          <tbody>
-            <tr>
+            <tbody>
+              <tr>  
               <td>4587</td>
               <td>900515152121</td>
               <td>GP9</td>
@@ -648,7 +682,24 @@ function AllOrders ()
               <td>Andheri</td>
               <td><i className="fas fa-edit" onClick={ () => setOrderRequestModalShow( true ) } />
                       <OrderRequestModal show={orderRequestModalShow} onHide={()=> setOrderRequestModalShow(false)} /></td>
-            </tr>
+              </tr>
+                {
+                  or.map((item) => {
+                    return (
+                      <tr>
+                      <td>{ item._id }</td>
+                        <td>{ item.userId._id }</td>
+                        <td>{ item.productId.name }</td>
+                        <td>{ item.payment_received }</td>
+                        <td>{ item.exp_del }</td>
+                        <td>{ item.total_amount }</td>
+                        <td>{ item.del_address.locality } </td>
+                      <td><i className="fas fa-edit" onClick={ () => setOrderRequestModalShow( true ) } />
+                      <OrderRequestModal show={orderRequestModalShow} onHide={()=> setOrderRequestModalShow(false)} /></td>
+                    </tr>
+                    )
+                  })
+                }
           </tbody>
         </Table>
       </div>
@@ -678,7 +729,10 @@ function AllOrders ()
             <th>LOCATION</th>
             <th>Edit</th>
           </thead>
-          <tbody>
+            <tbody>
+              <tr>
+
+              </tr>
             <tr>
               <td>4587</td>
               <td>4578a</td>

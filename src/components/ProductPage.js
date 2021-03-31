@@ -232,7 +232,7 @@ export default function ProductPage (props)
 		}
 	
 		
-		list1.push( <p className='price'>Rs { val } /Day</p> )
+		list1.push( <span>{ val }</span> )
 	}
 	//
 
@@ -250,11 +250,9 @@ export default function ProductPage (props)
 
   const handlePrice = (event, newPrice) => {
 	  setPrice( newPrice )
-	  
   };
 	
 
-	
 	const toggle=() => {
 	setup(!up)
 	}
@@ -405,54 +403,54 @@ export default function ProductPage (props)
 						} ) } */}
 						<ToggleButton
 									className="durationButton col-5"
-									
+									value={ list1[ 0 ] }
 								>
 								<div><p className='duration'>1 Day</p>
-							{ list1[ 0 ] }
+								<p className='price'>Rs { list1[ 0 ] }/Day</p>
+								
 								</div>
 						</ToggleButton>
 						<ToggleButton
 									className="durationButton col-5"
-									
+									value={ list1[ 2 ] }
 								>
 								<div><p className='duration'>3 Days</p>
-								 { list1[ 2 ] }
+								<p className='price'>Rs { list1[ 2 ] }/Day</p>
 								</div>
 						</ToggleButton>
 						<ToggleButton
 									className="durationButton col-5"
-									
+									value={ list1[ 6 ] }
 								>
 								<div><p className='duration'>1 Week</p>
-								 { list1[ 6 ] }
+								 <p className='price'>Rs { list1[ 6 ] }/Day</p>
 								</div>
 								</ToggleButton> 
 								<ToggleButton
 									className="durationButton col-5"
-									
+									value={ list1[ 29 ] }
 								>
 								<div><p className='duration'>1 Month</p>
-							 { list1[ 29 ] }
+							 <p className='price'>Rs { list1[ 29 ] }/Day</p>
 								</div>
 						</ToggleButton>
 						<ToggleButton
 									className="durationButton col-5"
-									
+									value={ list1[ 79 ] }
 								>
 								<div><p className='duration'>3 Months</p>
-							{ list1[ 79 ] }
+							<p className='price'>Rs { list1[ 79 ] }/Day</p>
 								</div>
 						</ToggleButton>
 						<ToggleButton
 									className="durationButton col-5"
-								
+									value={ list1[ 179 ] }
 								>
 								<div><p className='duration'>6 Months</p>
-								{ list1[ 179 ] }
+								<p className='price'>Rs { list1[ 179 ] }/Day</p>
 								</div>
-						</ToggleButton>
-						
-								</ToggleButtonGroup>		
+						</ToggleButton>				
+						</ToggleButtonGroup>		
 						
 
 

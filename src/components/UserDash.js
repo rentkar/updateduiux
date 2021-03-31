@@ -375,8 +375,7 @@ function MyBag(props) {
   const Order_card = (props) => (
     <div class="buttons_mobileview">
       <div class="image_detail">
-        <div class="image">
-          <img src={guitar} alt="product" />
+        <div class="image"  style={ { backgroundImage: `url(${ gp9 })` } }>
         </div>
         <div class="detail">
           <div class="name">
@@ -577,9 +576,8 @@ function MyBag(props) {
 class MyListing extends Component {
   render() {
     const Order_card = () => (
-      <div class="image_detail">
-        <div class="image">
-          <img src={guitar} alt="product" />
+    <div class="image_detail">
+        <div class="image"  style={ { backgroundImage: `url(${ gp9 })` } }>
         </div>
         <div class="detail">
           <div class="name">
