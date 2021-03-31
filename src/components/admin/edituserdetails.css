@@ -18,11 +18,11 @@
     padding: 10px;
   }
 
-    .editauser .user__details .col-5 p{
-      display: flex;
-      justify-content: flex-start;
+    .editauser .user__details .col-5 .detail{
       text-align: left;
-        font-size: 15px;
+      font-size: 15px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
   }
 
     .editauser .user__details .col-5{

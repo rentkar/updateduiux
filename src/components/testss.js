@@ -26,7 +26,10 @@ export default function Test ()
       <p>{ item.id }</p>
       <p>{ item.productName }</p>
       <p>{ item.description }</p>
-      <img src={`http://localhost:5000${item.img}` } alt='image' />
+      <img src={ `http://localhost:5000${ item.img }` } alt='image' />
+      <p>{ item.category }</p>
+      <p>{ item.subcategory }</p>
+      <p>{ item.price }</p>
       <h5>Box Content</h5>
         {item.box.map( ( item, i ) =>
       {
@@ -68,6 +71,16 @@ export default function Test ()
       <div>{ products }</div>
       <h2 style={ { textAlign : 'center', marginTop:'50px'}}>Users</h2>
       <div>{ users }</div>
+
+      <h2 style={ { textAlign : 'center', marginTop:'50px'}}>Filter Products</h2>
+      {p.filter( p => p.category === 'CONSOLE' ).map( filteredP => (
+         <div>
+        <li>
+          {filteredP.productName}
+         </li>
+          <li>{ filteredP._id }</li>
+          </div>
+      ))}
       </div>
     )
 }

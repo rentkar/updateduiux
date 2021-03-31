@@ -26,12 +26,13 @@
     padding: 10px;
   }
 
-    .editaproduct .product__details .col-5 p{
-      display: flex;
-      justify-content: flex-start;
+    .editaproduct .product__details .col-5 .detail{
       text-align: left;
-        font-size: 15px;
+      font-size: 15px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
   }
+
 
     .editaproduct .product__details .col-5{
       margin-right: 40px;
@@ -59,4 +60,9 @@
 
       .editaproduct .end__buttons a:hover{
       color: white;
+    }
+
+    .editaproduct .row .inpuut{
+      width: 100px;
+      padding: 2px;
     }

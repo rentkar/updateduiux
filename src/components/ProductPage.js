@@ -148,6 +148,94 @@ export default function ProductPage (props)
 
 	var i
 
+	var val = 0
+	var i
+	var m, j, a, b, c
+	var [ e, setE ] = useState()
+	
+
+	//calculator
+	const list1 = []
+
+	for ( i = 1; i < 367; i++ )
+	{
+		if ( i >= 180 )
+		{
+			val = Math.ceil( pd.price * 0.000031 * i ) * 100
+		}
+		else if ( i >= 90 )
+		{
+			val = Math.ceil( pd.price * 0.0000365 * i ) * 100
+		}
+		else if ( i >= 60 )
+		{
+			val = Math.ceil( pd.price * 0.000043 * i ) * 100
+		}
+		else if	( i >= 30 )
+		{
+			val = Math.ceil( pd.price * 0.000046 * i ) * 100
+			
+		}
+		else if ( i > 15 )
+		{
+			j = i - 14
+			for ( a = 1; a <= j; a++ )
+			{
+				val = c + (pd.price * a * 0.003)
+			//	val = m
+			}
+		
+		}
+		else if ( i === 14 )
+		{
+			val = Math.ceil( pd.price * 0.000065 * i ) * 100
+			c = val
+			}
+		else if ( i > 7 )
+		{
+			j = i - 7
+			for ( a = 1; a <= j; a++ )
+			{
+				val = b + (pd.price * a * 0.004)
+			//	val = m
+			}
+		}
+		else if ( i === 7 )
+		{
+			val = Math.ceil( pd.price * 0.00009 * i ) * 100
+			b = val
+			
+		}
+		 else if ( i > 3 )
+		{
+
+			j = i - 3
+			for ( a = 1; a <= j; a++ )
+			{
+				val = m + (pd.price * a * 0.0090)
+			//	val = m
+			}
+
+		}
+		else if ( i === 3 )
+		{
+			val = Math.ceil( pd.price * 0.000167 * ( 2 ) + ( 0.00002 * pd.price ) ) * 100
+			m =val
+		}
+		else if ( i === 2 )
+		{
+			val = ( pd.price * 0.0167 * i )
+		}
+		else if ( i === 1 )
+		{
+			val = (pd.price * 0.02 * i )
+		}
+	
+		
+		list1.push( <p className='price'>Rs { val } /Day</p> )
+	}
+	//
+
    useEffect(() => {
     const fetchAPI = async () => {
       setpd( await fetchProductDetail( _id ) )
@@ -161,8 +249,11 @@ export default function ProductPage (props)
 
 
   const handlePrice = (event, newPrice) => {
-	  setPrice(newPrice)
+	  setPrice( newPrice )
+	  
   };
+	
+
 	
 	const toggle=() => {
 	setup(!up)
@@ -285,7 +376,8 @@ export default function ProductPage (props)
 					<div className='btn  up'  onClick={toggle} 
 					><i className={ up ? 'fas fa-chevron-up' : 'fas fa-chevron-down'} /></div>
 						<div className='product__name'>
-							<h2>{pd.productname}</h2>
+						<h2>{ pd.productname }</h2>
+						<h2>{ pd.price }</h2>
 							
 							<p style={{ marginTop: '25px', marginRight: '50px' }}><i
 								className='fas fa-star-half-alt'
@@ -297,7 +389,7 @@ export default function ProductPage (props)
 						<h3 style={{ textAlign: 'left' }}>Select Your Package</h3>
 					                                                                                                                                                                        
 					<ToggleButtonGroup className='durationPrice' value={ price } exclusive onChange={ handlePrice }>
-						{ pdp.map( ( item, i ) =>
+						{/*	{ pdp.map( ( item, i ) =>
 							{
 							return (
 								<ToggleButton
@@ -310,7 +402,56 @@ export default function ProductPage (props)
 								</div>
 								</ToggleButton>
 								)
-							})}
+						} ) } */}
+						<ToggleButton
+									className="durationButton col-5"
+									
+								>
+								<div><p className='duration'>1 Day</p>
+							{ list1[ 0 ] }
+								</div>
+						</ToggleButton>
+						<ToggleButton
+									className="durationButton col-5"
+									
+								>
+								<div><p className='duration'>3 Days</p>
+								 { list1[ 2 ] }
+								</div>
+						</ToggleButton>
+						<ToggleButton
+									className="durationButton col-5"
+									
+								>
+								<div><p className='duration'>1 Week</p>
+								 { list1[ 6 ] }
+								</div>
+								</ToggleButton> 
+								<ToggleButton
+									className="durationButton col-5"
+									
+								>
+								<div><p className='duration'>1 Month</p>
+							 { list1[ 29 ] }
+								</div>
+						</ToggleButton>
+						<ToggleButton
+									className="durationButton col-5"
+									
+								>
+								<div><p className='duration'>3 Months</p>
+							{ list1[ 79 ] }
+								</div>
+						</ToggleButton>
+						<ToggleButton
+									className="durationButton col-5"
+								
+								>
+								<div><p className='duration'>6 Months</p>
+								{ list1[ 179 ] }
+								</div>
+						</ToggleButton>
+						
 								</ToggleButtonGroup>		
 						
 
@@ -355,7 +496,6 @@ export default function ProductPage (props)
 							startWeekDay="monday"
 						/>
 						
-						<p>{ i }</p>
 						</div>
 
 

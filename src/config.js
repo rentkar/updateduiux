@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import Address from './components/Address/Address';
 	
 const API_URL = `http://localhost:5000`
 const productUrl = `${API_URL}/products/`;
@@ -12,13 +13,20 @@ export const fetchProducts = async () => {
     productName: item[ 'name' ],
       _id: item['_id'],
     id: item[ 'id' ],
+    price: item['price'],
     img: item[ 'images' ][ 0 ][ 'image' ],
     images: item['images'].map( ( i) =>
       ({
         image : i['image']
       } ) ),
-      description: item[ 'description' ],
-      box: item['box'].map( ( i) =>
+    description: item[ 'description' ],
+    category: item[ 'category' ],
+    subcategory: item[ 'subcategory' ],
+    limitedStock: item[ 'limitedStock' ],
+    quantity: item[ 'quantity' ],
+    featured: item[ 'featured' ],
+    
+    box: item[ 'box' ].map( ( i ) =>
       ({
         content: i[ 'content' ],
         image: i['image']
@@ -45,10 +53,18 @@ export const fetchUsers = async () => {
       name: item[ 'username' ],
       gender: item[ 'gender' ],
       dob: item[ 'dob' ],
-      phone: item['phoneNumber']
+      phone: item[ 'phoneNumber' ], 
+      lender: item[ 'lender' ],
+      verified: item[ 'verified' ],
+      _id: item[ '_id' ],
+      email: item[ 'email' ],
+      image: item[ 'image' ],
+      doctype: item[ 'document' ][ 'doctype' ],
+      doccopy: item['document']['doccopy']
       
     } ),
     )
+    console.log(data)
     console.log(userData)
 
     return userData
@@ -59,6 +75,54 @@ export const fetchUsers = async () => {
   
 
 }
+
+export const fetchUserDetail = async ( _id ) =>
+{
+  try {   
+    const { data } = await Axios.get( `${ userUrl }/${ _id }` )
+    const userdetailData = { 
+      name: data.username,
+      verified: data.verified,
+      _id: data._id,
+      dob: data.dob,
+      email: data.email,
+      lender: data.lender,
+      createdAt: data.createdAt,
+      updatedAt: data.updatedAt,
+      image: data.image,
+      gender: data.gender,
+      doctype: data.document.doctype,
+      doccopy: data.document.doccopy
+    }
+    
+    console.log(userdetailData)
+    return userdetailData
+  }
+  catch ( error )
+  {
+    throw error;
+  }
+}
+
+
+export const fetchUserAddressDetail = async (_id) =>
+{
+  try
+  {
+    const { data } = await Axios.get( `${ userUrl }/${ _id }` )
+    const addresses = data[ 'addresses' ].map( ( item ) => ( {
+      type: item[ 'type' ],
+      address : item[ 'address' ],
+    }))
+    console.log(addresses)
+    return addresses
+  }
+  catch ( error )
+  {
+    throw error;
+  }
+}
+
 export const fetchProductDetail = async (_id) =>
 {
   try
@@ -72,8 +136,14 @@ export const fetchProductDetail = async (_id) =>
       productname: data.name,
       description: data.description,
       _id: data._id,
+      price: data.price,
       id: data.id,
-      box: b
+      box: b,
+      category: data.category,
+      subcategory: data.subcategory,
+      limitedStock: data.limitedStock,
+      featured: data.featured,
+      quantity: data.quantity
     }
     
     console.log(productdetailData)

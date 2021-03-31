@@ -19,6 +19,7 @@ import 'react-google-flight-datepicker/dist/main.css';
 import { RangeDatePicker } from 'react-google-flight-datepicker'
 import EditProductDetails from './editproductdetails'
 import EditUserDetails from './edituserdetails'
+import { fetchProducts, fetchUsers} from '../../config'
 
 import {
   BrowserRouter as Router,
@@ -484,7 +485,14 @@ function AdminSupport ()
 
 function AllProducts ()
 {
-
+const [ p, setP ] = useState( [] )
+    useEffect(() => {
+    const fetchAPI = async () => {
+        setP( await fetchProducts() );
+    };
+	fetchAPI();
+	},
+		[] );
   function AddProductModal ( props ){
     return(
         <Modal { ...props }
@@ -521,26 +529,32 @@ function AllProducts ()
         <div className='table'>
         <Table striped bordered hover responsive className="table-sm">
           <thead>
+            <th>_id</th>
             <th>PRODUCT ID</th>
             <th>CATEGORY</th>
             <th>SUB CATEGORY</th>
             <th>NAME</th>
-            <th>QUANTITY</th>
             <th>LENDERS</th>
             <th>EDIT</th>
           </thead>
           <tbody>
+        { p.map( ( item, index ) =>
+        {
+          return (
             <tr>
-              <td>GP9</td>
-              <td>TECH</td>
-              <td>CAMERA</td>
-              <td>GO PRO 9</td>
-              <td>5</td>
+              <td>{item._id}</td>
+              <td>{item.id}</td>
+              <td>{item.category}</td>
+              <td>{item.subcategory}</td>
+              <td>{item.productName}</td>
               <td><Link to='/alllenders' ><i className="fas fa-info" /></Link></td>
-              <td><Link to='/allproducts/editproductdetails' ><i className="fas fa-edit" /></Link></td>
+              <td><Link to={ `/allproducts/editproductdetails/${ item._id }` }><i className="fas fa-edit" /></Link></td>
             </tr>
+          )
+        })}
           </tbody>
         </Table>
+      
       </div>  
   </div>
     )
@@ -552,7 +566,7 @@ function AllProducts ()
     <Router>
       <div>
         <Switch>
-          <Route path='/allproducts/editproductdetails'><EditProductDetails /></Route>
+          <Route path='/allproducts/editproductdetails/:_id'><EditProductDetails /></Route>
           <Route path='/allproducts/'><Products /></Route>
         </Switch>
       </div>  
@@ -727,6 +741,14 @@ function AllOrders ()
 
 function AllUsers ()
 {
+  const [ u, setU ] = useState( [] )
+   useEffect(() => {
+    const fetchAPI = async () => {
+      setU( await fetchUsers() )
+    };
+     fetchAPI();
+   }, [] );
+
     function AddUserModal ( props ){
     return(
         <Modal { ...props }
@@ -816,6 +838,7 @@ function AllUsers ()
         <Table striped bordered hover responsive className="table-sm">
           <thead>
             <th>USER ID</th>
+            <th>Phone Number</th>
             <th>LENDER</th>
             <th>USER NAME</th>
             <th>LATEST ORDER</th>
@@ -824,8 +847,25 @@ function AllUsers ()
             <th>LENDER SUMMARY</th>
             <th>EDIT</th>
           </thead>
-          <tbody>
-            <tr>
+              <tbody>
+                { u.map( ( item, index ) =>
+                {
+                  return (
+                    <tr>
+                      <td>{ item._id }</td>
+                      <td>{ item.phone }</td>
+                      <td>{ item.lender }</td>
+                      <td>{ item.name }</td>
+                      <td></td>
+                      <td>{ item.verified }</td>
+                      <td><i className="fas fa-info" /></td>
+              <td><Link to='/alllenders' ><i className="fas fa-info" /></Link></td>
+              <td><Link to={`/allusers/edituserdetails/${ item._id }` } ><i className="fas fa-edit" /></Link></td>
+                    </tr>
+                  )
+                })}
+                <tr>
+              <td>6030A72167xxxxxxxx	</td>
               <td>9004377042</td>
               <td>TRUE</td>
               <td>TANUJ AGARWAL</td>
@@ -833,11 +873,12 @@ function AllUsers ()
               <td>4571</td>
               <td><i className="fas fa-info" /></td>
               <td><Link to='/alllenders' ><i className="fas fa-info" /></Link></td>
-              <td><Link to='/allusers/edituserdetails' ><i className="fas fa-edit" /></Link></td>
+              <td><Link to='/allusers/edituserdetails/:_id' ><i className="fas fa-edit" /></Link></td>
             </tr>
           </tbody>
-            <tbody>
+          <tbody>
             <tr>
+              <td>6030A72167xxxxxxxx	</td>
               <td>9112477042</td>
               <td>FALSE</td>
               <td>KULDEEP YADAV</td>
@@ -858,7 +899,7 @@ function AllUsers ()
       <Router>
       <div>
         <Switch>
-          <Route path='/allusers/edituserdetails'><EditUserDetails /></Route>
+          <Route path='/allusers/edituserdetails/:_id'><EditUserDetails /></Route>
           <Route path='/allusers/'><Users /></Route>
         </Switch>
       </div>  

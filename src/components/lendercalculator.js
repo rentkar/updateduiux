@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import './calculator.css'
 
-function Calculator() {
+function LenderCalculator() {
 	var [ val, setval ] = useState( 0 )
 	var [product, setproduct] = useState('')
-	var i
+	var i 
 	var k = 0
 	var m, j, a, b, c
 	var [e, setE] = useState()
@@ -79,19 +79,19 @@ function Calculator() {
 	{
 		if ( i >= 180 )
 		{
-			k = Math.ceil( val * 0.000031 * i ) * 100
+			k = Math.ceil( val *0.65 * 0.000031 * i )  * 100
 		}
 		else if ( i >= 90 )
 		{
-			k = Math.ceil( val * 0.0000365 * i ) * 100
+			k = Math.ceil( val  *0.65 * 0.0000365 * i ) * 100
 		}
 		else if ( i >= 60 )
 		{
-			k = Math.ceil( val * 0.000043 * i ) * 100
+			k = Math.ceil( val  *0.65 * 0.000043 * i ) * 100
 		}
 		else if	( i >= 30 )
 		{
-			k = Math.ceil( val * 0.000046 * i ) * 100
+			k = Math.ceil( val *0.65 * 0.000046 * i )  * 100
 			
 		}
 		else if ( i > 15 )
@@ -99,14 +99,14 @@ function Calculator() {
 			j = i - 14
 			for ( a = 1; a <= j; a++ )
 			{
-				k = c + (val * a * 0.003)
+				k = c + (val *0.65 * a * 0.003)
 			//	k = m
 			}
 		
 		}
 		else if ( i === 14 )
 		{
-			k = Math.ceil( val * 0.000065 * i ) * 100
+			k = Math.ceil( val *0.65 * 0.000065 * i ) *  100
 			c = k
 			}
 		else if ( i > 7 )
@@ -114,13 +114,13 @@ function Calculator() {
 			j = i - 7
 			for ( a = 1; a <= j; a++ )
 			{
-				k = b + (val * a * 0.004)
+				k = b + (val  * 0.65  * a * 0.004)
 			//	k = m
 			}
 		}
 		else if ( i === 7 )
 		{
-			k = Math.ceil( val * 0.00009 * i ) * 100
+			k = Math.ceil( val  *0.65  *  0.00009 * i ) * 100
 			b = k
 			
 		}
@@ -130,23 +130,23 @@ function Calculator() {
 			j = i - 3
 			for ( a = 1; a <= j; a++ )
 			{
-				k = m + (val * a * 0.0090)
+				k = m + (val *0.65  * a * 0.0090)
 			//	k = m
 			}
 
 		}
 		else if ( i === 3 )
 		{
-			k = Math.ceil( val * 0.000167 * ( 2 ) + ( 0.00002 * val ) ) * 100
+			k = Math.ceil( val *0.65  * 0.000167 * ( 2 ) + ( 0.00002 * val ) ) * 100
 			m =k
 		}
 		else if ( i === 2 )
 		{
-			k = ( val * 0.0167 * i )
+			k = ( val  *0.65 * 0.0167 * i )
 		}
 		else if ( i === 1 )
 		{
-			k = ( val * 0.02 * i )
+			k = Math.ceil( val  *0.65 * 0.02 * i )
 		}
 	
 		
@@ -157,7 +157,7 @@ function Calculator() {
 	return (
 	
 		<div className = 'calculator'>
-			<h3>Rental Calculator</h3>
+			<h3>Lender Calculator</h3>
 			<hr />
 			<div>
 			<div className='entries'>
@@ -193,4 +193,4 @@ function Calculator() {
 	)
 }
 
-export default Calculator
+export default LenderCalculator

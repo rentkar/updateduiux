@@ -7,7 +7,7 @@ import './Login.css'
 import Amplify from '@aws-amplify/core';
 import Auth from '@aws-amplify/auth';
 import FadeIn from 'react-fade-in';
-
+import LoginForm from './LoginForm'
 export const signOut = () => { }
 export const verifyAuth = () => { }
 

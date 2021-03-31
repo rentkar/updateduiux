@@ -52,6 +52,16 @@ background-color:rgb(243, 243, 243);
 	font-weight: 600;
 }
 
+.calculator .cal input{
+	width: 100px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: 4px 5px;
+}
+
 .calculator .cal .price {
 	border-radius: 25px;
 	width: 100px;
@@ -59,6 +69,11 @@ background-color:rgb(243, 243, 243);
 	color:black;
 	background-image: linear-gradient(to bottom right, #5dc1f3, #34f3c0);
 
+}
+
+.calculator .cal {
+	display: flex;
+	justify-content: space-between;
 }
 
 
@@ -89,6 +104,9 @@ background-color:rgb(243, 243, 243);
 .calculator .cal .duration {
 	width: 100px;
 }
-
+.calculator .cal input {
+    width: 80px;
+	font-size: 12px;
+}
 
 }

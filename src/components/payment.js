@@ -49,7 +49,7 @@ export class Payment extends Component{
 		return (
 			<div>
 				<button className='btn btn-primary'
-					onClick={ this.razorpayHandler}> Pay Now
+					> Pay Now
 				</button>
 			</div>
 		)

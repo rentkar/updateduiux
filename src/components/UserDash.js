@@ -26,7 +26,7 @@ import faqs from '../images/faqs.png'
 import quickreq from '../images/quickreq.png'
 import call from '../images/call.png'
 import FadeIn from 'react-fade-in';
-
+import gp9 from '../images/PS5+1DS4+2GAMES.jpg'
 
 import pencil from "../images/icons/pencil_white.png";
 import pencil_b from "../images/icons/pencil.png";
@@ -111,8 +111,7 @@ function Rentals() {
   const Order_card = (props) => (
     <div class="buttons_mobileview">
       <div class="image_detail">
-        <div class="image">
-          <img src={guitar} alt="product" />
+        <div class="image"  style={ { backgroundImage: `url(${ gp9 })` } }>
         </div>
         <div class="detail">
           <div class="name">
@@ -139,15 +138,15 @@ function Rentals() {
             </div>
           </div>
           <div class="price">
-            <div class="rent">
-              <div className="name__">
+            {/*  <div class="rent">
+            <div className="name__">
                 <h6>Rent</h6>
               </div>
         
                 <h4 style={{ fontWeight: "600" }}>
                   <i class="fas fa-rupee-sign    "></i> {props.price} /Day
                 </h4>
-              </div>
+              </div> */}
             <div class="tenure">
               <div className="name__">
                 <h6>

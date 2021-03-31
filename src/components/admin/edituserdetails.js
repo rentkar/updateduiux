@@ -1,8 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './edituserdetails.css'
 import {Button, Modal} from 'react-bootstrap' 
 import { Link } from 'react-router-dom'
-
+import
+    {
+        fetchUserDetail, fetchUserAddressDetail
+    } from '../../config'
+import { useParams } from "react-router";    
 function EditDetailsModal( props ){
     return(
         <Modal { ...props }
@@ -78,8 +82,18 @@ function EditDetailsModal( props ){
 
 function EditUserDetails ()
 {
-        const [ editDetailsModalShow, setEditDetailsModalShow ] = useState( false )
-
+    const [ editDetailsModalShow, setEditDetailsModalShow ] = useState( false )
+    let { _id } = useParams()
+    const [ ud, setud ] = useState( [] )
+    const [ uda, setuda ] = useState([])
+    
+        useEffect(() => {
+        const fetchAPI = async () => {
+            setud( await fetchUserDetail( _id ) )
+            setuda(await fetchUserAddressDetail(_id))
+        };
+        fetchAPI();
+    }, [ _id ] );
     return (
         <div className='editauser'>
             <div className='user__details row'>
@@ -87,80 +101,99 @@ function EditUserDetails ()
                     <h2>INFO</h2>
                     <div className='row'>
                     <h4 className='col-6'>ID</h4>
-                    <p className='col-6' >90043XXXXX</p>
+                    <p className='col-6 detail' >{ud._id}</p>
                 </div>
                 <div className='row'>
                     <h4 className='col-6'>NAME</h4>
-                        <p className='col-6' >TANUJ AGARWAL</p>
+                        <p className='col-6 detail' >{ud.name}</p>
                     </div>
                 <div className='row'>
                     <h4 className='col-6'>IMAGE</h4>
-                        <p className='col-6' >https://s3-rentkar-users/90043XXXXX.jpg</p>
+                        <p className='col-6 detail' >{ud.image}</p>
                 </div>
                     <div className='row'>
                     <h4 className='col-6'>VERIFIED</h4>
-                        <p className='col-6' >TRUE</p>
+                        <p className='col-6 detail' >{ud.verified}</p>
                 </div>
                 <div className='row'>
                     <h4 className='col-6'>DOB</h4>
-                        <p className='col-6' >2020-02-28</p>
+                        <p className='col-6 detail' >{ud.dob}</p>
                 </div>
                 <div className='row'>
                     <h4 className='col-6'>GENDER</h4>
-                        <p className='col-6' >MALE</p>
+                        <p className='col-6 detail' >{ud.gender}</p>
                 </div>
                 <div className='row'>
                     <h4 className='col-6'>PRIMARY ADDRESS</h4>
-                        <p className='col-6' >D501, PANOM PARK, VILE PARLE (E)</p>
+                        <p className='col-6 detail' >D501, PANOM PARK, VILE PARLE (E)</p>
                 </div>
                 <div className='row'>
                     <h4 className='col-6'>EMAIL</h4>
-                        <p className='col-6' >tanuj@rentkar.co.in</p>
+                        <p className='col-6 detail' >{ud.email}</p>
                     </div>
                     <div className='row'>
                     <h4 className='col-6'>DOC TYPE</h4>
-                        <p className='col-6' >AADHAR CARD</p>
+                        <p className='col-6 detail' >{ud.doctype}</p>
                     </div>
                     <div className='row'>
                     <h4 className='col-6'>DOC LINK</h4>
-                        <p className='col-6' >https://s3-rentkar-docs/90043XXXXX/doc1.png</p>
+                        <p className='col-6 detail' >{ud.doccopy}</p>
                     </div>
                     <div className='row'>
                     <h4 className='col-6'>BANK STATEMENT</h4>
-                        <p className='col-6' >---</p>
+                        <p className='col-6 detail' >---</p>
                     </div>
                     <div className='row'>
                     <h4 className='col-6'>LENDER</h4>
-                        <p className='col-6' >TRUE</p>
+                        <p className='col-6 detail' >{ud.lender}</p>
                     </div>
                     <div className='row'>
                     <h4 className='col-6'>CREATED ON</h4>
-                        <p className='col-6' >2021-03-02 <i  id='time' className="fas fa-calendar-plus" /> 6:58 <i  id='time' className="fas fa-user-clock" /></p>
+                        <p className='col-6 detail' >{ud.createdAt}</p>
                     </div>
                     <div className='row'>
-                    <h4 className='col-6'>LAST UPDATE ON</h4>
-                        <p className='col-6' >2021-03-02 <i  id='time' className="fas fa-calendar-plus" /> 6:58 <i  id='time' className="fas fa-user-clock" /></p>
+                        <h4 className='col-6'>LAST UPDATE ON</h4>
+                        <p className='col-6 detail' >{ud.updatedAt}</p>
+                        {/*    <p className='col-6 detail' >2021-03-02 <i  id='time' className="fas fa-calendar-plus" /> 6:58 <i  id='time' className="fas fa-user-clock" /></p>*/ }
                     </div>
                     <div className='btn btn-outline-info' onClick={ () => setEditDetailsModalShow(true)}><i className="fas fa-edit" /> EDIT THE DETAILS</div>
                     <EditDetailsModal show={editDetailsModalShow} onHide={()=>setEditDetailsModalShow(false)} />
                 </div>
                 <div className='col-5 user__info'> 
+                    <h2>Addresses</h2>
+                    <div className='row'>
+                        <h4 className='col-6'>TYPE</h4>
+                        <h4 className='col-6' >SPEC</h4>
+                    </div>
+                    {
+							uda.map( ( item, i ) =>
+						{
+                                return (
+                                <div className='row'>
+						            <p className='col-6 detail'>{item.type}</p>
+									<p className='col-6 detail'>{ item.address.houseNumber }, { item.address.street }, { item.address.locality }, { item.address.city }, { item.address.state }, { item.address.zip }</p>
+                                </div>					
+							)
+						} )
+						}
+                </div>
+                <div className='col-5 user__info'> 
                     <h2>ORDER HISTORY</h2>
                     <div className='row'>
                     <h4 className='col-6'>CURRENT ORDER ID</h4>
-                        <p className='col-6' >#45667</p>
+                        <p className='col-6 detail' >#45667</p>
                     </div>
                     <div className='row'>
                     <h4 className='col-6'>TOTAL AMOUNT PENDING</h4>
-                        <p className='col-6' ><i className="fas fa-rupee-sign" /> 667</p>
+                        <p className='col-6 detail' ><i className="fas fa-rupee-sign" /> 667</p>
                     </div>
                     <div className='row'>
                     <h4 className='col-6'>TOTAL AMOUNT RECEIVED</h4>
-                    <p className='col-6' ><i className="fas fa-rupee-sign" /> 4667</p>
+                    <p className='col-6 detail' ><i className="fas fa-rupee-sign" /> 4667</p>
                     </div>
                     <div className='row'>
                     <h4 className='col-6'>NEXT PAYMENT DUE DATE</h4>
-                    <p className='col-6' >2021-03-02 <i  id='time' className="fas fa-calendar-plus" /></p>
+                    <p className='col-6 detail' >2021-03-02 <i  id='time' className="fas fa-calendar-plus" /></p>
                     </div>
                 </div>
             </div>

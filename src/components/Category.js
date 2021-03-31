@@ -2,7 +2,8 @@ import React, { Component, useState, useContext, useEffect } from "react";
 import ProductCard3 from "./ProductCard3";
 import guitar from "../images/guitar2.png";
 import search_boy from "../images/search_boy.png";
-
+import { fetchProducts, fetchUsers, fetchProductDetail} from '../config'
+import {Link} from 'react-router-dom'
 // import './category.css';
 
 import { Card, Image } from "semantic-ui-react";
@@ -73,21 +74,22 @@ import selectedgaming from "../images/icons/catogories-49.png";
 import arrow from "../images/arrow.jpeg";
 
 import "./category.css";
+  
 
-const categories = ["Music", "Gaming", "Laptop", "Photography"];
+const categories = ["MUSIC", "GAMING", "LAPTOP", "PHOTOGRAPHY"];
 const sub = [
   [
-    "Guitar",
-    "Keyboard",
-    "Percussion",
-    "Recording",
-    "Amplifier",
-    "Groove",
-    "Wind"
+    "GUITAR",
+    "KEYBOARD",
+    "PERCUSSION",
+    "RECORDING",
+    "AMPLIFIER",
+    "GROOVE",
+    "WIND"
   ],
-  ["Packages", "PC Gaming", "Console", "Accessories"],
-  ["Gaming", "i3", "i5", "i7", "Macbook", "PC", "Tablet"],
-  ["Camera", "Filters", "Lens", "Lights", "Recording", "Rigs"]
+  ["PACKAGES", "PC GAMING", "CONSOLE", "ACCESSORIES"],
+  ["GAMING", "i3", "i5", "i7", "MACBOOK", "PC", "TABLET"],
+  ["CAMERA", "FILTERS", "LENS", "LIGHTS", "RECORDING", "RIGS"]
 ];
 const img = [
   [guitar_grey, key, per, rec, amp, groove, wind],
@@ -105,27 +107,21 @@ const selectedImg = [
 ];
 
 export const Category = (props) => {
-  const [whats_hot, setwhats_hot] = useState([
-    <ProductCard3 />,
-    <ProductCard3 />,
-    <ProductCard3 />,
-    <ProductCard3 />,
-    <ProductCard3 />,
-    <ProductCard3 />,
-    <ProductCard3 />,
-    <ProductCard3 />,
-    <ProductCard3 />,
-    <ProductCard3 />,
-    <ProductCard3 />,
-    <ProductCard3 />
-  ]);
   const [category, setcategory] = useState(props.index ? props.index : 0);
   const [subb, setsubb] = useState(
     props.index_product ? props.index_product : 0
   );
   // sub: 0,
   console.log(props.index);
-
+const [ p, setP ] = useState( [] )
+    useEffect(() => {
+    const fetchAPI = async () => {
+      setP( await fetchProducts() );
+    };
+     fetchAPI();
+    }, [] );
+  
+  
   useEffect(() => {
     // return () => {
     document.getElementById("sub" + subb.toString()).style.opacity = "1";
@@ -189,6 +185,7 @@ export const Category = (props) => {
           </div>
           <div className="categoriesBackground">
             <div className="categories">
+              
               <button
                 id="musicButton"
                 className={category === 0 ? "selectedButton" : "categoryButton"}
@@ -226,7 +223,17 @@ export const Category = (props) => {
                 {categories[3].toUpperCase()}
               </button>
             </div>
+            {/*      { p.map(( item ) => {
+                return (
+                  <div>
+                    <p>{ item.category }</p>
+                    </div>
+                )
+                        } ) }  */}
+
+            
           </div>
+          
           <div className="subCategoriesBackground">
             <div className="subCategories">
               {sub[category].map((item, index) => {
@@ -244,9 +251,11 @@ export const Category = (props) => {
       <div className="scrollContent">
         <div className="product_overview">
           <div className="category">
-            {whats_hot.map((item, index) => {
-              return <div key={index}>{item}</div>;
-            })}
+            { p.filter( p => p.subcategory === sub[category][subb] ).map( item => (
+            <ProductCard3
+						link={ `/product/${ item._id }` }
+						name={ item.productName } startingprice={ item.pricing[ 0 ].price } bg={ `http://localhost:5000${ item.img }` } />
+            ))}
           </div>
         </div>
         <div className="search_boy_with_input">
@@ -261,6 +270,7 @@ export const Category = (props) => {
             <button id="category_last_but" className="selectedButton">
               Submit
             </button>
+            
           </div>
         </div>
       </div>

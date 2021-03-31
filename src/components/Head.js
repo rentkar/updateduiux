@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import Popup from 'reactjs-popup';
 import { Grid } from 'semantic-ui-react';
 import LoginModal from './Login/LoginModal';
+import LoginForm from './Login/LoginForm'
 import { BrowserRouter as Link } from 'react-router-dom';
 import guitar from '../images/guitar2.png';
 import rental_s from "../images/icons/rental_s.png";
@@ -28,7 +29,6 @@ import { ProductContext } from '../components/ProductContext';
 
 import dummyprofile from "../images/dummyprofile.jpg";
 
-
 export const Head = (props) => {
 	const [product, setproduct] = useContext(ProductContext);
 	const [count, setcount] = useState();
@@ -44,7 +44,8 @@ export const Head = (props) => {
 		setproduct(new_product);
 	};
 
-	const [addModalshow, setaddModalshow] = useState(false);
+	const [ addModalshow, setaddModalshow ] = useState( false );
+	const [loginModalShow, setLoginModalShow] = useState(false)
 	const [mumbai, setmumbai] = useState(true);
 	const [pune, setpune] = useState(false);
 	const [drop, setdrop] = useState(true);
@@ -105,7 +106,7 @@ export const Head = (props) => {
 						<div class='cart__rent'>
 							<h6>Rent</h6>
 							<h6>
-								<i class='fas fa-rupee-sign    '></i>&nbsp;&nbsp;{props.price}
+								<i class='fas fa-rupee-sign'></i>&nbsp;&nbsp;{props.price}
 								/day
 							</h6>
 						</div>
@@ -228,8 +229,11 @@ export const Head = (props) => {
 				</div>
 				
 				<div className='but' id='sign'>
-					<button onClick={() => setaddModalshow(true)}>Login/Sign Up</button>
-					<LoginModal show={addModalshow} onHide={addModalclose} />
+					{/*	<button onClick={() => setaddModalshow(true)}>Login/Sign Up</button>
+					<LoginModal show={ addModalshow } onHide={ addModalclose } /> */}
+					
+						<button onClick={ () => setLoginModalShow( true ) }>Login/SignUp</button>
+					<LoginForm  show={loginModalShow} onHide={() => setLoginModalShow(false)}/> 
 				</div>
 				
 				<div className='userheader'>

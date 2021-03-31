@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './editproductdetails.css'
 import { Link } from 'react-router-dom'
 import {Button, Modal} from 'react-bootstrap' 
-                                    
+import {fetchProductDetail,  fetchProductBoxDetail, fetchProductPricingDetail, fetchProductImagesDetail, fetchProductSpecsDetail} from '../../config'
+import { useParams } from "react-router";                                    
 
 function EditProductModal ( props ){
     return(
@@ -116,7 +117,7 @@ function EditBoxModal ( props ){
                 <Modal.Title>Edit Box Contents</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>ksdkddk</p>
+                <div>ksdkddk</div>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
@@ -224,7 +225,7 @@ function EditPricingModal( props ){
                 <Modal.Title>Edit Pricing</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>ksdkddk</p>
+                <div>ksdkddk</div>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
@@ -243,7 +244,7 @@ function EditSpecsModal ( props ){
                 <Modal.Title>Edit Specifications</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>ksdkddk</p>
+                <div>ksdkddk</div>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-dark" onClick={ props.onHide }>Close</Button>
@@ -260,7 +261,114 @@ function EditProductDetails ()
     const [ editSpecsModalShow, setEditSpecsModalShow ] = useState( false )
     const [ editInfoModalShow, setEditInfoModalShow ] = useState( false )
     const [ editBoxModalShow, setEditBoxModalShow] = useState(false)
+    let {_id} = useParams()
+	const [ pd, setpd ] = useState( [] )
+	const [ pdb, setpdb ] = useState( [] )
+	const [ pdp, setpdp ] = useState( [] )
+	const [ pds, setpds ] = useState( [] )
+	const [ pdi, setpdi ] = useState( [] )
 
+    useEffect(() => {
+    const fetchAPI = async () => {
+      setpd( await fetchProductDetail( _id ) )
+      setpdb( await fetchProductBoxDetail( _id ) )
+      setpdp( await fetchProductPricingDetail( _id ) )
+      setpds( await fetchProductSpecsDetail( _id ) )
+      setpdi(await fetchProductImagesDetail(_id))
+    };
+     fetchAPI();
+   }, [ _id ] );
+
+
+	var i
+
+	var val = 0
+	var i
+	var m, j, a, b, c
+	var [ e, setE ] = useState()
+	
+
+	//calculator
+	const list1 = []
+
+	for ( i = 1; i < 367; i++ )
+	{
+		if ( i >= 180 )
+		{
+			val = Math.ceil( pd.price * 0.000031 * i ) * 100
+		}
+		else if ( i >= 90 )
+		{
+			val = Math.ceil( pd.price * 0.0000365 * i ) * 100
+		}
+		else if ( i >= 60 )
+		{
+			val = Math.ceil( pd.price * 0.000043 * i ) * 100
+		}
+		else if	( i >= 30 )
+		{
+			val = Math.ceil( pd.price * 0.000046 * i ) * 100
+			
+		}
+		else if ( i > 15 )
+		{
+			j = i - 14
+			for ( a = 1; a <= j; a++ )
+			{
+				val = c + (pd.price * a * 0.003)
+			//	val = m
+			}
+		
+		}
+		else if ( i === 14 )
+		{
+			val = Math.ceil( pd.price * 0.000065 * i ) * 100
+			c = val
+			}
+		else if ( i > 7 )
+		{
+			j = i - 7
+			for ( a = 1; a <= j; a++ )
+			{
+				val = b + (pd.price * a * 0.004)
+			//	val = m
+			}
+		}
+		else if ( i === 7 )
+		{
+			val = Math.ceil( pd.price * 0.00009 * i ) * 100
+			b = val
+			
+		}
+		 else if ( i > 3 )
+		{
+
+			j = i - 3
+			for ( a = 1; a <= j; a++ )
+			{
+				val = m + (pd.price * a * 0.0090)
+			//	val = m
+			}
+
+		}
+		else if ( i === 3 )
+		{
+			val = Math.ceil( pd.price * 0.000167 * ( 2 ) + ( 0.00002 * pd.price ) ) * 100
+			m =val
+		}
+		else if ( i === 2 )
+		{
+			val = ( pd.price * 0.0167 * i )
+		}
+		else if ( i === 1 )
+		{
+			val = (pd.price * 0.02 * i )
+		}
+	
+		
+		list1.push( <p className='price'>Rs { val }</p> )
+	}
+	//
 
 
 
@@ -270,46 +378,53 @@ function EditProductDetails ()
                 <div className='col-5 product__info'> 
                     <h2>INFO</h2>
                     <div className='row'>
+                    <h4 className='col-6'>_id</h4>
+                    <p className='col-6 detail' >{ pd._id }</p>
+                </div>
+                    <div className='row'>
                     <h4 className='col-6'>ID</h4>
-                    <p className='col-6' >GP9</p>
+                    <p className='col-6 detail' >{ pd.id }</p>
                 </div>
                 <div className='row'>
                     <h4 className='col-6'>NAME</h4>
-                        <p className='col-6' >GO PRO 9</p>
-                </div>
-                <div className='row'>
-                    <h4 className='col-6'>IMAGE</h4>
-                        <p className='col-6' >https://s3-rentkar-gopro9/image.jpg</p>
-                </div>
+                        <p className='col-6 detail' >{pd.productname}</p>
+                    </div>
+                    { pdi.map( ( item, index ) =>
+                    {
+                        return(
+                        <div className='row'>
+                                <h4 className='col-6'>IMAGE{ index }</h4>
+                        <div className='col-6 detail' >{item.image}</div>
+                </div>)
+                    })}
+
                 <div className='row'>
                     <h4 className='col-6'>CATEGORY</h4>
-                        <p className='col-6' >TECH</p>
+                        <p className='col-6 detail' >{pd.category}</p>
                 </div>
                 <div className='row'>
                     <h4 className='col-6'>SUB CATEGORY</h4>
-                        <p className='col-6' >CAMERA</p>
+                        <p className='col-6 detail' >{pd.subcategory}</p>
                 </div>
                 <div className='row'>
                     <h4 className='col-6'>QUANTITY DISPLAYED</h4>
-                        <p className='col-6' >200</p>
+                        <p className='col-6 detail' >{ pd.quantity }</p>
                 </div>
                 <div className='row'>
                     <h4 className='col-6'>FEATURED</h4>
-                        <p className='col-6' >TRUE</p>
+                        <p className='col-6 detail' >{ pd.featured }</p>
                 </div>
                 <div className='row'>
                     <h4 className='col-6'>LIMITED STOCK</h4>
-                        <p className='col-6' >TRUE</p>
+                        <p className='col-6 detail' >{pd.limitedStock}</p>
                 </div>
                 <div className='row'>
                     <h4 className='col-6'>DESCRIPTION</h4>
-                        <p className='col-6' >Get your hands on the latest and most amazing
-                        action camera, GoPro Hero 9. The GoPro 9 is a major upgrade over GoPro
-                        8 and comes with dual-screen, 20 Megapixels photos and up to 5K Video
-                        resolution. For all you adventure buddies, the Hypersmooth 3.0 in GoPro
-                        9 results in stable and crystal clear action videos. If you have or haven’t
-                        used a GoPro before, the GoPro 9 is extremely user friendly and fits
-                        perfectly in your palm.</p>
+                        <p className='col-6 detail' >{pd.description}</p>
+                    </div>
+                    <div className='row'>
+                    <h4 className='col-6'>PRICE</h4>
+                        <p className='col-6 detail' >{pd.price}</p>
                     </div>
                     <div className='btn btn-outline-info' onClick={ () => setEditInfoModalShow(true)}><i className="fas fa-edit" /> EDIT THE DETAILS</div>
                     <EditInfoModal show={editInfoModalShow} onHide={()=>setEditInfoModalShow(false)} />
@@ -321,38 +436,21 @@ function EditProductDetails ()
                         <h4 className='col-6'>TYPE</h4>
                         <h4 className='col-6' >SPEC</h4>
                     </div>
-                    <div className='row'>
-                        <p className='col-6'>Model Year</p>
-                        <p className='col-6' >2020</p>
-                    </div>
-                    <div className='row'>
-                        <p className='col-6'>Connectivity Type</p>
-                        <p className='col-6' >Gopro App, WIFI, Bluetooth</p>
-                    </div>
-                    <div className='row'>
-                        <p className='col-6'>Waterproof</p>
-                        <p className='col-6' >Yes (Upto 10 Metres)</p>
-                    </div>
-                    <div className='row'>
-                        <p className='col-6'>Live Streaming</p>
-                        <p className='col-6' >1080P</p>
-                    </div>
-                    <div className='row'>
-                        <p className='col-6'>Megapixel Count</p>
-                        <p className='col-6' >20MP</p>
-                    </div>
-                    <div className='row'>
-                        <p className='col-6'>Image Stabilization</p>
-                        <p className='col-6' >HyperSmooth 3.0</p>
-                    </div>
-                    <div className='row'>
-                        <p className='col-6'>Video Resolution</p>
-                        <p className='col-6' >5k</p>
-                    </div>
-                    <div className='row'>
-                        <p className='col-6'>Slo-Mo</p>
-                        <p className='col-6' >8X</p>
-                    </div>
+                    {
+							pds.map( ( item, i ) =>
+						{
+                                return (
+                                <div className='row'>
+						            <p className='col-6 detail'>{item.stype}</p>
+									<p className='col-6 detail'>{ item.spec }</p>
+                                </div>					
+							)
+						} )
+						}
+                    
+
+                    
+                    	
                     <div className='btn btn-outline-info' onClick={ () => setEditSpecsModalShow(true)}><i className="fas fa-edit" /> EDIT SPECS</div>
                     <EditSpecsModal show={editSpecsModalShow} onHide={()=>setEditSpecsModalShow(false)} />
                 </div>   
@@ -364,22 +462,35 @@ function EditProductDetails ()
                         <h4 className='col-6' >PRICE</h4>
                     </div>
                     <div className='row'>
-                        <p className='col-6'>1 DAY</p>
-                        <p className='col-6' ><i className="fas fa-rupee-sign" /> 400</p>
+                        <p className='col-6 detail'>1 DAY</p>
+                        <p className='col-6 detail' >{ list1[ 0 ] }</p>
                     </div>
                     <div className='row'>
-                        <p className='col-6'>1 WEEK</p>
-                        <p className='col-6' ><i className="fas fa-rupee-sign" /> 2100</p>
+                        <p className='col-6 detail'>3 DAYS</p>
+                        <p className='col-6 detail' >{ list1[ 2 ] }</p>
                     </div>
                     <div className='row'>
-                        <p className='col-6'>1 MONTH</p>
-                        <p className='col-6' ><i className="fas fa-rupee-sign" /> 7000</p>
+                        <p className='col-6 detail'>1 WEEK</p>
+                        <p className='col-6 detail' > { list1[ 6 ] }</p>
                     </div>
                     <div className='row'>
-                        <p className='col-6'>3 MONTH</p>
-                        <p className='col-6' ><i className="fas fa-rupee-sign" /> 16000</p>
+                        <p className='col-6 detail'>1 MONTH</p>
+                        <p className='col-6 detail' > { list1[ 29 ] }</p>
                     </div>
-                        <div className='btn btn-outline-info' onClick={ () => setEditPricingModalShow(true)}><i className="fas fa-edit" /> EDIT PRICING DETAILS</div>
+                    <div className='row'>
+                        <p className='col-6 detail'>3 MONTHS</p>
+                        <p className='col-6 detail' > { list1[ 79 ] }</p>
+                    </div>
+                    <div className='row'>
+                        <p className='col-6 detail'>6 MONTHS</p>
+                        <p className='col-6 detail' > { list1[ 179 ] }</p>
+                    </div>
+                    <div className='row'>
+                        <div className='col-6 detail'><input  className='inpuut ' type='text' value={ e } placeholder='XYZ days' onChange={ e => setE( e.target.value ) } /></div>
+                        <p className='col-6 detail'> { list1[ e - 1 ] }</p>
+                    </div>
+                    
+                    <div className='btn btn-outline-info' onClick={ () => setEditPricingModalShow( true ) }><i className="fas fa-edit" /> EDIT PRICING DETAILS</div>
                     <EditPricingModal show={editPricingModalShow} onHide={()=>setEditPricingModalShow(false)} />
                 </div>   
                 <div className='col-5 pricing'> 
@@ -388,38 +499,20 @@ function EditProductDetails ()
                         <h4 className='col-6'>CONTENT</h4>
                         <h4 className='col-6' >IMAGE</h4>
                     </div>
-                    <div className='row'>
-                        <p className='col-6'>16GB Micro SD Card</p>
-                        <p className='col-6' >https://rentkar-s3-gopro9/microsd.png</p>
-                    </div>
-                    <div className='row'>
-                        <p className='col-6'>Charging Cable</p>
-                        <p className='col-6' >https://rentkar-s3-rentkar-gopro9/chargecable.png</p>
-                    </div>
-                    <div className='row'>
-                        <p className='col-6'>Chest Strap Mount</p>
-                        <p className='col-6' >https://rentkar-s3-rentkar-gopro9/cheststrapmount.png</p>
-                    </div>
-                    <div className='row'>
-                        <p className='col-6'>Go Pro Battery</p>
-                        <p className='col-6' >https://rentkar-s3-rentkar-gopro9/battery.png</p>
-                    </div>
-                    <div className='row'>
-                        <p className='col-6'>Go Pro Camera Body</p>
-                        <p className='col-6' >https://rentkar-s3-rentkar-gopro9/body.png</p>
-                    </div>
-                    <div className='row'>
-                        <p className='col-6'>Go Pro Screws x3</p>
-                        <p className='col-6' >https://rentkar-s3-rentkar-gopro9/screw.png</p>
-                    </div>
-                    <div className='row'>
-                        <p className='col-6'>Head Strap Mount</p>
-                        <p className='col-6' >https://rentkar-s3-rentkar-gopro9/headstrapmount.png</p>
-                    </div>
-                    <div className='row'>
-                        <p className='col-6'>Snorkelling Mount</p>
-                        <p className='col-6' >https://rentkar-s3-rentkar-gopro9/snorkellingmount.png</p>
-                    </div>
+
+                    {
+                        pdb.map( ( item, i ) =>
+                        {
+                            return (
+                                <div className='row'>
+                                    <p className='col-6 detail'>{ item.content }</p>
+                                    <p className='col-6 detail'>{ item.image }</p>
+                                </div>
+							
+                            )
+                        } )
+                    }
+                    
                         <div className='btn btn-outline-info' onClick={ () => setEditBoxModalShow(true)}><i className="fas fa-edit" /> EDIT BOX CONTENTS</div>
                     <EditBoxModal show={editBoxModalShow} onHide={()=>setEditBoxModalShow(false)} />
                 </div>   

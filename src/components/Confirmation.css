@@ -1,0 +1,26 @@
+.order__confirmation{
+	display: flex;
+	margin: 30px auto;
+	flex-direction: column;
+	max-width: 350px;
+    padding: 0px 25px;
+    border-radius: 30px;
+    padding-bottom: 10px;
+    height: 360px !important;
+    box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
+
+}
+
+.order__confirmation img{
+	height: 100px;
+	width: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 10px auto;
+}
+
+.order__confirmation p {
+	font-size: 14px;
+	font-weight: 600;
+}
