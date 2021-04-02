@@ -5,7 +5,9 @@ const productUrl = `${API_URL}/products`;
 const userUrl = `${API_URL}/users`;
 const supportUrl = `${API_URL}/support`
 const orderreqUrl = `${ API_URL }/orderreq`
-const ordersUrl = `${API_URL}/orders`
+const ordersUrl = `${ API_URL }/orders`
+const lenderreqUrl = `${API_URL}/lenderreq`
+
 export const fetchProducts = async () => {
 	try{
 		const { data } = await Axios.get(productUrl);
@@ -238,8 +240,8 @@ export const fetchSupport = async () =>
       resolved: item[ 'resolved' ],
       userId: item[ 'userId' ],
       supporttype: item[ 'supporttype' ],
-      statement: item['statement']
-        
+      statement: item['statement'],
+      solution: item[ 'solution' ],
     } ) )
     
     console.log( supports )
@@ -284,7 +286,7 @@ export const fetchOrders = async () =>
   try
   {
     const {data} =  await Axios.get(ordersUrl)
-    const orderreq = data.map( ( item ) => ( {
+    const orders = data.map( ( item ) => ( {
       _id: item[ '_id' ],
       status: item[ 'status' ],
       appliedForPOD: item[ 'appliedForPOD' ],
@@ -297,8 +299,31 @@ export const fetchOrders = async () =>
       payment_pending: item[ 'payment_pending' ],
       del_address: item['del_address']
     } ) )
-    console.log( orderreq )
-    return orderreq
+    console.log( orders )
+    return orders
+   }
+  catch ( error )
+  {
+    throw (error)
+  }
+}
+
+
+
+export const fetchLenderReq = async () =>
+{
+  try
+  {
+    const {data} =  await Axios.get(lenderreqUrl)
+    const lenderreq = data.map( ( item ) => ( {
+      _id: item[ '_id' ],
+      productId: item[ 'productId' ],
+      status: item[ 'status' ],
+      userId: item[ 'userId' ],
+      createdAt: item['createdAt']
+    } ) )
+    console.log( lenderreq )
+    return lenderreq
    }
   catch ( error )
   {

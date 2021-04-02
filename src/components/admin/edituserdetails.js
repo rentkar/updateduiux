@@ -113,7 +113,7 @@ function EditUserDetails ()
                 </div>
                     <div className='row'>
                     <h4 className='col-6'>VERIFIED</h4>
-                        <p className='col-6 detail' >{ud.verified}</p>
+                        <p className='col-6 detail' >{ ud.verified }</p>
                 </div>
                 <div className='row'>
                     <h4 className='col-6'>DOB</h4>
