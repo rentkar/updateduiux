@@ -468,7 +468,7 @@ function AdminSupport ()
                     <td></td>
                     <td>{ item.supporttype }</td>
                     <td>{ item.statement }</td>
-                    <td><i className="fas fa-edit" onClick={ () => setSupportRequestModalShow( true ) } />
+                    <td><i className="fas fa-edit"  onClick={ () => setSupportRequestModalShow( true ) } />
                       <SupportRequestModal show={ supportRequestModalShow } onHide={ () => setSupportRequestModalShow( false ) } /></td>
                   </tr>
                 )

@@ -73,7 +73,7 @@ export default function Test ()
       <div>{ users }</div>
 
       <h2 style={ { textAlign : 'center', marginTop:'50px'}}>Filter Products</h2>
-      {p.filter( p => p.category === 'CONSOLE' ).map( filteredP => (
+      {p.filter( p => p.category === 'PHOTOGRAPHY' ).map( filteredP => (
          <div>
         <li>
           {filteredP.productName}
