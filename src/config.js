@@ -280,6 +280,37 @@ export const fetchOrderReq = async () =>
   }
 }
 
+export const fetchOrderReqById = async ( _id ) =>
+{
+  try
+  {
+    
+    const { data } = await Axios.get( `${ orderreqUrl }/${ _id }` )
+
+    const orderreq = {
+      _id: data._id,
+      status: data.status,
+      appliedForPOD: data.appliedForPOD,
+      userId: data.userId,
+      productId: data.productId,
+      exp_del: data.exp_del,
+      exp_pickup: data.exp_pickup,
+      total_amount: data.total_amount,
+      payment_received: data.item_received,
+      payment_pending: data.payment_pending,
+      del_address: data.del_address,
+      requestedOn : data.createdAt
+    }
+  
+    
+    console.log(orderreq)
+    return orderreq
+  }
+  catch ( error )
+  {
+    throw error;
+  }
+}
 
 export const fetchOrders = async () =>
 {

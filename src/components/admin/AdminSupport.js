@@ -22,10 +22,11 @@ export function AdminSupport ()
 		[] );
 
 	function SupportRequestModal ( props ){
-	const [resolved, setResolved] = useState(true);
+    const [ resolved, setResolved ] = useState( false);
     const [solution, setSolution] = useState("");
-    function valuestates() {
-      setResolved(true);
+    function valuestates(e) {
+      setResolved( e.target.value);
+      console.log(resolved)
     }
     function onSubmitForm(e) {
       // e.preventDefault();
@@ -45,15 +46,18 @@ export function AdminSupport ()
 			<form onSubmit={ ( e ) => onSubmitForm( e ) }>
             <label>
               CHANGE STATUS :
-              <select name="supportstatus">
+              <select 
+                //onChange{e => setResolved( e.currentTarget.value ) }
+                name="supportstatus"
+                // onChange={}
+               onChange={valuestates}
+              >
                 <option disabled selected value>
                   {" "}
                   -- select an option --{" "}
                 </option>
-                <option value="PENDING">PENDING</option>
-                <option value="SOLVED" onClick={setResolved}>
-                  SOLVED
-                </option>
+                <option value='false' >PENDING</option>
+                <option value='true'>SOLVED</option>
               </select>
             </label>
             <label>

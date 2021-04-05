@@ -1,7 +1,7 @@
 import React, { Component, useState, useContext, useEffect } from "react";
 import { Table,Modal} from 'react-bootstrap'
 import "./admindashboard.css";
-import { fetchProducts, fetchUsers, fetchSupport, fetchOrderReq, fetchLenderReq } from '../../config'
+import { fetchProducts, fetchUsers, fetchSupport, fetchOrderReq, fetchOrderReqById, fetchLenderReq } from '../../config'
 import axios from "axios"
 
 export function AllOrders ()
@@ -18,7 +18,29 @@ export function AllOrders ()
      fetchAPI();
    }, [] );
 
-  function OrderRequestModal ( props ){
+  function OrderRequestModal ( props )
+  {
+    const [ status, setstatus ] = useState( "" );
+    const [ od, setOd] = useState([])
+    function valuestates(e) {
+      setstatus( e.target.value);
+      console.log(status)
+    }
+  
+    useEffect(() => {
+    const fetchAPI = async () => {
+      setOd( await fetchOrderReqById( props.idget  ) )
+      console.log(od)
+    };
+     fetchAPI();
+   }, [props.idget ] );
+    function onSubmitForm(e) {
+      // e.preventDefault();
+      axios.put(`http://localhost:5000/orderreq/${props.idget}`, {
+        status: status
+      });
+    }
+
     return(
         <Modal { ...props }
             size='lg'
@@ -26,36 +48,66 @@ export function AllOrders ()
             <Modal.Header closeButton>
                 <Modal.Title>Order Requests</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-                <p>ksdkddk</p>
+        <Modal.Body>
+        <h4>Order Details</h4>
+          <p> Id : <span>{ od._id }</span></p>
+          <p>Applied For POD : <span>{ od.appliedForPOD }</span></p>
+          <p>Order request Date : <span>{ od.requestedOn }</span></p>
+          <form onSubmit={ ( e ) => onSubmitForm( e ) }>
+            <label>
+              CHANGE STATUS :
+              <select
+                name="status"
+                onChange={valuestates}>
+                <option disabled selected value>
+                  {" "}
+                  -- select an option --{" "}
+                </option>
+                <option value="ACTIVE">ACTIVE</option>
+                <option value="CONFIRMED">CONFIRMED</option>
+                <option value="DISPATCH">DISPATCH</option>
+                <option value="DELIVERED">DELIVERED</option>
+                <option value="PICKUP">PICKUP</option>
+                <option value="EXTEND">EXTEND</option>
+              </select>
+            </label>
+            <div>
+              <div className="btn btn-outline-dark" onClick={props.onHide}>
+                Close
+              </div>
+              <input
+                className="btn btn-outline-success"
+                type="submit"
+                value="Submit"
+              />
+            </div>
+          </form>
             </Modal.Body>
-            <Modal.Footer>
-                <div className="btn btn-outline-dark" onClick={ props.onHide }>Close</div>
-                <div className="btn btn-outline-success" onClick={props.onHide}>Submit Changes</div>
-            </Modal.Footer>
         </Modal>
         )
   }
 
-    function OrderModal ( props ){
-    return(
-        <Modal { ...props }
-            size='lg'
-            aria-labelledby='contained-modal-title-vcenter'>
-            <Modal.Header closeButton>
-                <Modal.Title>Order</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <p>ksdkddk</p>
-            </Modal.Body>
-            <Modal.Footer>
-                <div className="btn btn-outline-dark" onClick={ props.onHide }>Close</div>
-                <div className="btn btn-outline-success" onClick={props.onHide}>Submit Changes</div>
-            </Modal.Footer>
-        </Modal>
-        )
-  }
-  
+//     function OrderModal ( props ){
+//   return(
+//       <Modal { ...props }
+//           size='lg'
+//           aria-labelledby='contained-modal-title-vcenter'>
+//           <Modal.Header closeButton>
+//               <Modal.Title>Order</Modal.Title>
+//           </Modal.Header>
+//           <Modal.Body>
+//                 <form>
+//                   <label></label>
+//                 </form>
+//           </Modal.Body>
+//           <Modal.Footer>
+//               <div className="btn btn-outline-dark" onClick={ props.onHide }>Close</div>
+//               <div className="btn btn-outline-success" onClick={props.onHide}>Submit Changes</div>
+//           </Modal.Footer>
+//       </Modal>
+//       )
+// }
+
   return (
   
     <div className='allorders'>
@@ -67,6 +119,7 @@ export function AllOrders ()
             <th>ORDER ID</th>
             <th>CUST ID</th>
             <th>PRODUCT REQ</th>
+            <th>STATUS</th>  
             <th>PAYMENT RECEIVED</th>
             <th>EXP DELIVERY ON</th>
             <th>TOTAL PAYMENT</th>
@@ -74,32 +127,28 @@ export function AllOrders ()
             <th>TAKE ACTION</th>
           </thead>
             <tbody>
-              <tr>  
-              <td>4587</td>
-              <td>900515152121</td>
-              <td>GP9</td>
-              <td>544</td>
-              <td>21-04-2021</td>
-              <td>2000</td>
-              <td>Andheri</td>
-              <td><i className="fas fa-edit" onClick={ () => setOrderRequestModalShow( true ) } />
-                      <OrderRequestModal show={orderRequestModalShow} onHide={()=> setOrderRequestModalShow(false)} /></td>
-              </tr>
                 {
-                  or.map((item) => {
+                or.map( ( item ) =>
+                {
+                  if ( item.status === 'ACTIVE' )
+                  {
+                    
+                    
                     return (
                       <tr>
-                      <td>{ item._id }</td>
+                        <td>{ item._id }</td>
                         <td>{ item.userId._id }</td>
                         <td>{ item.productId.name }</td>
+                        <td>{ item.status }</td>
                         <td>{ item.payment_received }</td>
                         <td>{ item.exp_del }</td>
                         <td>{ item.total_amount }</td>
                         <td>{ item.del_address.locality } </td>
-                      <td><i className="fas fa-edit" onClick={ () => setOrderRequestModalShow( true ) } />
-                      <OrderRequestModal show={orderRequestModalShow} onHide={()=> setOrderRequestModalShow(false)} /></td>
-                    </tr>
+                        <td><i className="fas fa-edit" onClick={ () => setOrderRequestModalShow( true ) } />
+                          <OrderRequestModal show={ orderRequestModalShow } onHide={ () => setOrderRequestModalShow( false ) } idget={ item._id } /></td>
+                      </tr>
                     )
+                  }
                   })
                 }
           </tbody>
@@ -116,72 +165,41 @@ export function AllOrders ()
         <Table striped bordered hover responsive className="table-sm">
           <thead>
             <th>ORDER ID</th>
-            <th>Order sub Id</th>
             <th>CUST ID</th>
-            <th>PRODUCT ALLOTED</th>
+            <th>PRODUCT REQ</th>
+            <th>STATUS</th>  
+            <th>PAYMENT RECEIVED</th>
+            <th>EXP DELIVERY ON</th>
             <th>TOTAL PAYMENT</th>
-            <th>AMOUNT</th>
-            <th>PAYMENT STATUS</th>
-            <th>NEXT DUE ON</th>
-            <th>DELIVERY DATE</th>
-            <th>PICKUP DATE</th>
-            <th>LOCATION</th>
-            <th>Edit</th>
+            <th>Location</th>
+            <th>TAKE ACTION</th>
           </thead>
             <tbody>
-              <tr>
-
-              </tr>
-            <tr>
-              <td>4587</td>
-              <td>4578a</td>
-              <td>9000515152121</td>
-              <td>GP95</td>
-              <td>2000</td>
-              <td>1000</td>
-              <td>RECEIVED</td>
-              <td>21-05-2021</td>
-              <td>21-04-2021</td>
-              <td>21-07-2021</td>
-              <td>Andheri</td>
-              <td><i className="fas fa-edit" onClick={ () => setOrderModalShow(true)}/>
-        <OrderModal show={orderModalShow} onHide={()=>setOrderModalShow(false)} /></td>
-            </tr>
-          </tbody>
-            <tbody>
-            <tr>
-              <td>4587</td>
-              <td>4578B</td>
-              <td>9000515152121</td>
-              <td>GP95</td>
-              <td>2000</td>
-              <td>500</td>
-              <td>PENDING</td>
-              <td>21-06-2021</td>
-              <td>21-04-2021</td>
-              <td>21-07-2021</td>
-              <td>Andheri</td>
-              <td><i className="fas fa-edit" onClick={ () => setOrderModalShow(true)}/>
-        <OrderModal show={orderModalShow} onHide={()=>setOrderModalShow(false)} /></td>
-            </tr>
-          </tbody>
-            <tbody>
-            <tr>
-              <td>4587</td>
-              <td>4578C</td>
-              <td>9000515152121</td>
-              <td>GP95</td>
-              <td>2000</td>
-              <td>500</td>
-              <td>PENDING</td>
-              <td>--</td>
-              <td>21-04-2021</td>
-              <td>21-07-2021</td>
-              <td>Andheri</td>
-              <td><i className="fas fa-edit" onClick={ () => setOrderModalShow(true)}/>
-        <OrderModal show={orderModalShow} onHide={()=>setOrderModalShow(false)} /></td>
-            </tr>
-          </tbody>
+            {
+                or.map( ( item ) =>
+                {
+                  if ( item.status !== 'ACTIVE' )
+                  {
+                    
+                    
+                    return (
+                      <tr>
+                        <td>{ item._id }</td>
+                        <td>{ item.userId._id }</td>
+                        <td>{ item.productId.name }</td>
+                        <td>{ item.status }</td>
+                        <td>{ item.payment_received }</td>
+                        <td>{ item.exp_del }</td>
+                        <td>{ item.total_amount }</td>
+                        <td>{ item.del_address.locality } </td>
+                        <td><i className="fas fa-edit" onClick={ () => setOrderRequestModalShow( true ) } />
+                          <OrderRequestModal show={ orderRequestModalShow } onHide={ () => setOrderRequestModalShow( false ) } idget={ item._id } /></td>
+                      </tr>
+                    )
+                  }
+                  })
+              }
+            </tbody>
         </Table>
       </div>
       </div>    
