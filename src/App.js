@@ -24,7 +24,7 @@ import Checkout from './components/Checkout'
 import Test from './components/tests'
 import Testt from './components/testss'
 import ProductDetail from './components/productdetail'
-import OtpLogin from './components/otplogin'
+//import OtpLogin from './components/otplogin'
 import Calculator from './components/calculator'
 import LoginTest from './components/Login/logintest'
 import LenderCalculator from './components/lendercalculator'
@@ -96,14 +96,6 @@ function App ()
 						
 							<Testt />
 						
-						</Route>
-						<Route path='/otplogin'>
-							<>
-							<Floatnav className='floatnav' />
-								<Head />
-							<OtpLogin />
-							<Footer />
-							</>
 						</Route>
 						<Route path = '/productdetail/:_id'>
 						<ProductDetail />
