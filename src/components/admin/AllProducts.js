@@ -1,6 +1,6 @@
 import React, { Component, useState, useContext, useEffect } from "react";
 import { Table} from 'react-bootstrap'
-
+import { DropzoneArea } from 'material-ui-dropzone';
 import {Modal} from 'react-bootstrap'
 import "./admindashboard.css";
 import EditProductDetails from './editproductdetails'
@@ -128,7 +128,10 @@ const [ p, setP ] = useState( [] )
         </Modal.Header>
         <Modal.Body>
           <form className={classes.formControl} onSubmit={(e) => onSubmit(e)}>
-            <TextField
+            <DropzoneArea
+          //onChange={this.handleChange.bind(this)}
+            />
+             <TextField
               label="Name"
               onChange={(e) => setName(e.target.value)}
               value={name}
@@ -243,10 +246,10 @@ const [ p, setP ] = useState( [] )
               style={{ width: "100%", padding: "1%" }}
               placeholder="Description"
             />
-            <label>Specification</label>
+             {/*    <label>Specification</label>
             <div>
               {/* <TextField label="Brand" />
-              <TextField label="Specification" /> */}
+              <TextField label="Specification" /> 
               {fields.map((field, idx) => {
                 return (
                   <div key={`${field}-${idx}`}>
@@ -288,7 +291,7 @@ const [ p, setP ] = useState( [] )
             <label>BOX</label>
             <div>
               {/* <TextField label="Brand" />
-              <TextField label="Specification" /> */}
+              <TextField label="Specification" /> 
               {fields.map((field, idx) => {
                 return (
                   <div key={`${field}-${idx}`}>
@@ -331,7 +334,7 @@ const [ p, setP ] = useState( [] )
             <label>Images</label>
             <div>
               {/* <TextField label="Brand" />
-              <TextField label="Specification" /> */}
+              <TextField label="Specification" /> 
               {fields.map((field, idx) => {
                 return (
                   <div key={`${field}-${idx}`}>
@@ -367,7 +370,7 @@ const [ p, setP ] = useState( [] )
             <label>BOX</label>
             <div>
               {/* <TextField label="Brand" />
-              <TextField label="Specification" /> */}
+              <TextField label="Specification" /> 
               {fields.map((field, idx) => {
                 return (
                   <div key={`${field}-${idx}`}>
@@ -405,8 +408,11 @@ const [ p, setP ] = useState( [] )
               >
                 Add a new Add On
               </Btn>
-            </div>
-            <input className='btn btn-outline-success' type="submit" value="submit" />
+            </div> */}
+             <DropzoneArea
+          //onChange={this.handleChange.bind(this)}
+            />
+            <input className='btn btn-outline-success submit' type="submit" value="submit" />
           </form>
         </Modal.Body>
       </Modal>

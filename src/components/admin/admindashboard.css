@@ -433,3 +433,8 @@
   padding-top: 0px !important;
   width: 100% !important;
 }
+
+.addaproduct .submit{
+  display: flex;
+  margin: 10px auto;
+}
