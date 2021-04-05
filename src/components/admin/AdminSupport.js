@@ -3,6 +3,7 @@ import { Table} from 'react-bootstrap'
 import {Modal} from 'react-bootstrap'
 import { fetchProducts, fetchUsers, fetchSupport, fetchOrderReq, fetchLenderReq} from '../../config'
 import axios from "axios"
+import { Typography } from '@material-ui/core';
 
 export function AdminSupport ()
 {
@@ -42,8 +43,10 @@ export function AdminSupport ()
             <Modal.Header closeButton>
                 <Modal.Title>Support Request</Modal.Title>
             </Modal.Header>
-			<Modal.Body>
-			<form onSubmit={ ( e ) => onSubmitForm( e ) }>
+        <Modal.Body>
+          <p>{ props.idget }</p>
+          <form onSubmit={ ( e ) => onSubmitForm( e ) }>
+            <p>{ props.idget }</p>
             <label>
               CHANGE STATUS :
               <select 
@@ -119,8 +122,8 @@ export function AdminSupport ()
                     <td></td>
                     <td>{ item.supporttype }</td>
                     <td>{ item.statement }</td>
-                    <td><i className="fas fa-edit"  onClick={ () => setSupportRequestModalShow( true ) } />
-							<SupportRequestModal show={ supportRequestModalShow } onHide={ () => setSupportRequestModalShow( false ) } idget={ item._id }/></td>
+                    <td><i className="fas fa-edit"  onClick={ () => setSupportRequestModalShow( true ) }/>
+							<SupportRequestModal show={ supportRequestModalShow } onHide={ () => setSupportRequestModalShow( false ) } idget={ item._id } /></td>
                   </tr>
                 )
               }

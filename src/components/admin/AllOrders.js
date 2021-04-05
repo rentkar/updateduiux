@@ -29,8 +29,7 @@ export function AllOrders ()
   
     useEffect(() => {
     const fetchAPI = async () => {
-      setOd( await fetchOrderReqById( props.idget  ) )
-      console.log(od)
+      setOd(await fetchOrderReqById(props.idget))
     };
      fetchAPI();
    }, [props.idget ] );
@@ -50,9 +49,8 @@ export function AllOrders ()
             </Modal.Header>
         <Modal.Body>
         <h4>Order Details</h4>
-          <p> Id : <span>{ od._id }</span></p>
-          <p>Applied For POD : <span>{ od.appliedForPOD }</span></p>
-          <p>Order request Date : <span>{ od.requestedOn }</span></p>
+<p> Id : <span>{ od._id }</span></p>
+          <p>{ od.appliedForPOD}</p>
           <form onSubmit={ ( e ) => onSubmitForm( e ) }>
             <label>
               CHANGE STATUS :
@@ -66,7 +64,7 @@ export function AllOrders ()
                 <option value="ACTIVE">ACTIVE</option>
                 <option value="CONFIRMED">CONFIRMED</option>
                 <option value="DISPATCH">DISPATCH</option>
-                <option value="DELIVERED">DELIVERED</option>
+                <option value="DELIVERED">DISPATCH</option>
                 <option value="PICKUP">PICKUP</option>
                 <option value="EXTEND">EXTEND</option>
               </select>
