@@ -54,7 +54,13 @@ export function AllProducts() {
     const [subcat, setSubcat] = useState();
     const [fields, setFields] = useState([{ value: null }]);
     const [name, setName] = useState("");
-    const [imagepath, setImagePath] = useState();
+    const [imagepath, setImagePath] = useState("");
+    const [mumbaiAvailability, setMumbaiAvailability] = useState();
+    const [puneAvailability, setPuneAvailability] = useState();
+    const [isLimitedStock, setIsLimitedStock] = useState();
+    const [quantity, setQuantity] = useState();
+    const [price, setPrice] = useState();
+    const [description, setDescription] = useState();
 
     const userForm = (e) => {
       e.preventDefault();
@@ -65,6 +71,7 @@ export function AllProducts() {
         });
     };
     const handleChange = (event) => {
+      console.log(event);
       setCategories(event.target.value);
     };
 
@@ -93,13 +100,12 @@ export function AllProducts() {
 
     function onSubmit(e) {
       e.preventDefault();
-      console.log(name);
-      axios.post("http://localhost:5000/products", {
+      const data = {
         name: name,
         images: imagepath,
         category: category,
         subcategory: subcat,
-        quantity: null,
+        quantity: quantity,
         pricing: null,
         featured: null,
         specifiction: null,
@@ -108,7 +114,11 @@ export function AllProducts() {
         availableInPune: null,
         box: null,
         adOns: null,
-      });
+      };
+      axios
+        .post("http://localhost:5000/products", data)
+        .then((res) => console.log(res.data))
+        .catch((err) => console.error(err));
     }
 
     return (
@@ -123,10 +133,14 @@ export function AllProducts() {
         </Modal.Header>
         <Modal.Body>
           <form className={classes.formControl} onSubmit={(e) => onSubmit(e)}>
-            <DropzoneArea
-              //onChange={this.handleChange.bind(this)}
-              onchange={(e) => setImagePath(e.target.value)}
-            />
+            {/* <DropzoneArea
+              onChange={(e) => {
+                if (e[0] !== undefined) {
+                  setImagePath(e[0]);
+                }
+              }}
+            /> */}
+            <input type="text" onChange={(e) => setImagePath(e.target.value)} />
             <TextField
               label="Name"
               onChange={(e) => setName(e.target.value)}
@@ -145,11 +159,11 @@ export function AllProducts() {
                   <Select
                     className={classes.categoryInput}
                     labelId="availableInMumbai"
-                    value={category}
-                    onChange={handleChange}
+                    // value={category}
+                    onChange={(e) => setMumbaiAvailability(e.target.value)}
                   >
-                    <MenuItem>True</MenuItem>
-                    <MenuItem>False</MenuItem>
+                    <MenuItem value={true}>True</MenuItem>
+                    <MenuItem value={false}>False</MenuItem>
                   </Select>
                 </div>
                 <div className="col-6">
@@ -157,11 +171,11 @@ export function AllProducts() {
                   <Select
                     className={classes.categoryInput}
                     labelId="availableInPune"
-                    value={category}
-                    onChange={handleChange}
+                    // value={category}
+                    onChange={(e) => setPuneAvailability(e.target.value)}
                   >
-                    <MenuItem>True</MenuItem>
-                    <MenuItem>False</MenuItem>
+                    <MenuItem value={true}>True</MenuItem>
+                    <MenuItem value={false}>False</MenuItem>
                   </Select>
                 </div>
                 <div className="col-6">
@@ -169,11 +183,11 @@ export function AllProducts() {
                   <Select
                     className={classes.categoryInput}
                     labelId="limitedStock"
-                    value={category}
-                    onChange={handleChange}
+                    value={isLimitedStock}
+                    onChange={(e) => setIsLimitedStock(e.target.value)}
                   >
-                    <MenuItem>True</MenuItem>
-                    <MenuItem>False</MenuItem>
+                    <MenuItem value={true}>True</MenuItem>
+                    <MenuItem value={false}>False</MenuItem>
                   </Select>
                 </div>
 
@@ -183,7 +197,7 @@ export function AllProducts() {
                     className={classes.categoryInput}
                     labelId="categories"
                     value={category}
-                    onChange={handleChange}
+                    onChange={(e) => setCategories(e.target.value)}
                   >
                     <MenuItem value="MUSIC">MUSIC</MenuItem>
                     <MenuItem value="GAMING">GAMING</MenuItem>
@@ -231,8 +245,17 @@ export function AllProducts() {
                 justifyContent: "space-between",
               }}
             >
-              <TextField label="Quantity" />
-              <TextField label="Price" />
+              <TextField
+                type="number"
+                label="Quantity"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+              />
+              <TextField
+                label="Price"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
             </div>
             <br />
             <br />
@@ -241,6 +264,8 @@ export function AllProducts() {
               rowsMin={5}
               style={{ width: "100%", padding: "1%" }}
               placeholder="Description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             />
             {/*    <label>Specification</label>
             <div>

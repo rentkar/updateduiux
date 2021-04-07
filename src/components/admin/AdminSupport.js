@@ -41,7 +41,7 @@ export function AdminSupport() {
     }
     return (
       <Modal
-        // {...props}
+        {...props}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
       >
