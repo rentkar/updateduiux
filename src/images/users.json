@@ -1,0 +1,57 @@
+[{
+  "_id": {
+    "$oid": "6030a72167bdf830e0e2db9a"
+  },
+  "admin": false,
+  "gender": "MALE",
+  "verified": false,
+  "lender": false,
+  "phoneNumber": "9004377042",
+  "username": "KULDEEP YADAV",
+  "addresses": [
+    {
+      "_id": {
+        "$oid": "6030a72167bdf830e0e2db9b"
+      },
+      "type": "WORK",
+      "address": {
+        "houseNumber": "D501",
+        "street": "PANOM PARK",
+        "locality": "ANDHERI (E)",
+        "city": "MUMBAI",
+        "state": "MAHARASHTRA",
+        "zip": 400075
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6030a72167bdf830e0e2db9c"
+      },
+      "type": "HOME",
+      "address": {
+        "houseNumber": "R/49",
+        "street": "JAI BHAWANI SOCIETY",
+        "locality": "POWAI",
+        "city": "MUMBAI",
+        "state": "MAHARASHTRA",
+        "zip": 400076
+      }
+    }
+  ],
+  "dob": {
+    "$date": "2000-02-28T00:00:00Z"
+  },
+  "email": "ikuldeepyadavky@gmail.com",
+  "image": "location of image",
+  "document": {
+    "doctype": "AADHAR",
+    "doccopy": "location of user doc"
+  },
+  "createdAt": {
+    "$date": "2021-02-20T06:07:29.056Z"
+  },
+  "updatedAt": {
+    "$date": "2021-02-20T06:07:29.056Z"
+  },
+  "__v": 0
+}]

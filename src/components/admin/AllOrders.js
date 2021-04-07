@@ -29,13 +29,13 @@ export function AllOrders ()
   
     useEffect(() => {
     const fetchAPI = async () => {
-      setOd(await fetchOrderReqById(props.idget))
+//setOd(await fetchOrderReqById(props.idget))
     };
      fetchAPI();
    }, [props.idget ] );
     function onSubmitForm(e) {
       // e.preventDefault();
-      axios.put(`http://localhost:5000/orderreq/${props.idget}`, {
+      axios.put(`https://backendrentkar.herokuapp.com/orderreq/${props.idget}`, {
         status: status
       });
     }

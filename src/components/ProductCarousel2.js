@@ -58,7 +58,7 @@ function ProductCarousel2 ()
 							style={{ transform: `translateX(${x}%)`, transition: `0.5s` }}>
 					<ProductCard3
 						link={ `/product/${ item._id }` }
-						name={ item.productName } startingprice={ item.pricing[ 0 ].price } bg={ `http://localhost:5000${ item.img }` } />
+						name={ item.productName } startingprice={ item.pricing[ 0 ].price } bg={ `https://backendrentkar.herokuapp.com${ item.img }` } />
 						</div>
 				)
 			} )

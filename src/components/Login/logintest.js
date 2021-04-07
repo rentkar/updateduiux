@@ -1,8 +1,9 @@
-import React, {Component, useState } from 'react'
+import React, {Component, useState, useEffect } from 'react'
 import firebase from '../../firebase'
 import { Button, Card, Col, Divider, Form, Input, message, Row } from 'antd';
 import './Login.css'
 import logo_trans from '../../images/logo_trans.png';
+
 
 class LoginTest extends Component{
 

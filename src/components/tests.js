@@ -1,7 +1,7 @@
 import React, {Component } from 'react'
 import Axios from 'axios'
 
-const API_URL = `http://localhost:5000`
+const API_URL = `https://backendrentkar.herokuapp.com`
 const productUrl = `${ API_URL }/products/`;
 const userUrl = `${ API_URL }/users/`;
 const id = '6030aadff281c722b8cb2a8c'

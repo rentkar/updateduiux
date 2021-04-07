@@ -46,7 +46,7 @@ export default function ProductDetail ({match})
   {
     return(
     <div key={ i }>
-        <img src={`http://localhost:5000${item.stype}`} alt={`image${i}`} />
+        <img src={`https://backendrentkar.herokuapp.com${item.stype}`} alt={`image${i}`} />
         <p><b>Spec  : </b>{ item.spec }</p>
     </div>)
   } )
@@ -55,7 +55,7 @@ export default function ProductDetail ({match})
   {
     return (
       <div key={ i }>
-        <img src={`http://localhost:5000${item.image}`} alt={`image${i}`} />
+        <img src={`https://backendrentkar.herokuapp.com${item.image}`} alt={`image${i}`} />
       </div>
     )
   })

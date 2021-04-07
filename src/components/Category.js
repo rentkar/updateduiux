@@ -254,7 +254,7 @@ const [ p, setP ] = useState( [] )
             { p.filter( p => p.subcategory === sub[category][subb] ).map( item => (
             <ProductCard3
 						link={ `/product/${ item._id }` }
-						name={ item.productName } startingprice={ item.pricing[ 0 ].price } bg={ `http://localhost:5000${ item.img }` } />
+						name={ item.productName } startingprice={ item.pricing[ 0 ].price } bg={ `https://backendrentkar.herokuapp.com${ item.img }` } />
             ))}
           </div>
         </div>

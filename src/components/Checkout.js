@@ -47,7 +47,7 @@ export default function Checkout ()
 {
 
 	const razorpayHandler=async()=>{
-		const API_URL = `http://localhost:5000/razorpay/`
+		const API_URL = `https://backendrentkar.herokuapp.com/razorpay/`
 		const orderUrl = `${API_URL}order`;
 		const response = await Axios.get(orderUrl);
 		const { data } = response;

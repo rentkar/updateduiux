@@ -1,16 +1,22 @@
 import React, {Component, useState, useEffect } from 'react'
 import { fetchProducts, fetchUsers, fetchProductDetail} from '../config'
 import {Link} from 'react-router-dom'
-
-
+import loadingscreen from '../images/loadingscreen.gif'
+import '../App.css'
 export default function Test ()
 {
   const [ p, setP ] = useState( [] )
   const [ u, setU ] = useState( [] )
+  const [loading , setloading] = useState(false)
    useEffect(() => {
     const fetchAPI = async () => {
       setP( await fetchProducts() );
       setU( await fetchUsers() )
+      setloading( true )
+      setTimeout( () =>
+      {
+        setloading(false)
+      }, 1000)
     };
      fetchAPI();
    }, [] );
@@ -26,7 +32,7 @@ export default function Test ()
       <p>{ item.id }</p>
       <p>{ item.productName }</p>
       <p>{ item.description }</p>
-      <img src={ `http://localhost:5000${ item.img }` } alt='image' />
+      <img src={ `https://backendrentkar.herokuapp.com${ item.img }` } alt='image' />
       <p>{ item.category }</p>
       <p>{ item.subcategory }</p>
       <p>{ item.price }</p>
@@ -67,7 +73,15 @@ export default function Test ()
 
   return (
     <div>
-      <h2 style={ { textAlign : 'center', marginTop:'50px' }}>Products</h2>
+      {
+        loading
+          ?
+          <div className='loading'>
+            <img src={ loadingscreen}/>
+          </div>
+          :
+          <div>
+            <h2 style={ { textAlign : 'center', marginTop:'50px' }}>Products</h2>
       <div>{ products }</div>
       <h2 style={ { textAlign : 'center', marginTop:'50px'}}>Users</h2>
       <div>{ users }</div>
@@ -80,7 +94,10 @@ export default function Test ()
          </li>
           <li>{ filteredP._id }</li>
           </div>
-      ))}
+      ) ) }
+        </div>
+      }
+    
       </div>
     )
 }

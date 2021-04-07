@@ -99,7 +99,7 @@ const [ p, setP ] = useState( [] )
 	    function onSubmit(e) {
       e.preventDefault();
       console.log(name);
-      axios.post("http://localhost:5000/products", {
+      axios.post("https://backendrentkar.herokuapp.com/products", {
         name: name,
         images: "",
         category: "",

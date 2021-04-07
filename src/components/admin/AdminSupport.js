@@ -15,7 +15,7 @@ export function AdminSupport ()
         setS( await fetchSupport() );
     };
 		fetchAPI();
-		axios.get("http://localhost:5000/support/").then((data) => {
+		axios.get("https://backendrentkar.herokuapp.com/support/").then((data) => {
       console.log(data.data);
       setS(data.data);
     });
@@ -31,7 +31,7 @@ export function AdminSupport ()
     }
     function onSubmitForm(e) {
       // e.preventDefault();
-      axios.put(`http://localhost:5000/support/${props.idget}`, {
+      axios.put(`https://backendrentkar.herokuapp.com/support/${props.idget}`, {
         resolved: resolved,
         solution: solution,
       });

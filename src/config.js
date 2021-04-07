@@ -1,6 +1,6 @@
 import Axios from 'axios'
 	
-const API_URL = `http://localhost:5000`
+const API_URL = `https://backendrentkar.herokuapp.com`
 const productUrl = `${API_URL}/products`;
 const userUrl = `${API_URL}/users`;
 const supportUrl = `${API_URL}/support`
