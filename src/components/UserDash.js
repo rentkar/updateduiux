@@ -942,6 +942,8 @@ class MobileVerification extends Component {
             <div className="buttonContent">
               <img src={uploadSelfie} />
               <p>Upload a Selfie</p>
+              <input type='file' />
+              
             </div>
           </Button>
           <Button

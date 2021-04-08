@@ -369,6 +369,7 @@
 	}
 	.container .main {
 		margin: 0px 0px;
+		width: 100%;
 	}
 	.container .main .image img {
 		max-width: 30vw;

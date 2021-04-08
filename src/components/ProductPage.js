@@ -160,7 +160,7 @@ export default function ProductPage(props) {
                 <Carousel.Item>
                   <img
                     className="d-block w-100"
-                    src={`http://localhost:5000${item.image}`}
+                    src={`https://backendrentkar.herokuapp.com${item.image}`}
                     alt={`image${item}`}
                     alt="First slide"
                   />
@@ -178,7 +178,7 @@ export default function ProductPage(props) {
                 <Card className="includedCard">
                   <Card.Content>
                     <img
-                      src={`http://localhost:5000${item.image}`}
+                      src={`https://backendrentkar.herokuapp.com${item.image}`}
                       alt={`image${i}`}
                     />
                     <p>{item.content}</p>
@@ -196,7 +196,7 @@ export default function ProductPage(props) {
                 <Card className="includedCard">
                   <Card.Content>
                     <img
-                      src={`http://localhost:5000${item.stype}`}
+                      src={`https://backendrentkar.herokuapp.com${item.stype}`}
                       alt={`image${i}`}
                     />
                     <p>{item.spec}</p>

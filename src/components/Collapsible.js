@@ -21,11 +21,10 @@ export default class Collapsible extends React.Component {
             <button className="collapsible">POLICIES</button>
             <div className="content">
                 <hr />
-                <a >Shipping Policy</a>
-                <a >Return & Refund</a>
-                <a >Privacy Policy</a>
-                <a >Rental Terms & Conditions</a>
-                <a >Terms of Use</a>
+                <a href="/terms&conditions">Terms & Conditions</a>
+          <a href="/shippingpolicy">Shipping Policy</a>
+          <a href="/privacypolicy">Privacy Policy</a>
+          <a href="/termsofuse">Terms of Use</a>
                 <hr />
             </div>
             <button className="collapsible">CONTACT</button>

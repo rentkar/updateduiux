@@ -5,31 +5,25 @@ export default class Navv extends React.Component {
         return (
             <div className='navv'>
                 <div>
-                    <a href='#'>POLICIES</a>
+                    <a href='/terms&conditions'>TERMS & CONDITIONS</a>
                 </div>
                 <div>
                     <h4>|</h4>
                 </div>
                 <div>
-                    <a href='#'> ABOUT US</a>
+                    <a href='/shippingpolicy'> SHIPPING POLICY</a>
                 </div>
                 <div>
                     <h4>|</h4>
                 </div>
                 <div>
-                    <a href='#'> OUR BENEFITS</a>
+                    <a hreF='/privacypolicy'>PRIVACY POLICY</a>
                 </div>
                 <div>
                     <h4>|</h4>
                 </div>
                 <div>
-                    <a href='#'> FAQ</a>
-                </div>
-                <div>
-                    <h4>|</h4>
-                </div>
-                <div>
-                    <a href='#'> BLOG</a>
+                    <a href='/termsofuse'>TERMS OF USE</a>
                 </div>
             </div>
         )
