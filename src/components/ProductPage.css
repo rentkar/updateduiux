@@ -342,7 +342,10 @@ height: 90px;
 }
 
 
-
+.productPage .rating{
+margin-top: 25px;
+margin-right: 50px;
+}
 
 .productPage .left .recommendations h2{
 	margin: 50px 0px;
@@ -592,6 +595,11 @@ padding-bottom : 0px !important;
 	 width: auto;
  }
 
+ .productPage .rating{
+	 margin: 10px 20px 0px 0px;
+	 font-size: 14px !important;
+ }
+
 
 .productPage .product__page__carousel .carousel{
 	max-height:  100%  !important;
@@ -702,3 +710,12 @@ padding-bottom : 0px !important;
 box-shadow: 0 0 10px -1px rgb(0 0 0 / 20%);
     border-radius: 50px;
 }
+
+
+
+.productPage .book{
+	font-weight: bold;
+	font-size: 14px !important;
+	margin-right: 3px;
+}
+

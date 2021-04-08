@@ -1,5 +1,5 @@
 import React, { Component, useState, useContext, useEffect } from "react";
-import ProductCard3 from "./ProductCard3";
+import ProductCard4 from "./ProductCard4";
 import guitar from "../images/guitar2.png";
 import search_boy from "../images/search_boy.png";
 import { fetchProducts, fetchUsers, fetchProductDetail} from '../config'
@@ -252,7 +252,7 @@ const [ p, setP ] = useState( [] )
         <div className="product_overview">
           <div className="category">
             { p.filter( p => p.subcategory === sub[category][subb] ).map( item => (
-            <ProductCard3
+            <ProductCard4
 						link={ `/product/${ item._id }` }
 						name={ item.productName } startingprice={ item.pricing[ 0 ].price } bg={ `https://backendrentkar.herokuapp.com${ item.img }` } />
             ))}

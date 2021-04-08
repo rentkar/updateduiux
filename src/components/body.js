@@ -93,7 +93,7 @@ import c3 from "../images/icons2/icons/photography/lens grey.png";
 import c4 from "../images/icons2/icons/photography/lights grey.png";
 import c5 from "../images/icons2/icons/photography/recording.png";
 import c6 from "../images/icons2/icons/photography/rigs grey.png";
-
+import ProductCarousel3 from './productcarousel3'
 const categories = ["Music", "Gaming", "Laptop", "Photography"];
 const sub = [
   [
@@ -386,9 +386,14 @@ export class Body extends Component {
 
           {/* <div className='category'>
 						<ProductCarousel />
-					</div> */}
+					</div>
           <div className="category">
             <ProductCarousel2 />
+          </div>
+           */}
+          
+          <div className='category'>
+            <ProductCarousel3 />
           </div>
         </div>
         <div className="new">
@@ -400,7 +405,7 @@ export class Body extends Component {
 						<ProductCarousel />
 					</div> */}
           <div className="category">
-            <ProductCarousel2 />
+            <ProductCarousel3 />
           </div>
         </div>
         <div className="list3">

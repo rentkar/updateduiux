@@ -18,7 +18,7 @@ import "react-google-flight-datepicker/dist/main.css";
 import { RangeDatePicker } from "react-google-flight-datepicker";
 import { Link } from "react-router-dom";
 import ProductCard3 from "./ProductCard3";
-import ProductCarousel2 from "./ProductCarousel2";
+import ProductCarousel3 from "./productcarousel3";
 import "./body.css";
 import add from "../images/add.png";
 import { Carousel, Modal, Button } from "react-bootstrap";
@@ -31,7 +31,6 @@ export default function ProductPage(props) {
   const [gameModalShow2, setGameModalShow2] = useState(false);
   const [price, setPrice] = useState(0);
   const [freeGames, setFreeGames] = useState();
-
   let { _id } = useParams();
   const [pd, setpd] = useState([]);
   const [pdb, setpdb] = useState([]);
@@ -46,9 +45,9 @@ export default function ProductPage(props) {
   //  const [ cgst, setcgst ] = useState( 0 )
   //  const [total, settotal] = useState(0)
 
-  var sgst = (payment * 9) / 100;
-  var cgst = (payment * 9) / 100;
-  var total = payment + sgst + cgst;
+  var sgst = (price * 9) / 100;
+  var cgst = (price * 9) / 100;
+  var total = price + sgst + cgst;
 
   var val = 0;
   var i=0;
@@ -115,6 +114,7 @@ export default function ProductPage(props) {
 
   const handlePrice = (event, newPrice) => {
     setPrice(newPrice);
+    console.log(price)
   };
 
   const toggle = () => {
@@ -241,7 +241,7 @@ export default function ProductPage(props) {
         <div className="recommendations">
           <h2>Recommended Products</h2>
           <div className="product__carousel">
-            <ProductCarousel2 />
+            <ProductCarousel3 />
           </div>
         </div>
       </div>
@@ -254,12 +254,12 @@ export default function ProductPage(props) {
         }
       >
         <div className="btn up" onClick={toggle}>
-          <i className={up ? "fas fa-chevron-up" : "fas fa-chevron-down"} />
+      <p className='book'> Book Now</p>   <i className={up ? "fas fa-chevron-up" : "fas fa-chevron-down"} />
         </div>
         <div className="product__name">
           <h2>{pd.productname}</h2>
 
-          <p style={{ marginTop: "25px", marginRight: "50px" }}>
+          <p className='rating'>
             <i
               className="fas fa-star-half-alt"
               style={{
@@ -328,7 +328,6 @@ export default function ProductPage(props) {
             </div>
           </ToggleButton>
         </ToggleButtonGroup>
-
         <div className="select__games">
           <h3 style={{ textAlign: "left", margin: "20px" }}>
             Select your 2 free games
@@ -407,7 +406,7 @@ export default function ProductPage(props) {
           <h3 style={{ textAlign: "left" }}>Product Summary</h3>
           <div className="product">
             <p>{pd.productname}</p>
-            <div className="btn btn-outline-dark">+ Rs {payment}</div>
+            <div className="btn btn-outline-dark">+ Rs {price}</div>
           </div>
           <div className="product">
             <p>Games</p>

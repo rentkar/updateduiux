@@ -1,5 +1,6 @@
+
 import React, { Component, useState, useContext, useEffect } from "react";
-import { Modal} from 'react-bootstrap'
+import { Modal } from "react-bootstrap";
 import rental_s from "../images/icons/rental_s.png";
 import bag_s from "../images/bagb.png";
 import bag_g from "../images/bag.png";
@@ -21,12 +22,12 @@ import shareCredit_g from "../images/icons/shareCredit_g.png";
 import verification_g from "../images/icons/verification_g.png";
 import support_g from "../images/icons/support_g.png";
 import settings_g from "../images/icons/settings_g.png";
-import whatsapp from '../images/whatsapp.png'
-import faqs from '../images/faqs.png'
-import quickreq from '../images/quickreq.png'
-import call from '../images/call.png'
-import FadeIn from 'react-fade-in';
-import gp9 from '../images/PS5+1DS4+2GAMES.jpg'
+import whatsapp from "../images/whatsapp.png";
+import faqs from "../images/faqs.png";
+import quickreq from "../images/quickreq.png";
+import call from "../images/call.png";
+import FadeIn from "react-fade-in";
+import gp9 from "../images/PS5+1DS4+2GAMES.jpg";
 
 import pencil from "../images/icons/pencil_white.png";
 import pencil_b from "../images/icons/pencil.png";
@@ -42,9 +43,9 @@ import uploadSelfie from "../images/uploadSelfie.png";
 import radio_button from "../images/radio_button.png";
 import "./UserDash.css";
 import { Button, Card, Image } from "semantic-ui-react";
-import Footer from './Footer'
-import Head from './Head'
-import Floatnav from './Floatnav'
+import Footer from "./Footer";
+import Head from "./Head";
+import Floatnav from "./Floatnav";
 
 import { ProductContext } from "../components/ProductContext";
 import {
@@ -52,7 +53,7 @@ import {
   Switch,
   Route,
   Link,
-  withRouter
+  withRouter,
 } from "react-router-dom";
 import { SaveProductContext } from "../components/SaveProductContext";
 
@@ -63,7 +64,6 @@ const icons = [
   verification_s,
   support_s,
   settings_s,
-  
 ];
 const icons_g = [
   bag_s,
@@ -72,7 +72,6 @@ const icons_g = [
   verification_g,
   support_g,
   settings_g,
-  
 ];
 const iconDesc = [
   "My Bag",
@@ -97,7 +96,7 @@ function Rentals() {
     let saveForLaterProduct = {
       name: name,
       price: price,
-      duration: duration
+      duration: duration,
     };
     setSaveForLater((prevArray) => [...prevArray, saveForLaterProduct]);
     let currentArray = saveForLater;
@@ -111,8 +110,7 @@ function Rentals() {
   const Order_card = (props) => (
     <div class="buttons_mobileview">
       <div class="image_detail">
-        <div class="image"  style={ { backgroundImage: `url(${ gp9 })` } }>
-        </div>
+        <div class="image" style={{ backgroundImage: `url(${gp9})` }}></div>
         <div class="detail">
           <div class="name">
             <div class="main_head">
@@ -153,48 +151,24 @@ function Rentals() {
                   Tenure <i class="far fa-clock"></i>
                 </h6>
               </div>
-          
-                <select
-                  onChange={tenure_change}
-                  name="tenure"
-                  id="tenure"
-                >
-                  <option value={2}>2 Weeks</option>
-                  <option value={3}>3 Weeks</option>
-                  <option value={4}>4 Weeks</option>
-                  <option value={5}>5 Weeks</option>
-                </select>
-                {/* <h4 >2 Weeks</h4> */}
+
+              <select onChange={tenure_change} name="tenure" id="tenure">
+                <option value={2}>2 Weeks</option>
+                <option value={3}>3 Weeks</option>
+                <option value={4}>4 Weeks</option>
+                <option value={5}>5 Weeks</option>
+              </select>
+              {/* <h4 >2 Weeks</h4> */}
             </div>
 
-              <div class="dod">
+            <div class="dod">
               <div className="dodname">
                 <h6>Date of Delivery</h6>
               </div>
               <div>
-                <h4 style={{ fontWeight: "600" }}>
-                  21-02-2000
-                </h4>
+                <h4 style={{ fontWeight: "600" }}>21-02-2000</h4>
               </div>
-            {/*  <div className="dodname">
-                <h6>Date of Pickup</h6>
-              </div>
-              <div>
-                <h4 style={{ fontWeight: "600" }}>
-                  21-02-2000
-                </h4>
-              </div>*/} 
-            </div>
-              <div class="dod">
-              <div className="dodname">
-                <h6>Date of Delivery</h6>
-              </div>
-              <div>
-                <h4 style={{ fontWeight: "600" }}>
-                  21-02-2000
-                </h4>
-              </div>
-            {/*}  <div className="dodname">
+              {/*  <div className="dodname">
                 <h6>Date of Pickup</h6>
               </div>
               <div>
@@ -203,7 +177,23 @@ function Rentals() {
                 </h4>
               </div>*/}
             </div>
-      {/*      <div class="dop">
+            <div class="dod">
+              <div className="dodname">
+                <h6>Date of Delivery</h6>
+              </div>
+              <div>
+                <h4 style={{ fontWeight: "600" }}>21-02-2000</h4>
+              </div>
+              {/*}  <div className="dodname">
+                <h6>Date of Pickup</h6>
+              </div>
+              <div>
+                <h4 style={{ fontWeight: "600" }}>
+                  21-02-2000
+                </h4>
+              </div>*/}
+            </div>
+            {/*      <div class="dop">
               <div className="dopname">
                 <h6>Date of Pickup</h6>
               </div>
@@ -361,7 +351,7 @@ function MyBag(props) {
     let saveForLaterProduct = {
       name: name,
       price: price,
-      duration: duration
+      duration: duration,
     };
     setSaveForLater((prevArray) => [...prevArray, saveForLaterProduct]);
     let currentArray = saveForLater;
@@ -375,8 +365,7 @@ function MyBag(props) {
   const Order_card = (props) => (
     <div class="buttons_mobileview">
       <div class="image_detail">
-        <div class="image"  style={ { backgroundImage: `url(${ gp9 })` } }>
-        </div>
+        <div class="image" style={{ backgroundImage: `url(${gp9})` }}></div>
         <div class="detail">
           <div class="name">
             <div class="main_head">
@@ -426,7 +415,7 @@ function MyBag(props) {
                   style={{
                     fontWeight: "600",
                     border: "none",
-                    outline: "none"
+                    outline: "none",
                   }}
                 >
                   <option value={2}>2 Weeks</option>
@@ -435,9 +424,9 @@ function MyBag(props) {
                   <option value={5}>5 Weeks</option>
                 </select>
                 {/* <h4 >2 Weeks</h4> */}
-              </div> 
+              </div>
             </div>
-          
+
             {/* <div class="deposit">
                             <div className="name__">
                                 <h6>Deposit</h6>
@@ -445,7 +434,7 @@ function MyBag(props) {
                             <h4 style={{ fontWeight: "600" }}>0</h4>
                         </div> */}
           </div>
-          
+
           <div class="total">
             <div class="mybag_button">
               <div class="placeorder">
@@ -527,7 +516,7 @@ function MyBag(props) {
     </div>
   );
   return (
-    <div className='myrentals' style={{ height: "720px", overflowY: "scroll" }}>
+    <div className="myrentals" style={{ height: "720px", overflowY: "scroll" }}>
       {product.map((product) => (
         <div className="order_card">
           <Order_card
@@ -576,13 +565,11 @@ function MyBag(props) {
 class MyListing extends Component {
   render() {
     const Order_card = () => (
-    <div class="image_detail">
-        <div class="image"  style={ { backgroundImage: `url(${ gp9 })` } }>
-        </div>
+      <div class="image_detail">
+        <div class="image" style={{ backgroundImage: `url(${gp9})` }}></div>
         <div class="detail">
           <div class="name">
             <div class="main_head">
-
               <div>
                 <h4 style={{ fontWeight: "700" }}>
                   Fender Bullet Stratocaster
@@ -593,7 +580,7 @@ class MyListing extends Component {
                   style={{
                     color: " #19eeb5",
                     fontWeight: "600",
-                    fontSize: "15px"
+                    fontSize: "15px",
                   }}
                 >
                   <i class="fa fa-star" aria-hidden="true"></i>
@@ -612,7 +599,7 @@ class MyListing extends Component {
                   color: "#1bacf4",
                   textAlign: "initial",
                   fontWeight: "bold",
-                  cursor: "pointer"
+                  cursor: "pointer",
                 }}
               >
                 <i class="fas fa-circle"></i> &nbsp; Your Product is Live
@@ -624,7 +611,7 @@ class MyListing extends Component {
                   color: "red",
                   textAlign: "initial",
                   fontWeight: "bold",
-                  cursor: "pointer"
+                  cursor: "pointer",
                 }}
               >
                 <i class="fas fa-trash-alt"></i> &nbsp; Remove
@@ -647,138 +634,216 @@ class MyListing extends Component {
   }
 }
 
-function Verification(){
-
+function Verification() {
   function PersonalInformation(props) {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-    <FadeIn>
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Personal Information
-        </Modal.Title>
-      </Modal.Header>
-      <form>
-      <Modal.Body>
-        <input type='text' className='inpt' placeholder='Personal Information' />
-        <input type='text'  className='inpt' placeholder='Personal Information'/>
-        <input type='text'  className='inpt' placeholder='Personal Information'/>
-        <input type='text'  className='inpt' placeholder='Personal Information'/>
-        <input type='text'  className='inpt' placeholder='Personal Information' />
-      </Modal.Body>
-        <Modal.Footer>
-        <div className='btn btn-outline-success' onClick={props.onHide}>Submit</div>
-        <div className='btn btn-outline-success' onClick={props.onHide}>Close</div>
-      </Modal.Footer>
-      </form>
-        </FadeIn>
-    </Modal>
-  );
-}
+    const [addrInpCount, setAddrInpCount] = useState([1]);
+    const [addrInp, setAddrInp] = useState();
 
-function FinancialVerification(props) {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-    <FadeIn>
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Financial Verification
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <input type='file' accept='.pdf' />
-        <p className='accepted'>**accepted file type : .pdf</p>
-      </Modal.Body>
-      <Modal.Footer>
-        <div className='btn btn-outline-success' onClick={props.onHide}>Submit</div>
-        <div className='btn btn-outline-success' onClick={props.onHide}>Close</div>
-      </Modal.Footer>
-      </FadeIn>
-    </Modal>
-  );
-}
-function UploadDocuments(props) {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-    <FadeIn>
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Upload Documents
-        </Modal.Title>
-      </Modal.Header>
-      <form>
-        <Modal.Body>
-          <label for="document">Choose a document type: </label>
-          <select name="document" id="document" form="documentform">
-            <option value="AADHAR">AADHAR</option>
-            <option value="DRIVING LICENSE">DRIVING LICENSE</option>
-            <option value="PASSPORT">PASSPORT</option>
-            <option value="OTHERS">OTHERS</option>
-          </select>
-          <input type='file' accept='image/png, image/jpeg, image/jpg, .pdf' />
-          <p className='accepted'>**accepted file type : image/png, image/jpeg, image/jpg, .pdf</p>
-      </Modal.Body>
-        <Modal.Footer>
-        <div className='btn btn-outline-success' onClick={props.onHide}>Submit</div>
-        <div className='btn btn-outline-success' onClick={props.onHide}>Close</div>
-        </Modal.Footer>
-        </form>
-        </FadeIn>
-    </Modal>
-  );
-}
-function AddASelfie(props) {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-    <FadeIn>
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Add a Selfie
-        </Modal.Title>
-      </Modal.Header>
-      <form>
-        <Modal.Body>
-          
-          <input type='file' accept='image/png, image/jpeg, image/jpg' />
-            <p className='accepted'>**accepted file type : image/png, image/jpeg, image/jpg</p>
-      </Modal.Body>
-        <Modal.Footer>
-        <div className='btn btn-outline-success' onClick={props.onHide}>Submit</div>
-        <div className='btn btn-outline-success' onClick={props.onHide}>Close</div>
-        </Modal.Footer>
-        </form>
-        </FadeIn>
-    </Modal>
-  );
-}
+    useEffect(() => {
+      setAddrInp(
+        addrInpCount.map(() => {
+          return (
+            <div>
+              <select className="inpt" style={{ minWidth: "30%" }}>
+                <option value="home">HOME</option>
+                <option value="work">WORK</option>
+              </select>
 
-    const [PersonalInformationModalShow, setPersonalInformationModalShow] = useState(false)
-    const [ UploadDocumentsModalShow, setUploadDocumentsModalShow ] = useState( false )
-    const [ FinancialVerificationModalShow, setFinancialVerificationModalShow ] = useState( false )
-    const [ AddASelfieModalShow, setAddASelfieModalShow] = useState(false)
+              <input
+                type="address"
+                className="inpt"
+                placeholder="Enter Address"
+                style={{ minWidth: "58%", marginLeft: "1rem" }}
+              />
+              <button className="btn btn-danger btn-sm ml-1"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const values = [...addrInpCount];
+                  values.pop();
+                  setAddrInpCount(values);
+                }}
+              >
+                X
+              </button>
+            </div>
+          );
+        })
+      );
+    }, [addrInpCount]);
+
     return (
-      <div className="right_content">
-        {/*
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <FadeIn>
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-vcenter">
+              Personal Information
+            </Modal.Title>
+          </Modal.Header>
+          <form>
+            <Modal.Body>
+              <input type="text" className="inpt" placeholder="Enter Name" />
+              <input
+                type="text"
+                className="inpt"
+                placeholder="Enter Phone No."
+              />
+              <input type="email" className="inpt" placeholder="Enter Email" />
+              <input type="date" className="inpt" placeholder="Enter DOB" />
+              {addrInp}
+              <button
+                className="btn btn-primary"
+                style={{ width: "100%" }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setAddrInpCount([...addrInpCount, 1]);
+                }}
+              >
+                Add More
+              </button>
+            </Modal.Body>
+            <Modal.Footer>
+              <div className="btn btn-outline-success" onClick={props.onHide}>
+                Submit
+              </div>
+              <div className="btn btn-outline-success" onClick={props.onHide}>
+                Close
+              </div>
+            </Modal.Footer>
+          </form>
+        </FadeIn>
+      </Modal>
+    );
+  }
+
+  function FinancialVerification(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <FadeIn>
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-vcenter">
+              Financial Verification
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <input type="file" accept=".pdf" />
+            <p className="accepted">**accepted file type : .pdf</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <div className="btn btn-outline-success" onClick={props.onHide}>
+              Submit
+            </div>
+            <div className="btn btn-outline-success" onClick={props.onHide}>
+              Close
+            </div>
+          </Modal.Footer>
+        </FadeIn>
+      </Modal>
+    );
+  }
+  function UploadDocuments(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <FadeIn>
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-vcenter">
+              Upload Documents
+            </Modal.Title>
+          </Modal.Header>
+          <form>
+            <Modal.Body>
+              <label for="document">Choose a document type: </label>
+              <select name="document" id="document" form="documentform">
+                <option value="AADHAR">AADHAR</option>
+                <option value="DRIVING LICENSE">DRIVING LICENSE</option>
+                <option value="PASSPORT">PASSPORT</option>
+                <option value="OTHERS">OTHERS</option>
+              </select>
+              <input
+                type="file"
+                accept="image/png, image/jpeg, image/jpg, .pdf"
+              />
+              <p className="accepted">
+                **accepted file type : image/png, image/jpeg, image/jpg, .pdf
+              </p>
+            </Modal.Body>
+            <Modal.Footer>
+              <div className="btn btn-outline-success" onClick={props.onHide}>
+                Submit
+              </div>
+              <div className="btn btn-outline-success" onClick={props.onHide}>
+                Close
+              </div>
+            </Modal.Footer>
+          </form>
+        </FadeIn>
+      </Modal>
+    );
+  }
+  function AddASelfie(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <FadeIn>
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-vcenter">
+              Add a Selfie
+            </Modal.Title>
+          </Modal.Header>
+          <form>
+            <Modal.Body>
+              <input type="file" accept="image/png, image/jpeg, image/jpg" />
+              <p className="accepted">
+                **accepted file type : image/png, image/jpeg, image/jpg
+              </p>
+            </Modal.Body>
+            <Modal.Footer>
+              <div className="btn btn-outline-success" onClick={props.onHide}>
+                Submit
+              </div>
+              <div className="btn btn-outline-success" onClick={props.onHide}>
+                Close
+              </div>
+            </Modal.Footer>
+          </form>
+        </FadeIn>
+      </Modal>
+    );
+  }
+
+  const [
+    PersonalInformationModalShow,
+    setPersonalInformationModalShow,
+  ] = useState(false);
+  const [UploadDocumentsModalShow, setUploadDocumentsModalShow] = useState(
+    false
+  );
+  const [
+    FinancialVerificationModalShow,
+    setFinancialVerificationModalShow,
+  ] = useState(false);
+  const [AddASelfieModalShow, setAddASelfieModalShow] = useState(false);
+  return (
+    <div className="right_content">
+      {/*
         <div className="verification__list">
           <div className="list__item">
             <Image className="verify__image" src={person} />
@@ -799,53 +864,71 @@ function AddASelfie(props) {
             <p>Financial VERIFICATION</p>
             <p> (Upload bank statement for 3 months)</p>
           </div>
-				</div>
-				*/}
-        <div className="verificationList">
-          <div className="listItem"  onClick={() =>  setPersonalInformationModalShow(true)}>
-            <Image className="verified" src={verification_s} />
-            <Image className="verifyImage" src={person} />
-            <p className='verifyheader'>Personal Information</p>
-            {/* <div className="changeButton">
+        </div>
+        */}
+      <div className="verificationList">
+        <div
+          className="listItem"
+          onClick={() => setPersonalInformationModalShow(true)}
+        >
+          <Image className="verified" src={verification_s} />
+          <Image className="verifyImage" src={person} />
+          <p className="verifyheader">Personal Information</p>
+          {/* <div className="changeButton">
               <Image src={edit} />
               <p>Change</p>
       </div> */}
-          
-          </div>
-            <PersonalInformation show={ PersonalInformationModalShow } onHide={() => setPersonalInformationModalShow(false)} />
-          <div className="listItem" onClick={() => setAddASelfieModalShow(true)}>
-          <Image className="verified" src={verification_s} />
-            <Image className="verifyImage" src={add} />
-            <p className='verifyheader'>Add a Selfie</p>
-            <p>(Upload your selfie)</p>
-              
-          </div>
-          <AddASelfie show={AddASelfieModalShow } onHide={() => setAddASelfieModalShow(false)} />
-          <div className="listItem" onClick={() =>  setUploadDocumentsModalShow(true)}>
-          <Image className="verified" src={verification_g} />
-            <Image className="verifyImage" src={upload} />
-            <p  className='verifyheader'>Upload Documents</p>
-            <p>(Verification with Aadhar Card / Driving License / Passport)</p>
-          </div>
-          <UploadDocuments show={UploadDocumentsModalShow } onHide={() => setUploadDocumentsModalShow(false)} />
-          <div className="listItem" onClick={() =>  setFinancialVerificationModalShow(true)}>
-          <Image className="verified" src={verification_g} />
-            <Image className="verifyImage" src={upload} />
-            <p  className='verifyheader'>Financial Verification</p>
-            <p>(Upload bank statement for 3 months)</p>
-          </div>
-            <FinancialVerification show={FinancialVerificationModalShow } onHide={() =>  setFinancialVerificationModalShow(false)} />
         </div>
+        <PersonalInformation
+          show={PersonalInformationModalShow}
+          onHide={() => setPersonalInformationModalShow(false)}
+        />
+        <div className="listItem" onClick={() => setAddASelfieModalShow(true)}>
+          <Image className="verified" src={verification_s} />
+          <Image className="verifyImage" src={add} />
+          <p className="verifyheader">Add a Selfie</p>
+          <p>(Upload your selfie)</p>
+        </div>
+        <AddASelfie
+          show={AddASelfieModalShow}
+          onHide={() => setAddASelfieModalShow(false)}
+        />
+        <div
+          className="listItem"
+          onClick={() => setUploadDocumentsModalShow(true)}
+        >
+          <Image className="verified" src={verification_g} />
+          <Image className="verifyImage" src={upload} />
+          <p className="verifyheader">Upload Documents</p>
+          <p>(Verification with Aadhar Card / Driving License / Passport)</p>
+        </div>
+        <UploadDocuments
+          show={UploadDocumentsModalShow}
+          onHide={() => setUploadDocumentsModalShow(false)}
+        />
+        <div
+          className="listItem"
+          onClick={() => setFinancialVerificationModalShow(true)}
+        >
+          <Image className="verified" src={verification_g} />
+          <Image className="verifyImage" src={upload} />
+          <p className="verifyheader">Financial Verification</p>
+          <p>(Upload bank statement for 3 months)</p>
+        </div>
+        <FinancialVerification
+          show={FinancialVerificationModalShow}
+          onHide={() => setFinancialVerificationModalShow(false)}
+        />
       </div>
-    );
-  
+    </div>
+  );
 }
 
 class MobileVerification extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      index: 0
+      index: 0,
     };
   }
 
@@ -901,7 +984,7 @@ class MobileVerification extends Component {
             style={{
               marginTop: "20px",
               textAlign: "center",
-              marginBottom: "20px"
+              marginBottom: "20px",
             }}
           >
             Verification Score : 10%
@@ -942,8 +1025,6 @@ class MobileVerification extends Component {
             <div className="buttonContent">
               <img src={uploadSelfie} />
               <p>Upload a Selfie</p>
-              <input type='file' />
-              
             </div>
           </Button>
           <Button
@@ -952,7 +1033,7 @@ class MobileVerification extends Component {
               opacity: "0.3",
               background: "#fff",
               color: "#000",
-              marginTop: "20px"
+              marginTop: "20px",
             }}
           >
             <div className="buttonContent">
@@ -971,7 +1052,7 @@ class MobileVerification extends Component {
             style={{
               marginTop: "20px",
               textAlign: "center",
-              marginBottom: "20px"
+              marginBottom: "20px",
             }}
           >
             Verification Score : 50%
@@ -1043,7 +1124,7 @@ class MobileVerification extends Component {
             style={{
               marginTop: "20px",
               textAlign: "center",
-              marginBottom: "20px"
+              marginBottom: "20px",
             }}
           >
             Verification Score : 10%
@@ -1091,7 +1172,7 @@ class MobileVerification extends Component {
             style={{
               marginTop: "20px",
               textAlign: "center",
-              marginBottom: "20px"
+              marginBottom: "20px",
             }}
           >
             Verification Score : 100%
@@ -1173,7 +1254,7 @@ const Settings = (props) => {
       } else {
         new_user.push({
           Name: props.user[i]["Name"],
-          value: props.user[i]["value"]
+          value: props.user[i]["value"],
         });
       }
       // user[i - 1][1] = q.value;
@@ -1212,11 +1293,7 @@ const Settings = (props) => {
     <div className="settings">
       <div class="setting__profile">
         <div class="profile_photo">
-          <img
-            class="user_icon"
-            src={dummyprofile}
-            aria-hidden="true"
-          ></img>
+          <img class="user_icon" src={dummyprofile} aria-hidden="true"></img>
         </div>
         <div class="profile__name__address">
           <div class="name">{props.user[0]["value"]}</div>
@@ -1243,67 +1320,75 @@ const Settings = (props) => {
 };
 
 function Support() {
- function QucikReq(props) {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-    <FadeIn>
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-        Quick Request
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <div className='quick__req'>
-          <input type='text' className='inpt quickreq' placeholder='Enter your request' />
-        </div>
-      </Modal.Body>
-      <Modal.Footer>
-        <div className='btn btn-outline-success' onClick={props.onHide}>Submit</div>
-      </Modal.Footer>
-      </FadeIn>
-    </Modal>
-  );
-}
-
-    const [quickreqShow, setquickreqModalShow] = useState(false);
-
-
+  function QucikReq(props) {
     return (
-      <div className="supportScreen">
-
-          <div className="supportButtonDiv">
-          <div className="supportButton"  onClick={() => setquickreqModalShow(true)}>
-            <Image className="supportButtonImage" src={quickreq}/>
-            <p className="support__detail">Generate a quick request</p>
-          </div>
-          <a href="tel:+917900042875" target='_blank'>
-            <div className="supportButton">
-            <Image className="supportButtonImage" src={call}/>
-            <p className="support__detail">Call Us</p>
-          </div></a>
-          <a href="http://wa.me/917900042875" target='_blank'>
-          <div className="supportButton">
-            <Image className="supportButtonImage" src={whatsapp}/>
-            <p className="support__detail">Ping us on WhatsApp</p>
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <FadeIn>
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-vcenter">
+              Quick Request
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="quick__req">
+              <input
+                type="text"
+                className="inpt quickreq"
+                placeholder="Enter your request"
+              />
             </div>
-            </a>
-          <div className="supportButton">
-              <Image className="supportButtonImage" src={faqs}/>
-            <p className="support__detail">FAQs</p>
-          </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <div className="btn btn-outline-success" onClick={props.onHide}>
+              Submit
+            </div>
+          </Modal.Footer>
+        </FadeIn>
+      </Modal>
+    );
+  }
+
+  const [quickreqShow, setquickreqModalShow] = useState(false);
+
+  return (
+    <div className="supportScreen">
+      <div className="supportButtonDiv">
+        <div
+          className="supportButton"
+          onClick={() => setquickreqModalShow(true)}
+        >
+          <Image className="supportButtonImage" src={quickreq} />
+          <p className="support__detail">Generate a quick request</p>
         </div>
-         <QucikReq
+        <a href="tel:+917900042875" target="_blank">
+          <div className="supportButton">
+            <Image className="supportButtonImage" src={call} />
+            <p className="support__detail">Call Us</p>
+          </div>
+        </a>
+        <a href="http://wa.me/917900042875" target="_blank">
+          <div className="supportButton">
+            <Image className="supportButtonImage" src={whatsapp} />
+            <p className="support__detail">Ping us on WhatsApp</p>
+          </div>
+        </a>
+        <div className="supportButton">
+          <Image className="supportButtonImage" src={faqs} />
+          <p className="support__detail">FAQs</p>
+        </div>
+      </div>
+      <QucikReq
         show={quickreqShow}
         onHide={() => setquickreqModalShow(false)}
       />
-      </div>
+    </div>
 
-        /*
+    /*
         <div className="supportButtonDiv">
           <button className="supportButton" onClick={() => this.dropMenu1()}>
             <div className="buttonContent">
@@ -1370,8 +1455,7 @@ function Support() {
           </div>
         </div>
               */
-    );
-  
+  );
 }
 
 export const UserDash = (props) => {
@@ -1381,20 +1465,20 @@ export const UserDash = (props) => {
   const [user, setuser] = useState([
     {
       Name: "Name",
-      value: "Siddharth"
+      value: "Siddharth",
     },
     {
       Name: "Email",
-      value: "sid@rentkar.com"
+      value: "sid@rentkar.com",
     },
     {
       Name: "Mobile Number",
-      value: "982304234"
+      value: "982304234",
     },
     {
       Name: "Date Of Birth",
-      value: "31/03/2001"
-    }
+      value: "31/03/2001",
+    },
   ]);
   // constructor(props) {
   //     super(props);
@@ -1430,13 +1514,12 @@ export const UserDash = (props) => {
     */
 
   var indexMap = {
-    0:"/mybag",
+    0: "/mybag",
     1: "/rentals",
     2: "/mylisting",
     3: "/verification/",
     4: "/support",
     5: "/settings",
-  
   };
 
   const DetailsCard = ({ index }) => (
@@ -1463,11 +1546,7 @@ export const UserDash = (props) => {
       <div className="user_detail">
         <div className="first">
           <div>
-            <img
-              class="user_icon"
-              src={dummyprofile}
-              aria-hidden="true"
-            />
+            <img class="user_icon" src={dummyprofile} aria-hidden="true" />
           </div>
           <div className="user_name">{user[0]["value"]}</div>
           <div className="userlocation">
@@ -1499,127 +1578,131 @@ export const UserDash = (props) => {
         })}
       </div>
       <div className="buttons">
-          <Link to="/"><i className="fas fa-sign-out-alt" /> Log Out</Link>
-          <a href="/terms&conditions">Terms & Conditions</a>
-          <a href="/shippingpolicy">Shipping Policy</a>
-          <a href="/privacypolicy">Privacy Policy</a>
-          <a href="/termsofuse">Terms of Use</a>
+        <Link to="/">
+          <i className="fas fa-sign-out-alt" /> Log Out
+        </Link>
+        <a href="/terms&conditions">Terms & Conditions</a>
+        <a href="/shippingpolicy">Shipping Policy</a>
+        <a href="/privacypolicy">Privacy Policy</a>
+        <a href="/termsofuse">Terms of Use</a>
       </div>
     </div>
   );
   return (
     <>
-    <Floatnav className='floatnav' />
-	  <Head />
-    <div className="dashboard">
-      <div className="useropt">
-        <div className="user_detail">
-          <div className="first">
-            <div>
-              <img
-                class="user_icon"
-                src={dummyprofile}
-                aria-hidden="true"
-              ></img>
-            </div>
-            <div className="user_name">{user[0]["value"]}</div>
-            <div className="userlocation">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              <p>Mumbai</p>
-            </div>
-          </div>
-          <div className="second">
-            <div className="mail">
-              <h4>{user[1]["value"]}</h4>
-              <h4>{user[2]["value"]}</h4>
-            </div>
-            <div className="marker">
-              <Link to="/settings">
-                <a>
-                  <img id="pencil" src={pencil}></img>
-                </a>
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="details">
-          {iconDesc.map((item, index) => {
-            return (
+      <Floatnav className="floatnav" />
+      <Head />
+      <div className="dashboard">
+        <div className="useropt">
+          <div className="user_detail">
+            <div className="first">
               <div>
-                <DetailsCard index={index} />
+                <img
+                  class="user_icon"
+                  src={dummyprofile}
+                  aria-hidden="true"
+                ></img>
               </div>
-            );
-          })}
-        </div>
+              <div className="user_name">{user[0]["value"]}</div>
+              <div className="userlocation">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <p>Mumbai</p>
+              </div>
+            </div>
+            <div className="second">
+              <div className="mail">
+                <h4>{user[1]["value"]}</h4>
+                <h4>{user[2]["value"]}</h4>
+              </div>
+              <div className="marker">
+                <Link to="/settings">
+                  <a>
+                    <img id="pencil" src={pencil}></img>
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="details">
+            {iconDesc.map((item, index) => {
+              return (
+                <div>
+                  <DetailsCard index={index} />
+                </div>
+              );
+            })}
+          </div>
           <div className="buttons">
-            <Link to="/"><i className="fas fa-sign-out-alt" /> Log Out</Link>
+            <Link to="/">
+              <i className="fas fa-sign-out-alt" /> Log Out
+            </Link>
             <a href="/terms&conditions">Terms & Conditions</a>
             <a href="/shippingpolicy">Shipping Policy</a>
             <a href="/privacypolicy">Privacy Policy</a>
             <a href="/termsofuse">Terms of Use</a>
           </div>
-      </div>
-
-      <div class="right_screen">
-        <div class="userdash">
-          <div class="userdash_header">
-            <p style={{ marginTop: "5px" }}>
-              Home &gt; My Account &gt;
-              <span style={{ color: "#1bacf4" }}> {iconDesc[index]}</span>
-            </p>
-            {index === 2 ? (
-              <div className="mylisting__button_div">
-                <Button
-                  className="mylisting__button"
-                  onClick={() => setaddModalshow(true)}
-                >
-                  ADD +
-                </Button>
-                <DotsMobileStepper
-                  show={addModalshow}
-                  onHide={() => setaddModalshow(false)}
-                />
-              </div>
-            ) : null}
-            {index === 3 ? (
-              <p
-                style={{
-                  marginTop: "5px",
-                  color: "#0B90D3",
-                  marginLeft: "auto",
-                  marginRight: "0px"
-                }}
-              >
-                Verification status: 100%
-              </p>
-            ) : null}
-          </div>
         </div>
-        {index === -1 ? (
-          <Home />
-        ) : (
-          <div className="userdashMobile">
+
+        <div class="right_screen">
+          <div class="userdash">
             <div class="userdash_header">
-            <Link to='/home' style={{ textDecoration: "none" }}>
-                  <i className="fas fa-chevron-left fa-xs"></i>
-                </Link>
-              <p style={{ margin: "0px auto"}}>{iconDesc[index]}</p>
+              <p style={{ marginTop: "5px" }}>
+                Home &gt; My Account &gt;
+                <span style={{ color: "#1bacf4" }}> {iconDesc[index]}</span>
+              </p>
+              {index === 2 ? (
+                <div className="mylisting__button_div">
+                  <Button
+                    className="mylisting__button"
+                    onClick={() => setaddModalshow(true)}
+                  >
+                    ADD +
+                  </Button>
+                  <DotsMobileStepper
+                    show={addModalshow}
+                    onHide={() => setaddModalshow(false)}
+                  />
+                </div>
+              ) : null}
+              {index === 3 ? (
+                <p
+                  style={{
+                    marginTop: "5px",
+                    color: "#0B90D3",
+                    marginLeft: "auto",
+                    marginRight: "0px",
+                  }}
+                >
+                  Verification status: 100%
+                </p>
+              ) : null}
             </div>
           </div>
-        )}
-        {index === 2 ? <MyListing />  : null}
-        {index === 0 ? <MyBag /> : null}
-        {index === 3 ? <Verification /> : null}
-        {index === 3 ? <MobileVerification /> : null}
-        {index === 4 ? <Support /> : null}
-        {index === 5 ? <Settings user={user} setuser={setuser} /> : null}
-        { index === 1 ? <Rentals /> : null }
+          {index === -1 ? (
+            <Home />
+          ) : (
+            <div className="userdashMobile">
+              <div class="userdash_header">
+                <Link to="/home" style={{ textDecoration: "none" }}>
+                  <i className="fas fa-chevron-left fa-xs"></i>
+                </Link>
+                <p style={{ margin: "0px auto" }}>{iconDesc[index]}</p>
+              </div>
+            </div>
+          )}
+          {index === 2 ? <MyListing /> : null}
+          {index === 0 ? <MyBag /> : null}
+          {index === 3 ? <Verification /> : null}
+          {index === 3 ? <MobileVerification /> : null}
+          {index === 4 ? <Support /> : null}
+          {index === 5 ? <Settings user={user} setuser={setuser} /> : null}
+          {index === 1 ? <Rentals /> : null}
+        </div>
       </div>
-    
-    </div>
       <Footer />
-      </>
+    </>
   );
 };
 
 export default withRouter(UserDash);
+
