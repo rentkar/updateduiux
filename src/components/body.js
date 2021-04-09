@@ -411,7 +411,7 @@ export class Body extends Component {
         <div className="list3">
           <div className="final">
             <div className="para">
-              <div>
+              <div className='listyouritem'>
                 <h1>LIST YOUR ITEM</h1>
               </div>
               <div>

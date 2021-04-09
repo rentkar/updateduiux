@@ -719,3 +719,19 @@ box-shadow: 0 0 10px -1px rgb(0 0 0 / 20%);
 	margin-right: 3px;
 }
 
+.productPage .dateSlot .dates {
+	display: flex;
+	flex-direction: column;
+}
+
+.productPage .dateSlot .dates .date{
+	display: flex;
+	margin-left: 20px;
+}
+
+.productPage .dateSlot .dates .date__output{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-left: 20px;
+}

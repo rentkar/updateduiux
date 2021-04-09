@@ -180,7 +180,7 @@ const [ p, setP ] = useState( [] )
         <div className="categorizeHead">
           <div className="pagePath">
             <p style={{ marginTop: "5px" }}>
-              Home &gt; {categories[category]} &gt; {sub[category][subb]}
+              HOME &gt; {categories[category]} &gt; {sub[category][subb]}
             </p>
           </div>
           <div className="categoriesBackground">

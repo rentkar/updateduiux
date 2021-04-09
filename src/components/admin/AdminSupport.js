@@ -3,7 +3,6 @@ import { Table} from 'react-bootstrap'
 import {Modal} from 'react-bootstrap'
 import { fetchProducts, fetchUsers, fetchSupport, fetchOrderReq, fetchLenderReq} from '../../config'
 import axios from "axios"
-import { Typography } from '@material-ui/core';
 
 export function AdminSupport ()
 {
@@ -30,12 +29,18 @@ export function AdminSupport ()
       console.log(resolved)
     }
     function onSubmitForm(e) {
-      // e.preventDefault();
+       e.preventDefault();
       axios.put(`https://backendrentkar.herokuapp.com/support/${props.idget}`, {
         resolved: resolved,
         solution: solution,
-      });
+      } );
+      props.onHide()
     }
+
+    // function openModel ( e )
+    // {
+      
+    // }
     return(
         <Modal { ...props }
             size='lg'
@@ -89,7 +94,12 @@ export function AdminSupport ()
         </Modal>
         )
   }
-  
+  const [ id, setid ] = useState()
+  function handleClick(e){
+    setSupportRequestModalShow( true )
+    console.log( e )
+    setid(e)
+  }
   return (
     <div className='support'>
       <div className='support__req'>
@@ -109,21 +119,21 @@ export function AdminSupport ()
             <th>TAKE ACTION</th>
           </thead>
             <tbody>
-              { s.map( ( item ) =>
+              { s.map( ( item,index ) =>
               {
                 if ( item.resolved === false ) { 
                 return (
-                  <tr>
+                  <tr key={index}>
                     <td>{ item._id }</td>
                     <td></td>
                     <td>{ item.userId._id }</td>
                     <td>{ item.userId.username }</td>
                     <td></td>
-                    <td></td>
+                    <td>{item.createdAt }</td>
                     <td>{ item.supporttype }</td>
                     <td>{ item.statement }</td>
-                    <td><i className="fas fa-edit"  onClick={ () => setSupportRequestModalShow( true ) }/>
-							<SupportRequestModal show={ supportRequestModalShow } onHide={ () => setSupportRequestModalShow( false ) } idget={ item._id } /></td>
+                    <td><i className="fas fa-edit" onClick={ (e) => handleClick(item._id)} />
+							<SupportRequestModal show={ supportRequestModalShow } onHide={ () => setSupportRequestModalShow( false ) } idget={id} /></td>
                   </tr>
                 )
               }
@@ -144,6 +154,7 @@ export function AdminSupport ()
                   <th>Username</th>
                   <th>PRODUCT ID</th>
                   <th>REQUEST DATE</th>
+                  <th>RESOLVED ON</th>
                   <th>SUPPORT TYPE</th>
                   <th>ISSUE</th>
                   <th>SOLUTION</th>
@@ -161,7 +172,8 @@ export function AdminSupport ()
                       <td>{ item.userId._id }</td>
                       <td>{ item.userId.username }</td>
                       <td></td>
-                      <td></td>
+                      <td>{item.createdAt}</td>
+                      <td>{ item.updatedAt }</td>
                       <td>{ item.supporttype }</td>
                       <td>{ item.statement }</td>
                       <td>{ item.solution }</td>

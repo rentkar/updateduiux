@@ -88,6 +88,7 @@ export const fetchUserDetail = async ( _id ) =>
       _id: data._id,
       dob: data.dob,
       email: data.email,
+      phoneNumber: data.phoneNumber,
       lender: data.lender,
       createdAt: data.createdAt,
       updatedAt: data.updatedAt,
@@ -242,6 +243,8 @@ export const fetchSupport = async () =>
       supporttype: item[ 'supporttype' ],
       statement: item['statement'],
       solution: item[ 'solution' ],
+      createdAt: item[ 'createdAt' ],
+      updatedAt : item['updatedAt']
     } ) )
     
     console.log( supports )

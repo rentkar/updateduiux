@@ -1,4 +1,3 @@
-
 import React, { Component, useState, useContext, useEffect } from "react";
 import { Modal } from "react-bootstrap";
 import rental_s from "../images/icons/rental_s.png";
@@ -46,6 +45,7 @@ import { Button, Card, Image } from "semantic-ui-react";
 import Footer from "./Footer";
 import Head from "./Head";
 import Floatnav from "./Floatnav";
+import { fetchUserDetail, fetchUserAddressDetail } from "../config";
 
 import { ProductContext } from "../components/ProductContext";
 import {
@@ -56,6 +56,7 @@ import {
   withRouter,
 } from "react-router-dom";
 import { SaveProductContext } from "../components/SaveProductContext";
+import axios from "axios";
 
 const icons = [
   bag_g,
@@ -638,13 +639,40 @@ function Verification() {
   function PersonalInformation(props) {
     const [addrInpCount, setAddrInpCount] = useState([1]);
     const [addrInp, setAddrInp] = useState();
+    const [username, setUsername] = useState();
+    const [phone, setPhone] = useState();
+    const [email, setEmail] = useState();
+    const [DOB, setDOB] = useState();
+    const [address, setAddress] = useState();
+    const [addrType, setAddrType] = useState([]);
+    const userId = "606febc789be1d0015c385be";
+
+    useEffect(() => {
+      const fetchData = async () => {
+        const userDetail = await fetchUserDetail(userId);
+        // const useAddress = await fetchUserAddressDetail(userId);
+        setUsername(userDetail.name);
+        setEmail(userDetail.email);
+        setPhone(userDetail.phoneNumber);
+        if (userDetail.dob) {
+          setDOB(userDetail.dob.substr(0, 10));
+        }
+      };
+      fetchData();
+    }, [userId]);
 
     useEffect(() => {
       setAddrInp(
-        addrInpCount.map(() => {
+        addrInpCount.map((e, i) => {
           return (
-            <div>
-              <select className="inpt" style={{ minWidth: "30%" }}>
+            <div key={i}>
+              <select
+                className="inpt"
+                style={{ minWidth: "30%" }}
+                onChange={(e) => {
+                  setAddrType({ addrNum: i, type: e.target.value });
+                }}
+              >
                 <option value="home">HOME</option>
                 <option value="work">WORK</option>
               </select>
@@ -654,8 +682,11 @@ function Verification() {
                 className="inpt"
                 placeholder="Enter Address"
                 style={{ minWidth: "58%", marginLeft: "1rem" }}
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
               />
-              <button className="btn btn-danger btn-sm ml-1"
+              <button
+                className="btn btn-danger btn-sm ml-1"
                 onClick={(e) => {
                   e.preventDefault();
                   const values = [...addrInpCount];
@@ -671,6 +702,20 @@ function Verification() {
       );
     }, [addrInpCount]);
 
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const data = {
+        name: username,
+        phoneNumber: phone,
+        email,
+        dob: DOB,
+      };
+      axios
+        .put(`https://backendrentkar.herokuapp.com/users/${userId}`, data)
+        .then((res) => console.log(res.data))
+        .catch((err) => console.error(err));
+    };
+
     return (
       <Modal
         {...props}
@@ -684,17 +729,37 @@ function Verification() {
               Personal Information
             </Modal.Title>
           </Modal.Header>
-          <form>
+          <form onSubmit={handleSubmit}>
             <Modal.Body>
-              <input type="text" className="inpt" placeholder="Enter Name" />
+              <input
+                type="text"
+                className="inpt"
+                placeholder="Enter Name"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
               <input
                 type="text"
                 className="inpt"
                 placeholder="Enter Phone No."
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
-              <input type="email" className="inpt" placeholder="Enter Email" />
-              <input type="date" className="inpt" placeholder="Enter DOB" />
-              {addrInp}
+              <input
+                type="email"
+                className="inpt"
+                placeholder="Enter Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="date"
+                className="inpt"
+                placeholder="Enter DOB"
+                value={DOB}
+                onChange={(e) => setDOB(e.target.value)}
+              />
+              {/* {addrInp}
               <button
                 className="btn btn-primary"
                 style={{ width: "100%" }}
@@ -704,15 +769,18 @@ function Verification() {
                 }}
               >
                 Add More
-              </button>
+              </button> */}
             </Modal.Body>
             <Modal.Footer>
-              <div className="btn btn-outline-success" onClick={props.onHide}>
+              {/* <div className="btn btn-outline-success" onClick={props.onHide}>
                 Submit
-              </div>
-              <div className="btn btn-outline-success" onClick={props.onHide}>
+              </div> */}
+              <button className="btn btn-outline-success" type="submit">
+                Submit
+              </button>
+              <button className="btn btn-outline-danger" onClick={props.onHide}>
                 Close
-              </div>
+              </button>
             </Modal.Footer>
           </form>
         </FadeIn>
@@ -721,6 +789,17 @@ function Verification() {
   }
 
   function FinancialVerification(props) {
+    const [image,setImage] = useState();
+
+    const handleSubmit = () => {
+      const userID = "606febc789be1d0015c385be";
+      axios.put(`https://backendrentkar.herokuapp.com/users/${userID}`, {
+        financialDocs: image
+      })
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err))
+    }
+
     return (
       <Modal
         {...props}
@@ -735,11 +814,11 @@ function Verification() {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <input type="file" accept=".pdf" />
+            <input type="file" accept=".pdf" value={image} onChange={e => setImage(e.target.value)} />
             <p className="accepted">**accepted file type : .pdf</p>
           </Modal.Body>
           <Modal.Footer>
-            <div className="btn btn-outline-success" onClick={props.onHide}>
+            <div className="btn btn-outline-success" onClick={handleSubmit}>
               Submit
             </div>
             <div className="btn btn-outline-success" onClick={props.onHide}>
@@ -751,6 +830,20 @@ function Verification() {
     );
   }
   function UploadDocuments(props) {
+    const [docType, setDocType] = useState();
+    const [document, setDocument] = useState();
+
+    const handleSubmit = () => {
+      const userId = "606febc789be1d0015c385be";
+      const data = {
+        doctype: docType,
+        doccopy: document
+      }
+      axios.put(`https://backendrentkar.herokuapp.com/users/${userId}`, {document: data})
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err))
+    }
+
     return (
       <Modal
         {...props}
@@ -767,7 +860,13 @@ function Verification() {
           <form>
             <Modal.Body>
               <label for="document">Choose a document type: </label>
-              <select name="document" id="document" form="documentform">
+              <select
+                name="document"
+                id="document"
+                form="documentform"
+                value={docType}
+                onChange={e => setDocType(e.target.value)}
+              >
                 <option value="AADHAR">AADHAR</option>
                 <option value="DRIVING LICENSE">DRIVING LICENSE</option>
                 <option value="PASSPORT">PASSPORT</option>
@@ -776,13 +875,15 @@ function Verification() {
               <input
                 type="file"
                 accept="image/png, image/jpeg, image/jpg, .pdf"
+                value={document}
+                onChange={e => setDocument(e.target.value)}
               />
               <p className="accepted">
                 **accepted file type : image/png, image/jpeg, image/jpg, .pdf
               </p>
             </Modal.Body>
             <Modal.Footer>
-              <div className="btn btn-outline-success" onClick={props.onHide}>
+              <div className="btn btn-outline-success" onClick={handleSubmit}>
                 Submit
               </div>
               <div className="btn btn-outline-success" onClick={props.onHide}>
@@ -795,6 +896,16 @@ function Verification() {
     );
   }
   function AddASelfie(props) {
+    const [image, setImage] = useState();
+
+    const handleSubmit = () => {
+      const userId = "606febc789be1d0015c385be";
+      axios
+        .put(`https://backendrentkar.herokuapp.com/users/${userId}`, { image })
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
+    };
+
     return (
       <Modal
         {...props}
@@ -810,13 +921,17 @@ function Verification() {
           </Modal.Header>
           <form>
             <Modal.Body>
-              <input type="file" accept="image/png, image/jpeg, image/jpg" />
+              <input
+                type="file"
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={(e) => setImage(e.target.files[0].name)}
+              />
               <p className="accepted">
                 **accepted file type : image/png, image/jpeg, image/jpg
               </p>
             </Modal.Body>
             <Modal.Footer>
-              <div className="btn btn-outline-success" onClick={props.onHide}>
+              <div className="btn btn-outline-success" onClick={handleSubmit}>
                 Submit
               </div>
               <div className="btn btn-outline-success" onClick={props.onHide}>
@@ -1320,7 +1435,26 @@ const Settings = (props) => {
 };
 
 function Support() {
-  function QucikReq(props) {
+  function QucikReq ( props )
+  {
+    const userId = "606febc789be1d0015c385be"
+    const [ supporttype, setsupporttype ] = useState()
+    const [statement, setstatement] = useState()
+
+const handleSubmit= (e) => {
+  e.preventDefault()
+  const data = {
+    userId: userId,
+    statement: statement,
+    supporttype: supporttype
+  }
+  console.log(data)
+  axios.post( `https://backendrentkar.herokuapp.com/support`, data )
+    .then( ( res ) => console.log( res.data ))
+    .catch((err) => console.log(err))
+  props.onHide()
+}
+
     return (
       <Modal
         {...props}
@@ -1334,20 +1468,48 @@ function Support() {
               Quick Request
             </Modal.Title>
           </Modal.Header>
+        <form onSubmit={handleSubmit}>
           <Modal.Body>
-            <div className="quick__req">
+              <div className="quick__req">
+                <select className='inpt'value={supporttype} onChange={(e)=> setsupporttype(e.target.value)}>
+                  <option disabled selected value>
+                    --select your support type--
+                  </option>
+                <option value="QUERY">QUERY</option>
+                <option value="TECHNICAL HELP">TECHNICAL HELP</option>
+                <option value="PAYMENT RELATED">PAYMENT RELATED</option>
+                <option value="ORDER RELATED">ORDER RELATED</option>
+                <option value="REFUND RELATED">REFUND RELATED</option>
+                <option value="FEEDBACK">FEEDBACK</option>
+                <option value="LISTED PRODUCT RELATED">LISTED PRODUCT RELATED</option>
+                </select>
+                <select className='inpt'>
+                <option disabled selected value>
+                    --Select Order Id--
+                  </option>
+                <option value="QUERY">QUERY</option>
+                <option value="TECHNICAL HELP">TECHNICAL HELP</option>
+                <option value="PAYMENT RELATED">PAYMENT RELATED</option>
+                </select>
               <input
                 type="text"
                 className="inpt quickreq"
-                placeholder="Enter your request"
+                  placeholder="Enter your request"
+                  value={ statement }
+                  onChange={(e)=> setstatement(e.target.value)}
               />
-            </div>
+              </div>
           </Modal.Body>
+          
           <Modal.Footer>
-            <div className="btn btn-outline-success" onClick={props.onHide}>
-              Submit
-            </div>
-          </Modal.Footer>
+            <button className="btn btn-outline-success" type="submit">
+                Submit
+              </button>
+              <button className="btn btn-outline-danger" onClick={props.onHide}>
+                Close
+              </button>
+            </Modal.Footer>
+            </form>
         </FadeIn>
       </Modal>
     );
