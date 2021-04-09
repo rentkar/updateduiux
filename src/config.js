@@ -299,10 +299,22 @@ export const fetchOrderReqById = async ( _id ) =>
       exp_del: data.exp_del,
       exp_pickup: data.exp_pickup,
       total_amount: data.total_amount,
-      payment_received: data.item_received,
+      payment_received: data.payment_received,
       payment_pending: data.payment_pending,
       del_address: data.del_address,
-      requestedOn : data.createdAt
+      houseNumber: data.del_address.houseNumber,
+      street: data.del_address.street,
+      locality: data.del_address.locality,
+      city: data.del_address.city,
+      state: data.del_address.state,
+      zip: data.del_address.zip,
+      requestedOn: data.createdAt,
+      updatedOn: data.updatedAt,
+      userID: data.userId._id,
+      username: data.userId.username,
+      phoneNumber: data.userId.phoneNumber,
+      product: data.productId.name,
+      product_id: data.productId._id
     }
   
     
@@ -364,3 +376,6 @@ export const fetchLenderReq = async () =>
     throw (error)
   }
 }
+
+//  mongodb+srv://rentkar:rentkar890@cluster0.buwsg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+

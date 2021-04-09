@@ -29,7 +29,8 @@ export function AllOrders ()
   
     useEffect(() => {
     const fetchAPI = async () => {
-//setOd(await fetchOrderReqById(props.idget))
+      setOd( await fetchOrderReqById( props.idget ) )
+      console.log(od)
     };
      fetchAPI();
    }, [props.idget ] );
@@ -42,16 +43,41 @@ export function AllOrders ()
 
     return(
         <Modal { ...props }
-            size='lg'
+        size='lg'
+        className='create__an__order'
             aria-labelledby='contained-modal-title-vcenter'>
             <Modal.Header closeButton>
-                <Modal.Title>Order Requests</Modal.Title>
+                <Modal.Title>Create/Edit an Order</Modal.Title>
             </Modal.Header>
         <Modal.Body>
+          <div className='order'>
+          <div className='order__detail__1'>
         <h4>Order Details</h4>
-<p> Id : <span>{ od._id }</span></p>
-          <p>{ od.appliedForPOD}</p>
+          <p> Id : <span>{ od._id }</span></p>
+          <p>Applied For POD : { od.appliedForPOD }</p>
+          <p>Current Status : { od.status }</p>
+          <p>Delivery Address : { od.houseNumber }, { od.street }, { od.locality }, { od.city }, { od.state }, { od.zip }</p>
+          <p>Order Requested At : { od.requestedOn }</p>
+          <p>Delivery Date : { od.exp_del }</p>
+          <p>Pickup Date : { od.exp_pickup }</p>
+          <p>Total Amount : { od.total_amount }</p>
+          <p>Payment Received : { od.payment_received }</p>
+            <p>Payment Pending : { od.payment_pending }</p>
+          </div>
+          <div className='order__detail__2'>
+          <h4>User Detail</h4>
+          <p>_id : { od.userID }</p>
+          <p>Name : { od.username }</p>
+          <p>Phone : { od.phoneNumber }</p>
+          <h4>Product Detail</h4>
+          <p>Product Ordered : { od.product }</p>
+          <p>Product Id : { od.product_id }</p>
+        </div>
+          </div>
+          <hr />
+          <h4>Edit Order</h4>
           <form onSubmit={ ( e ) => onSubmitForm( e ) }>
+            <b><p>Changing Status and Creating of Whole Order will come  here</p></b>
             <label>
               CHANGE STATUS :
               <select
@@ -106,6 +132,13 @@ export function AllOrders ()
 //       )
 // }
 
+  const [id, setid] = useState()
+  function handleClick ( _id )
+  {
+    setOrderRequestModalShow( true )
+    console.log( _id )
+    setid(_id)
+  }
   return (
   
     <div className='allorders'>
@@ -142,8 +175,8 @@ export function AllOrders ()
                         <td>{ item.exp_del }</td>
                         <td>{ item.total_amount }</td>
                         <td>{ item.del_address.locality } </td>
-                        <td><i className="fas fa-edit" onClick={ () => setOrderRequestModalShow( true ) } />
-                          <OrderRequestModal show={ orderRequestModalShow } onHide={ () => setOrderRequestModalShow( false ) } idget={ item._id } /></td>
+                        <td><i className="fas fa-edit" onClick={ () => handleClick(item._id)} />
+                          <OrderRequestModal show={ orderRequestModalShow } onHide={ () => setOrderRequestModalShow( false ) } idget={ id } /></td>
                       </tr>
                     )
                   }
@@ -190,8 +223,8 @@ export function AllOrders ()
                         <td>{ item.exp_del }</td>
                         <td>{ item.total_amount }</td>
                         <td>{ item.del_address.locality } </td>
-                        <td><i className="fas fa-edit" onClick={ () => setOrderRequestModalShow( true ) } />
-                          <OrderRequestModal show={ orderRequestModalShow } onHide={ () => setOrderRequestModalShow( false ) } idget={ item._id } /></td>
+                        {/* <td><i className="fas fa-edit" onClick={ () => setOrderRequestModalShow( true ) } />
+                          <OrderRequestModal show={ orderRequestModalShow } onHide={ () => setOrderRequestModalShow( false ) } idget={ item._id } /></td> */}
                       </tr>
                     )
                   }

@@ -438,3 +438,13 @@
   display: flex;
   margin: 10px auto;
 }
+
+
+.create__an__order .modal-content{
+  max-width: 100% !important;
+}
+
+.create__an__order .modal-content .modal-body .order{
+   display: flex;
+   flex-direction: row;
+}

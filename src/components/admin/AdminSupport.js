@@ -1,7 +1,7 @@
 import React, { Component, useState, useContext, useEffect } from "react";
 import { Table} from 'react-bootstrap'
 import {Modal} from 'react-bootstrap'
-import { fetchProducts, fetchUsers, fetchSupport, fetchOrderReq, fetchLenderReq} from '../../config'
+import {  fetchSupport } from '../../config'
 import axios from "axios"
 
 export function AdminSupport ()
@@ -11,7 +11,7 @@ export function AdminSupport ()
   const [ s, setS ] = useState( [] )
     useEffect(() => {
     const fetchAPI = async () => {
-        setS( await fetchSupport() );
+      setS( await fetchSupport() );
     };
 		fetchAPI();
 		axios.get("https://backendrentkar.herokuapp.com/support/").then((data) => {
@@ -95,10 +95,10 @@ export function AdminSupport ()
         )
   }
   const [ id, setid ] = useState()
-  function handleClick(e){
+  function handleClick(_id){
     setSupportRequestModalShow( true )
-    console.log( e )
-    setid(e)
+    console.log( _id )
+    setid(_id)
   }
   return (
     <div className='support'>
@@ -132,7 +132,7 @@ export function AdminSupport ()
                     <td>{item.createdAt }</td>
                     <td>{ item.supporttype }</td>
                     <td>{ item.statement }</td>
-                    <td><i className="fas fa-edit" onClick={ (e) => handleClick(item._id)} />
+                    <td><i className="fas fa-edit" onClick={ () => handleClick(item._id)} />
 							<SupportRequestModal show={ supportRequestModalShow } onHide={ () => setSupportRequestModalShow( false ) } idget={id} /></td>
                   </tr>
                 )
