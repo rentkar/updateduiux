@@ -18,7 +18,7 @@
 	/* margin: auto; */
 	align-items: center;
 	text-align: center;
-	justify-content: space-evenly;
+	justify-content: space-between;
 }
 .main div {
 	padding: 0 11px;
@@ -47,9 +47,7 @@
 	display: none;
 	/* max-width: 10px; */
 }
-.bar img {
-	max-width: 40px;
-}
+
 .but button:hover {
 	border-color: #1383bb;
 	transition: 0.5s;
@@ -233,7 +231,7 @@
 	border: none;
 	padding: 8px 0px;
 	float: left;
-	min-width: 30vw;
+	min-width: 25vw;
 	line-height: 0%;
 }
 .searc input:focus,
@@ -339,7 +337,7 @@
 
 @media screen and (max-width: 992px) {
 	.container {
-		max-width: 100%;
+		width: 100%;
 		height: 70px;
 	}
 	.searc,

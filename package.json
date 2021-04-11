@@ -1,7 +1,7 @@
 {
   "name": "rentkar",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "https://rentkar-ky.web.app/",
   "dependencies": {
     "@aws-amplify/auth": "^3.4.27",
     "@aws-amplify/cli": "^4.45.2",

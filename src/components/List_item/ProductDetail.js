@@ -1,21 +1,19 @@
-import React, { Component } from 'react'
+import React, {useState} from 'react'
 
 import './ProductDetails.css';
 
-export class  ProductDetail extends Component {
-    constructor(props) {
-        super(props);
-    }
-    continue = e => {
+function ProductDetail ( props )
+{
+    const next = e => {
         e.preventDefault();
-        this.props.nextStep();
+        props.nextStep();
     };
 
-    back = e => {
+    const back = e => {
         e.preventDefault();
-        this.props.prevStep();
+        props.prevStep();
     };
-    render() {
+    
         return (
             <div className="product">
                 <h1>Earn money by listing
@@ -25,26 +23,25 @@ export class  ProductDetail extends Component {
             <div className='form__product__details'>
                 <div className='input_name'>
                     <p>Enter Product Name</p>
-                    <input className="productinput" placeholder='Enter your Product Name'></input>
+                    <input className="productinput" value={props.product} onChange={( e ) => props.setproduct( e.target.value )}  placeholder='Enter your Product Name'></input>
                 </div>
 
                 <div className='input_name'>
                     <p>Enter Year of Purchase</p>
-                    <input className="productinput" placeholder='Year pf Purchase'></input>
+                    <input className="productinput" value={props.yearofpurchase} onChange={( e ) => props.setyearofpurchase( e.target.value )}  placeholder='Year pf Purchase'></input>
                 </div>
 
                 <div className='input_name'>
                     <p>Enter any Additional Details</p>
-                    <input className="productinput" placeholder='Additional Details'></input>
+                    <input className="productinput" value={props.additionaldetail} onChange={( e ) => props.setadditionaldetail( e.target.value )}  placeholder='Additional Details'></input>
                 </div>
                     </div>
                 <div className='buttons'>
-                    <button className='but1' onClick={this.back} >Previous</button>
-                    <button className='but2' onClick={this.continue}>Next</button>
+                    <button className='but1' onClick={back} >Previous</button>
+                    <button className='but2' onClick={next}>Next</button>
                 </div>
             </div>
         )
-    }
 }
 
 export default ProductDetail;

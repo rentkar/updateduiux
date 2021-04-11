@@ -1,15 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { guitar } from './guitar.png';
 
 import './Item.css';
 
-export class Item extends Component {
-    constructor(props) {
-        super(props);
+function Item(props){
 
-    }
-
-    image = {
+    const image = {
         height: '120px',
         width: '100px',
         borderRadius: '5px',
@@ -18,7 +14,7 @@ export class Item extends Component {
 
     }
 
-    selected = [];
+    const selected = [];
 
     // itemstyle = {
     //     margin: '15px',
@@ -26,54 +22,53 @@ export class Item extends Component {
     //     boxShadow: '3px 3px 10px rgba(0, 0, 0, 0.2)',
     //     backgroundImage: 'url(' + {guitar} + ')'
     // }
-    items = [
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
-        <div className='else__items'><div style={this.image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+    const items = [
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
+        <div className='else__items'><div style={image} ><i class="fas fa-check-circle"></i><p>GUITAR</p></div></div>,
     ]
 
 
 
-    continue = e => {
+    const next = e => {
         e.preventDefault();
-        this.props.nextStep();
+        props.nextStep();
     };
 
-    back = e => {
+    const back = e => {
         e.preventDefault();
-        this.props.prevStep();
+        props.prevStep();
     };
-    changeStyle = (e, data) => {
+    const changeStyle = (e, data) => {
         if (e.target.querySelector('i') !== null) {
-            if (!this.selected.includes(data)) {
+            if (!selected.includes(data)) {
                 e.target.style.boxShadow = `inset 0 0 0 1000px rgba(143,227,205,0.9)`;
-                this.selected.push(data);
+                selected.push(data);
                 e.target.querySelector('i').style.display = `block`;
             }
             else {
                 e.target.style.boxShadow = `inset 0 0 0 1000px rgba(143,227,205,0)`;
-                this.selected.pop(data);
+                selected.pop(data);
                 e.target.querySelector('i').style.display = `none`;
             }
         }
         console.log(e);
         // alert(e.target.style.borderRadius = `2px`);
     }
-    render() {
         return (
             <div className='chooseitems'>
 
@@ -81,10 +76,10 @@ export class Item extends Component {
     
                 <div className='items'>
                     {
-                        this.items.map((item, index) => {
+                        items.map((item, index) => {
                             console.log(index);
                             return (
-                                <div className='item' data={index} onClick={((e) => this.changeStyle(e, index))}>{item}</div>
+                                <div className='item' data={index} onClick={((e) => changeStyle(e, index))}>{item}</div>
                             )
                         })
                     }
@@ -92,13 +87,13 @@ export class Item extends Component {
                 
 
                 <div className='buttons'>
-                    <button className='but1' onClick={this.back}>Previous</button>
-                    <button className='but2' onClick={this.continue}>Next</button>
+                    <button className='but1' onClick={back}>Previous</button>
+                    <button className='but2' onClick={next}>Next</button>
                 </div>
             </div>
 
         )
     }
-}
+
 
 export default Item

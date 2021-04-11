@@ -1,21 +1,20 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
 import './Personal.css';
 
-export class Personaldetail extends Component {
-    constructor(props) {
-        super(props);
-    }
-    continue = e => {
+function Personaldetail ( props )
+{
+        const next = e => {
         e.preventDefault();
-        this.props.nextStep();
+        props.nextStep();    
     };
+    
 
-    exit = e => {
+    const exit = e => {
         e.preventDefault();
-        this.props.show();
+        props.show();
     }
-    render() {
+
         return (
             <div className="personal">
                 <h1>Earn money by listing
@@ -25,26 +24,26 @@ export class Personaldetail extends Component {
             <div className='form__personal__details'>
                 <div className='input_name'>
                     <p>Your Name</p>
-                    <input className="personlinput" placeholder='Enter the name'></input>
+                        <input value={ props.name } onChange={( e ) => props.setname( e.target.value )} className="personlinput" placeholder='Enter the name'></input>
                 </div>
 
                 <div className='input_name'>
                     <p>Mobile No.</p>
-                    <input className="personlinput" placeholder='Phone No.'></input>
+                    <input value={props.phone} onChange={( e ) => props.setphone( e.target.value )}  className="personlinput" placeholder='Phone No.'></input>
                 </div>
 
                 <div className='input_name'>
                     <p>Email</p>
-                    <input className="personlinput" placeholder='abc@gmail.com'></input>
+                    <input value={props.email} onChange={( e ) => props.setemail( e.target.value )}   className="personlinput" placeholder='abc@gmail.com'></input>
                 </div>
                     </div>
                 <div className='buttons'>
-                    <button className='but1' onClick={this.exit} >Exit</button>
-                    <button className='but2' onClick={this.continue}>Next</button>
+                    <button className='but1' onClick={exit} >Exit</button>
+                    <button className='but2' onClick={next}>Next</button>
                 </div>
             </div>
         )
     }
-}
+
 
 export default Personaldetail

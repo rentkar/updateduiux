@@ -165,7 +165,7 @@ export default function ProductPage(props) {
   {
     setstartdate(e.target.value )
   }
-    var enddate = new Date(new Date().setDate(new Date(startdate).getDate() + (day +1) )).toDateString()
+    var enddate = new Date(new Date().setDate(new Date(startdate).getDate() + (day) )).toDateString()
 
   
   function orderplace(e) {

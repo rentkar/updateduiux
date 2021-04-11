@@ -377,5 +377,5 @@ export const fetchLenderReq = async () =>
   }
 }
 
-//  mongodb+srv://rentkar:rentkar890@cluster0.buwsg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
+// mongodb+srv://rentkar:rentkar890@cluster0.buwsg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority

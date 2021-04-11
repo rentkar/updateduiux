@@ -141,28 +141,24 @@ export function Lenders ()
         <Table striped bordered hover responsive className="table-sm">
           <thead>
             <th>REQUEST ID</th>
-            <th>USER ID</th>
-            <th>LENDER</th>
-            <th>USER NAME</th>
-            <th>PRODUCTS</th>
+            <th>Lender Name</th>
+            <th>Phone Number</th>
+            <th>PRODUCT</th>
             <th>REQUEST DATE</th>
             <th>TAKE ACTION</th>
           </thead>
             <tbody>
-              { lr.map(( item ) => {
-                return(
+      
                   <tr>
-                    <td>{ item._id }</td>
-                    <td>{ item.userId._id }</td>
-                    <td>{ item.userId.lender.toString() }</td>
-                    <td>{ item.userId.username }</td>
-                    <td>{ item.productId.name }</td>
-                    <td>{item.createdAt}</td>
+                    <td>DJDJJD</td>
+                    <td>NAME</td>
+                    <td>893993</td>
+                    <td>PRODUCT</td>
+                    <td>CREATED AT </td>
                     <td><i className="fas fa-edit" onClick={ () => setLenderRequestModalShow( true ) } />
               <LenderRequestModal show={lenderRequestModalShow} onHide={()=> setLenderRequestModalShow(false)} /></td>
                   </tr>
-                )
-              })}
+              
 
           </tbody>
         </Table>

@@ -47,7 +47,7 @@ import Head from "./Head";
 import Floatnav from "./Floatnav";
 import { fetchUserDetail, fetchUserAddressDetail } from "../config";
 
-import { ProductContext } from "../components/ProductContext";
+import { ProductContext } from "./ProductContext";
 import {
   BrowserRouter as Router,
   Switch,
@@ -55,7 +55,7 @@ import {
   Link,
   withRouter,
 } from "react-router-dom";
-import { SaveProductContext } from "../components/SaveProductContext";
+import { SaveProductContext } from "./SaveProductContext";
 import axios from "axios";
 
 const icons = [
@@ -83,260 +83,7 @@ const iconDesc = [
   "Settings",
 ];
 
-function Rentals() {
-  const [product, setProduct] = useContext(ProductContext);
-  // const [total_single_item, settotal_single_item] = useState()
-  const [saveForLater, setSaveForLater] = useState([]);
-  const tenure_change = (e) => {
-    console.log(e.target.value);
-    console.log(e);
-    console.log(document.getElementsByClassName("total_price"));
-  };
 
-  const sendToSaveForLater = (name, price, duration) => {
-    let saveForLaterProduct = {
-      name: name,
-      price: price,
-      duration: duration,
-    };
-    setSaveForLater((prevArray) => [...prevArray, saveForLaterProduct]);
-    let currentArray = saveForLater;
-    console.log(currentArray);
-    let new_product = product.filter((p) => {
-      return p.name !== name;
-    });
-    setProduct(new_product);
-  };
-
-  const Order_card = (props) => (
-    <div class="buttons_mobileview">
-      <div class="image_detail">
-        <div class="image" style={{ backgroundImage: `url(${gp9})` }}></div>
-        <div class="detail">
-          <div class="name">
-            <div class="main_head">
-              <div>
-                <h4 style={{ fontWeight: "700" }}>{props.name}</h4>
-              </div>
-              <div>
-                <h6 style={{ color: "red", fontWeight: "600" }}>
-                  Hurry? Only few in stock
-                </h6>
-              </div>
-            </div>
-            <div class="edit_order">
-              <h6 style={{ color: "#1bacf4" }}>
-                <a>
-                  Edit Order<img src={pencil_b}></img>
-                </a>
-                <span> | </span>
-                <a style={{ color: "red" }}>
-                  Remove&nbsp;&nbsp;<i class="fas fa-trash-alt"></i>
-                </a>
-              </h6>
-            </div>
-          </div>
-          <div class="price">
-            {/*  <div class="rent">
-            <div className="name__">
-                <h6>Rent</h6>
-              </div>
-        
-                <h4 style={{ fontWeight: "600" }}>
-                  <i class="fas fa-rupee-sign    "></i> {props.price} /Day
-                </h4>
-              </div> */}
-            <div class="tenure">
-              <div className="name__">
-                <h6>
-                  Tenure <i class="far fa-clock"></i>
-                </h6>
-              </div>
-
-              <select onChange={tenure_change} name="tenure" id="tenure">
-                <option value={2}>2 Weeks</option>
-                <option value={3}>3 Weeks</option>
-                <option value={4}>4 Weeks</option>
-                <option value={5}>5 Weeks</option>
-              </select>
-              {/* <h4 >2 Weeks</h4> */}
-            </div>
-
-            <div class="dod">
-              <div className="dodname">
-                <h6>Date of Delivery</h6>
-              </div>
-              <div>
-                <h4 style={{ fontWeight: "600" }}>21-02-2000</h4>
-              </div>
-              {/*  <div className="dodname">
-                <h6>Date of Pickup</h6>
-              </div>
-              <div>
-                <h4 style={{ fontWeight: "600" }}>
-                  21-02-2000
-                </h4>
-              </div>*/}
-            </div>
-            <div class="dod">
-              <div className="dodname">
-                <h6>Date of Delivery</h6>
-              </div>
-              <div>
-                <h4 style={{ fontWeight: "600" }}>21-02-2000</h4>
-              </div>
-              {/*}  <div className="dodname">
-                <h6>Date of Pickup</h6>
-              </div>
-              <div>
-                <h4 style={{ fontWeight: "600" }}>
-                  21-02-2000
-                </h4>
-              </div>*/}
-            </div>
-            {/*      <div class="dop">
-              <div className="dopname">
-                <h6>Date of Pickup</h6>
-              </div>
-              <div>
-                <h4 style={{ fontWeight: "600" }}>
-                  28-02-2000
-                </h4>
-                </div>
-            </div>  */}
-            {/* <div class="deposit">
-                            <div className="name__">
-                                <h6>Deposit</h6>
-                            </div>
-                            <h4 style={{ fontWeight: "600" }}>0</h4>
-                        </div> */}
-          </div>
-          <div class="total">
-            <div class="mybag_button">
-              <div class="placeorder">
-                <button className="but1">Place Order</button>
-              </div>
-              {props.flag === 0 ? (
-                <div class="saveforlater">
-                  <button
-                    className="but2"
-                    onClick={() =>
-                      sendToSaveForLater(
-                        props.name,
-                        props.price,
-                        props.duration
-                      )
-                    }
-                  >
-                    Save for Later
-                  </button>
-                </div>
-              ) : null}
-            </div>
-
-            <div>
-              <div class="total_price">
-                <h4 style={{ fontWeight: "600" }}>
-                  Total: <i class="fas fa-rupee-sign    "></i>{" "}
-                  {props.price * props.duration}
-                </h4>
-                <h6
-                  style={{ fontWeight: "600", color: "#1bacf4" }}
-                  className="pricebreakdown"
-                >
-                  <i class="fas fa-exclamation-circle"></i>Price Breakdown
-                </h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mobile_button">
-        <div class="mybag_button">
-          <div class="placeorder">
-            <button className="but1">Place Order</button>
-          </div>
-          {props.flag === 0 ? (
-            <div class="saveforlater">
-              <button
-                className="but2"
-                onClick={() =>
-                  sendToSaveForLater(props.name, props.price, props.duration)
-                }
-              >
-                Save for Later
-              </button>
-            </div>
-          ) : null}
-
-          <div class="saveforlater">
-            <button className="but2">Remove</button>
-          </div>
-        </div>
-
-        <div>
-          <div class="total_price">
-            <h4 style={{ fontWeight: "600" }}>
-              Total: <i class="fas fa-rupee-sign    "></i>{" "}
-              {props.price * props.duration}
-            </h4>
-            <h6
-              style={{ fontWeight: "600", color: "#1bacf4" }}
-              className="pricebreakdown"
-            >
-              <i class="fas fa-exclamation-circle"></i>Price Breakdown
-            </h6>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-  return (
-    <div style={{ height: "720px", overflowY: "scroll" }}>
-      {product.map((product) => (
-        <div className="order_card">
-          <Order_card
-            name={product.name}
-            price={product.price}
-            duration={product.duration}
-            flag={0}
-          />
-        </div>
-      ))}
-
-      <div className="checkout">
-        <div className="cost">
-          <h6>
-            Total: &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-rupee-sign    "></i>
-            5460 &nbsp;&nbsp;|&nbsp;&nbsp; Delivery by 21 September{" "}
-            <i class="fa fa-truck" aria-hidden="true"></i>
-          </h6>
-        </div>
-        <div class="cost_mobile">
-          <h6>
-            Total: &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-rupee-sign    "></i>
-            5460 <br></br> Delivery by 21 September{" "}
-            <i class="fa fa-truck" aria-hidden="true"></i>
-          </h6>
-        </div>
-
-        <div className="checkout_button">
-          <button>Place Order</button>
-        </div>
-      </div>
-      {saveForLater.map((saveForLater) => (
-        <div className="order_card">
-          <Order_card
-            name={saveForLater.name}
-            price={saveForLater.price}
-            duration={saveForLater.duration}
-            flag={-1}
-          />
-        </div>
-      ))}
-    </div>
-  );
-}
 
 function MyBag(props) {
   const [product, setProduct] = useContext(ProductContext);
@@ -366,7 +113,7 @@ function MyBag(props) {
   const Order_card = (props) => (
     <div class="buttons_mobileview">
       <div class="image_detail">
-        <div class="image" style={{ backgroundImage: `url(${gp9})` }}></div>
+        <img className='image' src={gp9} />
         <div class="detail">
           <div class="name">
             <div class="main_head">
@@ -1684,6 +1431,262 @@ export const UserDash = (props) => {
     5: "/settings",
   };
 
+  function Rentals() {
+  const [product, setProduct] = useContext(ProductContext);
+  // const [total_single_item, settotal_single_item] = useState()
+  const [saveForLater, setSaveForLater] = useState([]);
+  const tenure_change = (e) => {
+    console.log(e.target.value);
+    console.log(e);
+    console.log(document.getElementsByClassName("total_price"));
+  };
+
+  const sendToSaveForLater = (name, price, duration) => {
+    let saveForLaterProduct = {
+      name: name,
+      price: price,
+      duration: duration,
+    };
+    setSaveForLater((prevArray) => [...prevArray, saveForLaterProduct]);
+    let currentArray = saveForLater;
+    console.log(currentArray);
+    let new_product = product.filter((p) => {
+      return p.name !== name;
+    });
+    setProduct(new_product);
+  };
+
+  const Order_card = (props) => (
+    <div class="buttons_mobileview">
+      <div class="image_detail">
+        <div class="image" style={{ backgroundImage: `url(${gp9})` }}></div>
+        <div class="detail">
+          <div class="name">
+            <div class="main_head">
+              <div>
+                <h4 style={{ fontWeight: "700" }}>{props.name}</h4>
+              </div>
+              <div>
+                <h6 style={{ color: "red", fontWeight: "600" }}>
+                  Hurry? Only few in stock
+                </h6>
+              </div>
+            </div>
+            <div class="edit_order">
+              <h6 style={{ color: "#1bacf4" }}>
+                <a>
+                  Edit Order<img src={pencil_b}></img>
+                </a>
+                <span> | </span>
+                <a style={{ color: "red" }}>
+                  Remove&nbsp;&nbsp;<i class="fas fa-trash-alt"></i>
+                </a>
+              </h6>
+            </div>
+          </div>
+          <div class="price">
+            {/*  <div class="rent">
+            <div className="name__">
+                <h6>Rent</h6>
+              </div>
+        
+                <h4 style={{ fontWeight: "600" }}>
+                  <i class="fas fa-rupee-sign    "></i> {props.price} /Day
+                </h4>
+              </div> */}
+            <div class="tenure">
+              <div className="name__">
+                <h6>
+                  Tenure <i class="far fa-clock"></i>
+                </h6>
+              </div>
+
+              <select onChange={tenure_change} name="tenure" id="tenure">
+                <option value={2}>2 Weeks</option>
+                <option value={3}>3 Weeks</option>
+                <option value={4}>4 Weeks</option>
+                <option value={5}>5 Weeks</option>
+              </select>
+              {/* <h4 >2 Weeks</h4> */}
+            </div>
+
+            <div class="dod">
+              <div className="dodname">
+                <h6>Date of Delivery</h6>
+              </div>
+              <div>
+                <h4 style={{ fontWeight: "600" }}>21-02-2000</h4>
+              </div>
+              {/*  <div className="dodname">
+                <h6>Date of Pickup</h6>
+              </div>
+              <div>
+                <h4 style={{ fontWeight: "600" }}>
+                  21-02-2000
+                </h4>
+              </div>*/}
+            </div>
+            <div class="dod">
+              <div className="dodname">
+                <h6>Date of Delivery</h6>
+              </div>
+              <div>
+                <h4 style={{ fontWeight: "600" }}>21-02-2000</h4>
+              </div>
+              {/*}  <div className="dodname">
+                <h6>Date of Pickup</h6>
+              </div>
+              <div>
+                <h4 style={{ fontWeight: "600" }}>
+                  21-02-2000
+                </h4>
+              </div>*/}
+            </div>
+            {/*      <div class="dop">
+              <div className="dopname">
+                <h6>Date of Pickup</h6>
+              </div>
+              <div>
+                <h4 style={{ fontWeight: "600" }}>
+                  28-02-2000
+                </h4>
+                </div>
+            </div>  */}
+            {/* <div class="deposit">
+                            <div className="name__">
+                                <h6>Deposit</h6>
+                            </div>
+                            <h4 style={{ fontWeight: "600" }}>0</h4>
+                        </div> */}
+          </div>
+          <div class="total">
+            <div class="mybag_button">
+              <div class="placeorder">
+                <button className="but1">Place Order</button>
+              </div>
+              {props.flag === 0 ? (
+                <div class="saveforlater">
+                  <button
+                    className="but2"
+                    onClick={() =>
+                      sendToSaveForLater(
+                        props.name,
+                        props.price,
+                        props.duration
+                      )
+                    }
+                  >
+                    Save for Later
+                  </button>
+                </div>
+              ) : null}
+            </div>
+
+            <div>
+              <div class="total_price">
+                <h4 style={{ fontWeight: "600" }}>
+                  Total: <i class="fas fa-rupee-sign    "></i>{" "}
+                  {props.price * props.duration}
+                </h4>
+                <h6
+                  style={{ fontWeight: "600", color: "#1bacf4" }}
+                  className="pricebreakdown"
+                >
+                  <i class="fas fa-exclamation-circle"></i>Price Breakdown
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mobile_button">
+        <div class="mybag_button">
+          <div class="placeorder">
+            <button className="but1">Place Order</button>
+          </div>
+          {props.flag === 0 ? (
+            <div class="saveforlater">
+              <button
+                className="but2"
+                onClick={() =>
+                  sendToSaveForLater(props.name, props.price, props.duration)
+                }
+              >
+                Save for Later
+              </button>
+            </div>
+          ) : null}
+
+          <div class="saveforlater">
+            <button className="but2">Remove</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="total_price">
+            <h4 style={{ fontWeight: "600" }}>
+              Total: <i class="fas fa-rupee-sign    "></i>{" "}
+              {props.price * props.duration}
+            </h4>
+            <h6
+              style={{ fontWeight: "600", color: "#1bacf4" }}
+              className="pricebreakdown"
+            >
+              <i class="fas fa-exclamation-circle"></i>Price Breakdown
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+  return (
+    <div style={{ height: "720px", overflowY: "scroll" }}>
+      {product.map((product) => (
+        <div className="order_card">
+          <Order_card
+            name={product.name}
+            price={product.price}
+            duration={product.duration}
+            flag={0}
+          />
+        </div>
+      ))}
+
+      <div className="checkout">
+        <div className="cost">
+          <h6>
+            Total: &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-rupee-sign    "></i>
+            5460 &nbsp;&nbsp;|&nbsp;&nbsp; Delivery by 21 September{" "}
+            <i class="fa fa-truck" aria-hidden="true"></i>
+          </h6>
+        </div>
+        <div class="cost_mobile">
+          <h6>
+            Total: &nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-rupee-sign    "></i>
+            5460 <br></br> Delivery by 21 September{" "}
+            <i class="fa fa-truck" aria-hidden="true"></i>
+          </h6>
+        </div>
+
+        <div className="checkout_button">
+          <button>Place Order</button>
+        </div>
+      </div>
+      {saveForLater.map((saveForLater) => (
+        <div className="order_card">
+          <Order_card
+            name={saveForLater.name}
+            price={saveForLater.price}
+            duration={saveForLater.duration}
+            flag={-1}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+  
   const DetailsCard = ({ index }) => (
     <Link style={{ textDecoration: "none" }} to={indexMap[index]}>
       <Card className="detailsCard">
@@ -1776,13 +1779,7 @@ export const UserDash = (props) => {
                 <h4>{user[1]["value"]}</h4>
                 <h4>{user[2]["value"]}</h4>
               </div>
-              <div className="marker">
-                <Link to="/settings">
-                  <a>
-                    <img id="pencil" src={pencil}></img>
-                  </a>
-                </Link>
-              </div>
+              
             </div>
           </div>
           <div className="details">

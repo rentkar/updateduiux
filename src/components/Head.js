@@ -23,7 +23,6 @@ import mumbai_c from '../images/mumbai.png';
 import pune_c from '../images/PuneC.png';
 import mumbaig from '../images/mumbaig.png';
 import puneg from '../images/PuneCG.png';
-import bar from '../images/icons/new icin-16.png';
 
 import { ProductContext } from '../components/ProductContext';
 

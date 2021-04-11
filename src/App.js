@@ -57,7 +57,7 @@ function App ()
 							
 							<Route path='/calculator'><Calculator /></Route>
 			
-							<Route path='/product/:_id'>
+							<Route exact path='/product/:_id'>
 								<>
 								<Floatnav className='floatnav' />
 								<Head />

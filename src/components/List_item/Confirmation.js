@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import './Confirmation.css';
 
-export class Confirmation extends Component {
+function Confirmation (props) {
 
-    back = e => {
+    const back = e => {
         e.preventDefault();
-        this.props.prevStep();
+        props.prevStep();
     }
-    confirm = e => {
+    const confirm = e => {
         e.preventDefault();
-        this.props.show();
+        props.handleSubmit()
+        props.show();
 
     }
-    render() {
         return (
             <div className='confirmation'>
                 <h1>Earn money by listing
@@ -20,12 +20,12 @@ export class Confirmation extends Component {
                 <h4>We help you with delivery, pick up
                     and total security of your products</h4>
                 <div className='buttons'>
-                    <button className='but1' onClick={this.back}>Previous</button>
-                    <button className='but2' onClick={this.confirm}>Confirm</button>
+                    <button className='but1' onClick={back}>Previous</button>
+                    <button className='but2' onClick={confirm}>Confirm</button>
                 </div>
             </div>
         )
     }
-}
+
 
 export default Confirmation
