@@ -3,12 +3,12 @@ import { Table,Modal} from 'react-bootstrap'
 import "./admindashboard.css";
 import { fetchProducts, fetchUsers, fetchSupport, fetchOrderReq, fetchOrderReqById, fetchLenderReq } from '../../config'
 import axios from "axios"
-
+import OrderRequestModal from './OrderRequestModal'
 export function AllOrders ()
 {
   
   const [ orderRequestModalShow, setOrderRequestModalShow ] = useState( false ) 
-  const [ orderModalShow, setOrderModalShow ] = useState( false )
+//  const [ orderModalShow, setOrderModalShow ] = useState( false )
   
     const [ or, setor ] = useState( [] )
    useEffect(() => {
@@ -18,98 +18,7 @@ export function AllOrders ()
      fetchAPI();
    }, [] );
 
-  function OrderRequestModal ( props )
-  {
-    const [ status, setstatus ] = useState( "" );
-    const [ od, setOd] = useState([])
-    function valuestates(e) {
-      setstatus( e.target.value);
-      console.log(status)
-    }
-  
-    useEffect(() => {
-    const fetchAPI = async () => {
-      setOd( await fetchOrderReqById( props.idget ) )
-      console.log(od)
-    };
-     fetchAPI();
-   }, [props.idget ] );
-    function onSubmitForm(e) {
-      // e.preventDefault();
-      axios.put(`https://backendrentkar.herokuapp.com/orderreq/${props.idget}`, {
-        status: status
-      });
-    }
 
-    return(
-        <Modal { ...props }
-        size='lg'
-        className='create__an__order'
-            aria-labelledby='contained-modal-title-vcenter'>
-            <Modal.Header closeButton>
-                <Modal.Title>Create/Edit an Order</Modal.Title>
-            </Modal.Header>
-        <Modal.Body>
-          <div className='order'>
-          <div className='order__detail__1'>
-        <h4>Order Details</h4>
-          <p> Id : <span>{ od._id }</span></p>
-          <p>Applied For POD : { od.appliedForPOD }</p>
-          <p>Current Status : { od.status }</p>
-          <p>Delivery Address : { od.houseNumber }, { od.street }, { od.locality }, { od.city }, { od.state }, { od.zip }</p>
-          <p>Order Requested At : { od.requestedOn }</p>
-          <p>Delivery Date : { od.exp_del }</p>
-          <p>Pickup Date : { od.exp_pickup }</p>
-          <p>Total Amount : { od.total_amount }</p>
-          <p>Payment Received : { od.payment_received }</p>
-            <p>Payment Pending : { od.payment_pending }</p>
-          </div>
-          <div className='order__detail__2'>
-          <h4>User Detail</h4>
-          <p>_id : { od.userID }</p>
-          <p>Name : { od.username }</p>
-          <p>Phone : { od.phoneNumber }</p>
-          <h4>Product Detail</h4>
-          <p>Product Ordered : { od.product }</p>
-          <p>Product Id : { od.product_id }</p>
-        </div>
-          </div>
-          <hr />
-          <h4>Edit Order</h4>
-          <form onSubmit={ ( e ) => onSubmitForm( e ) }>
-            <b><p>Changing Status and Creating of Whole Order will come  here</p></b>
-            <label>
-              CHANGE STATUS :
-              <select
-                name="status"
-                onChange={valuestates}>
-                <option disabled selected value>
-                  {" "}
-                  -- select an option --{" "}
-                </option>
-                <option value="ACTIVE">ACTIVE</option>
-                <option value="CONFIRMED">CONFIRMED</option>
-                <option value="DISPATCH">DISPATCH</option>
-                <option value="DELIVERED">DISPATCH</option>
-                <option value="PICKUP">PICKUP</option>
-                <option value="EXTEND">EXTEND</option>
-              </select>
-            </label>
-            <div>
-              <div className="btn btn-outline-dark" onClick={props.onHide}>
-                Close
-              </div>
-              <input
-                className="btn btn-outline-success"
-                type="submit"
-                value="Submit"
-              />
-            </div>
-          </form>
-            </Modal.Body>
-        </Modal>
-        )
-  }
 
 //     function OrderModal ( props ){
 //   return(
@@ -234,8 +143,6 @@ export function AllOrders ()
         </Table>
       </div>
       </div>    
-              <div className='btn btn-outline-info' onClick={ () => setOrderModalShow( true ) }><i className="fas fa-plus-circle" /> ADD A NEW ORDER</div>
-
     </div>
     
   )

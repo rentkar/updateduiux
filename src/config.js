@@ -314,7 +314,7 @@ export const fetchOrderReqById = async ( _id ) =>
       username: data.userId.username,
       phoneNumber: data.userId.phoneNumber,
       product: data.productId.name,
-      product_id: data.productId._id
+      product_id: data.productId._id,
     }
   
     

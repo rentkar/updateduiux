@@ -29,6 +29,8 @@ import Calculator from './components/calculator'
 import LoginTest from './components/Login/logintest'
 import LenderCalculator from './components/lendercalculator'
 import Confirmation from './components/Confirmation'
+import T from './components/rrr'
+
 function App ()
 {
 	return (
@@ -164,7 +166,10 @@ function App ()
 							<Know_more />
 							<Footer />
 							</>	
-						</Route>
+							</Route>
+							<Route path='/t'>
+								<T />
+							</Route>
 						<Route
 							path='/category'
 							render={(props) => (

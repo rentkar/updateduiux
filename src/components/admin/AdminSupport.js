@@ -24,10 +24,7 @@ export function AdminSupport ()
 	function SupportRequestModal ( props ){
     const [ resolved, setResolved ] = useState( false);
     const [solution, setSolution] = useState("");
-    function valuestates(e) {
-      setResolved( e.target.value);
-      console.log(resolved)
-    }
+    
     function onSubmitForm(e) {
        e.preventDefault();
       axios.put(`https://backendrentkar.herokuapp.com/support/${props.idget}`, {
@@ -54,11 +51,12 @@ export function AdminSupport ()
             <p>{ props.idget }</p>
             <label>
               CHANGE STATUS :
-              <select 
+              <select
                 //onChange{e => setResolved( e.currentTarget.value ) }
                 name="supportstatus"
                 // onChange={}
-               onChange={valuestates}
+                value={ resolved }
+                onChange={( e ) => setResolved( e.target.value)}
               >
                 <option disabled selected value>
                   {" "}
