@@ -7,17 +7,56 @@ import "antd/dist/antd.css";
 
 import "./Login.css";
 import FadeIn from "react-fade-in";
+import Alert from "@material-ui/lab/Alert";
+import Snackbar from "@material-ui/core/Snackbar";
+
+class Toast extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: true,
+    };
+    this.handleClose = this.handleClose.bind(this);
+  }
+
+  handleClose(e, reason) {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    this.setState({ open: false });
+    this.props.onHide();
+  }
+
+  render() {
+    return (
+      <Snackbar
+        open={this.state.open}
+        autoHideDuration={5000}
+        onClose={this.handleClose}
+      >
+        <Alert severity={this.props.severity} onClose={this.handleClose}>
+          {this.props.text}
+        </Alert>
+      </Snackbar>
+    );
+  }
+}
 
 class LoginForm extends Component {
-  state = {
-    phone: "+91",
-    isAction: false,
-    code: "",
-    verificationId: "",
-    isLoading: false,
-  };
-
-  //componentMount() {}
+  constructor(props) {
+    super(props);
+    this.state = {
+      phone: "+91",
+      isAction: false,
+      code: "",
+      verificationId: "",
+      isLoading: false,
+      alertBox: "",
+      toast: "",
+    };
+    this.handleHide = this.handleHide.bind(this);
+  }
 
   onsubmit = () => {
     window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
@@ -27,9 +66,8 @@ class LoginForm extends Component {
       }
     );
     const { phone } = this.state;
-
     if (!phone) {
-      message.warn("Phone number is empty");
+      this.setState({ toast: <Toast severity="error" text="Phone number can't be empty" onHide={this.handleHide} /> });
       return;
     }
 
@@ -37,6 +75,7 @@ class LoginForm extends Component {
 
     const phoneNumber = this.state.phone;
     const appVerifier = window.recaptchaVerifier;
+      // this.setState({ toast: <Toast severity="success" text="Code has been sent" onHide={this.handleHide} /> });
     firebase
       .auth()
       .signInWithPhoneNumber(phoneNumber, appVerifier)
@@ -45,6 +84,7 @@ class LoginForm extends Component {
           verificationId: confirmResult.verificationId,
           isAction: true,
         });
+      console.log()
         window.confirmationResult = confirmResult;
         message.success("Code sent");
         this.setState({ isLoading: false });
@@ -60,6 +100,7 @@ class LoginForm extends Component {
 
     if (!code) {
       message.warn("Code is empty");
+
       return;
     }
 
@@ -84,13 +125,18 @@ class LoginForm extends Component {
   refreshPage() {
     window.location.reload(false);
   }
-  
+
+  handleHide(){
+    this.setState({toast: ""})
+  }
+
   render() {
-    const { isAction, phone, code, isLoading } = this.state;
+    const { isAction, phone, code, isLoading, open } = this.state;
 
     const viewSignIn = (
       <div className="login">
         <p>Enter your Mobile Number to Login/Sign Up</p>
+        {this.state.toast}
         <Divider />
         <form>
           <Form.Item>
@@ -130,10 +176,12 @@ class LoginForm extends Component {
               placeholder="6-digit verification code"
             />
           </Form.Item>
-          <div className='wrong__number'>
-                    <div className='resend__otp' >Resend OTP</div>
-                    <div onClick={()=>this.refreshPage()} className='change__number'>Change Number</div>
-                </div>
+          <div className="wrong__number">
+            <div className="resend__otp">Resend OTP</div>
+            <div onClick={() => this.refreshPage()} className="change__number">
+              Change Number
+            </div>
+          </div>
           <Form.Item>
             <Button
               className="btn"

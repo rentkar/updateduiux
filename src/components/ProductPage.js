@@ -22,8 +22,10 @@ import "./body.css";
 import add from "../images/add.png";
 import { Carousel, Modal, Button } from "react-bootstrap";
 import AddGamesModal from "./AddGamesModal";
+import {useHistory} from "react-router-dom";
 
 export default function ProductPage(props) {
+  const history = useHistory();
   const [up, setup] = useState(true);
   const [gameModalShow1, setGameModalShow1] = useState(false);
   const [gameModalShow2, setGameModalShow2] = useState(false);
@@ -175,6 +177,7 @@ export default function ProductPage(props) {
     localStorage.setItem("sgst", sgst);
     localStorage.setItem("cgst", cgst);
     localStorage.setItem("total", total);
+    history.push("/checkout")
   }
 
 
@@ -508,7 +511,7 @@ export default function ProductPage(props) {
               <p>Coupon Applied</p>
             </div>
             <button className="col-5"  onClick={(e) => orderplace(e)}>
-              <Link to="/checkout">Place Order</Link>
+              Place Order
             </button>
           </div>
         </div>

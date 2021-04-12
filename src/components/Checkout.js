@@ -43,15 +43,19 @@ import LoginModal from "./Login/LoginModal";
 import AddressModal from "./Address/AddressModal";
 
 export default function Checkout(props) {
-  //   useEffect(() => {
-  //     const sgsts = localStorage.getItem("sgst");
-  //     const cgsts = localStorage.getItem("cgst");
-  //     const totals = localStorage.getItem("total");
-  //     console.log(payments, sgsts, cgsts, totals);
-  //   }, []);
+  const [sgsts, setSgsts] = useState();
+  const [cgsts, setCgsts] = useState();
+  const [totals, setTotal] = useState();
+
+  useEffect(() => {
+    setSgsts(localStorage.getItem("sgst"));
+    setCgsts(localStorage.getItem("cgst"));
+    setTotal(localStorage.getItem("total"));
+  }, []);
   const razorpayHandler = async () => {
-    const API_URL = `https://backendrentkar.herokuapp.com/razorpay/`;
-    const orderUrl = `${API_URL}order`;
+    console.log(sgsts, cgsts, totals);
+    const API_URL = `https://rentkar.herokuapp.com/razpay/`;
+    const orderUrl = `${API_URL}order/${totals}`;
     const response = await Axios.get(orderUrl);
     const { data } = response;
     console.log("App -> razorPayPaymentHandler -> data", data);
@@ -64,7 +68,8 @@ export default function Checkout(props) {
       handler: async (response) => {
         try {
           const paymentId = response.razorpay_payment_id;
-          const url = `${API_URL}capture/${paymentId}`;
+          const API_URL2 = `https://rentkar.herokuapp.com/`;
+          const url = `${API_URL2}capture/${paymentId}/${totals}`;
           const captureResponse = await Axios.post(url, {});
           const successObj = JSON.parse(captureResponse.data);
           const captured = successObj.captured;
@@ -89,9 +94,9 @@ export default function Checkout(props) {
   const [up, setup] = useState(true);
   const [duration, setDuration] = useState("3 Day");
   const [payments, setPayment] = useState(localStorage.getItem("price"));
-  const [sgsts, setSgst] = useState(localStorage.getItem("sgst"));
-  const [cgsts, setCgst] = useState(localStorage.getItem("cgst"));
-  const [totals, setTotals] = useState(localStorage.getItem("total"));
+  // const [sgsts, setSgst] = useState(localStorage.getItem("sgst"));
+  // const [cgsts, setCgst] = useState(localStorage.getItem("cgst"));
+  // const [totals, setTotals] = useState(localStorage.getItem("total"));
 
   const handleDuration = (event, newDuration) => {
     setDuration(newDuration);
@@ -247,5 +252,3 @@ export default function Checkout(props) {
     </div>
   );
 }
-
-
