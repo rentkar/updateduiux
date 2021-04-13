@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import firebase from ".././firebase"
 import Popup from "reactjs-popup";
 import { Grid } from "semantic-ui-react";
 import LoginModal from "./Login/LoginModal";
@@ -50,7 +51,19 @@ export const Head = (props) => {
   const [drop, setdrop] = useState(true);
   const [mumbai_image, setmumbai_image] = useState(mumbai_c);
   const [pune_image, setpune_image] = useState(puneg);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState();
+
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if(user){
+        setIsLoggedIn(true);
+      }
+      else{
+        setIsLoggedIn(false)
+      }
+    })
+  }, [isLoggedIn])
 
   const onfocus = (e) => {
     setdrop(!drop);
@@ -66,7 +79,9 @@ export const Head = (props) => {
   };
 
   function changeLogin(){
-	  setIsLoggedIn(false)
+    firebase.auth().signOut().then(() => {
+      setIsLoggedIn(false)
+    }).catch(err => console.log(err))
   }
   const onChangePune = (e) => {
     // this.setState({ m: this.state.mumbai, m: false });
@@ -235,7 +250,7 @@ export const Head = (props) => {
             ))}
           </Popup>
         </div>
-        {isLoggedIn ? (
+        {!isLoggedIn ? (
           <div className="but" id="sign">
             <button onClick={() => setLoginModalShow(true)}>
               Login/SignUp

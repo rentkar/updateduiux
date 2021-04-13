@@ -67,7 +67,15 @@ class LoginForm extends Component {
     );
     const { phone } = this.state;
     if (!phone) {
-      this.setState({ toast: <Toast severity="error" text="Phone number can't be empty" onHide={this.handleHide} /> });
+      this.setState({
+        toast: (
+          <Toast
+            severity="error"
+            text="Phone number can't be empty"
+            onHide={this.handleHide}
+          />
+        ),
+      });
       return;
     }
 
@@ -75,22 +83,35 @@ class LoginForm extends Component {
 
     const phoneNumber = this.state.phone;
     const appVerifier = window.recaptchaVerifier;
-      // this.setState({ toast: <Toast severity="success" text="Code has been sent" onHide={this.handleHide} /> });
     firebase
       .auth()
       .signInWithPhoneNumber(phoneNumber, appVerifier)
       .then((confirmResult) => {
         this.setState({
+          toast: (
+            <Toast
+              severity="success"
+              text="Code has been sent"
+              onHide={this.handleHide}
+            />
+          ),
+        });
+
+        this.setState({
           verificationId: confirmResult.verificationId,
           isAction: true,
         });
-      console.log()
         window.confirmationResult = confirmResult;
         message.success("Code sent");
         this.setState({ isLoading: false });
       })
       .catch((error) => {
-        message.error(error);
+        // message.error(error);
+        this.setState({
+          toast: (
+            <Toast severity="error" text={error.message} onHide={this.handleHide} />
+          ),
+        });
         this.setState({ isLoading: false });
       });
   };
@@ -126,8 +147,8 @@ class LoginForm extends Component {
     window.location.reload(false);
   }
 
-  handleHide(){
-    this.setState({toast: ""})
+  handleHide() {
+    this.setState({ toast: "" });
   }
 
   render() {
