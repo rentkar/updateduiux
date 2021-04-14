@@ -2,8 +2,8 @@ import React, { Component, useState, useContext, useEffect } from "react";
 import ProductCard4 from "./ProductCard4";
 import guitar from "../images/guitar2.png";
 import search_boy from "../images/search_boy.png";
-import { fetchProducts, fetchUsers, fetchProductDetail} from '../config'
-import {Link} from 'react-router-dom'
+import { fetchProducts, fetchUsers, fetchProductDetail } from "../config";
+import { Link } from "react-router-dom";
 // import './category.css';
 
 import { Card, Image } from "semantic-ui-react";
@@ -74,7 +74,6 @@ import selectedgaming from "../images/icons/catogories-49.png";
 import arrow from "../images/arrow.jpeg";
 
 import "./category.css";
-  
 
 const categories = ["MUSIC", "GAMING", "LAPTOP", "PHOTOGRAPHY"];
 const sub = [
@@ -85,25 +84,25 @@ const sub = [
     "RECORDING",
     "AMPLIFIER",
     "GROOVE",
-    "WIND"
+    "WIND",
   ],
   ["PACKAGES", "PC GAMING", "CONSOLE", "ACCESSORIES"],
   ["GAMING", "i3", "i5", "i7", "MACBOOK", "PC", "TABLET"],
-  ["CAMERA", "FILTERS", "LENS", "LIGHTS", "RECORDING", "RIGS"]
+  ["CAMERA", "FILTERS", "LENS", "LIGHTS", "RECORDING", "RIGS"],
 ];
 const img = [
   [guitar_grey, key, per, rec, amp, groove, wind],
   [packag, pc, gam_con, access],
   [l1, l2, l3, l4, l5, l6, l7],
 
-  [c1, c2, c3, c4, c5, c6]
+  [c1, c2, c3, c4, c5, c6],
 ];
 const selectedImg = [
   [guitar_sel, key_sel, per_sel, rec_sel, amp_sel, groove_sel, wind_sel],
 
   [packag_sel, pc_sel, gam_con_sel, access_sel],
   [l1s, l2s, l3s, l4s, l5s, l6s, l7s],
-  [c1s, c2s, c3s, c4s, c5s, c6s]
+  [c1s, c2s, c3s, c4s, c5s, c6s],
 ];
 
 export const Category = (props) => {
@@ -113,15 +112,14 @@ export const Category = (props) => {
   );
   // sub: 0,
   console.log(props.index);
-const [ p, setP ] = useState( [] )
-    useEffect(() => {
+  const [p, setP] = useState([]);
+  useEffect(() => {
     const fetchAPI = async () => {
-      setP( await fetchProducts() );
+      setP(await fetchProducts());
     };
-     fetchAPI();
-    }, [] );
-  
-  
+    fetchAPI();
+  }, []);
+
   useEffect(() => {
     // return () => {
     document.getElementById("sub" + subb.toString()).style.opacity = "1";
@@ -172,8 +170,7 @@ const [ p, setP ] = useState( [] )
       </Card.Content>
     </Card>
   );
-  
-  
+
   return (
     <div className="category_overview">
       <div className="staticContent sticky">
@@ -185,7 +182,6 @@ const [ p, setP ] = useState( [] )
           </div>
           <div className="categoriesBackground">
             <div className="categories">
-              
               <button
                 id="musicButton"
                 className={category === 0 ? "selectedButton" : "categoryButton"}
@@ -230,10 +226,8 @@ const [ p, setP ] = useState( [] )
                     </div>
                 )
                         } ) }  */}
-
-            
           </div>
-          
+
           <div className="subCategoriesBackground">
             <div className="subCategories">
               {sub[category].map((item, index) => {
@@ -251,11 +245,16 @@ const [ p, setP ] = useState( [] )
       <div className="scrollContent">
         <div className="product_overview">
           <div className="category">
-            { p.filter( p => p.subcategory === sub[category][subb] ).map( item => (
-            <ProductCard4
-						link={ `/product/${ item._id }` }
-						name={ item.productName } startingprice={ item.pricing[ 0 ].price } bg={ `https://backendrentkar.herokuapp.com${ item.img }` } />
-            ))}
+            {p
+              .filter((p) => p.subcategory === sub[category][subb])
+              .map((item) => (
+                <ProductCard4
+                  link={`/product/${item._id}`}
+                  name={item.productName}
+                  startingprice={item.pricing[0].price}
+                  bg={`https://backendrentkar.herokuapp.com${item.img}`}
+                />
+              ))}
           </div>
         </div>
         <div className="search_boy_with_input">
@@ -270,7 +269,6 @@ const [ p, setP ] = useState( [] )
             <button id="category_last_but" className="selectedButton">
               Submit
             </button>
-            
           </div>
         </div>
       </div>

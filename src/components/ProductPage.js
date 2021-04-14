@@ -22,15 +22,15 @@ import "./body.css";
 import add from "../images/add.png";
 import { Carousel, Modal, Button } from "react-bootstrap";
 import AddGamesModal from "./AddGamesModal";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function ProductPage(props) {
   const history = useHistory();
   const [up, setup] = useState(true);
   const [gameModalShow1, setGameModalShow1] = useState(false);
   const [gameModalShow2, setGameModalShow2] = useState(false);
-  const [ price, setPrice ] = useState( 0 );
-  const [newval, setval] = useState()
+  const [price, setPrice] = useState(0);
+  const [newval, setval] = useState({});
   const [freeGames, setFreeGames] = useState();
   const [freeGame2, setFreeGame2] = useState();
   let { _id } = useParams();
@@ -50,8 +50,12 @@ export default function ProductPage(props) {
   var total = price + sgst + cgst;
 
   var val = 0;
-  var i=0;
-  var m=0, j=0, a=0, b=0, c=0;
+  var i = 0;
+  var m = 0,
+    j = 0,
+    a = 0,
+    b = 0,
+    c = 0;
 
   //calculator
   const list1 = [];
@@ -100,7 +104,7 @@ export default function ProductPage(props) {
     list1.push(val);
   }
 
-  const [day, setday] = useState(0)
+  const [day, setday] = useState(0);
 
   useEffect(() => {
     const fetchAPI = async () => {
@@ -108,31 +112,41 @@ export default function ProductPage(props) {
       setpdb(await fetchProductBoxDetail(_id));
       setpdp(await fetchProductPricingDetail(_id));
       setpds(await fetchProductSpecsDetail(_id));
-      setpdi( await fetchProductImagesDetail( _id ) );
+      setpdi(await fetchProductImagesDetail(_id));
     };
     fetchAPI();
-  }, [ _id ] );
-  
+  }, [_id]);
+
   useEffect(() => {
-    if(localStorage.getItem("freeGame1") === null) {
+    if (localStorage.getItem("freeGame1") === null) {
       setIsGame1Selectd(false);
-    }else if(localStorage.getItem("freeGame1") !== null){
+    } else if (localStorage.getItem("freeGame1") !== null) {
       setIsGame1Selectd(true);
     }
 
-    if(localStorage.getItem("freeGame2") === null) {
+    if (localStorage.getItem("freeGame2") === null) {
       setIsGame2Selectd(false);
-    }else if(localStorage.getItem("freeGame2") !== null){
+    } else if (localStorage.getItem("freeGame2") !== null) {
       setIsGame2Selectd(true);
     }
-  }, [ freeGames, freeGame2 ] )
-  
+  }, [freeGames, freeGame2]);
 
-  const handlePrice = ( event, newVal) =>
-  {
-    setval(newVal)
-    setPrice(newVal.list);
-    setday(newVal.days)
+  const handlePrice = (event, newValue) => {
+    setval(newValue);
+    setPrice(newValue);
+    if (newValue === 1100) {
+      setday(1);
+    } else if (newValue === 2000) {
+      setday(3);
+    } else if (newValue === 3500) {
+      setday(7);
+    } else if (newValue === 7600) {
+      setday(30);
+    } else if (newValue === 18100) {
+      setday(90);
+    } else if (newValue === 30700) {
+      setday(180);
+    }
   };
 
   const toggle = () => {
@@ -163,13 +177,13 @@ export default function ProductPage(props) {
     setFreeGames(JSON.stringify(data));
   };
 
-  const handleDate = ( e ) =>
-  {
-    setstartdate(e.target.value )
-  }
-    var enddate = new Date(new Date().setDate(new Date(startdate).getDate() + (day) )).toDateString()
+  const handleDate = (e) => {
+    setstartdate(e.target.value);
+  };
+  var enddate = new Date(
+    new Date().setDate(new Date(startdate).getDate() + day)
+  ).toDateString();
 
-  
   function orderplace(e) {
     // localStorage.setItem("rememberMe", rememberMe);
     // localStorage.setItem("user", rememberMe ? user : "");
@@ -177,9 +191,8 @@ export default function ProductPage(props) {
     localStorage.setItem("sgst", sgst);
     localStorage.setItem("cgst", cgst);
     localStorage.setItem("total", total);
-    history.push("/checkout")
+    history.push("/checkout");
   }
-
 
   return (
     <div className="productPage row">
@@ -241,7 +254,7 @@ export default function ProductPage(props) {
           <h2>Description</h2>
           <p>{pd.description}</p>
         </div>
-    
+
         <div className="recommendations">
           <h2>Recommended Products</h2>
           <div className="product__carousel">
@@ -258,12 +271,13 @@ export default function ProductPage(props) {
         }
       >
         <div className="btn up" onClick={toggle}>
-      <p className='book'> Book Now</p>   <i className={up ? "fas fa-chevron-up" : "fas fa-chevron-down"} />
+          <p className="book"> Book Now</p>{" "}
+          <i className={up ? "fas fa-chevron-up" : "fas fa-chevron-down"} />
         </div>
         <div className="product__name">
           <h2>{pd.productname}</h2>
 
-          <p className='rating'>
+          <p className="rating">
             <i
               className="fas fa-star-half-alt"
               style={{
@@ -277,7 +291,7 @@ export default function ProductPage(props) {
 
         <ToggleButtonGroup
           className="durationPrice"
-          value={ newval}
+          value={newval}
           exclusive
           onChange={handlePrice}
         >
@@ -295,37 +309,37 @@ export default function ProductPage(props) {
  </ToggleButton>
  )
  } ) } */}
-          <ToggleButton className="durationButton col-5" value={ { list: list1[ 0] , days:1}}>
+          <ToggleButton className="durationButton col-5" value={list1[0]}>
             <div>
               <p className="duration">1 Day</p>
               <p className="price">Rs {list1[0]}</p>
             </div>
           </ToggleButton>
-          <ToggleButton className="durationButton col-5" value={ { list: list1[ 3 ] , days:3}}>
+          <ToggleButton className="durationButton col-5" value={list1[2]}>
             <div>
               <p className="duration">3 Days</p>
               <p className="price">Rs {list1[2]}</p>
             </div>
           </ToggleButton>
-          <ToggleButton className="durationButton col-5" value={ { list: list1[ 6 ] , days:7}}>
+          <ToggleButton className="durationButton col-5" value={list1[6]}>
             <div>
               <p className="duration">1 Week</p>
               <p className="price">Rs {list1[6]}</p>
             </div>
           </ToggleButton>
-          <ToggleButton className="durationButton col-5" value={ { list: list1[ 29 ] , days:30}}>
+          <ToggleButton className="durationButton col-5" value={list1[29]}>
             <div>
               <p className="duration">1 Month</p>
               <p className="price">Rs {list1[29]}</p>
             </div>
           </ToggleButton>
-          <ToggleButton className="durationButton col-5" value={ { list: list1[ 89 ] , days:90}}>
+          <ToggleButton className="durationButton col-5" value={list1[89]}>
             <div>
               <p className="duration">3 Months</p>
               <p className="price">Rs {list1[89]}</p>
             </div>
           </ToggleButton>
-          <ToggleButton className="durationButton col-5" value={ { list: list1[ 179 ] , days:180}}>
+          <ToggleButton className="durationButton col-5" value={list1[179]}>
             <div>
               <p className="duration">6 Months</p>
               <p className="price">Rs {list1[179]}</p>
@@ -333,16 +347,14 @@ export default function ProductPage(props) {
           </ToggleButton>
         </ToggleButtonGroup>
 
-                <div className="select__games">
+        <div className="select__games">
           <h3 style={{ textAlign: "left", margin: "20px" }}>
             Select your 2 free games
           </h3>
           <div className="select__free__games">
-            <div
-              className="btn btn-outline-dark games"
-            >
+            <div className="btn btn-outline-dark games">
               <img
-              onClick={() => setGameModalShow1(true)}
+                onClick={() => setGameModalShow1(true)}
                 src={
                   JSON.parse(localStorage.getItem("freeGame1")) !== null
                     ? JSON.parse(localStorage.getItem("freeGame1")).img
@@ -350,17 +362,20 @@ export default function ProductPage(props) {
                 }
               />
               {/* { showFreeBtn1 && <button>X</button> } */}
-              {isGame1Selected && <button onClick={() => {
-                setFreeGames("");
-                localStorage.removeItem("freeGame1")
-              }}>X</button>}
-              
+              {isGame1Selected && (
+                <button
+                  onClick={() => {
+                    setFreeGames("");
+                    localStorage.removeItem("freeGame1");
+                  }}
+                >
+                  X
+                </button>
+              )}
             </div>
-            <div
-              className="btn btn-outline-dark games"
-              >
+            <div className="btn btn-outline-dark games">
               <img
-                  onClick={() => setGameModalShow2(true)}
+                onClick={() => setGameModalShow2(true)}
                 src={
                   JSON.parse(localStorage.getItem("freeGame2")) !== null
                     ? JSON.parse(localStorage.getItem("freeGame2")).img
@@ -368,10 +383,16 @@ export default function ProductPage(props) {
                 }
               />
               {/* { showFreeBtn2 && <button>X</button> } */}
-              {isGame2Selected && <button onClick={() => {
-                setFreeGame2("");
-                localStorage.removeItem("freeGame2")
-              }}>X</button>}
+              {isGame2Selected && (
+                <button
+                  onClick={() => {
+                    setFreeGame2("");
+                    localStorage.removeItem("freeGame2");
+                  }}
+                >
+                  X
+                </button>
+              )}
             </div>
             <AddGamesModal
               show={gameModalShow1}
@@ -387,7 +408,6 @@ export default function ProductPage(props) {
             />
           </div>
         </div>
-
 
         <div className="select__package">
           <h3 style={{ textAlign: "left", margin: "20px" }}>Add Ons</h3>
@@ -412,12 +432,12 @@ export default function ProductPage(props) {
             className="datepicker col-3"
             startWeekDay="monday"
           /> */}
-          <div className='dates'>
-            <input className='date' type='date' onChange={ handleDate } />
-            <div className='date__output'>
+          <div className="dates">
+            <input className="date" type="date" onChange={handleDate} />
+            <div className="date__output">
               <p>{startdate}</p>
-              <p> { ( enddate !== 'Invalid Date' ) ? enddate : "" }</p>
-              </div>
+              <p> {enddate !== "Invalid Date" ? enddate : ""}</p>
+            </div>
           </div>
         </div>
 
@@ -510,7 +530,7 @@ export default function ProductPage(props) {
             <div className="couponStatus col-5">
               <p>Coupon Applied</p>
             </div>
-            <button className="col-5"  onClick={(e) => orderplace(e)}>
+            <button className="col-5" onClick={(e) => orderplace(e)}>
               Place Order
             </button>
           </div>

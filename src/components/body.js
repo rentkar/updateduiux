@@ -93,36 +93,156 @@ import c3 from "../images/icons2/icons/photography/lens grey.png";
 import c4 from "../images/icons2/icons/photography/lights grey.png";
 import c5 from "../images/icons2/icons/photography/recording.png";
 import c6 from "../images/icons2/icons/photography/rigs grey.png";
-import ProductCarousel3 from './productcarousel3'
-const categories = ["Music", "Gaming", "Laptop", "Photography"];
-const sub = [
-  [
-    "Guitar",
-    "Keyboard",
-    "Percussion",
-    "Recording",
-    "Amplifier",
-    "Groove",
-    "Wind"
-  ],
-  ["Packages", "PC Gaming", "Console", "Accessories"],
-  ["Gaming", "i3", "i5", "i7", "Macbook", "PC", "Tablet"],
-  ["Camera", "Filters", "Lens", "Lights", "Recording", "Rigs"]
-];
-const img = [
-  [guitar_grey, key, per, rec, amp, groove, wind],
-  [packag, pc, gam_con, access],
-  [l1, l2, l3, l4, l5, l6, l7],
+import ProductCarousel3 from "./productcarousel3";
 
-  [c1, c2, c3, c4, c5, c6]
+const newCategory = [
+  {
+    category: "MUSIC",
+    subcategory: [
+      {
+        subname: "Guitar",
+        subimg: "/static/media/GUITAR GRADIENT.c5bb0659.png",
+      },
+      {
+        subname: "Keyboard",
+        subimg: "/static/media/keyboard grey.ce5b40e4.png",
+      },
+      {
+        subname: "Percusion",
+        subimg: "/static/media/percussion grey.7996e555.png",
+      },
+      {
+        subname: "Recording",
+        subimg: "/static/media/recording grey.c4153e2a.png",
+      },
+      {
+        subname: "Amplifier",
+        subimg: "/static/media/amplifier grey.e8c31640.png",
+      },
+      {
+        subname: "Groove",
+        subimg: "/static/media/groove.b35810a1.png",
+      },
+      {
+        subname: "Wind",
+        subimg: "/static/media/wind grey.2b7fb30c.png",
+      },
+    ],
+  },
+  {
+    category: "GAMING",
+    subcategory: [
+      {
+        subname: "Packages",
+        subimg: "/static/media/packages colour.b4f2ead0.png",
+      },
+      {
+        subname: "PC Gaming",
+        subimg: "/static/media/pc grey.ad0c6f43.png",
+      },
+      {
+        subname: "Console",
+        subimg: "/static/media/console grey.989b28a6.png",
+      },
+      {
+        subname: "Accessories",
+        subimg: "/static/media/accesories grey.c407dbca.png",
+      },
+    ],
+  },
+  {
+    category: "LAPTOP",
+    subcategory: [
+      {
+        subname: "Gaming",
+        subimg: "/static/media/gaming colour.f96ff986.png",
+      },
+      {
+        subname: "i3",
+        subimg: "/static/media/i3 grey.5ad8cd19.png",
+      },
+      {
+        subname: "i5",
+        subimg: "/static/media/i7 grey.f568a5e3.png",
+      },
+      {
+        subname: "i7",
+        subimg: "/static/media/i7 grey.f568a5e3.png",
+      },
+      {
+        subname: "Macbook",
+        subimg: "/static/media/macbook grey.c2abdb5e.png",
+      },
+      {
+        subname: "Pc",
+        subimg: "/static/media/pc grey.f2050439.png",
+      },
+      {
+        subname: "Tablet",
+        subimg: "/static/media/tablet grey.ac72f849.png",
+      },
+    ],
+  },
+  {
+    category: "PHOTOGRAPHY",
+    subcategory: [
+      {
+        subname: "Camera",
+        subimg: "/static/media/camera colour.123c5a90.png",
+      },
+      {
+        subname: "Filters",
+        subimg: "/static/media/filters grey.7325ad37.png",
+      },
+      {
+        subname: "Lens",
+        subimg: "/static/media/lens grey.ea53f653.png",
+      },
+      {
+        subname: "Lights",
+        subimg: "/static/media/lights grey.a9bd274f.png",
+      },
+      {
+        subname: "Recording",
+        subimg: "/static/media/recording.b73201fe.png",
+      },
+      {
+        subname: "Rigs",
+        subimg: "/static/media/rigs grey.90dd57f8.png",
+      },
+    ],
+  },
 ];
-const selectedImg = [
-  [guitar_sel, key_sel, per_sel, rec_sel, amp_sel, groove_sel, wind_sel],
 
-  [packag_sel, pc_sel, gam_con_sel, access_sel],
-  [l1s, l2s, l3s, l4s, l5s, l6s, l7s],
-  [c1s, c2s, c3s, c4s, c5s, c6s]
-];
+// const categories = ["Music", "Gaming", "Laptop", "Photography"];
+// const sub = [
+//   [
+//     "Guitar",
+//     "Keyboard",
+//     "Percussion",
+//     "Recording",
+//     "Amplifier",
+//     "Groove",
+//     "Wind",
+//   ],
+//   ["Packages", "PC Gaming", "Console", "Accessories"],
+//   ["Gaming", "i3", "i5", "i7", "Macbook", "PC", "Tablet"],
+//   ["Camera", "Filters", "Lens", "Lights", "Recording", "Rigs"],
+// ];
+// const img = [
+//   [guitar_grey, key, per, rec, amp, groove, wind],
+//   [packag, pc, gam_con, access],
+//   [l1, l2, l3, l4, l5, l6, l7],
+
+//   [c1, c2, c3, c4, c5, c6],
+// ];
+// const selectedImg = [
+//   [guitar_sel, key_sel, per_sel, rec_sel, amp_sel, groove_sel, wind_sel],
+
+//   [packag_sel, pc_sel, gam_con_sel, access_sel],
+//   [l1s, l2s, l3s, l4s, l5s, l6s, l7s],
+//   [c1s, c2s, c3s, c4s, c5s, c6s],
+// ];
 
 export class Body extends Component {
   constructor(props) {
@@ -130,36 +250,38 @@ export class Body extends Component {
     this.state = {
       addModalshow: false,
       category: 0,
-      sub: 0
+      sub: 0,
     };
   }
 
-  componentDidMount() {
-    document.getElementById("sub0").style.opacity = "1";
-  }
+  // componentDidMount() {
+  // document.getElementById("sub0").style.opacity = "1";
+  // console.log(newCategory);
+  // console.log(this.state.category);
+  // }
 
-  subSelect(index) {
-    for (var i = 0; i < sub[this.state.category].length; i++) {
-      if (i === index)
-        document.getElementById("sub" + index.toString()).style.opacity = "1";
-      else document.getElementById("sub" + i.toString()).style.opacity = "0";
-    }
-    this.setState({
-      sub: index
-    });
-    console.log(index);
-    console.log(this.state.sub);
-  }
+  // subSelect(index) {
+  //   for (var i = 0; i < sub[this.state.category].length; i++) {
+  //     if (i === index)
+  //       document.getElementById("sub" + index.toString()).style.opacity = "1";
+  //     else document.getElementById("sub" + i.toString()).style.opacity = "0";
+  //   }
+  //   this.setState({
+  //     sub: index,
+  //   });
+  //   console.log(index);
+  //   console.log(this.state.sub);
+  // }
 
-  categorySelect(index) {
-    this.subSelect(0);
-    this.setState((prevState) => {
-      return {
-        category: index,
-        sub: 0
-      };
-    });
-  }
+  // categorySelect(index) {
+  //   this.subSelect(0);
+  //   this.setState((prevState) => {
+  //     return {
+  //       category: index,
+  //       sub: 0,
+  //     };
+  //   });
+  // }
 
   render() {
     //
@@ -174,24 +296,16 @@ export class Body extends Component {
     //     setX(x - 100);
     // };
 
-    const SubCard = ({ index }) => (
+    const SubCard = ({ subname, src }) => (
       <Card
         className="subCard"
-        onClick={() => {
-          this.subSelect(index);
-        }}
+        // onClick={() => {
+        //   this.subSelect(index);
+        // }}
       >
         <Card.Content>
-          <Image
-            src={
-              this.state.sub === index
-                ? selectedImg[this.state.category][index]
-                : img[this.state.category][index]
-            }
-            wrapped
-            ui={false}
-          />
-          <p>{sub[this.state.category][index]}</p>
+          <Image src={src} wrapped ui={false} />
+          <p>{subname}</p>
         </Card.Content>
       </Card>
     );
@@ -199,20 +313,20 @@ export class Body extends Component {
     const responsive = {
       superLargeDesktop: {
         breakpoint: { max: 4000, min: 3000 },
-        items: 3
+        items: 3,
       },
       desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 2.5
+        items: 2.5,
       },
       tablet: {
         breakpoint: { max: 1024, min: 464 },
-        items: 2
+        items: 2,
       },
       mobile: {
         breakpoint: { max: 464, min: 0 },
-        items: 1
-      }
+        items: 1,
+      },
     };
 
     const left_but = {
@@ -224,14 +338,14 @@ export class Body extends Component {
 
     const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
       const {
-        carouselState: { currentSlide }
+        carouselState: { currentSlide },
       } = rest;
       return (
         <div
           className="carousel-button-group"
           style={{
             marginLeft: `40vw`,
-            PaddingBottom: `20vh`
+            PaddingBottom: `20vh`,
           }}
         >
           <a style={left_but} onClick={() => previous()}>
@@ -286,11 +400,50 @@ export class Body extends Component {
             <h1>EXPLORE CATEGORIES</h1>
           </div>
           <div className="categoriesBackground">
+            {/* Changing from here */}
             <div className="categories">
+              {newCategory.map((e, i) => {
+                return (
+                  <button
+                  key={`${e.category}-${i}`}
+                    className={
+                      i === this.state.category
+                        ? "selectedButton"
+                        : "categoryButton"
+                    }
+                    onClick={() => this.setState({ category: i })}
+                  >
+                    {e.category}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="subCategoriesBackground">
+              <div className="subCategories">
+                {newCategory[this.state.category].subcategory.map((e, i) => {
+                  return (
+                    <div key={`${e.subname}-${i}`}>
+                      <Link
+                        to={{
+                          pathname: "/category",
+                          index_product: i,
+                          index: this.state.category,
+                        }}
+                      >
+                        <SubCard subname={e.subname} src={e.subimg} />
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            {/* <div className="categories">
               <button
                 id="musicButton"
                 className={
-                  this.state.category === 0 ? "selectedButton" : "categoryButton"
+                  this.state.category === 0
+                    ? "selectedButton"
+                    : "categoryButton"
                 }
                 onClick={() => {
                   this.categorySelect(0);
@@ -301,7 +454,9 @@ export class Body extends Component {
               <button
                 id="gamingButton"
                 className={
-                  this.state.category === 1 ? "selectedButton" : "categoryButton"
+                  this.state.category === 1
+                    ? "selectedButton"
+                    : "categoryButton"
                 }
                 onClick={() => {
                   this.categorySelect(1);
@@ -348,7 +503,7 @@ export class Body extends Component {
                       to={{
                         pathname: "/category",
                         index_product: index,
-                        index: this.state.category
+                        index: this.state.category,
                       }}
                     >
                       <SubCard index={index} />
@@ -357,8 +512,9 @@ export class Body extends Component {
                   </div>
                 );
               })}
-            </div>
+            </div> */}
           </div>
+          {/* Changed till here */}
           {/* <div className='category'>
                         <div className='catcard'>
                             <Card className='ccard'>
@@ -391,8 +547,8 @@ export class Body extends Component {
             <ProductCarousel2 />
           </div>
            */}
-          
-          <div className='category'>
+
+          <div className="category">
             <ProductCarousel3 />
           </div>
         </div>
@@ -411,7 +567,7 @@ export class Body extends Component {
         <div className="list3">
           <div className="final">
             <div className="para">
-              <div className='listyouritem'>
+              <div className="listyouritem">
                 <h1>LIST YOUR ITEM</h1>
               </div>
               <div>
