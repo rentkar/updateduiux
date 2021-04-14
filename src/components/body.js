@@ -127,6 +127,10 @@ const newCategory = [
         subname: "Wind",
         subimg: "/static/media/wind grey.2b7fb30c.png",
       },
+      {
+        subname: "abc",
+        subimg: "/static/media/wind grey.2b7fb30c.png",
+      },
     ],
   },
   {

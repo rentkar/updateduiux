@@ -1,16 +1,15 @@
 import firebase from 'firebase';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const config = {
-  apiKey: "AIzaSyDRdPVVrprjeH1kB7WGyCUCnOWU4QVgId0",
-  authDomain: "rentkar-ky.firebaseapp.com",
-  projectId: "rentkar-ky",
-  storageBucket: "rentkar-ky.appspot.com",
-  messagingSenderId: "99290516733",
-  appId: "1:99290516733:web:6cd3a4feaea71e83c8c294",
-  measurementId: "G-SP1BL4NQ0H"
+const firebaseConfig = {
+  apiKey: "AIzaSyCXXZWJqRrcxRS7sHFcFY4BsUmf1v0oCPw",
+  authDomain: "rentkar-web-app.firebaseapp.com",
+  projectId: "rentkar-web-app",
+  storageBucket: "rentkar-web-app.appspot.com",
+  messagingSenderId: "881815856030",
+  appId: "1:881815856030:web:feadf09ecb198bc1512c8f"
 };
 
-firebase.initializeApp( config )
+firebase.initializeApp( firebaseConfig )
 
 export default  firebase
